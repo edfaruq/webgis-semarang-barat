@@ -1,0 +1,104 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "tinggi",
+        "jenis": "banjir",
+        "deskripsi": "Area rawan banjir tinggi di sekitar aliran sungai dan daerah rendah dekat pantai",
+        "kelurahan": "gisik-drono"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.355, -6.975],
+            [110.362, -6.973],
+            [110.368, -6.975],
+            [110.372, -6.980],
+            [110.370, -6.985],
+            [110.365, -6.988],
+            [110.358, -6.986],
+            [110.355, -6.982],
+            [110.355, -6.975]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "sedang",
+        "jenis": "banjir",
+        "deskripsi": "Area rawan banjir sedang di daerah dataran rendah",
+        "kelurahan": "krobokan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.362, -6.972],
+            [110.370, -6.970],
+            [110.375, -6.972],
+            [110.377, -6.977],
+            [110.375, -6.982],
+            [110.370, -6.984],
+            [110.365, -6.982],
+            [110.362, -6.978],
+            [110.362, -6.972]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "sedang",
+        "jenis": "banjir",
+        "deskripsi": "Area rawan banjir sedang di sekitar aliran sungai",
+        "kelurahan": "bongsari"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.372, -6.985],
+            [110.380, -6.983],
+            [110.386, -6.985],
+            [110.388, -6.990],
+            [110.385, -6.995],
+            [110.380, -6.997],
+            [110.375, -6.993],
+            [110.372, -6.988],
+            [110.372, -6.985]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "rendah",
+        "jenis": "banjir",
+        "deskripsi": "Area rawan banjir rendah",
+        "kelurahan": "manyaran"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.388, -7.000],
+            [110.395, -6.998],
+            [110.400, -7.001],
+            [110.402, -7.006],
+            [110.398, -7.010],
+            [110.392, -7.009],
+            [110.388, -7.005],
+            [110.388, -7.000]
+          ]
+        ]
+      }
+    }
+  ]
+}

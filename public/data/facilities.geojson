@@ -1,0 +1,285 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SD Negeri Krobokan 01",
+        "kategori": "sekolah",
+        "alamat": "Jl. Krobokan Raya No. 123, Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.365, -6.976]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Puskesmas Semarang Barat",
+        "kategori": "puskesmas",
+        "alamat": "Jl. Raya Semarang Barat No. 45",
+        "kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.390, -7.003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posko Bencana Krobokan",
+        "kategori": "posko",
+        "alamat": "Jl. Krobokan Utara, Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.368, -6.975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pasar Ngemplak",
+        "kategori": "pasar",
+        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.385, -6.975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Masjid Al-Hidayah",
+        "kategori": "masjid",
+        "alamat": "Jl. Krobokan Selatan, Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.363, -6.980]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SMP Negeri 15 Semarang",
+        "kategori": "sekolah",
+        "alamat": "Jl. Ngemplak Simongan No. 78",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.382, -6.978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posko Bencana Ngemplak",
+        "kategori": "posko",
+        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.388, -6.980]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Gereja Kristen Jawa",
+        "kategori": "gereja",
+        "alamat": "Jl. Raya Semarang Barat",
+        "kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.375, -6.988]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Puskesmas Krobokan",
+        "kategori": "puskesmas",
+        "alamat": "Jl. Krobokan Raya, Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.366, -6.977]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Balai Kelurahan Krobokan",
+        "kategori": "lainnya",
+        "alamat": "Jl. Krobokan Raya, Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.367, -6.976]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SD Negeri Kalibanteng Kidul",
+        "kategori": "sekolah",
+        "alamat": "Jl. Kalibanteng Kidul, Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.372, -6.985]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Puskesmas Gisik Drono",
+        "kategori": "puskesmas",
+        "alamat": "Jl. Gisik Drono, Gisik Drono",
+        "kelurahan": "gisik-drono",
+        "nama_kelurahan": "Gisik Drono"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.360, -6.980]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pasar Karangayu",
+        "kategori": "pasar",
+        "alamat": "Jl. Karangayu, Karangayu",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.382, -6.980]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Masjid Baiturrahman",
+        "kategori": "masjid",
+        "alamat": "Jl. Kalibanteng Kulon, Kalibanteng Kulon",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.365, -6.992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posko Bencana Manyaran",
+        "kategori": "posko",
+        "alamat": "Jl. Manyaran, Manyaran",
+        "kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.392, -7.005]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SD Negeri Tawangmas",
+        "kategori": "sekolah",
+        "alamat": "Jl. Tawangmas, Tawangmas",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.357, -6.990]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Masjid Nurul Iman",
+        "kategori": "masjid",
+        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.384, -6.978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Gereja Katolik St. Yosef",
+        "kategori": "gereja",
+        "alamat": "Jl. Kalibanteng Kidul, Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.375, -6.987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SMA Negeri 5 Semarang",
+        "kategori": "sekolah",
+        "alamat": "Jl. Karangayu, Karangayu",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.380, -6.982]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Masjid Al-Ikhlas",
+        "kategori": "masjid",
+        "alamat": "Jl. Bongsari, Bongsari",
+        "kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.378, -6.990]
+      }
+    }
+  ]
+}

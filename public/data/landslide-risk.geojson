@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "tinggi",
+        "jenis": "longsor",
+        "deskripsi": "Area rawan longsor tinggi di daerah perbukitan dan lereng curam",
+        "kelurahan": "manyaran"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.392, -7.002],
+            [110.398, -7.000],
+            [110.403, -7.003],
+            [110.405, -7.008],
+            [110.402, -7.013],
+            [110.396, -7.015],
+            [110.390, -7.012],
+            [110.388, -7.007],
+            [110.390, -7.003],
+            [110.392, -7.002]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "sedang",
+        "jenis": "longsor",
+        "deskripsi": "Area rawan longsor sedang di daerah dengan kemiringan sedang",
+        "kelurahan": "kalibanteng-kulon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.362, -6.988],
+            [110.370, -6.986],
+            [110.376, -6.988],
+            [110.378, -6.993],
+            [110.375, -6.998],
+            [110.370, -7.000],
+            [110.365, -6.997],
+            [110.362, -6.992],
+            [110.362, -6.988]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "sedang",
+        "jenis": "longsor",
+        "deskripsi": "Area rawan longsor sedang di daerah perbukitan",
+        "kelurahan": "kalibanteng-kidul"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.368, -6.980],
+            [110.376, -6.978],
+            [110.382, -6.980],
+            [110.384, -6.985],
+            [110.381, -6.990],
+            [110.375, -6.992],
+            [110.370, -6.990],
+            [110.368, -6.985],
+            [110.368, -6.980]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tingkat_kerawanan": "rendah",
+        "jenis": "longsor",
+        "deskripsi": "Area rawan longsor rendah di daerah datar",
+        "kelurahan": "karangayu"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.378, -6.975],
+            [110.386, -6.973],
+            [110.390, -6.976],
+            [110.392, -6.981],
+            [110.390, -6.986],
+            [110.385, -6.988],
+            [110.380, -6.986],
+            [110.378, -6.981],
+            [110.378, -6.975]
+          ]
+        ]
+      }
+    }
+  ]
+}

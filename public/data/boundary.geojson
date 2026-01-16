@@ -1,0 +1,290 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "semarang-barat",
+        "nama_wilayah": "Kecamatan Semarang Barat",
+        "nama_kelurahan": "Semarang Barat",
+        "slug": "semarang-barat",
+        "luas": 12500000,
+        "kode": "3374010"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.350, -6.970],
+            [110.365, -6.968],
+            [110.380, -6.970],
+            [110.395, -6.975],
+            [110.405, -6.982],
+            [110.410, -6.990],
+            [110.405, -7.000],
+            [110.395, -7.008],
+            [110.380, -7.012],
+            [110.365, -7.010],
+            [110.350, -7.005],
+            [110.340, -6.998],
+            [110.338, -6.988],
+            [110.342, -6.978],
+            [110.350, -6.970]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "krobokan",
+        "nama_wilayah": "Kelurahan Krobokan",
+        "nama_kelurahan": "Krobokan",
+        "slug": "krobokan",
+        "luas": 1500000,
+        "kode": "3374011"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.360, -6.972],
+            [110.368, -6.970],
+            [110.375, -6.972],
+            [110.378, -6.976],
+            [110.377, -6.980],
+            [110.373, -6.983],
+            [110.368, -6.984],
+            [110.363, -6.982],
+            [110.360, -6.978],
+            [110.360, -6.972]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ngemplak-simongan",
+        "nama_wilayah": "Kelurahan Ngemplak Simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "slug": "ngemplak-simongan",
+        "luas": 1400000,
+        "kode": "3374012"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.378, -6.972],
+            [110.388, -6.970],
+            [110.395, -6.973],
+            [110.398, -6.978],
+            [110.397, -6.983],
+            [110.392, -6.986],
+            [110.386, -6.985],
+            [110.381, -6.982],
+            [110.378, -6.978],
+            [110.378, -6.972]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kalibanteng-kidul",
+        "nama_wilayah": "Kelurahan Kalibanteng Kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "slug": "kalibanteng-kidul",
+        "luas": 1350000,
+        "kode": "3374013"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.365, -6.980],
+            [110.375, -6.978],
+            [110.382, -6.980],
+            [110.385, -6.985],
+            [110.383, -6.990],
+            [110.378, -6.993],
+            [110.372, -6.992],
+            [110.367, -6.988],
+            [110.365, -6.983],
+            [110.365, -6.980]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gisik-drono",
+        "nama_wilayah": "Kelurahan Gisik Drono",
+        "nama_kelurahan": "Gisik Drono",
+        "slug": "gisik-drono",
+        "luas": 1450000,
+        "kode": "3374014"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.355, -6.975],
+            [110.365, -6.973],
+            [110.372, -6.975],
+            [110.375, -6.980],
+            [110.373, -6.985],
+            [110.368, -6.988],
+            [110.362, -6.986],
+            [110.358, -6.982],
+            [110.355, -6.978],
+            [110.355, -6.975]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bongsari",
+        "nama_wilayah": "Kelurahan Bongsari",
+        "nama_kelurahan": "Bongsari",
+        "slug": "bongsari",
+        "luas": 1300000,
+        "kode": "3374015"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.370, -6.985],
+            [110.380, -6.983],
+            [110.388, -6.985],
+            [110.392, -6.990],
+            [110.390, -6.995],
+            [110.385, -6.998],
+            [110.378, -6.997],
+            [110.373, -6.993],
+            [110.370, -6.988],
+            [110.370, -6.985]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "karangayu",
+        "nama_wilayah": "Kelurahan Karangayu",
+        "nama_kelurahan": "Karangayu",
+        "slug": "karangayu",
+        "luas": 1380000,
+        "kode": "3374016"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.375, -6.975],
+            [110.385, -6.973],
+            [110.392, -6.976],
+            [110.395, -6.981],
+            [110.393, -6.986],
+            [110.388, -6.989],
+            [110.382, -6.988],
+            [110.378, -6.984],
+            [110.375, -6.980],
+            [110.375, -6.975]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kalibanteng-kulon",
+        "nama_wilayah": "Kelurahan Kalibanteng Kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "slug": "kalibanteng-kulon",
+        "luas": 1320000,
+        "kode": "3374017"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.360, -6.988],
+            [110.370, -6.986],
+            [110.377, -6.988],
+            [110.380, -6.993],
+            [110.378, -6.998],
+            [110.373, -7.001],
+            [110.367, -7.000],
+            [110.362, -6.996],
+            [110.360, -6.991],
+            [110.360, -6.988]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "manyaran",
+        "nama_wilayah": "Kelurahan Manyaran",
+        "nama_kelurahan": "Manyaran",
+        "slug": "manyaran",
+        "luas": 1420000,
+        "kode": "3374018"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.385, -7.000],
+            [110.395, -6.998],
+            [110.402, -7.001],
+            [110.405, -7.006],
+            [110.403, -7.012],
+            [110.398, -7.015],
+            [110.392, -7.014],
+            [110.387, -7.010],
+            [110.385, -7.005],
+            [110.385, -7.000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tawangmas",
+        "nama_wilayah": "Kelurahan Tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "slug": "tawangmas",
+        "luas": 1360000,
+        "kode": "3374019"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [110.350, -6.985],
+            [110.360, -6.983],
+            [110.367, -6.985],
+            [110.370, -6.990],
+            [110.368, -6.995],
+            [110.363, -6.998],
+            [110.357, -6.997],
+            [110.353, -6.993],
+            [110.350, -6.988],
+            [110.350, -6.985]
+          ]
+        ]
+      }
+    }
+  ]
+}
