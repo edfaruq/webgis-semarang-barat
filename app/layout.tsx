@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GeoSafe Semarang Barat | WebGIS Tata Ruang",
+  title: "WebGIS Katana Semarang Barat | WebGIS Tata Ruang",
   description: "Decision Support System - Mitigasi Bencana Semarang Barat",
 };
 

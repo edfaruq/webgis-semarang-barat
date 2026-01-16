@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, Fragment } from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -8,6 +8,7 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { GeoJSONCollection, BoundaryProperties, FacilityProperties, RiskProperties, BasemapType } from "@/types/geojson";
 import { getBoundsFromGeoJSON, getCenterFromBounds, SEMARANG_BARAT_CENTER, SEMARANG_BARAT_ZOOM } from "@/lib/map-utils";
+import { getRouteWithWaypoints } from "@/lib/routing";
 import { LocateMeControl, BasemapSwitcherControl } from "./MapControls";
 import UserLocationMarker from "./UserLocationMarker";
 
@@ -26,15 +27,18 @@ interface MapComponentProps {
   facilitiesData?: GeoJSONCollection | null;
   floodRiskData?: GeoJSONCollection | null;
   landslideRiskData?: GeoJSONCollection | null;
+  evacuationRouteData?: GeoJSONCollection | null;
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
   showLandslideRisk?: boolean;
+  showEvacuationRoute?: boolean;
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
   basemap?: BasemapType;
   onBasemapChange?: (basemap: BasemapType) => void;
   onFeatureClick?: (feature: any) => void;
+  onKelurahanChange?: (kelurahan: string | null) => void;
   searchResult?: { lat: number; lng: number; zoom?: number } | null;
 }
 
@@ -64,26 +68,81 @@ function FitBounds({ bounds, enabled = true }: { bounds: L.LatLngBounds | null; 
   return null;
 }
 
+// Component to zoom to kelurahan when selected
+function ZoomToKelurahan({ 
+  kelurahan, 
+  bounds 
+}: { 
+  kelurahan: string | null | undefined; 
+  bounds: L.LatLngBounds | null;
+}) {
+  const map = useMap();
+  const previousKelurahan = useRef<string | null | undefined>(null);
+  const previousBoundsKey = useRef<string | null>(null);
+  
+  useEffect(() => {
+    // Only zoom when kelurahan changes and bounds are available and valid
+    if (kelurahan && bounds && bounds.isValid()) {
+      // Create a unique key for this bounds to detect changes
+      const boundsKey = `${bounds.getNorth()}-${bounds.getSouth()}-${bounds.getEast()}-${bounds.getWest()}`;
+      
+      // Only zoom if kelurahan changed OR bounds changed
+      if (previousKelurahan.current !== kelurahan || previousBoundsKey.current !== boundsKey) {
+        previousKelurahan.current = kelurahan;
+        previousBoundsKey.current = boundsKey;
+        
+        // Use a small timeout to ensure the map is ready
+        const timeoutId = setTimeout(() => {
+          try {
+            if (bounds && bounds.isValid()) {
+              map.fitBounds(bounds, { 
+                padding: [50, 50], 
+                maxZoom: 16,
+                duration: 0.5
+              });
+            }
+          } catch (error) {
+            console.error('Error zooming to kelurahan:', error);
+          }
+        }, 100);
+        
+        return () => clearTimeout(timeoutId);
+      }
+    } else if (!kelurahan) {
+      // Reset when kelurahan is cleared
+      previousKelurahan.current = null;
+      previousBoundsKey.current = null;
+    }
+  }, [kelurahan, bounds, map]);
+
+  return null;
+}
+
 export default function MapComponent({
   boundaryData,
   facilitiesData,
   floodRiskData,
   landslideRiskData,
+  evacuationRouteData,
   showBoundary = true,
   showFacilities = true,
   showFloodRisk = false,
   showLandslideRisk = false,
+  showEvacuationRoute = true,
   selectedCategory,
   selectedKelurahan,
   basemap = "osm",
   onBasemapChange,
   onFeatureClick,
+  onKelurahanChange,
   searchResult,
 }: MapComponentProps) {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [userAccuracy, setUserAccuracy] = useState<number | undefined>(undefined);
   const boundaryLayerRef = useRef<L.GeoJSON>(null);
+  const [routedEvacuationData, setRoutedEvacuationData] = useState<GeoJSONCollection | null>(null);
+  const routeCacheRef = useRef<Map<string, number[][]>>(new Map()); // Cache for routed coordinates
 
   // Get basemap URL
   const getBasemapUrl = (type: BasemapType): string => {
@@ -96,16 +155,16 @@ export default function MapComponent({
     }
   };
 
-  // Boundary styling - Red dotted line
+  // Boundary styling - Light fill with blue highlight
   const boundaryStyle = (feature: any) => {
     const isHovered = hoveredFeature === feature.properties.id || hoveredFeature === feature.properties.nama_wilayah;
     return {
-      fillColor: "#ffffff",
-      fillOpacity: 0,
-      color: isHovered ? "#dc2626" : "#ef4444",
-      weight: isHovered ? 3 : 2.5,
-      opacity: isHovered ? 1 : 0.9,
-      dashArray: "10, 5", // Dotted line pattern
+      fillColor: isHovered ? "#bfdbfe" : "#9D9D9D", // Light blue when hovered, dark gray default
+      fillOpacity: isHovered ? 0.6 : 0.4, // More visible when hovered, subtle default
+      color: isHovered ? "#3b82f6" : "#6b7280", // Blue border when hovered, gray default
+      weight: isHovered ? 4 : 3, // Bold lines
+      opacity: isHovered ? 0.9 : 0.7,
+      dashArray: "10, 5", // Dashed line pattern
     };
   };
 
@@ -150,6 +209,50 @@ export default function MapComponent({
     };
   };
 
+  // Evacuation route styling - Green style
+  const evacuationRouteStyle = (feature: any) => {
+    return {
+      color: "#22c55e", // Green color
+      weight: 6,
+      opacity: 0.9,
+      lineCap: "round" as const,
+      lineJoin: "round" as const,
+    };
+  };
+
+  // Create green marker icon for evacuation points
+  const createEvacuationIcon = useMemo(() => {
+    return L.divIcon({
+      className: "custom-evacuation-marker",
+      html: `
+        <div style="
+          width: 32px;
+          height: 32px;
+          background-color: #22c55e;
+          border: 3px solid white;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          position: relative;
+        ">
+          <div style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+          "></div>
+        </div>
+      `,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+  }, []);
+
   // Boundary event handlers
   const onBoundaryEachFeature = (feature: any, layer: L.Layer) => {
     const props: BoundaryProperties = feature.properties;
@@ -171,6 +274,13 @@ export default function MapComponent({
         if (onFeatureClick) {
           onFeatureClick(feature);
         }
+        
+        // Filter to this kelurahan when clicked
+        const slug = props.slug || null;
+        if (onKelurahanChange && slug) {
+          onKelurahanChange(slug);
+        }
+        
         const popupContent = `
           <div style="padding: 8px;">
             <h3 style="margin: 0 0 8px 0; font-weight: bold;">${props.nama_wilayah || props.nama_kelurahan || "Wilayah"}</h3>
@@ -231,13 +341,19 @@ export default function MapComponent({
         // Filter by kelurahan
         if (selectedKelurahan) {
           const props = f.properties as FacilityProperties;
-          const kelurahanSlug = props.kelurahan?.toLowerCase() || "";
-          const kelurahanName = props.nama_kelurahan?.toLowerCase() || "";
-          const selectedKel = selectedKelurahan.toLowerCase();
-          // Check if kelurahan matches (support both slug and name)
+          const kelurahanSlug = props.kelurahan?.toLowerCase().trim() || "";
+          const kelurahanName = props.nama_kelurahan?.toLowerCase().trim() || "";
+          const selectedKel = selectedKelurahan.toLowerCase().trim();
+          
+          // Normalize: convert slug to name format (replace - with space)
+          const selectedKelName = selectedKel.replace(/-/g, " ");
+          
+          // Match by exact slug first (most reliable)
           const matchesSlug = kelurahanSlug === selectedKel;
-          const matchesName = kelurahanName.includes(selectedKel.replace("-", " ")) || 
-                             kelurahanName === selectedKel.replace("-", " ");
+          
+          // Match by exact name (normalized)
+          const matchesName = kelurahanName === selectedKelName || kelurahanName === selectedKel;
+          
           if (!matchesSlug && !matchesName) {
             return false;
           }
@@ -248,30 +364,310 @@ export default function MapComponent({
     : [];
 
   // Filter boundary by kelurahan
-  const filteredBoundary = boundaryData
-    ? selectedKelurahan
-      ? {
-          ...boundaryData,
-          features: boundaryData.features.filter((f) => {
-            const props = f.properties as BoundaryProperties;
-            const kelurahanName = props.nama_kelurahan?.toLowerCase() || "";
-            const slug = props.slug?.toLowerCase() || "";
-            const selectedKel = selectedKelurahan.toLowerCase();
-            // Match by slug or name
-            return (
-              slug === selectedKel ||
-              kelurahanName === selectedKel.replace("-", " ") ||
-              kelurahanName.includes(selectedKel.replace("-", " "))
-            );
-          }),
-        }
-      : boundaryData
-    : null;
+  const filteredBoundary = useMemo(() => {
+    if (!boundaryData) return null;
+    
+    if (!selectedKelurahan) {
+      return boundaryData;
+    }
+    
+    const selectedKel = selectedKelurahan.toLowerCase().trim();
+    const selectedKelName = selectedKel.replace(/-/g, " ");
+    
+    const filtered = boundaryData.features.filter((f) => {
+      const props = f.properties as BoundaryProperties;
+      const kelurahanName = (props.nama_kelurahan || "").toLowerCase().trim();
+      const slug = (props.slug || "").toLowerCase().trim();
+      
+      // Match by exact slug first (most reliable)
+      if (slug === selectedKel) {
+        return true;
+      }
+      
+      // Match by exact name (normalized)
+      if (kelurahanName === selectedKelName) {
+        return true;
+      }
+      
+      return false;
+    });
+    
+    // Debug: log filtered results
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Filter kelurahan:', selectedKel, 'Found:', filtered.length, 'features');
+      if (filtered.length > 0) {
+        console.log('Matched kelurahan:', filtered.map(f => f.properties.slug || f.properties.nama_kelurahan));
+      }
+    }
+    
+    return {
+      ...boundaryData,
+      features: filtered,
+    };
+  }, [boundaryData, selectedKelurahan]);
 
-  // Calculate bounds for fit bounds
+  // Filter evacuation routes by kelurahan - strict matching only
+  const filteredEvacuationRoute = useMemo(() => {
+    if (!evacuationRouteData) return null;
+    
+    // If no kelurahan selected, return all routes
+    if (!selectedKelurahan) {
+      return evacuationRouteData;
+    }
+    
+    const selectedKel = selectedKelurahan.toLowerCase().trim();
+    
+    const filtered = evacuationRouteData.features.filter((f) => {
+      const props = f.properties as any;
+      const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
+      
+      // Only match by exact slug - no fallback matching
+      const matches = kelurahanSlug === selectedKel;
+      
+      // Debug individual route matching
+      if (process.env.NODE_ENV === 'development' && !matches) {
+        console.log('Route filtered out:', props.nama, 'Expected:', selectedKel, 'Got:', kelurahanSlug);
+      }
+      
+      return matches;
+    });
+    
+    // Debug: log filtered results
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Filter evacuation route kelurahan:', selectedKel, 'Total routes:', evacuationRouteData.features.length, 'Filtered:', filtered.length);
+      if (filtered.length > 0) {
+        console.log('Matched routes:', filtered.map(f => {
+          const props = f.properties as any;
+          return `${props.nama || props.id} (${props.slug_kelurahan || props.kelurahan})`;
+        }));
+      } else {
+        console.warn('No routes found for kelurahan:', selectedKel);
+        console.log('Available kelurahan in routes:', evacuationRouteData.features.map(f => {
+          const props = f.properties as any;
+          return props.slug_kelurahan || props.kelurahan || 'unknown';
+        }));
+      }
+    }
+    
+    return {
+      ...evacuationRouteData,
+      features: filtered,
+    };
+  }, [evacuationRouteData, selectedKelurahan]);
+
+  // Fetch routes from OSRM to follow roads
+  useEffect(() => {
+    // Reset routed data immediately when filter changes
+    setRoutedEvacuationData(null);
+    
+    if (!filteredEvacuationRoute || filteredEvacuationRoute.features.length === 0) {
+      return;
+    }
+
+    // Create a unique key for this filtered data to prevent stale updates
+    const filterKey = selectedKelurahan || 'all';
+    const selectedKel = selectedKelurahan ? selectedKelurahan.toLowerCase().trim() : null;
+    
+    // Use filteredEvacuationRoute directly - it's already filtered correctly
+    // No need to filter again here as it's already done in filteredEvacuationRoute useMemo
+    const validatedData = filteredEvacuationRoute;
+    const validatedFeatures = filteredEvacuationRoute.features;
+    
+    if (validatedFeatures.length === 0) {
+      setRoutedEvacuationData(null);
+      return;
+    }
+    
+    // Show validated routes immediately (no loading delay) - instant display
+    setRoutedEvacuationData(validatedData);
+    
+    // Debug: log what routes are being processed
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Routing evacuation routes for kelurahan:', filterKey, 'Routes:', validatedFeatures.length);
+      validatedFeatures.forEach((f: any) => {
+        const props = f.properties as any;
+        console.log('  - Route:', props.nama, 'Kelurahan:', props.slug_kelurahan || props.kelurahan);
+      });
+    }
+
+    const fetchRoutes = async () => {
+      // Process routes in parallel batches for faster loading
+      const routedFeatures: any[] = [];
+      const batchSize = 5; // Process 5 routes in parallel (increased for speed)
+      
+      const totalFeatures = validatedFeatures.length;
+      
+      for (let i = 0; i < totalFeatures; i += batchSize) {
+        // Check if filter has changed
+        const currentFilterCheck = selectedKelurahan || 'all';
+        if (filterKey !== currentFilterCheck) {
+          // Filter changed, abort
+          if (process.env.NODE_ENV === 'development') {
+            console.log('Routing aborted - filter changed from', filterKey, 'to', currentFilterCheck);
+          }
+          return;
+        }
+        
+        const batch = validatedFeatures.slice(i, i + batchSize);
+        
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`Processing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(totalFeatures/batchSize)}: ${batch.length} routes (${i+1}-${Math.min(i+batchSize, totalFeatures)} of ${totalFeatures})`);
+        }
+        
+        const batchResults = await Promise.all(
+          batch.map(async (feature) => {
+            if (feature.geometry.type !== "LineString") {
+              return feature;
+            }
+            
+            const coords = feature.geometry.coordinates;
+            if (!Array.isArray(coords) || coords.length < 2) {
+              return feature;
+            }
+            
+            const coordinates = coords as number[][];
+            const startCoord = coordinates[0];
+            const endCoord = coordinates[coordinates.length - 1];
+            
+            if (!Array.isArray(startCoord) || !Array.isArray(endCoord) || startCoord.length < 2 || endCoord.length < 2) {
+              return feature;
+            }
+            
+            // Use all waypoints from original data for more accurate routing
+            // Convert all coordinates to waypoints [lng, lat]
+            const waypoints: [number, number][] = coordinates.map((coord: number[]) => [coord[0], coord[1]]);
+            
+            // Create cache key from all waypoints
+            const cacheKey = waypoints.map(wp => `${wp[0]},${wp[1]}`).join(';');
+            
+            // Check cache first
+            let routedCoords: number[][] | undefined = routeCacheRef.current.get(cacheKey);
+            
+            if (!routedCoords) {
+              // Get route from OSRM using all waypoints for accurate road following
+              const fetchedCoords = await getRouteWithWaypoints(waypoints);
+              
+              // Cache the result if valid
+              if (fetchedCoords && fetchedCoords.length > 0) {
+                routedCoords = fetchedCoords;
+                routeCacheRef.current.set(cacheKey, routedCoords);
+              }
+            }
+            
+            if (routedCoords && routedCoords.length >= 2) {
+              // Return feature with routed coordinates, preserving all properties
+              return {
+                ...feature,
+                properties: {
+                  ...feature.properties,
+                },
+                geometry: {
+                  ...feature.geometry,
+                  coordinates: routedCoords,
+                },
+              };
+            }
+            
+            // If routing fails or returns invalid data, use original coordinates
+            // This ensures we always have a valid route to display
+            return feature;
+          })
+        );
+        
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`Batch ${Math.floor(i/batchSize) + 1} completed: ${batchResults.length} routes processed`);
+        }
+        
+        routedFeatures.push(...batchResults);
+        
+        // Update UI incrementally as batches complete (for better UX)
+        const currentFilterCheck2 = selectedKelurahan || 'all';
+        if (filterKey === currentFilterCheck2) {
+          // Merge completed routes with remaining original routes
+          const remainingFeatures = validatedFeatures.slice(i + batchSize);
+          setRoutedEvacuationData({
+            ...validatedData,
+            features: [...routedFeatures, ...remainingFeatures],
+          });
+        }
+      }
+      
+      // Final update with all routed features - ensure all are included
+      const finalFilterCheck = selectedKelurahan || 'all';
+      if (filterKey === finalFilterCheck && routedFeatures.length > 0) {
+        // Ensure we have all features (should match validatedFeatures length)
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Routed evacuation data - Total processed:', routedFeatures.length, 'Expected:', validatedFeatures.length);
+          if (routedFeatures.length !== validatedFeatures.length) {
+            console.warn('Mismatch! Processed', routedFeatures.length, 'but expected', validatedFeatures.length);
+            console.log('Processed routes:', routedFeatures.map((f: any) => f.properties?.nama || f.properties?.id));
+            console.log('Expected routes:', validatedFeatures.map((f: any) => f.properties?.nama || f.properties?.id));
+          }
+        }
+        
+        // Use all routed features - no need to filter again as filteredEvacuationRoute is already correct
+        setRoutedEvacuationData({
+          ...validatedData,
+          features: routedFeatures,
+        });
+        
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Routed evacuation data updated for kelurahan:', filterKey, 'Final features:', routedFeatures.length);
+        }
+      } else if (filterKey === finalFilterCheck && routedFeatures.length === 0 && validatedFeatures.length > 0) {
+        // If no routes were routed but we have original features, use original
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('No routes were routed, using original features');
+        }
+        setRoutedEvacuationData(validatedData);
+      }
+    };
+
+    // Start routing in background (non-blocking)
+    fetchRoutes();
+  }, [filteredEvacuationRoute, selectedKelurahan]);
+
+  // Final filtered evacuation data for rendering (double-check filter)
+  const finalRoutedEvacuationData = useMemo(() => {
+    if (!routedEvacuationData || routedEvacuationData.features.length === 0) {
+      return null;
+    }
+    
+    const selectedKel = selectedKelurahan ? selectedKelurahan.toLowerCase().trim() : null;
+    
+    if (!selectedKel) {
+      // No filter, return all
+      return routedEvacuationData;
+    }
+    
+    // Filter again to ensure only matching kelurahan routes are shown
+    const finalFilteredFeatures = routedEvacuationData.features.filter((f: any) => {
+      const props = f.properties as any;
+      const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
+      return kelurahanSlug === selectedKel;
+    });
+    
+    if (finalFilteredFeatures.length === 0) {
+      return null;
+    }
+    
+    return {
+      ...routedEvacuationData,
+      features: finalFilteredFeatures,
+    };
+  }, [routedEvacuationData, selectedKelurahan]);
+
+  // Calculate bounds for fit bounds (only when no kelurahan is selected)
   const allBounds = useRef<L.LatLngBounds | null>(null);
+  const [kelurahanBounds, setKelurahanBounds] = useState<L.LatLngBounds | null>(null);
   
   useEffect(() => {
+    // Only calculate allBounds when no kelurahan is selected
+    if (selectedKelurahan) {
+      allBounds.current = null;
+      return;
+    }
+    
     const boundsArray: L.LatLngBounds[] = [];
     
     if (showBoundary && filteredBoundary && filteredBoundary.features.length > 0) {
@@ -286,8 +682,27 @@ export default function MapComponent({
     
     if (boundsArray.length > 0) {
       allBounds.current = boundsArray.reduce((acc, b) => acc.extend(b), boundsArray[0]);
+    } else {
+      allBounds.current = null;
     }
-  }, [boundaryData, filteredFacilities, filteredBoundary, showBoundary, showFacilities]);
+  }, [boundaryData, filteredFacilities, filteredBoundary, showBoundary, showFacilities, selectedKelurahan]);
+
+  // Calculate bounds specifically for selected kelurahan
+  useEffect(() => {
+    if (selectedKelurahan && filteredBoundary && filteredBoundary.features.length > 0) {
+      // filteredBoundary should already contain only matching features
+      // But let's ensure we're using the correct one
+      const bounds = getBoundsFromGeoJSON(filteredBoundary.features);
+      if (bounds && bounds.isValid()) {
+        setKelurahanBounds(bounds);
+      } else {
+        setKelurahanBounds(null);
+      }
+    } else if (!selectedKelurahan) {
+      // Clear bounds when no kelurahan is selected
+      setKelurahanBounds(null);
+    }
+  }, [selectedKelurahan, filteredBoundary]);
 
   return (
     <MapContainer
@@ -343,8 +758,84 @@ export default function MapComponent({
         />
       )}
 
+      {/* Evacuation Route Layer - Green style with shadow and markers */}
+      {showEvacuationRoute && finalRoutedEvacuationData && finalRoutedEvacuationData.features.length > 0 && (
+        <>
+          {/* Shadow layer for depth effect */}
+          <GeoJSON
+            key={`evac-shadow-${selectedKelurahan || 'all'}`}
+            data={finalRoutedEvacuationData as any}
+            style={(feature: any) => ({
+              color: "#1a1a1a",
+              weight: 8,
+              opacity: 0.3,
+              lineCap: "round",
+              lineJoin: "round",
+            })}
+          />
+          {/* Main route layer */}
+          <GeoJSON
+            key={`evac-route-${selectedKelurahan || 'all'}`}
+            data={finalRoutedEvacuationData as any}
+            style={evacuationRouteStyle}
+            onEachFeature={(feature, layer) => {
+              const props = feature.properties as any;
+              const popupContent = `
+                <div style="padding: 8px;">
+                  <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #22c55e;">🛣️ ${props.nama || "Jalur Evakuasi"}</h3>
+                  ${props.deskripsi ? `<p style="margin: 4px 0;">${props.deskripsi}</p>` : ""}
+                  ${props.prioritas ? `<p style="margin: 4px 0;"><strong>Prioritas:</strong> <span style="text-transform: uppercase;">${props.prioritas}</span></p>` : ""}
+                </div>
+              `;
+              layer.bindPopup(popupContent);
+            }}
+          />
+          {/* Markers for start and end points of each route */}
+          {finalRoutedEvacuationData.features.map((feature: any, idx: number) => {
+            if (feature.geometry.type !== "LineString") return null;
+            const coordinates = feature.geometry.coordinates;
+            if (coordinates.length < 2) return null;
+            
+            const startPoint = coordinates[0];
+            const endPoint = coordinates[coordinates.length - 1];
+            const props = feature.properties as any;
+            
+            return (
+              <Fragment key={`evac-markers-${idx}`}>
+                {/* Start point marker */}
+                <Marker
+                  position={[startPoint[1], startPoint[0]]}
+                  icon={createEvacuationIcon}
+                >
+                  <Popup>
+                    <div>
+                      <h3>📍 Titik Awal</h3>
+                      <p><strong>Jalur:</strong> {props.nama || "Jalur Evakuasi"}</p>
+                    </div>
+                  </Popup>
+                </Marker>
+                {/* End point marker */}
+                <Marker
+                  position={[endPoint[1], endPoint[0]]}
+                  icon={createEvacuationIcon}
+                >
+                  <Popup>
+                    <div>
+                      <h3>📍 Titik Kumpul</h3>
+                      <p><strong>Jalur:</strong> {props.nama || "Jalur Evakuasi"}</p>
+                      <p>✓ Tujuan Evakuasi</p>
+                    </div>
+                  </Popup>
+                </Marker>
+              </Fragment>
+            );
+          })}
+        </>
+      )}
+
       {showBoundary && filteredBoundary && filteredBoundary.features.length > 0 && (
         <GeoJSON
+          key={`boundary-${selectedKelurahan || 'all'}`}
           ref={boundaryLayerRef}
           data={filteredBoundary as any}
           style={boundaryStyle}
@@ -385,8 +876,13 @@ export default function MapComponent({
         <MapUpdater center={[searchResult.lat, searchResult.lng]} zoom={searchResult.zoom || 16} />
       )}
 
-      {/* FitBounds hanya aktif jika tidak ada user location */}
-      {allBounds.current && !userLocation && <FitBounds bounds={allBounds.current} enabled={!userLocation} />}
+      {/* Zoom to kelurahan when selected */}
+      <ZoomToKelurahan kelurahan={selectedKelurahan} bounds={kelurahanBounds} />
+
+      {/* FitBounds untuk semua bounds jika tidak ada kelurahan yang dipilih dan tidak ada user location */}
+      {allBounds.current && !userLocation && !selectedKelurahan && (
+        <FitBounds bounds={allBounds.current} enabled={!userLocation} />
+      )}
       
       {/* User Location Marker */}
       <UserLocationMarker position={userLocation} accuracy={userAccuracy} />

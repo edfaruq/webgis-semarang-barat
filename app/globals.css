@@ -53,3 +53,9 @@ body {
   background: transparent !important;
   border: none !important;
 }
+
+/* Evacuation route marker styling */
+.custom-evacuation-marker {
+  background: transparent !important;
+  border: none !important;
+}

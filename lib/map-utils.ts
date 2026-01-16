@@ -11,21 +11,32 @@ export function getBoundsFromGeoJSON(geojson: GeoJSONFeature[]): L.LatLngBounds 
       const [lng, lat] = feature.geometry.coordinates as number[];
       bounds.extend([lat, lng]);
     } else if (feature.geometry.type === "Polygon") {
-      const coordinates = feature.geometry.coordinates[0] as number[][];
-      coordinates.forEach((coord) => {
-        const [lng, lat] = coord;
-        bounds.extend([lat, lng]);
-      });
-    } else if (feature.geometry.type === "MultiPolygon") {
-      const multiPolygon = feature.geometry.coordinates as number[][][];
-      multiPolygon.forEach((polygon) => {
-        polygon[0].forEach((coord) => {
+      // Polygon: coordinates is an array of rings, first ring is outer boundary
+      const rings = feature.geometry.coordinates as number[][][];
+      if (rings && rings.length > 0 && rings[0]) {
+        rings[0].forEach((coord) => {
           const [lng, lat] = coord;
           bounds.extend([lat, lng]);
         });
+      }
+    } else if (feature.geometry.type === "MultiPolygon") {
+      // MultiPolygon: array of polygons, each polygon has array of rings
+      const multiPolygon = feature.geometry.coordinates as number[][][][];
+      multiPolygon.forEach((polygon) => {
+        if (polygon && polygon.length > 0 && polygon[0]) {
+          polygon[0].forEach((coord) => {
+            const [lng, lat] = coord;
+            bounds.extend([lat, lng]);
+          });
+        }
       });
     }
   });
+
+  // Return null if bounds is invalid or empty
+  if (!bounds.isValid()) {
+    return null;
+  }
 
   return bounds;
 }

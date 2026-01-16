@@ -46,7 +46,7 @@ export default function Header({ selectedKelurahan, onKelurahanChange, onReportC
             <MapPin size={20} />
           </div>
           <div>
-            <h1 className="font-bold text-slate-800 leading-none text-sm lg:text-base">GeoSafe Semarang Barat</h1>
+            <h1 className="font-bold text-slate-800 leading-none text-sm lg:text-base">WebGIS Katana Semarang Barat</h1>
             <p className="text-[9px] lg:text-[10px] text-slate-500 uppercase tracking-widest mt-0.5 lg:mt-1 hidden sm:block">
               Decision Support System - Mitigasi Bencana
             </p>
@@ -74,7 +74,7 @@ export default function Header({ selectedKelurahan, onKelurahanChange, onReportC
                 }}
                 className="text-left px-3 py-2 rounded-lg text-xs hover:bg-indigo-50 hover:text-indigo-600 transition font-bold"
               >
-                Seluruh Semarang Barat
+                Seluruh Wilayah
               </button>
               <div className="h-[1px] bg-slate-100 my-1 mx-2"></div>
               {KELURAHAN_LIST.map((kel) => (
@@ -112,7 +112,7 @@ export default function Header({ selectedKelurahan, onKelurahanChange, onReportC
                 }}
                 className="text-left px-4 py-2 rounded-lg text-sm hover:bg-indigo-50 hover:text-indigo-600 transition font-bold"
               >
-                Seluruh Semarang Barat
+                Seluruh Wilayah
               </button>
               <div className="h-[1px] bg-slate-100 my-1 mx-2"></div>
               {KELURAHAN_LIST.map((kel) => (

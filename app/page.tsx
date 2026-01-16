@@ -26,10 +26,12 @@ export default function HomePage() {
   const [facilitiesData, setFacilitiesData] = useState<GeoJSONCollection | null>(null);
   const [floodRiskData, setFloodRiskData] = useState<GeoJSONCollection | null>(null);
   const [landslideRiskData, setLandslideRiskData] = useState<GeoJSONCollection | null>(null);
+  const [evacuationRouteData, setEvacuationRouteData] = useState<GeoJSONCollection | null>(null);
   const [showBoundary, setShowBoundary] = useState(true);
   const [showFacilities, setShowFacilities] = useState(true);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
   const [showLandslideRisk, setShowLandslideRisk] = useState(false);
+  const [showEvacuationRoute, setShowEvacuationRoute] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedKelurahan, setSelectedKelurahan] = useState<string | null>(null);
   const [basemap, setBasemap] = useState<BasemapType>("osm");
@@ -44,16 +46,18 @@ export default function HomePage() {
     const loadData = async () => {
       try {
         setLoading(true);
-        const [boundary, facilities, floodRisk, landslideRisk] = await Promise.all([
+        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute] = await Promise.all([
           loadGeoJSON("/data/boundary.geojson"),
           loadGeoJSON("/data/facilities.geojson"),
           loadGeoJSON("/data/flood-risk.geojson").catch(() => null),
           loadGeoJSON("/data/landslide-risk.geojson").catch(() => null),
+          loadGeoJSON("/data/evacuation-route.geojson").catch(() => null),
         ]);
         setBoundaryData(boundary);
         setFacilitiesData(facilities);
         setFloodRiskData(floodRisk);
         setLandslideRiskData(landslideRisk);
+        setEvacuationRouteData(evacuationRoute);
         setError(null);
       } catch (err) {
         console.error("Error loading data:", err);
@@ -104,10 +108,12 @@ export default function HomePage() {
           showFacilities={showFacilities}
           showFloodRisk={showFloodRisk}
           showLandslideRisk={showLandslideRisk}
+          showEvacuationRoute={showEvacuationRoute}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
           onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
+          onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           selectedKelurahan={selectedKelurahan}
@@ -125,14 +131,17 @@ export default function HomePage() {
             facilitiesData={facilitiesData}
             floodRiskData={floodRiskData}
             landslideRiskData={landslideRiskData}
+            evacuationRouteData={evacuationRouteData}
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
             showLandslideRisk={showLandslideRisk}
+            showEvacuationRoute={showEvacuationRoute}
             selectedCategory={selectedCategory}
             selectedKelurahan={selectedKelurahan}
             basemap={basemap}
             onBasemapChange={setBasemap}
+            onKelurahanChange={setSelectedKelurahan}
             searchResult={searchResult}
           />
           {error && (

@@ -4,281 +4,897 @@
     {
       "type": "Feature",
       "properties": {
-        "nama": "SD Negeri Krobokan 01",
-        "kategori": "sekolah",
-        "alamat": "Jl. Krobokan Raya No. 123, Krobokan",
-        "kelurahan": "krobokan",
-        "nama_kelurahan": "Krobokan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.365, -6.976]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Puskesmas Semarang Barat",
-        "kategori": "puskesmas",
-        "alamat": "Jl. Raya Semarang Barat No. 45",
+        "nama": "Apotek Viva Generik",
+        "kategori": "lainnya",
+        "alamat": "Jalan Puspanjolo Tengah II No. 23",
         "kelurahan": "manyaran",
         "nama_kelurahan": "Manyaran"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.390, -7.003]
+        "coordinates": [110.3859673, -7.008538]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Posko Bencana Krobokan",
-        "kategori": "posko",
-        "alamat": "Jl. Krobokan Utara, Krobokan",
-        "kelurahan": "krobokan",
-        "nama_kelurahan": "Krobokan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.368, -6.975]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Pasar Ngemplak",
-        "kategori": "pasar",
-        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
-        "kelurahan": "ngemplak-simongan",
-        "nama_kelurahan": "Ngemplak Simongan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.385, -6.975]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Masjid Al-Hidayah",
-        "kategori": "masjid",
-        "alamat": "Jl. Krobokan Selatan, Krobokan",
-        "kelurahan": "krobokan",
-        "nama_kelurahan": "Krobokan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.363, -6.980]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "SMP Negeri 15 Semarang",
+        "nama": "TK Aisyiyah Bustanul Athfal 21 & PAUD Aisyiyah Bintang Ceria",
         "kategori": "sekolah",
-        "alamat": "Jl. Ngemplak Simongan No. 78",
-        "kelurahan": "ngemplak-simongan",
-        "nama_kelurahan": "Ngemplak Simongan"
+        "alamat": "Jalan Puspanjolo Tengah II No. 23",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.382, -6.978]
+        "coordinates": [110.3979206, -6.9825718]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Posko Bencana Ngemplak",
-        "kategori": "posko",
-        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
-        "kelurahan": "ngemplak-simongan",
-        "nama_kelurahan": "Ngemplak Simongan"
+        "nama": "TK Kanisius",
+        "kategori": "sekolah",
+        "alamat": "Jalan Puspanjolo Timur II No. 21",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.388, -6.980]
+        "coordinates": [110.4000355, -6.9822357]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Gereja Kristen Jawa",
-        "kategori": "gereja",
-        "alamat": "Jl. Raya Semarang Barat",
+        "nama": "SPBU 44 50119",
+        "kategori": "lainnya",
+        "alamat": "Jalan Pamularsih",
         "kelurahan": "bongsari",
         "nama_kelurahan": "Bongsari"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.375, -6.988]
+        "coordinates": [110.3941695, -6.9886511]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Puskesmas Krobokan",
-        "kategori": "puskesmas",
-        "alamat": "Jl. Krobokan Raya, Krobokan",
-        "kelurahan": "krobokan",
-        "nama_kelurahan": "Krobokan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.366, -6.977]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Balai Kelurahan Krobokan",
-        "kategori": "lainnya",
-        "alamat": "Jl. Krobokan Raya, Krobokan",
-        "kelurahan": "krobokan",
-        "nama_kelurahan": "Krobokan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.367, -6.976]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "SD Negeri Kalibanteng Kidul",
+        "nama": "PAUD KB TK Al Ikhlas",
         "kategori": "sekolah",
-        "alamat": "Jl. Kalibanteng Kidul, Kalibanteng Kidul",
-        "kelurahan": "kalibanteng-kidul",
-        "nama_kelurahan": "Kalibanteng Kidul"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.372, -6.985]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Puskesmas Gisik Drono",
-        "kategori": "puskesmas",
-        "alamat": "Jl. Gisik Drono, Gisik Drono",
+        "alamat": "Jalan Puspowarno Selatan",
         "kelurahan": "gisik-drono",
         "nama_kelurahan": "Gisik Drono"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.360, -6.980]
+        "coordinates": [110.3920814, -6.9863995]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Pasar Karangayu",
-        "kategori": "pasar",
-        "alamat": "Jl. Karangayu, Karangayu",
+        "nama": "Bank Syariah Indonesia",
+        "kategori": "lainnya",
+        "alamat": "Ruko Atrium I Siliwangi Kavling 4 (Jalan Jendral Sudirman)",
         "kelurahan": "karangayu",
         "nama_kelurahan": "Karangayu"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.382, -6.980]
+        "coordinates": [110.3905673, -6.9832374]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "nama": "Masjid Baiturrahman",
-        "kategori": "masjid",
-        "alamat": "Jl. Kalibanteng Kulon, Kalibanteng Kulon",
-        "kelurahan": "kalibanteng-kulon",
-        "nama_kelurahan": "Kalibanteng Kulon"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.365, -6.992]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Posko Bencana Manyaran",
-        "kategori": "posko",
-        "alamat": "Jl. Manyaran, Manyaran",
-        "kelurahan": "manyaran",
-        "nama_kelurahan": "Manyaran"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.392, -7.005]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "SD Negeri Tawangmas",
-        "kategori": "sekolah",
-        "alamat": "Jl. Tawangmas, Tawangmas",
-        "kelurahan": "tawangmas",
-        "nama_kelurahan": "Tawangmas"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.357, -6.990]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Masjid Nurul Iman",
-        "kategori": "masjid",
-        "alamat": "Jl. Ngemplak Simongan, Ngemplak Simongan",
-        "kelurahan": "ngemplak-simongan",
-        "nama_kelurahan": "Ngemplak Simongan"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.384, -6.978]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Gereja Katolik St. Yosef",
-        "kategori": "gereja",
-        "alamat": "Jl. Kalibanteng Kidul, Kalibanteng Kidul",
-        "kelurahan": "kalibanteng-kidul",
-        "nama_kelurahan": "Kalibanteng Kidul"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.375, -6.987]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "SMA Negeri 5 Semarang",
-        "kategori": "sekolah",
-        "alamat": "Jl. Karangayu, Karangayu",
-        "kelurahan": "karangayu",
-        "nama_kelurahan": "Karangayu"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [110.380, -6.982]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama": "Masjid Al-Ikhlas",
-        "kategori": "masjid",
-        "alamat": "Jl. Bongsari, Bongsari",
+        "nama": "Bank Mandiri",
+        "kategori": "lainnya",
+        "alamat": "Jalan Pamularsih",
         "kelurahan": "bongsari",
         "nama_kelurahan": "Bongsari"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.378, -6.990]
+        "coordinates": [110.3920541, -6.9875578]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BRI",
+        "kategori": "lainnya",
+        "alamat": "Ruko Atrium I Siliwangi Kavling 3 (Jalan Jendral Sudirman)",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3906558, -6.9832174]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Musala Al Hikmah",
+        "kategori": "masjid",
+        "alamat": "Jalan Ariloka Raya No.34",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3962215, -6.9738306]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SPBU 44 501 40",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3996158, -6.9804805]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BPR Gunung Rizki",
+        "kategori": "lainnya",
+        "alamat": "Jalan Anjasmoro Raya No.67 A",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3904533, -6.9755246]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Klinik Rahb Indosehat",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Anjasmoro Raya No.38 -A /7",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3907256, -6.9780312]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BPR Weleri Makmur",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3940871, -6.981626]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BTPN",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3947167, -6.9814989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK Bina Putra",
+        "kategori": "sekolah",
+        "alamat": "Jalan Damarwulan No. 52",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3899156, -6.9790063]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Bank Mayapada",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3941434, -6.981618]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BRI",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3945424, -6.9815082]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Klinik Nayaka Husada",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3945357, -6.9814696]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "OCBC",
+        "kategori": "lainnya",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3943586, -6.9815401]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu Melati III",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3901063, -6.9799847]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "KB - TK Islam Nudia",
+        "kategori": "sekolah",
+        "alamat": "Jalan Kenconowungu V No. 20",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3921874, -6.9796246]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PG & TK Kristen Kanaan",
+        "kategori": "sekolah",
+        "alamat": "Jalan Madukoro Perum Semarang Indah D III No. 8-10",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3967455, -6.9694377]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SPBU 44 501 07",
+        "kategori": "lainnya",
+        "alamat": "Jalan Yos Sudarso",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3910837, -6.9698511]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BCA",
+        "kategori": "lainnya",
+        "alamat": "Puri Anjasmoro",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.391022, -6.9633268]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Jemaat Kristen Indonesia Puri Marina",
+        "kategori": "gereja",
+        "alamat": "Puri Anjasmoro G1 No. 15",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3908436, -6.9664365]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Bethani Kasih Karunia",
+        "kategori": "gereja",
+        "alamat": "Puri Anjasmoro G1",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.390389, -6.9663008]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RA Tawang",
+        "kategori": "sekolah",
+        "alamat": "Jalan Tawang Rejosari Raya",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3930378, -6.971889]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK Maranatha 01",
+        "kategori": "sekolah",
+        "alamat": "Jalan Srirejeki Raya I",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3844586, -6.9928615]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK PGRI 12",
+        "kategori": "sekolah",
+        "alamat": "Jalan Puspogiwang IV No. 8",
+        "kelurahan": "gisik-drono",
+        "nama_kelurahan": "Gisik Drono"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3892504, -6.9852887]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BRI",
+        "kategori": "lainnya",
+        "alamat": "Jalan Pamularsih",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3980856, -6.9919883]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Klinik Mardi Mulya VI",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Abdul Rahman Saleh No. 150",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3801886, -6.996397]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PAUD Kasih Bunda",
+        "kategori": "sekolah",
+        "alamat": "Jalan Sri Rejeki Raya",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3824792, -6.9950186]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu Balita dan Lansia Melati II",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Taman Sri Rejeki RT 07 RW 02",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3831892, -6.991389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RA Al Ikhlas",
+        "kategori": "sekolah",
+        "alamat": "Jalan Sri Rejeki Selatan VII",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3818931, -6.9963903]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "BCA",
+        "kategori": "lainnya",
+        "alamat": "Jalan Abdul Rahman Saleh",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3797809, -6.9939477]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SPBU 44. 501.09",
+        "kategori": "lainnya",
+        "alamat": "Jalan Siliwangi",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3812587, -6.9855762]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK PGRI 09",
+        "kategori": "sekolah",
+        "alamat": "Jalan Sri Kuncoro I No. 1",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3799847, -6.9866125]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Klinik Warga Utama",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Jembawan Raya No. 8-12",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3770638, -6.9850011]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK PGRI 11 Lebdosari",
+        "kategori": "sekolah",
+        "alamat": "Jalan Lebdosari VIII No. 1",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3791693, -6.9920402]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Bank Bukopin",
+        "kategori": "lainnya",
+        "alamat": "Jalan Abdurahman Saleh Nomor 11",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3827661, -6.9866238]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RA Al Amin",
+        "kategori": "sekolah",
+        "alamat": "Jalan Taman Condrokusumo II No.15",
+        "kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3953403, -6.9937068]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu Model Nusa Indah",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Watugunung I",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3692967, -6.9817731]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "UPPD Kota Semarang III",
+        "kategori": "lainnya",
+        "alamat": "Jalan Hanoman Raya No. 2",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.373833, -6.9864481]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PAUD Tunas Mekar",
+        "kategori": "sekolah",
+        "alamat": "Jalan Subali Raya No. 5",
+        "kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3667973, -6.9855925]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "KB, TK Bunda Hati Kudus",
+        "kategori": "sekolah",
+        "alamat": "Jalan Adenia Raya",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3690936, -6.9710798]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pos PAUD Mandiri",
+        "kategori": "sekolah",
+        "alamat": "Jalan Wologito Utara RT 01/RW VI",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3763399, -6.9911667]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pos PAUD Putra Angkasa",
+        "kategori": "sekolah",
+        "alamat": "Jalan Wologito Barat Raya",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3733683, -6.9946366]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pos PAUD Karya Mulya",
+        "kategori": "sekolah",
+        "alamat": "Jalan Wologito Tengah Raya Nomor 1A",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3771254, -6.9931204]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SPBU 44 501 20",
+        "kategori": "lainnya",
+        "alamat": "Jalan Abdulrahman Saleh",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.379475, -6.9977162]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pos PAUD Mutiara Bunda",
+        "kategori": "sekolah",
+        "alamat": "Jalan Borobudur X",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3772026, -6.9987264]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pos PAUD Putra Cerdas",
+        "kategori": "sekolah",
+        "alamat": "Jalan Taman Borobudur Timur IX",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3774346, -7.0005314]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu Putra Sehat",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Taman Borobudur Timur IX",
+        "kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3774369, -7.0004842]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SPBU 44 501 30",
+        "kategori": "lainnya",
+        "alamat": "Jalan Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3967123, -7.000176]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu RW V",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3999826, -6.9970373]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PAUD Syakira",
+        "kategori": "sekolah",
+        "alamat": "Jalan Srinindito Timur V No. 96",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3937498, -7.0003051]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Posyandu Lestari RW I",
+        "kategori": "puskesmas",
+        "alamat": "Jalan Srinindito I",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3912426, -6.9992056]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK PGRI 14",
+        "kategori": "sekolah",
+        "alamat": "Jalan Srinindito Raya",
+        "kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3937987, -7.0006805]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK PGRI 15",
+        "kategori": "sekolah",
+        "alamat": "Jalan WR. Supratman No. 178-180",
+        "kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3887153, -6.9992709]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "TK Shalom",
+        "kategori": "sekolah",
+        "alamat": "Jalan WR. Supratman No. 49",
+        "kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3899276, -6.9997248]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Ganesha Operation",
+        "kategori": "sekolah",
+        "alamat": "Jalan Jendral Sudirman",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3906171, -6.9832209]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Kantor Kelurahan Krobokan",
+        "kategori": "lainnya",
+        "alamat": "Jalan Krobokan",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3987, -6.9753]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Kantor Kelurahan Karang Ayu",
+        "kategori": "lainnya",
+        "alamat": "Jalan Karangayu",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3909, -6.9799]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Kantor Kelurahan Tawangmas",
+        "kategori": "lainnya",
+        "alamat": "Jalan Tawangmas",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3955, -6.9707]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Masjid Baitusslam",
+        "kategori": "masjid",
+        "alamat": "Halte Bus Bandara BRT Trans Semarang",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3742972, -6.9644791]
       }
     }
   ]

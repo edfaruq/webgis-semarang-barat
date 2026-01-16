@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { GeoJSONCollection, FacilityProperties, BoundaryProperties, BasemapType } from "@/types/geojson";
-import { Droplets, Mountain, Redo2, Activity, ShieldCheck, ChevronRight, X } from "lucide-react";
+import { Droplets, Mountain, Redo2, Activity, ShieldCheck, ChevronRight, X, Square, Building2 } from "lucide-react";
 
 interface SidebarProps {
   boundaryData?: GeoJSONCollection | null;
@@ -11,10 +11,12 @@ interface SidebarProps {
   showFacilities: boolean;
   showFloodRisk: boolean;
   showLandslideRisk: boolean;
+  showEvacuationRoute: boolean;
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
   onToggleLandslideRisk: () => void;
+  onToggleEvacuationRoute: () => void;
   selectedCategory: string | null;
   onCategoryChange: (category: string | null) => void;
   selectedKelurahan: string | null;
@@ -39,7 +41,8 @@ const KELURAHAN_LIST = [
   { slug: "tawangmas", name: "Tawangmas" },
 ];
 
-const FACILITY_CATEGORIES = [
+// All possible categories (for reference)
+const ALL_FACILITY_CATEGORIES = [
   { value: "sekolah", label: "Sekolah", color: "#3498db", icon: "🏫" },
   { value: "puskesmas", label: "Puskesmas", color: "#e74c3c", icon: "🏥" },
   { value: "posko", label: "Posko", color: "#f39c12", icon: "🆘" },
@@ -58,10 +61,12 @@ export default function Sidebar({
   showFacilities,
   showFloodRisk,
   showLandslideRisk,
+  showEvacuationRoute,
   onToggleBoundary,
   onToggleFacilities,
   onToggleFloodRisk,
   onToggleLandslideRisk,
+  onToggleEvacuationRoute,
   selectedCategory,
   onCategoryChange,
   selectedKelurahan,
@@ -80,7 +85,7 @@ export default function Sidebar({
     ? KELURAHAN_LIST.find((k) => k.slug === selectedKelurahan)?.name || "Seluruh Wilayah"
     : "Seluruh Wilayah";
 
-  // Calculate stats
+  // Calculate stats and available categories
   const stats = useMemo(() => {
     const facilityStats: Record<string, number> = {};
     let totalArea = 0;
@@ -99,8 +104,22 @@ export default function Sidebar({
       });
     }
 
-    return { facilityStats, totalArea };
+    return {
+      totalFacilities: Object.values(facilityStats).reduce((a, b) => a + b, 0),
+      facilityStats,
+      totalArea,
+    };
   }, [facilitiesData, boundaryData]);
+
+  // Get available categories (only those with data)
+  const availableCategories = useMemo(() => {
+    if (!stats.facilityStats) return [];
+    
+    return ALL_FACILITY_CATEGORIES.filter((cat: typeof ALL_FACILITY_CATEGORIES[0]) => {
+      const count = stats.facilityStats[cat.value] || 0;
+      return count > 0;
+    });
+  }, [stats.facilityStats]);
 
   // Handle search
   const handleSearch = (query: string) => {
@@ -205,7 +224,7 @@ export default function Sidebar({
             <span className="text-indigo-600">{currentKelurahanName}</span>
           </div>
           <h2 className="text-xl font-bold text-slate-800">
-            {selectedKelurahan ? `Profil Kel. ${currentKelurahanName}` : "Ringkasan Spasial"}
+            {selectedKelurahan ? ` ${currentKelurahanName}` : "Ringkasan Spasial"}
           </h2>
         </div>
 
@@ -225,7 +244,7 @@ export default function Sidebar({
                 />
                 <span className="text-sm font-semibold text-slate-700">Batas Wilayah</span>
               </div>
-              <Droplets size={16} className="text-blue-500" />
+              <Square size={16} className="text-blue-500" />
             </label>
             <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
               <div className="flex items-center gap-3">
@@ -261,11 +280,16 @@ export default function Sidebar({
                 />
                 <span className="text-sm font-semibold text-slate-700">Fasilitas</span>
               </div>
-              <Mountain size={16} className="text-orange-500" />
+              <Building2 size={16} className="text-orange-500" />
             </label>
             <label className="flex items-center justify-between p-3 rounded-xl border border-emerald-200 bg-emerald-50 cursor-pointer transition-all hover:bg-emerald-100 shadow-sm">
               <div className="flex items-center gap-3">
-                <input type="checkbox" defaultChecked className="w-4 h-4 text-emerald-600 rounded" />
+                <input
+                  type="checkbox"
+                  checked={showEvacuationRoute}
+                  onChange={onToggleEvacuationRoute}
+                  className="w-4 h-4 text-emerald-600 rounded"
+                />
                 <span className="text-sm font-bold text-emerald-800">Jalur Evakuasi</span>
               </div>
               <Redo2 size={16} className="text-emerald-600 animate-pulse" />
@@ -315,24 +339,36 @@ export default function Sidebar({
               📋 Semua Kategori
             </button>
             <div className="space-y-1.5">
-              {FACILITY_CATEGORIES.map((cat) => (
-                <button
-                  key={cat.value}
-                  onClick={() => onCategoryChange(cat.value)}
-                  className={`w-full text-left px-3 py-2 text-sm rounded-xl flex items-center gap-3 transition-all shadow-sm ${
-                    selectedCategory === cat.value
-                      ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
-                  }`}
-                >
-                  <span
-                    className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
-                    style={{ backgroundColor: cat.color }}
-                  ></span>
-                  <span className="text-base">{cat.icon}</span>
-                  <span className="font-medium">{cat.label}</span>
-                </button>
-              ))}
+              {availableCategories.map((cat) => {
+                const count = stats.facilityStats[cat.value] || 0;
+                return (
+                  <button
+                    key={cat.value}
+                    onClick={() => onCategoryChange(cat.value)}
+                    className={`w-full text-left px-3 py-2 text-sm rounded-xl flex items-center justify-between transition-all shadow-sm ${
+                      selectedCategory === cat.value
+                        ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
+                        style={{ backgroundColor: cat.color }}
+                      ></span>
+                      <span className="text-base">{cat.icon}</span>
+                      <span className="font-medium">{cat.label}</span>
+                    </div>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                      selectedCategory === cat.value
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-200 text-slate-600"
+                    }`}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </section>
         )}
