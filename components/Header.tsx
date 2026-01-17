@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Building2, ChevronDown, AlertTriangle, Menu } from "lucide-react";
+import {
+  MapPin,
+  Building2,
+  ChevronDown,
+  AlertTriangle,
+  Menu,
+} from "lucide-react";
 
 interface HeaderProps {
   selectedKelurahan: string | null;
@@ -14,7 +20,7 @@ const KELURAHAN_LIST = [
   { slug: "krobokan", name: "Krobokan" },
   { slug: "ngemplak-simongan", name: "Ngemplak Simongan" },
   { slug: "kalibanteng-kidul", name: "Kalibanteng Kidul" },
-  { slug: "gisik-drono", name: "Gisik Drono" },
+  { slug: "gisik-drono", name: "Gisikdrono" },
   { slug: "bongsari", name: "Bongsari" },
   { slug: "karangayu", name: "Karangayu" },
   { slug: "kalibanteng-kulon", name: "Kalibanteng Kulon" },
@@ -22,11 +28,17 @@ const KELURAHAN_LIST = [
   { slug: "tawangmas", name: "Tawangmas" },
 ];
 
-export default function Header({ selectedKelurahan, onKelurahanChange, onReportClick, onMenuClick }: HeaderProps) {
+export default function Header({
+  selectedKelurahan,
+  onKelurahanChange,
+  onReportClick,
+  onMenuClick,
+}: HeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const currentKelurahanName = selectedKelurahan
-    ? KELURAHAN_LIST.find((k) => k.slug === selectedKelurahan)?.name || "Seluruh Wilayah"
+    ? KELURAHAN_LIST.find((k) => k.slug === selectedKelurahan)?.name ||
+      "Seluruh Wilayah"
     : "Seluruh Wilayah";
 
   return (
@@ -40,13 +52,18 @@ export default function Header({ selectedKelurahan, onKelurahanChange, onReportC
         >
           <Menu size={24} className="text-slate-700" />
         </button>
-        
-        <div className="flex items-center gap-2 lg:gap-3 cursor-pointer" onClick={() => onKelurahanChange(null)}>
+
+        <div
+          className="flex items-center gap-2 lg:gap-3 cursor-pointer"
+          onClick={() => onKelurahanChange(null)}
+        >
           <div className="bg-indigo-600 p-2 rounded-lg text-white">
             <MapPin size={20} />
           </div>
           <div>
-            <h1 className="font-bold text-slate-800 leading-none text-sm lg:text-base">WebGIS Katana Semarang Barat</h1>
+            <h1 className="font-bold text-slate-800 leading-none text-sm lg:text-base">
+              WebGIS Katana Semarang Barat
+            </h1>
             <p className="text-[9px] lg:text-[10px] text-slate-500 uppercase tracking-widest mt-0.5 lg:mt-1 hidden sm:block">
               Decision Support System - Mitigasi Bencana
             </p>
@@ -62,7 +79,9 @@ export default function Header({ selectedKelurahan, onKelurahanChange, onReportC
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             <Building2 size={14} />
-            <span className="max-w-[80px] truncate">{currentKelurahanName}</span>
+            <span className="max-w-[80px] truncate">
+              {currentKelurahanName}
+            </span>
             <ChevronDown size={12} />
           </button>
           {isDropdownOpen && (
