@@ -1,8 +1,23 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { GeoJSONCollection, FacilityProperties, BoundaryProperties, BasemapType } from "@/types/geojson";
-import { Droplets, Mountain, Redo2, Activity, ShieldCheck, ChevronRight, X, Square, Building2 } from "lucide-react";
+import {
+  GeoJSONCollection,
+  FacilityProperties,
+  BoundaryProperties,
+  BasemapType,
+} from "@/types/geojson";
+import {
+  Droplets,
+  Mountain,
+  Redo2,
+  Activity,
+  ShieldCheck,
+  ChevronRight,
+  X,
+  Square,
+  Building2,
+} from "lucide-react";
 
 interface SidebarProps {
   boundaryData?: GeoJSONCollection | null;
@@ -33,7 +48,7 @@ const KELURAHAN_LIST = [
   { slug: "krobokan", name: "Krobokan" },
   { slug: "ngemplak-simongan", name: "Ngemplak Simongan" },
   { slug: "kalibanteng-kidul", name: "Kalibanteng Kidul" },
-  { slug: "gisik-drono", name: "Gisik Drono" },
+  { slug: "gisik-drono", name: "Gisikdrono" },
   { slug: "bongsari", name: "Bongsari" },
   { slug: "karangayu", name: "Karangayu" },
   { slug: "kalibanteng-kulon", name: "Kalibanteng Kulon" },
@@ -82,7 +97,8 @@ export default function Sidebar({
 
   // Get current kelurahan name
   const currentKelurahanName = selectedKelurahan
-    ? KELURAHAN_LIST.find((k) => k.slug === selectedKelurahan)?.name || "Seluruh Wilayah"
+    ? KELURAHAN_LIST.find((k) => k.slug === selectedKelurahan)?.name ||
+      "Seluruh Wilayah"
     : "Seluruh Wilayah";
 
   // Calculate stats and available categories
@@ -92,7 +108,8 @@ export default function Sidebar({
 
     if (facilitiesData) {
       facilitiesData.features.forEach((feature) => {
-        const category = (feature.properties as FacilityProperties).kategori || "lainnya";
+        const category =
+          (feature.properties as FacilityProperties).kategori || "lainnya";
         facilityStats[category] = (facilityStats[category] || 0) + 1;
       });
     }
@@ -114,11 +131,13 @@ export default function Sidebar({
   // Get available categories (only those with data)
   const availableCategories = useMemo(() => {
     if (!stats.facilityStats) return [];
-    
-    return ALL_FACILITY_CATEGORIES.filter((cat: typeof ALL_FACILITY_CATEGORIES[0]) => {
-      const count = stats.facilityStats[cat.value] || 0;
-      return count > 0;
-    });
+
+    return ALL_FACILITY_CATEGORIES.filter(
+      (cat: (typeof ALL_FACILITY_CATEGORIES)[0]) => {
+        const count = stats.facilityStats[cat.value] || 0;
+        return count > 0;
+      },
+    );
   }, [stats.facilityStats]);
 
   // Handle search
@@ -157,7 +176,10 @@ export default function Sidebar({
     if (boundaryData) {
       boundaryData.features.forEach((feature) => {
         const props = feature.properties as BoundaryProperties;
-        const nama = props.nama_wilayah?.toLowerCase() || props.nama_kelurahan?.toLowerCase() || "";
+        const nama =
+          props.nama_wilayah?.toLowerCase() ||
+          props.nama_kelurahan?.toLowerCase() ||
+          "";
 
         if (nama.includes(lowerQuery)) {
           results.push({
@@ -172,7 +194,13 @@ export default function Sidebar({
     if (results.length > 0 && onSearch) {
       const firstResult = results[0];
       if (firstResult.lat && firstResult.lng) {
-        onSearch(JSON.stringify({ lat: firstResult.lat, lng: firstResult.lng, zoom: 16 }));
+        onSearch(
+          JSON.stringify({
+            lat: firstResult.lat,
+            lng: firstResult.lng,
+            zoom: 16,
+          }),
+        );
       }
     }
   };
@@ -216,184 +244,205 @@ export default function Sidebar({
         </div>
 
         <div className="p-6 space-y-8">
-        {/* Breadcrumbs & Title */}
-        <div>
-          <div className="flex items-center gap-1 text-[10px] text-slate-400 uppercase font-bold mb-2">
-            <span>Semarang Barat</span>
-            <ChevronRight size={10} />
-            <span className="text-indigo-600">{currentKelurahanName}</span>
-          </div>
-          <h2 className="text-xl font-bold text-slate-800">
-            {selectedKelurahan ? ` ${currentKelurahanName}` : "Ringkasan Spasial"}
-          </h2>
-        </div>
-
-        {/* Layer Controller */}
-        <section>
-          <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-            Analisis & Rute
-          </h3>
-          <div className="space-y-3">
-            <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-blue-200">
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={showBoundary}
-                  onChange={onToggleBoundary}
-                  className="w-4 h-4 text-blue-600 rounded"
-                />
-                <span className="text-sm font-semibold text-slate-700">Batas Wilayah</span>
-              </div>
-              <Square size={16} className="text-blue-500" />
-            </label>
-            <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={showFloodRisk}
-                  onChange={onToggleFloodRisk}
-                  className="w-4 h-4 text-blue-600 rounded"
-                />
-                <span className="text-sm font-bold text-blue-800">Area Rawan Banjir</span>
-              </div>
-              <Droplets size={16} className="text-blue-600" />
-            </label>
-            <label className="flex items-center justify-between p-3 rounded-xl border border-orange-200 bg-orange-50 cursor-pointer transition-all hover:bg-orange-100 shadow-sm">
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={showLandslideRisk}
-                  onChange={onToggleLandslideRisk}
-                  className="w-4 h-4 text-orange-600 rounded"
-                />
-                <span className="text-sm font-bold text-orange-800">Kerentanan Longsor</span>
-              </div>
-              <Mountain size={16} className="text-orange-600" />
-            </label>
-            <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-orange-200">
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={showFacilities}
-                  onChange={onToggleFacilities}
-                  className="w-4 h-4 text-orange-600 rounded"
-                />
-                <span className="text-sm font-semibold text-slate-700">Fasilitas</span>
-              </div>
-              <Building2 size={16} className="text-orange-500" />
-            </label>
-            <label className="flex items-center justify-between p-3 rounded-xl border border-emerald-200 bg-emerald-50 cursor-pointer transition-all hover:bg-emerald-100 shadow-sm">
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={showEvacuationRoute}
-                  onChange={onToggleEvacuationRoute}
-                  className="w-4 h-4 text-emerald-600 rounded"
-                />
-                <span className="text-sm font-bold text-emerald-800">Jalur Evakuasi</span>
-              </div>
-              <Redo2 size={16} className="text-emerald-600 animate-pulse" />
-            </label>
-          </div>
-        </section>
-
-        {/* Info Card Wilayah */}
-        <section className="bg-indigo-900 rounded-2xl p-5 text-white shadow-xl">
-          <div className="flex items-center gap-2 mb-4 text-indigo-300 uppercase font-bold text-[10px]">
-            <Activity size={14} />
-            Profil Risiko
-          </div>
-          <div className="space-y-4">
-            <div className="bg-white/10 p-3 rounded-xl border border-white/5">
-              <p className="text-[9px] text-indigo-200 mb-1 uppercase font-bold">Status Kerawanan</p>
-              <p className="text-lg font-bold text-orange-400 font-mono">SEDANG - TINGGI</p>
+          {/* Breadcrumbs & Title */}
+          <div>
+            <div className="flex items-center gap-1 text-[10px] text-slate-400 uppercase font-bold mb-2">
+              <span>Semarang Barat</span>
+              <ChevronRight size={10} />
+              <span className="text-indigo-600">{currentKelurahanName}</span>
             </div>
-            <div className="bg-emerald-500/20 p-3 rounded-xl border border-emerald-500/30 flex items-center gap-3">
-              <div className="bg-emerald-500 p-2 rounded-lg shadow-lg shadow-emerald-500/20">
-                <ShieldCheck size={16} />
-              </div>
-              <div>
-                <p className="text-[9px] text-emerald-200 font-bold uppercase tracking-tight">
-                  Titik Kumpul Utama
-                </p>
-                <p className="text-xs font-bold leading-none">Lapangan Manyaran & PRPP</p>
-              </div>
-            </div>
+            <h2 className="text-xl font-bold text-slate-800">
+              {selectedKelurahan
+                ? ` ${currentKelurahanName}`
+                : "Ringkasan Spasial"}
+            </h2>
           </div>
-        </section>
 
-        {/* Filter Kategori Fasilitas */}
-        {showFacilities && (
+          {/* Layer Controller */}
           <section>
             <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-              Filter Fasilitas
+              Analisis & Rute
             </h3>
-            <button
-              onClick={() => onCategoryChange(null)}
-              className={`w-full text-left px-3 py-2.5 text-sm rounded-xl mb-2 font-medium transition-all shadow-sm ${
-                selectedCategory === null
-                  ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
-              }`}
-            >
-              📋 Semua Kategori
-            </button>
-            <div className="space-y-1.5">
-              {availableCategories.map((cat) => {
-                const count = stats.facilityStats[cat.value] || 0;
-                return (
-                  <button
-                    key={cat.value}
-                    onClick={() => onCategoryChange(cat.value)}
-                    className={`w-full text-left px-3 py-2 text-sm rounded-xl flex items-center justify-between transition-all shadow-sm ${
-                      selectedCategory === cat.value
-                        ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
-                        style={{ backgroundColor: cat.color }}
-                      ></span>
-                      <span className="text-base">{cat.icon}</span>
-                      <span className="font-medium">{cat.label}</span>
-                    </div>
-                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                      selectedCategory === cat.value
-                        ? "bg-white/20 text-white"
-                        : "bg-slate-200 text-slate-600"
-                    }`}>
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
+            <div className="space-y-3">
+              <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-blue-200">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showBoundary}
+                    onChange={onToggleBoundary}
+                    className="w-4 h-4 text-blue-600 rounded"
+                  />
+                  <span className="text-sm font-semibold text-slate-700">
+                    Batas Wilayah
+                  </span>
+                </div>
+                <Square size={16} className="text-blue-500" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showFloodRisk}
+                    onChange={onToggleFloodRisk}
+                    className="w-4 h-4 text-blue-600 rounded"
+                  />
+                  <span className="text-sm font-bold text-blue-800">
+                    Area Rawan Banjir
+                  </span>
+                </div>
+                <Droplets size={16} className="text-blue-600" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-orange-200 bg-orange-50 cursor-pointer transition-all hover:bg-orange-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showLandslideRisk}
+                    onChange={onToggleLandslideRisk}
+                    className="w-4 h-4 text-orange-600 rounded"
+                  />
+                  <span className="text-sm font-bold text-orange-800">
+                    Kerentanan Longsor
+                  </span>
+                </div>
+                <Mountain size={16} className="text-orange-600" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-orange-200">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showFacilities}
+                    onChange={onToggleFacilities}
+                    className="w-4 h-4 text-orange-600 rounded"
+                  />
+                  <span className="text-sm font-semibold text-slate-700">
+                    Fasilitas
+                  </span>
+                </div>
+                <Building2 size={16} className="text-orange-500" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-emerald-200 bg-emerald-50 cursor-pointer transition-all hover:bg-emerald-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showEvacuationRoute}
+                    onChange={onToggleEvacuationRoute}
+                    className="w-4 h-4 text-emerald-600 rounded"
+                  />
+                  <span className="text-sm font-bold text-emerald-800">
+                    Jalur Evakuasi
+                  </span>
+                </div>
+                <Redo2 size={16} className="text-emerald-600 animate-pulse" />
+              </label>
             </div>
           </section>
-        )}
 
-        {/* Search */}
-        <section>
-          <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-            Pencarian
-          </h3>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => handleSearch(e.target.value)}
-            placeholder="Cari fasilitas atau wilayah..."
-            className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          />
-        </section>
+          {/* Info Card Wilayah */}
+          <section className="bg-indigo-900 rounded-2xl p-5 text-white shadow-xl">
+            <div className="flex items-center gap-2 mb-4 text-indigo-300 uppercase font-bold text-[10px]">
+              <Activity size={14} />
+              Profil Risiko
+            </div>
+            <div className="space-y-4">
+              <div className="bg-white/10 p-3 rounded-xl border border-white/5">
+                <p className="text-[9px] text-indigo-200 mb-1 uppercase font-bold">
+                  Status Kerawanan
+                </p>
+                <p className="text-lg font-bold text-orange-400 font-mono">
+                  SEDANG - TINGGI
+                </p>
+              </div>
+              <div className="bg-emerald-500/20 p-3 rounded-xl border border-emerald-500/30 flex items-center gap-3">
+                <div className="bg-emerald-500 p-2 rounded-lg shadow-lg shadow-emerald-500/20">
+                  <ShieldCheck size={16} />
+                </div>
+                <div>
+                  <p className="text-[9px] text-emerald-200 font-bold uppercase tracking-tight">
+                    Titik Kumpul Utama
+                  </p>
+                  <p className="text-xs font-bold leading-none">
+                    Lapangan Manyaran & PRPP
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-        <div className="pt-4 border-t border-slate-100 italic">
-          <p className="text-[10px] text-slate-400 leading-relaxed">
-            Peta menampilkan simulasi jalur evakuasi mengikuti jaringan jalan utama. Garis hijau tebal
-            menunjukkan prioritas akses bagi kendaraan darurat dan warga.
-          </p>
+          {/* Filter Kategori Fasilitas */}
+          {showFacilities && (
+            <section>
+              <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+                Filter Fasilitas
+              </h3>
+              <button
+                onClick={() => onCategoryChange(null)}
+                className={`w-full text-left px-3 py-2.5 text-sm rounded-xl mb-2 font-medium transition-all shadow-sm ${
+                  selectedCategory === null
+                    ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
+                }`}
+              >
+                📋 Semua Kategori
+              </button>
+              <div className="space-y-1.5">
+                {availableCategories.map((cat) => {
+                  const count = stats.facilityStats[cat.value] || 0;
+                  return (
+                    <button
+                      key={cat.value}
+                      onClick={() => onCategoryChange(cat.value)}
+                      className={`w-full text-left px-3 py-2 text-sm rounded-xl flex items-center justify-between transition-all shadow-sm ${
+                        selectedCategory === cat.value
+                          ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
+                          : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
+                          style={{ backgroundColor: cat.color }}
+                        ></span>
+                        <span className="text-base">{cat.icon}</span>
+                        <span className="font-medium">{cat.label}</span>
+                      </div>
+                      <span
+                        className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                          selectedCategory === cat.value
+                            ? "bg-white/20 text-white"
+                            : "bg-slate-200 text-slate-600"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* Search */}
+          <section>
+            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+              Pencarian
+            </h3>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              placeholder="Cari fasilitas atau wilayah..."
+              className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </section>
+
+          <div className="pt-4 border-t border-slate-100 italic">
+            <p className="text-[10px] text-slate-400 leading-relaxed">
+              Peta menampilkan simulasi jalur evakuasi mengikuti jaringan jalan
+              utama. Garis hijau tebal menunjukkan prioritas akses bagi
+              kendaraan darurat dan warga.
+            </p>
+          </div>
         </div>
-      </div>
       </aside>
     </>
   );
