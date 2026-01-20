@@ -159,32 +159,35 @@ export default function MapComponent({
   const boundaryStyle = (feature: any) => {
     const isHovered = hoveredFeature === feature.properties.id || hoveredFeature === feature.properties.nama_wilayah;
     return {
-      fillColor: isHovered ? "#bfdbfe" : "#9D9D9D", // Light blue when hovered, dark gray default
-      fillOpacity: isHovered ? 0.6 : 0.4, // More visible when hovered, subtle default
-      color: isHovered ? "#3b82f6" : "#6b7280", // Blue border when hovered, gray default
-      weight: isHovered ? 4 : 3, // Bold lines
-      opacity: isHovered ? 0.9 : 0.7,
-      dashArray: "10, 5", // Dashed line pattern
+      // Saat tidak di-hover, fillColor harus transparan agar layer banjir terlihat
+      fillColor: isHovered ? "#bfdbfe" : "transparent", 
+      fillOpacity: isHovered ? 0.3 : 0, // 0 berarti bolong, warna banjir akan terlihat
+      color: isHovered ? "#3b82f6" : "#4b5563", // Warna garis batas
+      weight: isHovered ? 4 : 2, 
+      opacity: 1,
+      dashArray: "10, 5", 
     };
   };
 
-  // Flood risk styling
-  const floodRiskStyle = (feature: any) => {
-    const props = feature.properties as RiskProperties;
-    const tingkat = props.tingkat_kerawanan || "sedang";
+  const getFloodStyle = (feature: any) => {
+    const dn = feature?.properties?.DN_2 || feature?.properties?.DN;
     
-    const colors: Record<string, string> = {
-      rendah: "#3b82f6",   // Blue
-      sedang: "#f59e0b",    // Orange
-      tinggi: "#ef4444",    // Red
+    // Palet Biru Profesional (High to Low)
+    const colors = {
+      4: "#08306b", // Biru Sangat Tua (Sangat Bahaya)
+      3: "#2171b5", // Biru Tua (Bahaya)
+      2: "#6baed6", // Biru Muda (Cukup Bahaya)
+      1: "#deebf7", // Biru Sangat Terang (Rendah)
     };
 
     return {
-      fillColor: colors[tingkat] || colors.sedang,
-      fillOpacity: tingkat === "tinggi" ? 0.4 : tingkat === "sedang" ? 0.3 : 0.2,
-      color: colors[tingkat] || colors.sedang,
-      weight: 2,
-      opacity: 0.8,
+      // @ts-ignore
+      fillColor: colors[dn] || "#f7fbff",
+      // Menghilangkan border agar poligon terlihat menyatu satu sama lain
+      weight: 0, 
+      opacity: 0.5,
+      color: "#ffffff", // Garis tepi putih tipis untuk sedikit dimensi
+      fillOpacity: 0.8, // Sedikit transparan agar peta dasar masih terlihat
     };
   };
 
@@ -723,18 +726,38 @@ export default function MapComponent({
       {/* Flood Risk Layer */}
       {showFloodRisk && floodRiskData && (
         <GeoJSON
-          data={floodRiskData as any}
-          style={floodRiskStyle}
+          data={floodRiskData}
+          style={getFloodStyle}
           onEachFeature={(feature, layer) => {
-            const props = feature.properties as RiskProperties;
-            const popupContent = `
-              <div style="padding: 8px;">
-                <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #1e40af;">🌊 Area Rawan Banjir</h3>
-                <p style="margin: 4px 0;"><strong>Tingkat:</strong> <span style="text-transform: uppercase; color: ${props.tingkat_kerawanan === "tinggi" ? "#ef4444" : props.tingkat_kerawanan === "sedang" ? "#f59e0b" : "#3b82f6"}">${props.tingkat_kerawanan || "sedang"}</span></p>
-                ${props.deskripsi ? `<p style="margin: 4px 0;"><strong>Deskripsi:</strong> ${props.deskripsi}</p>` : ""}
+            const dn = feature.properties?.DN_2 || feature.properties?.DN;
+            const labels: { [key: number]: string } = {
+              4: "Sangat Tinggi",
+              3: "Tinggi",
+              2: "Sedang",
+              1: "Rendah"
+            };
+
+            layer.bindPopup(`
+              <div style="font-family: sans-serif; padding: 5px;">
+                <strong style="color: #08306b; display: block; margin-bottom: 4px;">Zona Risiko Banjir</strong>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 12px; height: 12px; background: ${getFloodStyle(feature).fillColor}; border-radius: 2px;"></div>
+                  <span>Tingkat: <b>${labels[dn] || "Tidak Diketahui"}</b></span>
+                </div>
               </div>
-            `;
-            layer.bindPopup(popupContent);
+            `);
+            
+            // Efek hover agar lebih interaktif
+            layer.on({
+              mouseover: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.9, weight: 1 });
+              },
+              mouseout: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.8, weight: 0 });
+              },
+            });
           }}
         />
       )}
