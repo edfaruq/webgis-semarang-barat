@@ -11,6 +11,12 @@ import { getBoundsFromGeoJSON, getCenterFromBounds, SEMARANG_BARAT_CENTER, SEMAR
 import { getRouteWithWaypoints } from "@/lib/routing";
 import { LocateMeControl, BasemapSwitcherControl } from "./MapControls";
 import UserLocationMarker from "./UserLocationMarker";
+// Import layer components (setiap anggota tim punya file sendiri)
+import FloodLayer from "./layers/FloodLayer";
+import LandslideLayer from "./layers/LandslideLayer";
+import LahanKritisLayer from "./layers/LahanKritisLayer";
+import BoundaryLayer from "./layers/BoundaryLayer";
+import FacilitiesLayer from "./layers/FacilitiesLayer";
 
 // Fix for default marker icons
 if (typeof window !== "undefined") {
@@ -141,10 +147,8 @@ export default function MapComponent({
   onKelurahanChange,
   searchResult,
 }: MapComponentProps) {
-  const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [userAccuracy, setUserAccuracy] = useState<number | undefined>(undefined);
-  const boundaryLayerRef = useRef<L.GeoJSON>(null);
   const [routedEvacuationData, setRoutedEvacuationData] = useState<GeoJSONCollection | null>(null);
   const routeCacheRef = useRef<Map<string, number[][]>>(new Map()); // Cache for routed coordinates
 
@@ -159,82 +163,7 @@ export default function MapComponent({
     }
   };
 
-  // Boundary styling - Light fill with blue highlight
-  const boundaryStyle = (feature: any) => {
-    const isHovered = hoveredFeature === feature.properties.id || hoveredFeature === feature.properties.nama_wilayah;
-    return {
-      // Saat tidak di-hover, fillColor harus transparan agar layer banjir terlihat
-      fillColor: isHovered ? "#bfdbfe" : "transparent", 
-      fillOpacity: isHovered ? 0.3 : 0, // 0 berarti bolong, warna banjir akan terlihat
-      color: isHovered ? "#3b82f6" : "#4b5563", // Warna garis batas
-      weight: isHovered ? 4 : 2, 
-      opacity: 1,
-      dashArray: "10, 5", 
-    };
-  };
-
-  const getFloodStyle = (feature: any) => {
-    const dn = feature?.properties?.DN_2 || feature?.properties?.DN;
-    
-    // Palet Biru Profesional (High to Low)
-    const colors = {
-      4: "#08306b", // Biru Sangat Tua (Sangat Bahaya)
-      3: "#2171b5", // Biru Tua (Bahaya)
-      2: "#6baed6", // Biru Muda (Cukup Bahaya)
-      1: "#deebf7", // Biru Sangat Terang (Rendah)
-    };
-
-    return {
-      // @ts-ignore
-      fillColor: colors[dn] || "#f7fbff",
-      // Menghilangkan border agar poligon terlihat menyatu satu sama lain
-      weight: 0, 
-      opacity: 0.5,
-      color: "#ffffff", // Garis tepi putih tipis untuk sedikit dimensi
-      fillOpacity: 0.8, // Sedikit transparan agar peta dasar masih terlihat
-    };
-  };
-
-  // Landslide risk styling
-  const landslideRiskStyle = (feature: any) => {
-    const props = feature.properties as RiskProperties;
-    const tingkat = props.tingkat_kerawanan || "sedang";
-    
-    const colors: Record<string, string> = {
-      rendah: "#84cc16",   // Green
-      sedang: "#f97316",   // Orange
-      tinggi: "#dc2626",   // Red
-    };
-
-    return {
-      fillColor: colors[tingkat] || colors.sedang,
-      fillOpacity: tingkat === "tinggi" ? 0.4 : tingkat === "sedang" ? 0.3 : 0.2,
-      color: colors[tingkat] || colors.sedang,
-      weight: 2,
-      opacity: 0.8,
-      dashArray: "8, 4",
-    };
-  };
-
-  const getLahanKritisStyle = (feature: any) => {
-    const keterangan = feature.properties?.Keterangan;
-    
-    // Palet warna gradasi untuk Lahan Kritis
-    const colors: { [key: string]: string } = {
-      "PT": "#8bc34a", // Sangat Potensial (Hijau Tua)
-      "P":  "#fff176", // Potensial (Hijau Muda)
-      "AK": "#ffc107", // Agak Kritis (Oranye)
-      "K":  "#fb8c00", // Kritis (Merah)
-      "SK": "#e64b19", // Sangat Kritis (Marun)
-    };
-
-    return {
-      fillColor: colors[keterangan] || "#8bc34a",
-      weight: 0, // Agar menyatu tanpa garis tepi
-      fillOpacity: 0.8,
-      color: "transparent",
-    };
-  };
+  // Styling functions untuk evacuation route tetap di sini
 
   // Evacuation route styling - Green style
   const evacuationRouteStyle = (feature: any) => {
@@ -280,158 +209,7 @@ export default function MapComponent({
     });
   }, []);
 
-  // Boundary event handlers
-  const onBoundaryEachFeature = (feature: any, layer: L.Layer) => {
-    const props: BoundaryProperties = feature.properties;
-    
-    layer.on({
-      mouseover: () => {
-        setHoveredFeature(props.id || props.nama_wilayah || "");
-        if (layer instanceof L.Path) {
-          layer.setStyle(boundaryStyle(feature));
-        }
-      },
-      mouseout: () => {
-        setHoveredFeature(null);
-        if (boundaryLayerRef.current && layer instanceof L.Path) {
-          boundaryLayerRef.current.resetStyle(layer);
-        }
-      },
-      click: () => {
-        if (onFeatureClick) {
-          onFeatureClick(feature);
-        }
-        
-        // Filter to this kelurahan when clicked
-        const slug = props.slug || null;
-        if (onKelurahanChange && slug) {
-          onKelurahanChange(slug);
-        }
-        
-        const popupContent = `
-          <div style="padding: 8px;">
-            <h3 style="margin: 0 0 8px 0; font-weight: bold;">${props.nama_wilayah || props.nama_kelurahan || "Wilayah"}</h3>
-            ${props.luas ? `<p style="margin: 4px 0;"><strong>Luas:</strong> ${props.luas.toLocaleString()} m²</p>` : ""}
-            ${props.kode ? `<p style="margin: 4px 0;"><strong>Kode:</strong> ${props.kode}</p>` : ""}
-          </div>
-        `;
-        layer.bindPopup(popupContent).openPopup();
-      },
-    });
-  };
-
-  // Facility icon getter
-  const getFacilityIcon = (category: string): L.DivIcon => {
-    const iconSize: [number, number] = [25, 25];
-    const iconAnchor: [number, number] = [12, 12];
-    
-    const colors: Record<string, string> = {
-      sekolah: "#3498db",
-      puskesmas: "#e74c3c",
-      posko: "#f39c12",
-      pasar: "#9b59b6",
-      masjid: "#16a085",
-      gereja: "#2980b9",
-      vihara: "#f39c12",
-      pura: "#e67e22",
-      lainnya: "#95a5a6",
-    };
-
-    const color = colors[category] || colors.lainnya;
-
-    return L.divIcon({
-      className: "custom-marker",
-      html: `<div style="
-        background-color: ${color};
-        width: ${iconSize[0]}px;
-        height: ${iconSize[1]}px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      "></div>`,
-      iconSize,
-      iconAnchor,
-    });
-  };
-
-  // Filter facilities by category and kelurahan
-  const filteredFacilities = facilitiesData
-    ? facilitiesData.features.filter((f) => {
-        if (!showFacilities) return false;
-        
-        // Filter by category
-        if (selectedCategory) {
-          const props = f.properties as FacilityProperties;
-          if (props.kategori !== selectedCategory) return false;
-        }
-        
-        // Filter by kelurahan
-        if (selectedKelurahan) {
-          const props = f.properties as FacilityProperties;
-          const kelurahanSlug = props.kelurahan?.toLowerCase().trim() || "";
-          const kelurahanName = props.nama_kelurahan?.toLowerCase().trim() || "";
-          const selectedKel = selectedKelurahan.toLowerCase().trim();
-          
-          // Normalize: convert slug to name format (replace - with space)
-          const selectedKelName = selectedKel.replace(/-/g, " ");
-          
-          // Match by exact slug first (most reliable)
-          const matchesSlug = kelurahanSlug === selectedKel;
-          
-          // Match by exact name (normalized)
-          const matchesName = kelurahanName === selectedKelName || kelurahanName === selectedKel;
-          
-          if (!matchesSlug && !matchesName) {
-            return false;
-          }
-        }
-        
-        return true;
-      })
-    : [];
-
-  // Filter boundary by kelurahan
-  const filteredBoundary = useMemo(() => {
-    if (!boundaryData) return null;
-    
-    if (!selectedKelurahan) {
-      return boundaryData;
-    }
-    
-    const selectedKel = selectedKelurahan.toLowerCase().trim();
-    const selectedKelName = selectedKel.replace(/-/g, " ");
-    
-    const filtered = boundaryData.features.filter((f) => {
-      const props = f.properties as BoundaryProperties;
-      const kelurahanName = (props.nama_kelurahan || "").toLowerCase().trim();
-      const slug = (props.slug || "").toLowerCase().trim();
-      
-      // Match by exact slug first (most reliable)
-      if (slug === selectedKel) {
-        return true;
-      }
-      
-      // Match by exact name (normalized)
-      if (kelurahanName === selectedKelName) {
-        return true;
-      }
-      
-      return false;
-    });
-    
-    // Debug: log filtered results
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Filter kelurahan:', selectedKel, 'Found:', filtered.length, 'features');
-      if (filtered.length > 0) {
-        console.log('Matched kelurahan:', filtered.map(f => f.properties.slug || f.properties.nama_kelurahan));
-      }
-    }
-    
-    return {
-      ...boundaryData,
-      features: filtered,
-    };
-  }, [boundaryData, selectedKelurahan]);
+  // Boundary dan Facilities logic sudah dipindah ke layer components terpisah
 
   // Filter evacuation routes by kelurahan - strict matching only
   const filteredEvacuationRoute = useMemo(() => {
@@ -697,13 +475,13 @@ export default function MapComponent({
     
     const boundsArray: L.LatLngBounds[] = [];
     
-    if (showBoundary && filteredBoundary && filteredBoundary.features.length > 0) {
-      const bounds = getBoundsFromGeoJSON(filteredBoundary.features);
+    if (showBoundary && boundaryData && boundaryData.features.length > 0) {
+      const bounds = getBoundsFromGeoJSON(boundaryData.features);
       if (bounds) boundsArray.push(bounds);
     }
     
-    if (showFacilities && filteredFacilities.length > 0) {
-      const bounds = getBoundsFromGeoJSON(filteredFacilities);
+    if (showFacilities && facilitiesData && facilitiesData.features.length > 0) {
+      const bounds = getBoundsFromGeoJSON(facilitiesData.features);
       if (bounds) boundsArray.push(bounds);
     }
     
@@ -712,24 +490,35 @@ export default function MapComponent({
     } else {
       allBounds.current = null;
     }
-  }, [boundaryData, filteredFacilities, filteredBoundary, showBoundary, showFacilities, selectedKelurahan]);
+  }, [boundaryData, facilitiesData, showBoundary, showFacilities, selectedKelurahan]);
 
   // Calculate bounds specifically for selected kelurahan
   useEffect(() => {
-    if (selectedKelurahan && filteredBoundary && filteredBoundary.features.length > 0) {
-      // filteredBoundary should already contain only matching features
-      // But let's ensure we're using the correct one
-      const bounds = getBoundsFromGeoJSON(filteredBoundary.features);
-      if (bounds && bounds.isValid()) {
-        setKelurahanBounds(bounds);
+    if (selectedKelurahan && boundaryData) {
+      const selectedKel = selectedKelurahan.toLowerCase().trim();
+      const selectedKelName = selectedKel.replace(/-/g, " ");
+      
+      const filtered = boundaryData.features.filter((f) => {
+        const props = f.properties as BoundaryProperties;
+        const kelurahanName = (props.nama_kelurahan || "").toLowerCase().trim();
+        const slug = (props.slug || "").toLowerCase().trim();
+        return slug === selectedKel || kelurahanName === selectedKelName;
+      });
+      
+      if (filtered.length > 0) {
+        const bounds = getBoundsFromGeoJSON(filtered);
+        if (bounds && bounds.isValid()) {
+          setKelurahanBounds(bounds);
+        } else {
+          setKelurahanBounds(null);
+        }
       } else {
         setKelurahanBounds(null);
       }
     } else if (!selectedKelurahan) {
-      // Clear bounds when no kelurahan is selected
       setKelurahanBounds(null);
     }
-  }, [selectedKelurahan, filteredBoundary]);
+  }, [selectedKelurahan, boundaryData]);
 
   return (
     <MapContainer
@@ -747,108 +536,15 @@ export default function MapComponent({
         url={getBasemapUrl(basemap)}
       />
 
-      {/* Flood Risk Layer */}
-      {showFloodRisk && floodRiskData && (
-        <GeoJSON
-          data={floodRiskData}
-          style={getFloodStyle}
-          onEachFeature={(feature, layer) => {
-            const dn = feature.properties?.DN_2 || feature.properties?.DN;
-            const labels: { [key: number]: string } = {
-              4: "Sangat Tinggi",
-              3: "Tinggi",
-              2: "Sedang",
-              1: "Rendah"
-            };
+      {/* Disaster Layers - Setiap layer punya file sendiri untuk menghindari konflik */}
+      {/* 👤 Farhan - Flood Layer */}
+      <FloodLayer data={floodRiskData} show={showFloodRisk} />
 
-            layer.bindPopup(`
-              <div style="font-family: sans-serif; padding: 5px;">
-                <strong style="color: #08306b; display: block; margin-bottom: 4px;">Zona Risiko Banjir</strong>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <div style="width: 12px; height: 12px; background: ${getFloodStyle(feature).fillColor}; border-radius: 2px;"></div>
-                  <span>Tingkat: <b>${labels[dn] || "Tidak Diketahui"}</b></span>
-                </div>
-              </div>
-            `);
-            
-            // Efek hover agar lebih interaktif
-            layer.on({
-              mouseover: (e) => {
-                const l = e.target;
-                l.setStyle({ fillOpacity: 0.9, weight: 1 });
-              },
-              mouseout: (e) => {
-                const l = e.target;
-                l.setStyle({ fillOpacity: 0.8, weight: 0 });
-              },
-            });
-          }}
-        />
-      )}
+      {/* 👤 Faruq - Landslide Layer */}
+      <LandslideLayer data={landslideRiskData} show={showLandslideRisk} />
 
-      {/* Landslide Risk Layer */}
-      {showLandslideRisk && landslideRiskData && (
-        <GeoJSON
-          data={landslideRiskData as any}
-          style={landslideRiskStyle}
-          onEachFeature={(feature, layer) => {
-            const props = feature.properties as RiskProperties;
-            const popupContent = `
-              <div style="padding: 8px;">
-                <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #dc2626;">⛰️ Area Rawan Longsor</h3>
-                <p style="margin: 4px 0;"><strong>Tingkat:</strong> <span style="text-transform: uppercase; color: ${props.tingkat_kerawanan === "tinggi" ? "#dc2626" : props.tingkat_kerawanan === "sedang" ? "#f97316" : "#84cc16"}">${props.tingkat_kerawanan || "sedang"}</span></p>
-                ${props.deskripsi ? `<p style="margin: 4px 0;"><strong>Deskripsi:</strong> ${props.deskripsi}</p>` : ""}
-              </div>
-            `;
-            layer.bindPopup(popupContent);
-          }}
-        />
-      )}
-
-      {/* Lahan Kritis Layer */}
-      {showLahanKritis && LahanKritisData && (
-        <GeoJSON
-          data={LahanKritisData}
-          style={getLahanKritisStyle}
-          onEachFeature={(feature, layer) => {
-            const ket = feature.properties?.Keterangan;
-            const skor = feature.properties?.NT;
-            
-            const labels: { [key: string]: string } = {
-              "PT": "Potensial",
-              "P":  "Potensial",
-              "AK": "Agak Kritis",
-              "K":  "Kritis",
-              "SK": "Sangat Kritis"
-            };
-
-            layer.bindPopup(`
-              <div style="font-family: sans-serif; padding: 5px;">
-                <strong style="color: #634a00; display: block; margin-bottom: 4px;">📍 Analisis Lahan Kritis</strong>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <div style="display: flex; align-items: center; gap: 8px;">
-                    <div style="width: 12px; height: 12px; background: ${getLahanKritisStyle(feature).fillColor}; border-radius: 2px;"></div>
-                    <span>Status: <b>${labels[ket] || ket || "Data Kosong"}</b></span>
-                  </div>
-                  <span style="font-size: 11px; color: #666;">Total Skor (NT): ${skor || "-"}</span>
-                </div>
-              </div>
-            `);
-
-            layer.on({
-              mouseover: (e) => {
-                const l = e.target;
-                l.setStyle({ fillOpacity: 1, weight: 0, color: "#ffffff" });
-                l.bringToFront();
-              },
-              mouseout: (e) => {
-                const l = e.target;
-                l.setStyle(getLahanKritisStyle(feature));
-              },
-            });
-          }}
-        />
-      )}
+      {/* 👤 Shaqi - Lahan Kritis Layer */}
+      <LahanKritisLayer data={LahanKritisData} show={showLahanKritis} />
       {/* Evacuation Route Layer - Green style with shadow and markers */}
       {showEvacuationRoute && finalRoutedEvacuationData && finalRoutedEvacuationData.features.length > 0 && (
         <>
@@ -924,44 +620,21 @@ export default function MapComponent({
         </>
       )}
 
-      {showBoundary && filteredBoundary && filteredBoundary.features.length > 0 && (
-        <GeoJSON
-          key={`boundary-${selectedKelurahan || 'all'}`}
-          ref={boundaryLayerRef}
-          data={filteredBoundary as any}
-          style={boundaryStyle}
-          onEachFeature={onBoundaryEachFeature}
-        />
-      )}
-
-      {showFacilities &&
-        filteredFacilities.map((feature, idx) => {
-          if (feature.geometry.type !== "Point") return null;
-          const props = feature.properties as FacilityProperties;
-          const category = props.kategori || "lainnya";
-          const [lng, lat] = feature.geometry.coordinates as number[];
-          const icon = getFacilityIcon(category);
-
-          return (
-            <Marker key={`facility-${idx}`} position={[lat, lng]} icon={icon}>
-              <Popup>
-                <div style={{ padding: "8px" }}>
-                  <h3 style={{ margin: "0 0 8px 0", fontWeight: "bold" }}>
-                    {props.nama || "Fasilitas"}
-                  </h3>
-                  <p style={{ margin: "4px 0" }}>
-                    <strong>Kategori:</strong> {category}
-                  </p>
-                  {props.alamat && (
-                    <p style={{ margin: "4px 0" }}>
-                      <strong>Alamat:</strong> {props.alamat}
-                    </p>
-                  )}
-                </div>
-              </Popup>
-            </Marker>
-          );
-        })}
+      {/* Infrastructure Layers - Shared components */}
+      <BoundaryLayer 
+        data={boundaryData} 
+        show={showBoundary}
+        selectedKelurahan={selectedKelurahan}
+        onFeatureClick={onFeatureClick}
+        onKelurahanChange={onKelurahanChange}
+      />
+      
+      <FacilitiesLayer 
+        data={facilitiesData} 
+        show={showFacilities}
+        selectedCategory={selectedCategory}
+        selectedKelurahan={selectedKelurahan}
+      />
 
       {searchResult && (
         <MapUpdater center={[searchResult.lat, searchResult.lng]} zoom={searchResult.zoom || 16} />
