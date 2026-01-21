@@ -17,6 +17,8 @@ import {
   X,
   Square,
   Building2,
+  Sprout,
+  LandPlot,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -26,11 +28,13 @@ interface SidebarProps {
   showFacilities: boolean;
   showFloodRisk: boolean;
   showLandslideRisk: boolean;
+  showLahanKritis: boolean;
   showEvacuationRoute: boolean;
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
   onToggleLandslideRisk: () => void;
+  onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
   selectedCategory: string | null;
   onCategoryChange: (category: string | null) => void;
@@ -74,6 +78,7 @@ export default function Sidebar({
   facilitiesData,
   showBoundary,
   showFacilities,
+  showLahanKritis,
   showFloodRisk,
   showLandslideRisk,
   showEvacuationRoute,
@@ -81,6 +86,7 @@ export default function Sidebar({
   onToggleFacilities,
   onToggleFloodRisk,
   onToggleLandslideRisk,
+  onToggleLahanKritis,
   onToggleEvacuationRoute,
   selectedCategory,
   onCategoryChange,
@@ -305,6 +311,20 @@ export default function Sidebar({
                   </span>
                 </div>
                 <Mountain size={16} className="text-orange-600" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-red-100 bg-red-50 cursor-pointer transition-all hover:border-red-200">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showLahanKritis}
+                    onChange={onToggleLahanKritis}
+                    className="w-4 h-4 text-red-600 rounded"
+                  />
+                  <span className="text-sm font-semibold text-red-700">
+                    Lahan Kritis
+                  </span>
+                </div>
+                <LandPlot size={16} className="text-orange-500" />
               </label>
               <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-orange-200">
                 <div className="flex items-center gap-3">

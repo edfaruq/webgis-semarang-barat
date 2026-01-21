@@ -46,6 +46,7 @@ export default function KelurahanPage() {
   const [showBoundary, setShowBoundary] = useState(true);
   const [showFacilities, setShowFacilities] = useState(true);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
+  const [showLahanKritis, setLahanKritis] = useState(false);
   const [showLandslideRisk, setShowLandslideRisk] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedKelurahan, setSelectedKelurahan] = useState<string | null>(slug || null);
@@ -127,10 +128,12 @@ export default function KelurahanPage() {
           showBoundary={showBoundary}
           showFacilities={showFacilities}
           showFloodRisk={showFloodRisk}
+          showLahanKritis={showLahanKritis}
           showLandslideRisk={showLandslideRisk}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
+          onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
           onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
@@ -152,6 +155,7 @@ export default function KelurahanPage() {
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
+            showLahanKritis={showLahanKritis}
             showLandslideRisk={showLandslideRisk}
             selectedCategory={selectedCategory}
             selectedKelurahan={selectedKelurahan}

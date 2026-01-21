@@ -28,10 +28,12 @@ interface MapComponentProps {
   floodRiskData?: GeoJSONCollection | null;
   landslideRiskData?: GeoJSONCollection | null;
   evacuationRouteData?: GeoJSONCollection | null;
+  LahanKritisData?: GeoJSONCollection | null;
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
   showLandslideRisk?: boolean;
+  showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
@@ -122,11 +124,13 @@ export default function MapComponent({
   boundaryData,
   facilitiesData,
   floodRiskData,
+  LahanKritisData,
   landslideRiskData,
   evacuationRouteData,
   showBoundary = true,
   showFacilities = true,
   showFloodRisk = false,
+  showLahanKritis = false,
   showLandslideRisk = false,
   showEvacuationRoute = true,
   selectedCategory,
@@ -209,6 +213,26 @@ export default function MapComponent({
       weight: 2,
       opacity: 0.8,
       dashArray: "8, 4",
+    };
+  };
+
+  const getLahanKritisStyle = (feature: any) => {
+    const keterangan = feature.properties?.Keterangan;
+    
+    // Palet warna gradasi untuk Lahan Kritis
+    const colors: { [key: string]: string } = {
+      "PT": "#8bc34a", // Sangat Potensial (Hijau Tua)
+      "P":  "#fff176", // Potensial (Hijau Muda)
+      "AK": "#ffc107", // Agak Kritis (Oranye)
+      "K":  "#fb8c00", // Kritis (Merah)
+      "SK": "#e64b19", // Sangat Kritis (Marun)
+    };
+
+    return {
+      fillColor: colors[keterangan] || "#8bc34a",
+      weight: 0, // Agar menyatu tanpa garis tepi
+      fillOpacity: 0.8,
+      color: "transparent",
     };
   };
 
@@ -781,6 +805,50 @@ export default function MapComponent({
         />
       )}
 
+      {/* Lahan Kritis Layer */}
+      {showLahanKritis && LahanKritisData && (
+        <GeoJSON
+          data={LahanKritisData}
+          style={getLahanKritisStyle}
+          onEachFeature={(feature, layer) => {
+            const ket = feature.properties?.Keterangan;
+            const skor = feature.properties?.NT;
+            
+            const labels: { [key: string]: string } = {
+              "PT": "Potensial",
+              "P":  "Potensial",
+              "AK": "Agak Kritis",
+              "K":  "Kritis",
+              "SK": "Sangat Kritis"
+            };
+
+            layer.bindPopup(`
+              <div style="font-family: sans-serif; padding: 5px;">
+                <strong style="color: #634a00; display: block; margin-bottom: 4px;">📍 Analisis Lahan Kritis</strong>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 12px; height: 12px; background: ${getLahanKritisStyle(feature).fillColor}; border-radius: 2px;"></div>
+                    <span>Status: <b>${labels[ket] || ket || "Data Kosong"}</b></span>
+                  </div>
+                  <span style="font-size: 11px; color: #666;">Total Skor (NT): ${skor || "-"}</span>
+                </div>
+              </div>
+            `);
+
+            layer.on({
+              mouseover: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 1, weight: 0, color: "#ffffff" });
+                l.bringToFront();
+              },
+              mouseout: (e) => {
+                const l = e.target;
+                l.setStyle(getLahanKritisStyle(feature));
+              },
+            });
+          }}
+        />
+      )}
       {/* Evacuation Route Layer - Green style with shadow and markers */}
       {showEvacuationRoute && finalRoutedEvacuationData && finalRoutedEvacuationData.features.length > 0 && (
         <>
