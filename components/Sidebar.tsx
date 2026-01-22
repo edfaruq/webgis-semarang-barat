@@ -58,6 +58,13 @@ const KELURAHAN_LIST = [
   { slug: "kalibanteng-kulon", name: "Kalibanteng Kulon" },
   { slug: "manyaran", name: "Manyaran" },
   { slug: "tawangmas", name: "Tawangmas" },
+  { slug: "kembangarum", name: "Kembangarum" },
+  { slug: "bojongsalaman", name: "Bojongsalaman" },
+  { slug: "cabean", name: "Cabean" },
+  { slug: "krapyak", name: "Krapyak" },
+  { slug: "salamanmloyo", name: "Salamanmloyo" },
+  { slug: "tawangsari", name: "Tawangsari" },
+  { slug: "tambakharjo", name: "Tambakharjo" },
 ];
 
 // All possible categories (for reference)

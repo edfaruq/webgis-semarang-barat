@@ -31,6 +31,13 @@ const KELURAHAN_NAMES: Record<string, string> = {
   "kalibanteng-kulon": "Kalibanteng Kulon",
   "manyaran": "Manyaran",
   "tawangmas": "Tawangmas",
+  "kembangarum": "Kembangarum",
+  "bojongsalaman": "Bojongsalaman",
+  "cabean": "Cabean",
+  "krapyak": "Krapyak",
+  "salamanmloyo": "Salamanmloyo",
+  "tawangsari": "Tawangsari",
+  "tambakharjo": "Tambakharjo",
 };
 
 export default function KelurahanPage() {
