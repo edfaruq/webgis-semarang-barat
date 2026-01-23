@@ -17,6 +17,7 @@ import LandslideLayer from "./layers/LandslideLayer";
 import LahanKritisLayer from "./layers/LahanKritisLayer";
 import BoundaryLayer from "./layers/BoundaryLayer";
 import FacilitiesLayer from "./layers/FacilitiesLayer";
+import PumpLayer from "./layers/PumpLayer";
 
 // Fix for default marker icons
 if (typeof window !== "undefined") {
@@ -35,18 +36,21 @@ interface MapComponentProps {
   landslideRiskData?: GeoJSONCollection | null;
   evacuationRouteData?: GeoJSONCollection | null;
   LahanKritisData?: GeoJSONCollection | null;
+  pumpData?: GeoJSONCollection | null;
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
   showLandslideRisk?: boolean;
   showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
+  showPump?: boolean;
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
   basemap?: BasemapType;
   onBasemapChange?: (basemap: BasemapType) => void;
   onFeatureClick?: (feature: any) => void;
   onKelurahanChange?: (kelurahan: string | null) => void;
+  onPumpClick?: (feature: any) => void;
   searchResult?: { lat: number; lng: number; zoom?: number } | null;
 }
 
@@ -133,18 +137,21 @@ export default function MapComponent({
   LahanKritisData,
   landslideRiskData,
   evacuationRouteData,
+  pumpData,
   showBoundary = true,
   showFacilities = true,
   showFloodRisk = false,
   showLahanKritis = false,
   showLandslideRisk = false,
   showEvacuationRoute = true,
+  showPump = false,
   selectedCategory,
   selectedKelurahan,
   basemap = "osm",
   onBasemapChange,
   onFeatureClick,
   onKelurahanChange,
+  onPumpClick,
   searchResult,
 }: MapComponentProps) {
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
@@ -634,6 +641,13 @@ export default function MapComponent({
         show={showFacilities}
         selectedCategory={selectedCategory}
         selectedKelurahan={selectedKelurahan}
+      />
+
+      <PumpLayer 
+        data={pumpData} 
+        show={showPump}
+        selectedKelurahan={selectedKelurahan}
+        onPumpClick={onPumpClick}
       />
 
       {searchResult && (

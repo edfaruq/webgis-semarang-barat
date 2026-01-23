@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import ReportModal from "@/components/ReportModal";
+import PumpDetailModal from "@/components/PumpDetailModal";
 import { loadGeoJSON } from "@/lib/geojson";
 import { GeoJSONCollection, BasemapType } from "@/types/geojson";
 
@@ -28,12 +29,16 @@ export default function HomePage() {
   const [landslideRiskData, setLandslideRiskData] = useState<GeoJSONCollection | null>(null);
   const [evacuationRouteData, setEvacuationRouteData] = useState<GeoJSONCollection | null>(null);
   const [lahanKritisData, setLahanKritisData] = useState<GeoJSONCollection | null>(null);
+  const [pumpData, setPumpData] = useState<GeoJSONCollection | null>(null);
   const [showBoundary, setShowBoundary] = useState(true);
   const [showFacilities, setShowFacilities] = useState(true);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
   const [showLandslideRisk, setShowLandslideRisk] = useState(false);
   const [showEvacuationRoute, setShowEvacuationRoute] = useState(true);
+  const [showPump, setShowPump] = useState(false);
+  const [selectedPump, setSelectedPump] = useState<any | null>(null);
+  const [isPumpModalOpen, setIsPumpModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedKelurahan, setSelectedKelurahan] = useState<string | null>(null);
   const [basemap, setBasemap] = useState<BasemapType>("osm");
@@ -48,13 +53,14 @@ export default function HomePage() {
     const loadData = async () => {
       try {
         setLoading(true);
-        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis] = await Promise.all([
+        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, pump] = await Promise.all([
           loadGeoJSON("/data/infrastructure/boundary.geojson"),
           loadGeoJSON("/data/infrastructure/facilities.geojson"),
           loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/longsor/landslide-risk.geojson").catch(() => null),
           loadGeoJSON("/data/routes/evacuation-route.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/lahan-kritis/LahanKritis.geojson").catch(() => null),
+          loadGeoJSON("/data/utilities/pompa-air/pompa-air.geojson").catch(() => null),
         ]);
         setBoundaryData(boundary);
         setFacilitiesData(facilities);
@@ -62,6 +68,7 @@ export default function HomePage() {
         setLahanKritisData(lahanKritis);
         setLandslideRiskData(landslideRisk);
         setEvacuationRouteData(evacuationRoute);
+        setPumpData(pump);
         setError(null);
       } catch (err) {
         console.error("Error loading data:", err);
@@ -114,12 +121,14 @@ export default function HomePage() {
           showLahanKritis={showLahanKritis}
           showLandslideRisk={showLandslideRisk}
           showEvacuationRoute={showEvacuationRoute}
+          showPump={showPump}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
           onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
           onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
           onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
+          onTogglePump={() => setShowPump(!showPump)}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           selectedKelurahan={selectedKelurahan}
@@ -139,18 +148,24 @@ export default function HomePage() {
             landslideRiskData={landslideRiskData}
             evacuationRouteData={evacuationRouteData}
             LahanKritisData={lahanKritisData}
+            pumpData={pumpData}
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
             showLahanKritis={showLahanKritis}
             showLandslideRisk={showLandslideRisk}
             showEvacuationRoute={showEvacuationRoute}
+            showPump={showPump}
             selectedCategory={selectedCategory}
             selectedKelurahan={selectedKelurahan}
             basemap={basemap}
             onBasemapChange={setBasemap}
             onKelurahanChange={setSelectedKelurahan}
             searchResult={searchResult}
+            onPumpClick={(feature) => {
+              setSelectedPump(feature);
+              setIsPumpModalOpen(true);
+            }}
           />
           {error && (
             <div className="absolute bottom-4 left-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-lg z-[1000] max-w-md">
@@ -161,6 +176,14 @@ export default function HomePage() {
         </main>
       </div>
       <ReportModal isOpen={isReportModalOpen} onClose={() => setIsReportModalOpen(false)} />
+      <PumpDetailModal 
+        isOpen={isPumpModalOpen} 
+        onClose={() => {
+          setIsPumpModalOpen(false);
+          setSelectedPump(null);
+        }} 
+        pumpData={selectedPump}
+      />
     </div>
   );
 }

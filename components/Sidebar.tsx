@@ -19,6 +19,7 @@ import {
   Building2,
   Sprout,
   LandPlot,
+  Gauge,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -30,12 +31,14 @@ interface SidebarProps {
   showLandslideRisk: boolean;
   showLahanKritis: boolean;
   showEvacuationRoute: boolean;
+  showPump: boolean;
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
   onToggleLandslideRisk: () => void;
   onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
+  onTogglePump: () => void;
   selectedCategory: string | null;
   onCategoryChange: (category: string | null) => void;
   selectedKelurahan: string | null;
@@ -89,12 +92,14 @@ export default function Sidebar({
   showFloodRisk,
   showLandslideRisk,
   showEvacuationRoute,
+  showPump,
   onToggleBoundary,
   onToggleFacilities,
   onToggleFloodRisk,
   onToggleLandslideRisk,
   onToggleLahanKritis,
   onToggleEvacuationRoute,
+  onTogglePump,
   selectedCategory,
   onCategoryChange,
   selectedKelurahan,
@@ -360,6 +365,20 @@ export default function Sidebar({
                   </span>
                 </div>
                 <Redo2 size={16} className="text-emerald-600 animate-pulse" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showPump}
+                    onChange={onTogglePump}
+                    className="w-4 h-4 text-blue-600 rounded"
+                  />
+                  <span className="text-sm font-bold text-blue-800">
+                    Titik Pompa
+                  </span>
+                </div>
+                <Gauge size={16} className="text-blue-600" />
               </label>
             </div>
           </section>

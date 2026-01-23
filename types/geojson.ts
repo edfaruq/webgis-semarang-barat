@@ -34,4 +34,18 @@ export interface RiskProperties {
   [key: string]: any;
 }
 
+export interface PumpProperties {
+  nama?: string;
+  kapasitas?: string;
+  kondisi?: string;
+  pengelola?: string;
+  operator?: string;
+  no_telp?: string;
+  foto?: string; // URL atau path ke foto
+  alamat?: string;
+  kelurahan?: string;
+  nama_kelurahan?: string;
+  [key: string]: any;
+}
+
 export type BasemapType = "osm" | "esri-imagery";
