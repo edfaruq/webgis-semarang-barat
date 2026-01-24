@@ -31,12 +31,12 @@ export default function HomePage() {
   const [lahanKritisData, setLahanKritisData] = useState<GeoJSONCollection | null>(null);
   const [pumpData, setPumpData] = useState<GeoJSONCollection | null>(null);
   const [showBoundary, setShowBoundary] = useState(true);
-  const [showFacilities, setShowFacilities] = useState(true);
+  const [showFacilities, setShowFacilities] = useState(false);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
   const [showLandslideHazard, setShowLandslideHazard] = useState(false);
   const [showLandslideCapacity, setShowLandslideCapacity] = useState(false);
-  const [showEvacuationRoute, setShowEvacuationRoute] = useState(true);
+  const [showEvacuationRoute, setShowEvacuationRoute] = useState(false);
   const [showPump, setShowPump] = useState(false);
   const [selectedPump, setSelectedPump] = useState<any | null>(null);
   const [isPumpModalOpen, setIsPumpModalOpen] = useState(false);
