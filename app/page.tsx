@@ -34,7 +34,8 @@ export default function HomePage() {
   const [showFacilities, setShowFacilities] = useState(true);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
-  const [showLandslideRisk, setShowLandslideRisk] = useState(false);
+  const [showLandslideHazard, setShowLandslideHazard] = useState(false);
+  const [showLandslideCapacity, setShowLandslideCapacity] = useState(false);
   const [showEvacuationRoute, setShowEvacuationRoute] = useState(true);
   const [showPump, setShowPump] = useState(false);
   const [selectedPump, setSelectedPump] = useState<any | null>(null);
@@ -119,14 +120,16 @@ export default function HomePage() {
           showFacilities={showFacilities}
           showFloodRisk={showFloodRisk}
           showLahanKritis={showLahanKritis}
-          showLandslideRisk={showLandslideRisk}
+          showLandslideHazard={showLandslideHazard}
+          showLandslideCapacity={showLandslideCapacity}
           showEvacuationRoute={showEvacuationRoute}
           showPump={showPump}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
           onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
-          onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
+          onToggleLandslideHazard={() => setShowLandslideHazard(!showLandslideHazard)}
+          onToggleLandslideCapacity={() => setShowLandslideCapacity(!showLandslideCapacity)}
           onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
           onTogglePump={() => setShowPump(!showPump)}
           selectedCategory={selectedCategory}
@@ -153,7 +156,8 @@ export default function HomePage() {
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
             showLahanKritis={showLahanKritis}
-            showLandslideRisk={showLandslideRisk}
+            showLandslideHazard={showLandslideHazard}
+            showLandslideCapacity={showLandslideCapacity}
             showEvacuationRoute={showEvacuationRoute}
             showPump={showPump}
             selectedCategory={selectedCategory}
