@@ -35,8 +35,18 @@ export default function FacilitiesLayer({
     const props = f.properties as FacilityProperties;
     
     // Filter by category
-    if (selectedCategory && props.kategori !== selectedCategory) {
-      return false;
+    if (selectedCategory) {
+      // Special handling for 'umum' category (masjid & gereja)
+      if (selectedCategory === 'umum') {
+        if (props.kategori !== 'masjid' && props.kategori !== 'gereja') {
+          return false;
+        }
+      } else {
+        // Regular single category filter
+        if (props.kategori !== selectedCategory) {
+          return false;
+        }
+      }
     }
     
     // Filter by kelurahan
