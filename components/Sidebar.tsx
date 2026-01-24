@@ -28,14 +28,16 @@ interface SidebarProps {
   showBoundary: boolean;
   showFacilities: boolean;
   showFloodRisk: boolean;
-  showLandslideRisk: boolean;
+  showLandslideHazard: boolean;
+  showLandslideCapacity: boolean;
   showLahanKritis: boolean;
   showEvacuationRoute: boolean;
   showPump: boolean;
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
-  onToggleLandslideRisk: () => void;
+  onToggleLandslideHazard: () => void;
+  onToggleLandslideCapacity: () => void;
   onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
   onTogglePump: () => void;
@@ -90,13 +92,15 @@ export default function Sidebar({
   showFacilities,
   showLahanKritis,
   showFloodRisk,
-  showLandslideRisk,
+  showLandslideHazard,
+  showLandslideCapacity,
   showEvacuationRoute,
   showPump,
   onToggleBoundary,
   onToggleFacilities,
   onToggleFloodRisk,
-  onToggleLandslideRisk,
+  onToggleLandslideHazard,
+  onToggleLandslideCapacity,
   onToggleLahanKritis,
   onToggleEvacuationRoute,
   onTogglePump,
@@ -314,15 +318,29 @@ export default function Sidebar({
                 <div className="flex items-center gap-3">
                   <input
                     type="checkbox"
-                    checked={showLandslideRisk}
-                    onChange={onToggleLandslideRisk}
+                    checked={showLandslideHazard}
+                    onChange={onToggleLandslideHazard}
                     className="w-4 h-4 text-orange-600 rounded"
                   />
                   <span className="text-sm font-bold text-orange-800">
-                    Kerentanan Longsor
+                    Area Rawan Longsor
                   </span>
                 </div>
                 <Mountain size={16} className="text-orange-600" />
+              </label>
+              <label className="flex items-center justify-between p-3 rounded-xl border border-red-200 bg-red-50 cursor-pointer transition-all hover:bg-red-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={showLandslideCapacity}
+                    onChange={onToggleLandslideCapacity}
+                    className="w-4 h-4 text-red-600 rounded"
+                  />
+                  <span className="text-sm font-bold text-red-800">
+                    Kapasitas Longsor
+                  </span>
+                </div>
+                <Mountain size={16} className="text-red-600" />
               </label>
               <label className="flex items-center justify-between p-3 rounded-xl border border-red-100 bg-red-50 cursor-pointer transition-all hover:border-red-200">
                 <div className="flex items-center gap-3">

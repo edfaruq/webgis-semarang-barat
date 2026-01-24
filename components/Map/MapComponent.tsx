@@ -40,7 +40,8 @@ interface MapComponentProps {
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
-  showLandslideRisk?: boolean;
+  showLandslideHazard?: boolean;
+  showLandslideCapacity?: boolean;
   showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
   showPump?: boolean;
@@ -142,7 +143,8 @@ export default function MapComponent({
   showFacilities = true,
   showFloodRisk = false,
   showLahanKritis = false,
-  showLandslideRisk = false,
+  showLandslideHazard = false,
+  showLandslideCapacity = false,
   showEvacuationRoute = true,
   showPump = false,
   selectedCategory,
@@ -548,7 +550,11 @@ export default function MapComponent({
       <FloodLayer data={floodRiskData} show={showFloodRisk} />
 
       {/* 👤 Faruq - Landslide Layer */}
-      <LandslideLayer data={landslideRiskData} show={showLandslideRisk} />
+      <LandslideLayer 
+        data={landslideRiskData} 
+        showHazard={showLandslideHazard}
+        showCapacity={showLandslideCapacity}
+      />
 
       {/* 👤 Shaqi - Lahan Kritis Layer */}
       <LahanKritisLayer data={LahanKritisData} show={showLahanKritis} />
