@@ -14,12 +14,17 @@ import {
   Activity,
   ShieldCheck,
   ChevronRight,
+  ChevronDown,
   X,
-  Square,
   Building2,
   Sprout,
   LandPlot,
   Gauge,
+  Waves,
+  MapPin,
+  AlertTriangle,
+  Home,
+  Map,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -116,6 +121,18 @@ export default function Sidebar({
   onClose,
 }: SidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  
+  // State untuk sub-kategori fasilitas yang aktif
+  const [activeFacilitySubcategory, setActiveFacilitySubcategory] = useState<'all' | 'pendidikan' | 'kesehatan' | 'umum'>('all');
+
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
+  };
 
   // Get current kelurahan name
   const currentKelurahanName = selectedKelurahan
@@ -161,6 +178,30 @@ export default function Sidebar({
       },
     );
   }, [stats.facilityStats]);
+
+  // Filter kategori berdasarkan sub-kategori fasilitas yang aktif
+  const filteredCategoriesBySubcategory = useMemo(() => {
+    if (activeFacilitySubcategory === 'all') {
+      return availableCategories;
+    }
+    
+    if (activeFacilitySubcategory === 'pendidikan') {
+      // Hanya sekolah
+      return availableCategories.filter(cat => cat.value === 'sekolah');
+    }
+    
+    if (activeFacilitySubcategory === 'kesehatan') {
+      // Hanya puskesmas
+      return availableCategories.filter(cat => cat.value === 'puskesmas');
+    }
+    
+    if (activeFacilitySubcategory === 'umum') {
+      // Masjid dan gereja
+      return availableCategories.filter(cat => cat.value === 'masjid' || cat.value === 'gereja');
+    }
+    
+    return availableCategories;
+  }, [availableCategories, activeFacilitySubcategory]);
 
   // Handle search
   const handleSearch = (query: string) => {
@@ -280,124 +321,304 @@ export default function Sidebar({
             </h2>
           </div>
 
-          {/* Layer Controller */}
+          {/* Layer Controller dengan Kategori */}
           <section>
             <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-              Analisis & Rute
+              Layer Peta
             </h3>
-            <div className="space-y-3">
-              <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-blue-200">
+            <div className="space-y-2">
+              
+              {/* Batas Wilayah - di paling atas */}
+              <label className="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-white cursor-pointer transition-all hover:border-slate-300 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showBoundary}
-                    onChange={onToggleBoundary}
-                    className="w-4 h-4 text-blue-600 rounded"
-                  />
-                  <span className="text-sm font-semibold text-slate-700">
-                    Batas Wilayah
-                  </span>
+                  <Map size={16} className="text-slate-500" />
+                  <span className="text-sm font-semibold text-slate-700">BATAS WILAYAH</span>
                 </div>
-                <Square size={16} className="text-blue-500" />
+                <input
+                  type="checkbox"
+                  checked={showBoundary}
+                  onChange={onToggleBoundary}
+                  className="w-4 h-4 text-slate-600 rounded"
+                />
               </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showFloodRisk}
-                    onChange={onToggleFloodRisk}
-                    className="w-4 h-4 text-blue-600 rounded"
+              
+              {/* ANALISIS BANJIR */}
+              <div className="rounded-xl border border-blue-200 bg-blue-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory('flood')}
+                  className="w-full flex items-center justify-between p-3 hover:bg-blue-50 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Droplets size={18} className="text-blue-600" />
+                    <span className="text-sm font-bold text-blue-900">ANALISIS BANJIR</span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-blue-600 transition-transform ${expandedCategories.includes('flood') ? 'rotate-180' : ''}`}
                   />
-                  <span className="text-sm font-bold text-blue-800">
-                    Area Rawan Banjir
-                  </span>
-                </div>
-                <Droplets size={16} className="text-blue-600" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-orange-200 bg-orange-50 cursor-pointer transition-all hover:bg-orange-100 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showLandslideHazard}
-                    onChange={onToggleLandslideHazard}
-                    className="w-4 h-4 text-orange-600 rounded"
+                </button>
+                {expandedCategories.includes('flood') && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showFloodRisk}
+                        onChange={onToggleFloodRisk}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-blue-800">Kerawanan Banjir</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Kerentanan Banjir</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Kapasitas Banjir</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Risiko Banjir</span>
+                    </label>
+                  </div>
+                )}
+              </div>
+
+              {/* ANALISIS LONGSOR */}
+              <div className="rounded-xl border border-orange-200 bg-orange-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory('landslide')}
+                  className="w-full flex items-center justify-between p-3 hover:bg-orange-50 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Mountain size={18} className="text-orange-600" />
+                    <span className="text-sm font-bold text-orange-900">ANALISIS LONGSOR</span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-orange-600 transition-transform ${expandedCategories.includes('landslide') ? 'rotate-180' : ''}`}
                   />
-                  <span className="text-sm font-bold text-orange-800">
-                    Area Rawan Longsor
-                  </span>
-                </div>
-                <Mountain size={16} className="text-orange-600" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-red-200 bg-red-50 cursor-pointer transition-all hover:bg-red-100 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showLandslideCapacity}
-                    onChange={onToggleLandslideCapacity}
-                    className="w-4 h-4 text-red-600 rounded"
+                </button>
+                {expandedCategories.includes('landslide') && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showLandslideHazard}
+                        onChange={onToggleLandslideHazard}
+                        className="w-3.5 h-3.5 text-orange-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-orange-800">Kerawanan Longsor</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-orange-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Kerentanan Longsor</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showLandslideCapacity}
+                        onChange={onToggleLandslideCapacity}
+                        className="w-3.5 h-3.5 text-orange-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-orange-800">Kapasitas Longsor</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-orange-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Risiko Longsor</span>
+                    </label>
+                  </div>
+                )}
+              </div>
+
+              {/* INFRASTRUKTUR */}
+              <div className="rounded-xl border border-slate-300 bg-slate-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory('infrastructure')}
+                  className="w-full flex items-center justify-between p-3 hover:bg-slate-100 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Gauge size={18} className="text-slate-600" />
+                    <span className="text-sm font-bold text-slate-900">INFRASTRUKTUR</span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-slate-600 transition-transform ${expandedCategories.includes('infrastructure') ? 'rotate-180' : ''}`}
                   />
-                  <span className="text-sm font-bold text-red-800">
-                    Kapasitas Longsor
-                  </span>
-                </div>
-                <Mountain size={16} className="text-red-600" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-red-100 bg-red-50 cursor-pointer transition-all hover:border-red-200">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showLahanKritis}
-                    onChange={onToggleLahanKritis}
-                    className="w-4 h-4 text-red-600 rounded"
+                </button>
+                {expandedCategories.includes('infrastructure') && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showPump}
+                        onChange={onTogglePump}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-slate-800">Titik Pompa</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-slate-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Jaringan Drainase</span>
+                    </label>
+                  </div>
+                )}
+              </div>
+
+              {/* EVAKUASI & MITIGASI */}
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory('evacuation')}
+                  className="w-full flex items-center justify-between p-3 hover:bg-emerald-50 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <AlertTriangle size={18} className="text-emerald-600" />
+                    <span className="text-sm font-bold text-emerald-900">EVAKUASI & MITIGASI</span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-emerald-600 transition-transform ${expandedCategories.includes('evacuation') ? 'rotate-180' : ''}`}
                   />
-                  <span className="text-sm font-semibold text-red-700">
-                    Lahan Kritis
-                  </span>
-                </div>
-                <LandPlot size={16} className="text-orange-500" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer transition-all hover:border-orange-200">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showFacilities}
-                    onChange={onToggleFacilities}
-                    className="w-4 h-4 text-orange-600 rounded"
+                </button>
+                {expandedCategories.includes('evacuation') && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showEvacuationRoute}
+                        onChange={onToggleEvacuationRoute}
+                        className="w-3.5 h-3.5 text-emerald-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-emerald-800">Jalur Evakuasi</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-emerald-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Titik Shelter</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input type="checkbox" className="w-3.5 h-3.5 text-emerald-600 rounded" disabled />
+                      <span className="text-xs text-slate-600">Zona Prioritas</span>
+                    </label>
+                  </div>
+                )}
+              </div>
+
+              {/* FASILITAS */}
+              <div className="rounded-xl border border-indigo-200 bg-indigo-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory('facilities')}
+                  className="w-full flex items-center justify-between p-3 hover:bg-indigo-50 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Building2 size={18} className="text-indigo-600" />
+                    <span className="text-sm font-bold text-indigo-900">FASILITAS</span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-indigo-600 transition-transform ${expandedCategories.includes('facilities') ? 'rotate-180' : ''}`}
                   />
-                  <span className="text-sm font-semibold text-slate-700">
-                    Fasilitas
-                  </span>
-                </div>
-                <Building2 size={16} className="text-orange-500" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-emerald-200 bg-emerald-50 cursor-pointer transition-all hover:bg-emerald-100 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showEvacuationRoute}
-                    onChange={onToggleEvacuationRoute}
-                    className="w-4 h-4 text-emerald-600 rounded"
-                  />
-                  <span className="text-sm font-bold text-emerald-800">
-                    Jalur Evakuasi
-                  </span>
-                </div>
-                <Redo2 size={16} className="text-emerald-600 animate-pulse" />
-              </label>
-              <label className="flex items-center justify-between p-3 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer transition-all hover:bg-blue-100 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={showPump}
-                    onChange={onTogglePump}
-                    className="w-4 h-4 text-blue-600 rounded"
-                  />
-                  <span className="text-sm font-bold text-blue-800">
-                    Titik Pompa
-                  </span>
-                </div>
-                <Gauge size={16} className="text-blue-600" />
-              </label>
+                </button>
+                {expandedCategories.includes('facilities') && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    {/* Semua Fasilitas */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showFacilities && activeFacilitySubcategory === 'all'}
+                        onChange={() => {
+                          if (activeFacilitySubcategory === 'all' && showFacilities) {
+                            // Uncheck Semua Fasilitas
+                            onToggleFacilities();
+                          } else {
+                            // Check Semua Fasilitas
+                            setActiveFacilitySubcategory('all');
+                            if (!showFacilities) onToggleFacilities();
+                            onCategoryChange(null); // Tampilkan semua kategori
+                          }
+                        }}
+                        className="w-3.5 h-3.5 text-indigo-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-indigo-800">Semua Fasilitas</span>
+                    </label>
+
+                    {/* Fasilitas Pendidikan (Sekolah) */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
+                      <input 
+                        type="checkbox" 
+                        checked={showFacilities && activeFacilitySubcategory === 'pendidikan'}
+                        onChange={() => {
+                          if (activeFacilitySubcategory === 'pendidikan' && showFacilities) {
+                            // Uncheck Pendidikan
+                            setActiveFacilitySubcategory('all');
+                            onToggleFacilities();
+                          } else {
+                            // Check Pendidikan
+                            setActiveFacilitySubcategory('pendidikan');
+                            if (!showFacilities) onToggleFacilities();
+                            onCategoryChange('sekolah'); // Filter sekolah
+                          }
+                        }}
+                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                      />
+                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Pendidikan</span>
+                    </label>
+
+                    {/* Fasilitas Kesehatan (Puskesmas) */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
+                      <input 
+                        type="checkbox" 
+                        checked={showFacilities && activeFacilitySubcategory === 'kesehatan'}
+                        onChange={() => {
+                          if (activeFacilitySubcategory === 'kesehatan' && showFacilities) {
+                            // Uncheck Kesehatan
+                            setActiveFacilitySubcategory('all');
+                            onToggleFacilities();
+                          } else {
+                            // Check Kesehatan
+                            setActiveFacilitySubcategory('kesehatan');
+                            if (!showFacilities) onToggleFacilities();
+                            onCategoryChange('puskesmas'); // Filter puskesmas
+                          }
+                        }}
+                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                      />
+                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Kesehatan</span>
+                    </label>
+
+                    {/* Fasilitas Umum (Masjid & Gereja) */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
+                      <input 
+                        type="checkbox" 
+                        checked={showFacilities && activeFacilitySubcategory === 'umum'}
+                        onChange={() => {
+                          if (activeFacilitySubcategory === 'umum' && showFacilities) {
+                            // Uncheck Umum
+                            setActiveFacilitySubcategory('all');
+                            onToggleFacilities();
+                          } else {
+                            // Check Umum
+                            setActiveFacilitySubcategory('umum');
+                            if (!showFacilities) onToggleFacilities();
+                            onCategoryChange('umum'); // Filter masjid & gereja
+                          }
+                        }}
+                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                      />
+                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Umum</span>
+                    </label>
+
+                    {/* Fasilitas Kritis (Placeholder - disabled) */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg cursor-not-allowed opacity-50 transition-colors">
+                      <input 
+                        type="checkbox" 
+                        disabled
+                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                      />
+                      <span className="text-xs text-slate-600">Fasilitas Kritis</span>
+                    </label>
+                  </div>
+                )}
+              </div>
             </div>
           </section>
 
@@ -432,58 +653,6 @@ export default function Sidebar({
             </div>
           </section>
 
-          {/* Filter Kategori Fasilitas */}
-          {showFacilities && (
-            <section>
-              <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-                Filter Fasilitas
-              </h3>
-              <button
-                onClick={() => onCategoryChange(null)}
-                className={`w-full text-left px-3 py-2.5 text-sm rounded-xl mb-2 font-medium transition-all shadow-sm ${
-                  selectedCategory === null
-                    ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
-                }`}
-              >
-                📋 Semua Kategori
-              </button>
-              <div className="space-y-1.5">
-                {availableCategories.map((cat) => {
-                  const count = stats.facilityStats[cat.value] || 0;
-                  return (
-                    <button
-                      key={cat.value}
-                      onClick={() => onCategoryChange(cat.value)}
-                      className={`w-full text-left px-3 py-2 text-sm rounded-xl flex items-center justify-between transition-all shadow-sm ${
-                        selectedCategory === cat.value
-                          ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md"
-                          : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:shadow-md"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
-                          style={{ backgroundColor: cat.color }}
-                        ></span>
-                        <span className="text-base">{cat.icon}</span>
-                        <span className="font-medium">{cat.label}</span>
-                      </div>
-                      <span
-                        className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                          selectedCategory === cat.value
-                            ? "bg-white/20 text-white"
-                            : "bg-slate-200 text-slate-600"
-                        }`}
-                      >
-                        {count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </section>
-          )}
 
           {/* Search */}
           <section>
