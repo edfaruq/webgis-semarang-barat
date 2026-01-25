@@ -38,6 +38,7 @@ interface SidebarProps {
   showRisikoBanjir: boolean;
   showLandslideHazard: boolean;
   showLandslideCapacity: boolean;
+  showKerentananLongsor: boolean;
   showLahanKritis: boolean;
   showEvacuationRoute: boolean;
   showPump: boolean;
@@ -49,6 +50,7 @@ interface SidebarProps {
   onToggleRisikoBanjir: () => void;
   onToggleLandslideHazard: () => void;
   onToggleLandslideCapacity: () => void;
+  onToggleKerentananLongsor: () => void;
   onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
   onTogglePump: () => void;
@@ -108,6 +110,7 @@ export default function Sidebar({
   showRisikoBanjir,
   showLandslideHazard,
   showLandslideCapacity,
+  showKerentananLongsor,
   showEvacuationRoute,
   showPump,
   onToggleBoundary,
@@ -118,6 +121,7 @@ export default function Sidebar({
   onToggleRisikoBanjir,
   onToggleLandslideHazard,
   onToggleLandslideCapacity,
+  onToggleKerentananLongsor,
   onToggleLahanKritis,
   onToggleEvacuationRoute,
   onTogglePump,
@@ -438,8 +442,13 @@ export default function Sidebar({
                       <span className="text-xs font-semibold text-orange-800">Kerawanan Longsor</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-orange-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Kerentanan Longsor</span>
+                      <input
+                        type="checkbox"
+                        checked={showKerentananLongsor}
+                        onChange={onToggleKerentananLongsor}
+                        className="w-3.5 h-3.5 text-orange-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-orange-800">Kerentanan Longsor</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
                       <input
