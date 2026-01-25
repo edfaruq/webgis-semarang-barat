@@ -6,6 +6,7 @@ import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import ReportModal from "@/components/ReportModal";
 import PumpDetailModal from "@/components/PumpDetailModal";
+import LoadingPage from "@/components/LoadingPage";
 import { loadGeoJSON } from "@/lib/geojson";
 import { GeoJSONCollection, BasemapType } from "@/types/geojson";
 
@@ -56,6 +57,9 @@ export default function HomePage() {
   // Load GeoJSON data
   useEffect(() => {
     const loadData = async () => {
+      const startTime = Date.now();
+      const minLoadingTime = 1000; // 1 detik
+      
       try {
         setLoading(true);
         const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, pump] = await Promise.all([
@@ -75,9 +79,25 @@ export default function HomePage() {
         setEvacuationRouteData(evacuationRoute);
         setPumpData(pump);
         setError(null);
+        
+        // Pastikan loading page ditampilkan minimal 1 detik
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+        
+        if (remainingTime > 0) {
+          await new Promise(resolve => setTimeout(resolve, remainingTime));
+        }
       } catch (err) {
         console.error("Error loading data:", err);
         setError("Gagal memuat data GeoJSON. Pastikan file data tersedia.");
+        
+        // Pastikan loading page ditampilkan minimal 1 detik meskipun ada error
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+        
+        if (remainingTime > 0) {
+          await new Promise(resolve => setTimeout(resolve, remainingTime));
+        }
       } finally {
         setLoading(false);
       }
@@ -98,14 +118,7 @@ export default function HomePage() {
   };
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Memuat data...</p>
-        </div>
-      </div>
-    );
+    return <LoadingPage />;
   }
 
   return (
