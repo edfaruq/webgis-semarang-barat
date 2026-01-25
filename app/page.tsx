@@ -33,6 +33,9 @@ export default function HomePage() {
   const [showBoundary, setShowBoundary] = useState(true);
   const [showFacilities, setShowFacilities] = useState(false);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
+  const [showFloodCapacity, setShowFloodCapacity] = useState(false);
+  const [showKerentananBanjir, setShowKerentananBanjir] = useState(false);
+  const [showRisikoBanjir, setShowRisikoBanjir] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
   const [showLandslideHazard, setShowLandslideHazard] = useState(false);
   const [showLandslideCapacity, setShowLandslideCapacity] = useState(false);
@@ -57,7 +60,7 @@ export default function HomePage() {
         const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, pump] = await Promise.all([
           loadGeoJSON("/data/infrastructure/boundary.geojson"),
           loadGeoJSON("/data/infrastructure/facilities.geojson"),
-          loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.geojson").catch(() => null),
+          loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.json").catch(() => null),
           loadGeoJSON("/data/disasters/longsor/landslide-risk.geojson").catch(() => null),
           loadGeoJSON("/data/routes/evacuation-route.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/lahan-kritis/LahanKritis.geojson").catch(() => null),
@@ -119,6 +122,9 @@ export default function HomePage() {
           showBoundary={showBoundary}
           showFacilities={showFacilities}
           showFloodRisk={showFloodRisk}
+          showFloodCapacity={showFloodCapacity}
+          showKerentananBanjir={showKerentananBanjir}
+          showRisikoBanjir={showRisikoBanjir}
           showLahanKritis={showLahanKritis}
           showLandslideHazard={showLandslideHazard}
           showLandslideCapacity={showLandslideCapacity}
@@ -127,6 +133,9 @@ export default function HomePage() {
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
+          onToggleFloodCapacity={() => setShowFloodCapacity(!showFloodCapacity)}
+          onToggleKerentananBanjir={() => setShowKerentananBanjir(!showKerentananBanjir)}
+          onToggleRisikoBanjir={() => setShowRisikoBanjir(!showRisikoBanjir)}
           onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
           onToggleLandslideHazard={() => setShowLandslideHazard(!showLandslideHazard)}
           onToggleLandslideCapacity={() => setShowLandslideCapacity(!showLandslideCapacity)}
@@ -155,6 +164,9 @@ export default function HomePage() {
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
+            showFloodCapacity={showFloodCapacity}
+            showKerentananBanjir={showKerentananBanjir}
+            showRisikoBanjir={showRisikoBanjir}
             showLahanKritis={showLahanKritis}
             showLandslideHazard={showLandslideHazard}
             showLandslideCapacity={showLandslideCapacity}

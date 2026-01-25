@@ -40,6 +40,9 @@ interface MapComponentProps {
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
+  showFloodCapacity?: boolean;
+  showKerentananBanjir?: boolean;
+  showRisikoBanjir?: boolean;
   showLandslideHazard?: boolean;
   showLandslideCapacity?: boolean;
   showLahanKritis?: boolean;
@@ -142,6 +145,9 @@ export default function MapComponent({
   showBoundary = true,
   showFacilities = true,
   showFloodRisk = false,
+  showFloodCapacity = false,
+  showKerentananBanjir = false,
+  showRisikoBanjir = false,
   showLahanKritis = false,
   showLandslideHazard = false,
   showLandslideCapacity = false,
@@ -547,7 +553,7 @@ export default function MapComponent({
 
       {/* Disaster Layers - Setiap layer punya file sendiri untuk menghindari konflik */}
       {/* 👤 Farhan - Flood Layer */}
-      <FloodLayer data={floodRiskData} show={showFloodRisk} />
+      <FloodLayer data={floodRiskData} show={showFloodRisk} showKerentananBanjir={showKerentananBanjir} showCapacity={showFloodCapacity} showRisikoBanjir={showRisikoBanjir} />
 
       {/* 👤 Faruq - Landslide Layer */}
       <LandslideLayer 

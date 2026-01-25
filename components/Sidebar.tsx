@@ -33,6 +33,9 @@ interface SidebarProps {
   showBoundary: boolean;
   showFacilities: boolean;
   showFloodRisk: boolean;
+  showFloodCapacity: boolean;
+  showKerentananBanjir: boolean;
+  showRisikoBanjir: boolean;
   showLandslideHazard: boolean;
   showLandslideCapacity: boolean;
   showLahanKritis: boolean;
@@ -41,6 +44,9 @@ interface SidebarProps {
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
+  onToggleFloodCapacity: () => void;
+  onToggleKerentananBanjir: () => void;
+  onToggleRisikoBanjir: () => void;
   onToggleLandslideHazard: () => void;
   onToggleLandslideCapacity: () => void;
   onToggleLahanKritis: () => void;
@@ -97,6 +103,9 @@ export default function Sidebar({
   showFacilities,
   showLahanKritis,
   showFloodRisk,
+  showFloodCapacity,
+  showKerentananBanjir,
+  showRisikoBanjir,
   showLandslideHazard,
   showLandslideCapacity,
   showEvacuationRoute,
@@ -104,6 +113,9 @@ export default function Sidebar({
   onToggleBoundary,
   onToggleFacilities,
   onToggleFloodRisk,
+  onToggleFloodCapacity,
+  onToggleKerentananBanjir,
+  onToggleRisikoBanjir,
   onToggleLandslideHazard,
   onToggleLandslideCapacity,
   onToggleLahanKritis,
@@ -369,16 +381,31 @@ export default function Sidebar({
                       <span className="text-xs font-semibold text-blue-800">Kerawanan Banjir</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Kerentanan Banjir</span>
+                      <input
+                        type="checkbox"
+                        checked={showKerentananBanjir}
+                        onChange={onToggleKerentananBanjir}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-blue-800">Kerentanan Banjir</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Kapasitas Banjir</span>
+                      <input
+                        type="checkbox"
+                        checked={showFloodCapacity}
+                        onChange={onToggleFloodCapacity}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-blue-800">Kapasitas Banjir</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-blue-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Risiko Banjir</span>
+                      <input
+                        type="checkbox"
+                        checked={showRisikoBanjir}
+                        onChange={onToggleRisikoBanjir}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-blue-800">Risiko Banjir</span>
                     </label>
                   </div>
                 )}
@@ -460,6 +487,15 @@ export default function Sidebar({
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
                       <input type="checkbox" className="w-3.5 h-3.5 text-slate-600 rounded" disabled />
                       <span className="text-xs text-slate-600">Jaringan Drainase</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showLahanKritis}
+                        onChange={onToggleLahanKritis}
+                        className="w-3.5 h-3.5 text-slate-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-slate-800">Ketersediaan Pengembangan Lahan</span>
                     </label>
                   </div>
                 )}
