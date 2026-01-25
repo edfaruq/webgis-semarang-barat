@@ -60,7 +60,7 @@ export default function HomePage() {
         const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, pump] = await Promise.all([
           loadGeoJSON("/data/infrastructure/boundary.geojson"),
           loadGeoJSON("/data/infrastructure/facilities.geojson"),
-          loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.json").catch(() => null),
+          loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/longsor/landslide-risk.geojson").catch(() => null),
           loadGeoJSON("/data/routes/evacuation-route.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/lahan-kritis/LahanKritis.geojson").catch(() => null),

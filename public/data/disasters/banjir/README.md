@@ -2,7 +2,11 @@
 
 Folder ini berisi data terkait banjir.
 - **Pemilik**: Farhan
-- **File**: Bahaya-Banjir-KKNT.geojson, flood-risk.geojson
+- **File** (GeoJSON):
+  - `Bahaya-Banjir-KKNT.geojson` — Kerawanan Banjir
+  - `Kerentanan-Bencana-Banjir.geojson` — Kerentanan Banjir
+  - `Kapasitas-Banjir-Smg-Bar.geojson` — Kapasitas Banjir
+  - `Risiko-Bencana-Banjir.geojson` — Risiko Bencana Banjir
 
 ## Format Data
-Semua file harus dalam format GeoJSON FeatureCollection.
+Semua file dalam format GeoJSON FeatureCollection.

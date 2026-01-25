@@ -3,9 +3,9 @@
  *
  * Layer untuk menampilkan data banjir:
  * 1. Kerawanan Banjir - data dari Bahaya-Banjir-KKNT.geojson
- * 2. Kerentanan Banjir - data dari Kerentanan-Bencana-Banjir.json
- * 3. Kapasitas Banjir - data dari Kapasitas-Banjir-Smg-Bar.json
- * 4. Risiko Bencana Banjir - data dari Risiko-Bencana-Banjir.json
+ * 2. Kerentanan Banjir - data dari Kerentanan-Bencana-Banjir.geojson
+ * 3. Kapasitas Banjir - data dari Kapasitas-Banjir-Smg-Bar.geojson
+ * 4. Risiko Bencana Banjir - data dari Risiko-Bencana-Banjir.geojson
  *
  * 👤 Owner: Farhan
  * 📁 Data: public/data/disasters/banjir/
@@ -53,7 +53,7 @@ export default function FloodLayer({ data, show, showKerentananBanjir, showCapac
 
   useEffect(() => {
     if (!showKerentananBanjir) return;
-    fetch("/data/disasters/banjir/Kerentanan-Bencana-Banjir.json")
+    fetch("/data/disasters/banjir/Kerentanan-Bencana-Banjir.geojson")
       .then((res) => res.json())
       .then((d) => setKerentananBanjirData(d))
       .catch((err) => console.error("Error loading kerentanan banjir:", err));
@@ -61,7 +61,7 @@ export default function FloodLayer({ data, show, showKerentananBanjir, showCapac
 
   useEffect(() => {
     if (!showCapacity) return;
-    fetch("/data/disasters/banjir/Kapasitas-Banjir-Smg-Bar.json")
+    fetch("/data/disasters/banjir/Kapasitas-Banjir-Smg-Bar.geojson")
       .then((res) => res.json())
       .then((d) => setKapasitasBanjirData(d))
       .catch((err) => console.error("Error loading kapasitas banjir:", err));
@@ -69,7 +69,7 @@ export default function FloodLayer({ data, show, showKerentananBanjir, showCapac
 
   useEffect(() => {
     if (!showRisikoBanjir) return;
-    fetch("/data/disasters/banjir/Risiko-Bencana-Banjir.json")
+    fetch("/data/disasters/banjir/Risiko-Bencana-Banjir.geojson")
       .then((res) => res.json())
       .then((d) => setRisikoBanjirData(d))
       .catch((err) => console.error("Error loading risiko bencana banjir:", err));
