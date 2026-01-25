@@ -1,9 +1,10 @@
 /**
  * LandslideLayer Component
  * 
- * Layer untuk menampilkan data longsor dengan dua dataset:
- * 1. Bahaya Longsor (hazard) - Area rawan longsor
+ * Layer untuk menampilkan data longsor dengan tiga dataset:
+ * 1. Kerawanan Longsor (hazard) - Area rawan longsor
  * 2. Kapasitas Longsor (capacity) - Kapasitas penanganan longsor
+ * 3. Kerentanan Longsor (vulnerability) - Tingkat kerentanan longsor
  * 
  * 👤 Owner: Faruq
  * 📁 Data: public/data/disasters/longsor/
@@ -20,6 +21,7 @@ interface LandslideLayerProps {
   data: GeoJSONCollection | null | undefined;
   showHazard: boolean;
   showCapacity: boolean;
+  showKerentanan: boolean;
 }
 
 interface LandslideProperties {
@@ -27,9 +29,19 @@ interface LandslideProperties {
   fid: number;
 }
 
-export default function LandslideLayer({ data, showHazard, showCapacity }: LandslideLayerProps) {
+interface KerentananProperties {
+  fid: number;
+  wadmkd?: string;
+  namaobj?: string;
+  Luas?: number;
+  Skor_Renta?: number;
+  Klas_Renta?: string;
+}
+
+export default function LandslideLayer({ data, showHazard, showCapacity, showKerentanan }: LandslideLayerProps) {
   const [bahayaData, setBahayaData] = useState<GeoJSONCollection | null>(null);
   const [kapasitasData, setKapasitasData] = useState<GeoJSONCollection | null>(null);
+  const [kerentananData, setKerentananData] = useState<GeoJSONCollection | null>(null);
 
   // Define UTM Zone 49S (EPSG:32749) projection
   const utmProjection = "+proj=utm +zone=49 +south +datum=WGS84 +units=m +no_defs";
@@ -65,14 +77,14 @@ export default function LandslideLayer({ data, showHazard, showCapacity }: Lands
   };
 
   useEffect(() => {
-    // Load Bahaya Longsor data
-    fetch("/data/disasters/longsor/bahaya-longsor.geojson")
+    // Load Kerawanan Longsor data
+    fetch("/data/disasters/longsor/kerawanan-longsor.geojson")
       .then((res) => res.json())
       .then((data) => {
         const transformed = transformGeoJSON(data);
         setBahayaData(transformed);
       })
-      .catch((err) => console.error("Error loading bahaya longsor:", err));
+      .catch((err) => console.error("Error loading kerawanan longsor:", err));
 
     // Load Kapasitas Longsor data
     fetch("/data/disasters/longsor/kapasitas-longsor.geojson")
@@ -82,16 +94,25 @@ export default function LandslideLayer({ data, showHazard, showCapacity }: Lands
         setKapasitasData(transformed);
       })
       .catch((err) => console.error("Error loading kapasitas longsor:", err));
+
+    // Load Kerentanan Longsor data
+    fetch("/data/disasters/longsor/kerentanan-longsor.geojson")
+      .then((res) => res.json())
+      .then((data) => {
+        const transformed = transformGeoJSON(data);
+        setKerentananData(transformed);
+      })
+      .catch((err) => console.error("Error loading kerentanan longsor:", err));
   }, []);
 
-  if (!showHazard && !showCapacity) return null;
+  if (!showHazard && !showCapacity && !showKerentanan) return null;
 
-  // Style untuk Bahaya Longsor (Area Rawan)
+  // Style untuk Kerawanan Longsor (Area Rawan)
   const bahayaStyle = (feature: any) => {
     const props = feature.properties as LandslideProperties;
     const dn = props.DN || 1;
     
-    // Palet warna untuk Bahaya Longsor (High to Low)
+    // Palet warna untuk Kerawanan Longsor (High to Low)
     const colors: Record<number, string> = {
       3: "#dc2626", // Merah Tua (Tinggi)
       2: "#f97316", // Orange (Sedang)
@@ -161,12 +182,42 @@ export default function LandslideLayer({ data, showHazard, showCapacity }: Lands
     return colors[dn] || "#f97316";
   };
 
+  // Style untuk Kerentanan Longsor
+  const kerentananStyle = (feature: any) => {
+    const props = feature.properties as KerentananProperties;
+    const klas = props.Klas_Renta || "Rendah";
+    
+    // Palet warna untuk Kerentanan Longsor berdasarkan klasifikasi
+    const colors: Record<string, string> = {
+      "Tinggi": "#dc2626", // Merah Tua
+      "Sedang": "#f97316", // Orange
+      "Rendah": "#fed7aa", // Orange Muda
+    };
+
+    return {
+      fillColor: colors[klas] || "#fed7aa",
+      weight: 0,
+      opacity: 0.5,
+      color: "#ffffff",
+      fillOpacity: 0.8,
+    };
+  };
+
+  const getKerentananColor = (klas: string): string => {
+    const colors: Record<string, string> = {
+      "Tinggi": "#dc2626", // Merah Tua
+      "Sedang": "#f97316", // Orange
+      "Rendah": "#fed7aa", // Orange Muda
+    };
+    return colors[klas] || "#fed7aa";
+  };
+
   return (
     <>
-      {/* Layer Bahaya Longsor (Area Rawan) */}
+      {/* Layer Kerawanan Longsor (Area Rawan) */}
       {showHazard && bahayaData && (
         <GeoJSON
-          key="bahaya-longsor"
+          key="kerawanan-longsor"
           data={bahayaData as any}
           style={bahayaStyle}
           onEachFeature={(feature, layer) => {
@@ -176,7 +227,7 @@ export default function LandslideLayer({ data, showHazard, showCapacity }: Lands
             
             layer.bindPopup(`
               <div style="font-family: sans-serif; padding: 5px;">
-                <strong style="color: #dc2626; display: block; margin-bottom: 4px;">⛰️ Zona Bahaya Longsor</strong>
+                <strong style="color: #dc2626; display: block; margin-bottom: 4px;">⛰️ Zona Kerawanan Longsor</strong>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <div style="width: 12px; height: 12px; background: ${color}; border-radius: 2px;"></div>
                   <span>Tingkat: <b>${level}</b></span>
@@ -216,6 +267,53 @@ export default function LandslideLayer({ data, showHazard, showCapacity }: Lands
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <div style="width: 12px; height: 12px; background: ${color}; border-radius: 2px;"></div>
                   <span>Tingkat: <b>${level}</b></span>
+                </div>
+              </div>
+            `);
+
+            // Efek hover agar lebih interaktif
+            layer.on({
+              mouseover: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.9, weight: 1 });
+              },
+              mouseout: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.8, weight: 0 });
+              },
+            });
+          }}
+        />
+      )}
+
+      {/* Layer Kerentanan Longsor */}
+      {showKerentanan && kerentananData && (
+        <GeoJSON
+          key="kerentanan-longsor"
+          data={kerentananData as any}
+          style={kerentananStyle}
+          onEachFeature={(feature, layer) => {
+            const props = feature.properties as KerentananProperties;
+            const klas = props.Klas_Renta || "Rendah";
+            const skor = props.Skor_Renta || 0;
+            const luas = props.Luas || 0;
+            const kelurahan = props.wadmkd || "Tidak Diketahui";
+            const rw = props.namaobj || "Tidak Diketahui";
+            const color = getKerentananColor(klas);
+            
+            layer.bindPopup(`
+              <div style="font-family: sans-serif; padding: 8px; min-width: 200px;">
+                <strong style="color: #dc2626; display: block; margin-bottom: 6px;">⚠️ Zona Kerentanan Longsor</strong>
+                <div style="margin-bottom: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                    <div style="width: 12px; height: 12px; background: ${color}; border-radius: 2px;"></div>
+                    <span>Tingkat: <b>${klas}</b></span>
+                  </div>
+                  <div style="font-size: 11px; color: #666; margin-top: 4px;">
+                    <div>Skor: <b>${skor.toFixed(1)}</b></div>
+                    <div>Luas: <b>${luas.toFixed(2)}</b> ha</div>
+                    <div>Lokasi: <b>${kelurahan} - ${rw}</b></div>
+                  </div>
                 </div>
               </div>
             `);

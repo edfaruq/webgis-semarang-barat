@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { GeoJSON, useMap } from "react-leaflet";
 import L from "leaflet";
 import { GeoJSONCollection } from "@/types/geojson";
-import { BoundaryProperties } from "@/types/geojson";
+import { BoundaryProperties, BasemapType } from "@/types/geojson";
 
 interface BoundaryLayerProps {
   data: GeoJSONCollection | null | undefined;
@@ -20,6 +20,7 @@ interface BoundaryLayerProps {
   selectedKelurahan?: string | null;
   onFeatureClick?: (feature: any) => void;
   onKelurahanChange?: (kelurahan: string | null) => void;
+  basemap?: BasemapType;
 }
 
 export default function BoundaryLayer({ 
@@ -27,7 +28,8 @@ export default function BoundaryLayer({
   show, 
   selectedKelurahan,
   onFeatureClick,
-  onKelurahanChange 
+  onKelurahanChange,
+  basemap = "osm"
 }: BoundaryLayerProps) {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const boundaryLayerRef = useRef<L.GeoJSON>(null);
@@ -50,10 +52,15 @@ export default function BoundaryLayer({
 
   const boundaryStyle = (feature: any) => {
     const isHovered = hoveredFeature === feature.properties.id || hoveredFeature === feature.properties.nama_wilayah;
+    
+    // Warna berdasarkan basemap: OSM = abu-abu tua, Satellite (esri-imagery) = merah
+    const baseColor = basemap === "esri-imagery" ? "#dc2626" : "#4b5563"; // Merah untuk satellite, abu-abu tua untuk OSM
+    const hoverColor = basemap === "esri-imagery" ? "#dc2626" : "#374151"; // Warna hover sedikit lebih gelap untuk OSM
+    
     return {
-      fillColor: isHovered ? "#fee2e2" : "transparent", 
+      fillColor: isHovered ? (basemap === "esri-imagery" ? "#fee2e2" : "#e5e7eb") : "transparent", 
       fillOpacity: isHovered ? 0.3 : 0,
-      color: isHovered ? "#dc2626" : "#dc2626",
+      color: isHovered ? hoverColor : baseColor,
       weight: isHovered ? 4 : 3,
       opacity: 1,
       dashArray: "10, 5", 

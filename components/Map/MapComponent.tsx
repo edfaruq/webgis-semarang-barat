@@ -45,6 +45,7 @@ interface MapComponentProps {
   showRisikoBanjir?: boolean;
   showLandslideHazard?: boolean;
   showLandslideCapacity?: boolean;
+  showKerentananLongsor?: boolean;
   showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
   showPump?: boolean;
@@ -151,6 +152,7 @@ export default function MapComponent({
   showLahanKritis = false,
   showLandslideHazard = false,
   showLandslideCapacity = false,
+  showKerentananLongsor = false,
   showEvacuationRoute = true,
   showPump = false,
   selectedCategory,
@@ -560,6 +562,7 @@ export default function MapComponent({
         data={landslideRiskData} 
         showHazard={showLandslideHazard}
         showCapacity={showLandslideCapacity}
+        showKerentanan={showKerentananLongsor}
       />
 
       {/* 👤 Shaqi - Lahan Kritis Layer */}
@@ -644,6 +647,7 @@ export default function MapComponent({
         data={boundaryData} 
         show={showBoundary}
         selectedKelurahan={selectedKelurahan}
+        basemap={basemap}
         onFeatureClick={onFeatureClick}
         onKelurahanChange={onKelurahanChange}
       />
