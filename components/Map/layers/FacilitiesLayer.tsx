@@ -68,6 +68,70 @@ export default function FacilitiesLayer({
   });
 
   const getFacilityIcon = (category: string): L.DivIcon => {
+    // Icon khusus untuk kesehatan (puskesmas) - mirip pompa air dengan tanda +
+    if (category === "puskesmas" || category === "kesehatan") {
+      const iconSize: [number, number] = [30, 30];
+      const iconAnchor: [number, number] = [15, 15];
+      
+      return L.divIcon({
+        className: "custom-health-marker",
+        html: `<div style="
+          background-color: #e74c3c;
+          width: ${iconSize[0]}px;
+          height: ${iconSize[1]}px;
+          border-radius: 50%;
+          border: 3px solid white;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        ">
+          <div style="
+            position: absolute;
+            width: 14px;
+            height: 2px;
+            background-color: white;
+            border-radius: 1px;
+          "></div>
+          <div style="
+            position: absolute;
+            width: 2px;
+            height: 14px;
+            background-color: white;
+            border-radius: 1px;
+          "></div>
+        </div>`,
+        iconSize,
+        iconAnchor,
+      });
+    }
+    
+    // Icon khusus untuk sekolah - mirip pompa air dengan icon toga/gedung
+    if (category === "sekolah" || category === "pendidikan") {
+      const iconSize: [number, number] = [30, 30];
+      const iconAnchor: [number, number] = [15, 15];
+      
+      return L.divIcon({
+        className: "custom-school-marker",
+        html: `<div style="
+          background-color: #3498db;
+          width: ${iconSize[0]}px;
+          height: ${iconSize[1]}px;
+          border-radius: 50%;
+          border: 3px solid white;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+        ">🎓</div>`,
+        iconSize,
+        iconAnchor,
+      });
+    }
+    
+    // Icon untuk kategori lainnya (tetap menggunakan circle)
     const iconSize: [number, number] = [25, 25];
     const iconAnchor: [number, number] = [12, 12];
     

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="pendidikan_pt_25k" id="pendidikan_pt_25k">
+	<SimpleField name="NAMOBJ" type="string"></SimpleField>
+	<SimpleField name="LUAS" type="float"></SimpleField>
+	<SimpleField name="KATPDK" type="float"></SimpleField>
+	<SimpleField name="JLPDDK" type="float"></SimpleField>
+	<SimpleField name="FGGPDK" type="float"></SimpleField>
+	<SimpleField name="REMARK" type="string"></SimpleField>
+	<SimpleField name="FCODE" type="string"></SimpleField>
+	<SimpleField name="SRS_ID" type="string"></SimpleField>
+	<SimpleField name="LCODE" type="string"></SimpleField>
+	<SimpleField name="METADATA" type="string"></SimpleField>
+	<SimpleField name="JJGPDF" type="float"></SimpleField>
+	<SimpleField name="JNSPDL" type="float"></SimpleField>
+</Schema>
+<Folder><name>pendidikan_pt_25k</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#pendidikan_pt_25k">
+		<SimpleData name="LUAS">0.00000000000</SimpleData>
+		<SimpleData name="KATPDK">0</SimpleData>
+		<SimpleData name="JLPDDK">0</SimpleData>
+		<SimpleData name="FGGPDK">999</SimpleData>
+		<SimpleData name="REMARK">Pendidikan/Penelitian Lainnya</SimpleData>
+		<SimpleData name="LCODE">GE0020</SimpleData>
+		<SimpleData name="JJGPDF">999</SimpleData>
+		<SimpleData name="JNSPDL">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>110.479749644,-6.95454879899995,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#pendidikan_pt_25k">
+		<SimpleData name="LUAS">0.00000000000</SimpleData>
+		<SimpleData name="KATPDK">0</SimpleData>
+		<SimpleData name="JLPDDK">0</SimpleData>
+		<SimpleData name="FGGPDK">999</SimpleData>
+		<SimpleData name="REMARK">Pendidikan/Penelitian Lainnya</SimpleData>
+		<SimpleData name="LCODE">GE0020</SimpleData>
+		<SimpleData name="JJGPDF">999</SimpleData>
+		<SimpleData name="JNSPDL">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>110.47035854,-6.95478858999996,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#pendidikan_pt_25k">
+		<SimpleData name="LUAS">0.00000000000</SimpleData>
+		<SimpleData name="KATPDK">0</SimpleData>
+		<SimpleData name="JLPDDK">0</SimpleData>
+		<SimpleData name="FGGPDK">999</SimpleData>
+		<SimpleData name="REMARK">Pendidikan/Penelitian Lainnya</SimpleData>
+		<SimpleData name="LCODE">GE0020</SimpleData>
+		<SimpleData name="JJGPDF">999</SimpleData>
+		<SimpleData name="JNSPDL">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>110.457594223,-6.95555794099993,0</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

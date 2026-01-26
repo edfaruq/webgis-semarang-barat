@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Fasilitas Kesehatan</name>
+    <Placemark>
+      <name>Puskesmas Manyaran</name>
+      <description>Jalan Contoh No. 123, Manyaran</description>
+      <Point>
+        <coordinates>110.3859673,-7.008538,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Klinik Sehat</name>
+      <description>Jalan Puspanjolo Tengah II No. 23</description>
+      <Point>
+        <coordinates>110.3900000,-7.0100000,0</coordinates>
+      </Point>
+      <ExtendedData>
+        <Data name="alamat">
+          <value>Jalan Puspanjolo Tengah II No. 23</value>
+        </Data>
+        <Data name="kategori">
+          <value>puskesmas</value>
+        </Data>
+        <Data name="kelurahan">
+          <value>Manyaran</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+  </Document>
+</kml>
