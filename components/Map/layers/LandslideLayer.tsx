@@ -1,10 +1,11 @@
 /**
  * LandslideLayer Component
  * 
- * Layer untuk menampilkan data longsor dengan tiga dataset:
+ * Layer untuk menampilkan data longsor dengan empat dataset:
  * 1. Kerawanan Longsor (hazard) - Area rawan longsor
  * 2. Kapasitas Longsor (capacity) - Kapasitas penanganan longsor
  * 3. Kerentanan Longsor (vulnerability) - Tingkat kerentanan longsor
+ * 4. Risiko Longsor (risk) - Tingkat risiko longsor
  * 
  * 👤 Owner: Faruq
  * 📁 Data: public/data/disasters/longsor/
@@ -22,6 +23,7 @@ interface LandslideLayerProps {
   showHazard: boolean;
   showCapacity: boolean;
   showKerentanan: boolean;
+  showRisiko: boolean;
 }
 
 interface LandslideProperties {
@@ -38,10 +40,11 @@ interface KerentananProperties {
   Klas_Renta?: string;
 }
 
-export default function LandslideLayer({ data, showHazard, showCapacity, showKerentanan }: LandslideLayerProps) {
+export default function LandslideLayer({ data, showHazard, showCapacity, showKerentanan, showRisiko }: LandslideLayerProps) {
   const [bahayaData, setBahayaData] = useState<GeoJSONCollection | null>(null);
   const [kapasitasData, setKapasitasData] = useState<GeoJSONCollection | null>(null);
   const [kerentananData, setKerentananData] = useState<GeoJSONCollection | null>(null);
+  const [risikoData, setRisikoData] = useState<GeoJSONCollection | null>(null);
 
   // Define UTM Zone 49S (EPSG:32749) projection
   const utmProjection = "+proj=utm +zone=49 +south +datum=WGS84 +units=m +no_defs";
@@ -103,9 +106,18 @@ export default function LandslideLayer({ data, showHazard, showCapacity, showKer
         setKerentananData(transformed);
       })
       .catch((err) => console.error("Error loading kerentanan longsor:", err));
+
+    // Load Risiko Longsor data
+    fetch("/data/disasters/longsor/risiko-longsor.geojson")
+      .then((res) => res.json())
+      .then((data) => {
+        const transformed = transformGeoJSON(data);
+        setRisikoData(transformed);
+      })
+      .catch((err) => console.error("Error loading risiko longsor:", err));
   }, []);
 
-  if (!showHazard && !showCapacity && !showKerentanan) return null;
+  if (!showHazard && !showCapacity && !showKerentanan && !showRisiko) return null;
 
   // Style untuk Kerawanan Longsor (Area Rawan)
   const bahayaStyle = (feature: any) => {
@@ -212,6 +224,36 @@ export default function LandslideLayer({ data, showHazard, showCapacity, showKer
     return colors[klas] || "#fed7aa";
   };
 
+  // Style untuk Risiko Longsor
+  const risikoStyle = (feature: any) => {
+    const props = feature.properties as LandslideProperties;
+    const dn = props.DN || 1;
+    
+    // Palet warna untuk Risiko Longsor
+    const colors: Record<number, string> = {
+      1: "#dc2626", // Merah (Tinggi)
+      2: "#f97316", // Oren (Sedang)
+      3: "#fed7aa", // Orange Muda
+    };
+
+    return {
+      fillColor: colors[dn] || "#d4a574",
+      weight: 0,
+      opacity: 0.5,
+      color: "#ffffff",
+      fillOpacity: 0.8,
+    };
+  };
+
+  const getRisikoColor = (dn: number): string => {
+    const colors: Record<number, string> = {
+      1: "#dc2626", // Merah
+      2: "#f97316", // Oren
+      3: "#fed7aa", // Orange Muda
+    };
+    return colors[dn] || "#d4a574";
+  };
+
   return (
     <>
       {/* Layer Kerawanan Longsor (Area Rawan) */}
@@ -314,6 +356,42 @@ export default function LandslideLayer({ data, showHazard, showCapacity, showKer
                     <div>Luas: <b>${luas.toFixed(2)}</b> ha</div>
                     <div>Lokasi: <b>${kelurahan} - ${rw}</b></div>
                   </div>
+                </div>
+              </div>
+            `);
+
+            // Efek hover agar lebih interaktif
+            layer.on({
+              mouseover: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.9, weight: 1 });
+              },
+              mouseout: (e) => {
+                const l = e.target;
+                l.setStyle({ fillOpacity: 0.8, weight: 0 });
+              },
+            });
+          }}
+        />
+      )}
+
+      {/* Layer Risiko Longsor */}
+      {showRisiko && risikoData && (
+        <GeoJSON
+          key="risiko-longsor"
+          data={risikoData as any}
+          style={risikoStyle}
+          onEachFeature={(feature, layer) => {
+            const props = feature.properties as LandslideProperties;
+            const level = getLevelText(props.DN);
+            const color = getRisikoColor(props.DN);
+            
+            layer.bindPopup(`
+              <div style="font-family: sans-serif; padding: 5px;">
+                <strong style="color: #dc2626; display: block; margin-bottom: 4px;">⚠️ Zona Risiko Longsor</strong>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 12px; height: 12px; background: ${color}; border-radius: 2px;"></div>
+                  <span>Tingkat Risiko: <b>${level}</b></span>
                 </div>
               </div>
             `);

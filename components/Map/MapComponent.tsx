@@ -46,6 +46,7 @@ interface MapComponentProps {
   showLandslideHazard?: boolean;
   showLandslideCapacity?: boolean;
   showKerentananLongsor?: boolean;
+  showRisikoLongsor?: boolean;
   showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
   showPump?: boolean;
@@ -153,6 +154,7 @@ export default function MapComponent({
   showLandslideHazard = false,
   showLandslideCapacity = false,
   showKerentananLongsor = false,
+  showRisikoLongsor = false,
   showEvacuationRoute = true,
   showPump = false,
   selectedCategory,
@@ -563,6 +565,7 @@ export default function MapComponent({
         showHazard={showLandslideHazard}
         showCapacity={showLandslideCapacity}
         showKerentanan={showKerentananLongsor}
+        showRisiko={showRisikoLongsor}
       />
 
       {/* 👤 Shaqi - Lahan Kritis Layer */}

@@ -41,6 +41,7 @@ export default function HomePage() {
   const [showLandslideHazard, setShowLandslideHazard] = useState(false);
   const [showLandslideCapacity, setShowLandslideCapacity] = useState(false);
   const [showKerentananLongsor, setShowKerentananLongsor] = useState(false);
+  const [showRisikoLongsor, setShowRisikoLongsor] = useState(false);
   const [showEvacuationRoute, setShowEvacuationRoute] = useState(false);
   const [showPump, setShowPump] = useState(false);
   const [selectedPump, setSelectedPump] = useState<any | null>(null);
@@ -143,6 +144,7 @@ export default function HomePage() {
           showLandslideHazard={showLandslideHazard}
           showLandslideCapacity={showLandslideCapacity}
           showKerentananLongsor={showKerentananLongsor}
+          showRisikoLongsor={showRisikoLongsor}
           showEvacuationRoute={showEvacuationRoute}
           showPump={showPump}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
@@ -155,6 +157,7 @@ export default function HomePage() {
           onToggleLandslideHazard={() => setShowLandslideHazard(!showLandslideHazard)}
           onToggleLandslideCapacity={() => setShowLandslideCapacity(!showLandslideCapacity)}
           onToggleKerentananLongsor={() => setShowKerentananLongsor(!showKerentananLongsor)}
+          onToggleRisikoLongsor={() => setShowRisikoLongsor(!showRisikoLongsor)}
           onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
           onTogglePump={() => setShowPump(!showPump)}
           selectedCategory={selectedCategory}
@@ -187,6 +190,7 @@ export default function HomePage() {
             showLandslideHazard={showLandslideHazard}
             showLandslideCapacity={showLandslideCapacity}
             showKerentananLongsor={showKerentananLongsor}
+            showRisikoLongsor={showRisikoLongsor}
             showEvacuationRoute={showEvacuationRoute}
             showPump={showPump}
             selectedCategory={selectedCategory}

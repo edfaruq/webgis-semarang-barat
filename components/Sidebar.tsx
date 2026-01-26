@@ -39,6 +39,7 @@ interface SidebarProps {
   showLandslideHazard: boolean;
   showLandslideCapacity: boolean;
   showKerentananLongsor: boolean;
+  showRisikoLongsor: boolean;
   showLahanKritis: boolean;
   showEvacuationRoute: boolean;
   showPump: boolean;
@@ -51,6 +52,7 @@ interface SidebarProps {
   onToggleLandslideHazard: () => void;
   onToggleLandslideCapacity: () => void;
   onToggleKerentananLongsor: () => void;
+  onToggleRisikoLongsor: () => void;
   onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
   onTogglePump: () => void;
@@ -111,6 +113,7 @@ export default function Sidebar({
   showLandslideHazard,
   showLandslideCapacity,
   showKerentananLongsor,
+  showRisikoLongsor,
   showEvacuationRoute,
   showPump,
   onToggleBoundary,
@@ -122,6 +125,7 @@ export default function Sidebar({
   onToggleLandslideHazard,
   onToggleLandslideCapacity,
   onToggleKerentananLongsor,
+  onToggleRisikoLongsor,
   onToggleLahanKritis,
   onToggleEvacuationRoute,
   onTogglePump,
@@ -460,8 +464,13 @@ export default function Sidebar({
                       <span className="text-xs font-semibold text-orange-800">Kapasitas Longsor</span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-orange-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Risiko Longsor</span>
+                      <input
+                        type="checkbox"
+                        checked={showRisikoLongsor}
+                        onChange={onToggleRisikoLongsor}
+                        className="w-3.5 h-3.5 text-orange-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-orange-800">Risiko Longsor</span>
                     </label>
                   </div>
                 )}
