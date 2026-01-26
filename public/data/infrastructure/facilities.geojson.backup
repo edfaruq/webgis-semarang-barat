@@ -1099,8 +1099,158 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          110.479113493,
+          -6.95358826899997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.460289713,
+          -6.95586983799996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.447287371,
+          -6.95749760299998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.430365605,
+          -6.96502468999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.422204125,
+          -6.96506146299993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.439543477,
+          -6.96998809899998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.494177561,
+          -6.97377862199995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.41484886,
+          -6.97409521899994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.434853396,
+          -6.97415558399996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           110.394986828,
           -6.97591637299996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.46451971,
+          -6.97827930299997
         ]
       }
     },
@@ -1129,6 +1279,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          110.414113448,
+          -6.98709161899995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.407137789,
+          -6.98752088099997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           110.385815224,
           -6.99243900399994
         ]
@@ -1144,8 +1324,458 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          110.40438254,
+          -6.99291240899993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.407428912,
+          -6.99472462699992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.437904252,
+          -6.99497193899998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.405717098,
+          -6.99582493399992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.464496884,
+          -6.99642869799993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.404815944,
+          -6.99689396699995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.442092381,
+          -6.99695753299995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           110.392923991,
           -7.00297235199997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.456695932,
+          -7.00626631099993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.419064588,
+          -7.00824533799993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.471732019,
+          -7.01141147999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.416028177,
+          -7.01141374199995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.432170849,
+          -7.01313834199993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.452921487,
+          -7.01398340299994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.393833506,
+          -7.01557087399993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.478926738,
+          -7.02331890199997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.310252856,
+          -7.02147201899993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.372823144,
+          -7.02983396699995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.298790679,
+          -7.03960051299993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.31408283,
+          -7.05627668599994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.365842077,
+          -7.06222846999998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.335293305,
+          -7.06397836499997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.367670318,
+          -7.08680874499992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.334259451,
+          -7.09462556999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.298046473,
+          -6.96704559899996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.335297854,
+          -6.97123942899997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.29632918,
+          -6.97356335699993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Rumah Sakit Khusus",
+        "kategori": "puskesmas",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.303369278,
+          -6.97383049999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pendidikan/Penelitian Lainnya",
+        "kategori": "sekolah",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.479749644,
+          -6.95454879899995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pendidikan/Penelitian Lainnya",
+        "kategori": "sekolah",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.47035854,
+          -6.95478858999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pendidikan/Penelitian Lainnya",
+        "kategori": "sekolah",
+        "alamat": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.457594223,
+          -6.95555794099993
         ]
       }
     }
