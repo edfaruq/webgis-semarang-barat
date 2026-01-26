@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Menu,
 } from "lucide-react";
+import Image from "next/image";
 
 interface HeaderProps {
   selectedKelurahan: string | null;
@@ -54,7 +55,7 @@ export default function Header({
         {/* Hamburger menu untuk mobile */}
         <button
           onClick={onMenuClick}
-          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          className="lg:hidden p-0 hover:bg-gray-100 rounded-lg transition-colors"
           aria-label="Toggle menu"
         >
           <Menu size={24} className="text-slate-700" />
@@ -64,14 +65,20 @@ export default function Header({
           className="flex items-center gap-2 lg:gap-3 cursor-pointer"
           onClick={() => onKelurahanChange(null)}
         >
-          <div className="bg-indigo-600 p-2 rounded-lg text-white">
-            <MapPin size={20} />
+          <div className="relative w-12 h-12 md:w-16 md:h-16 drop-shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+            <Image
+              src="/images/katana-logo.png"
+              alt="KATANA Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <div>
+          <div className="hidden sm:block">
             <h1 className="font-bold text-slate-800 leading-none text-sm lg:text-base">
               WebGIS Katana Semarang Barat
             </h1>
-            <p className="text-[9px] lg:text-[10px] text-slate-500 uppercase tracking-widest mt-0.5 lg:mt-1 hidden sm:block">
+            <p className="text-[9px] lg:text-[10px] text-slate-500 uppercase tracking-widest mt-0.5 lg:mt-1 hidden md:block">
               Decision Support System - Mitigasi Bencana
             </p>
           </div>
