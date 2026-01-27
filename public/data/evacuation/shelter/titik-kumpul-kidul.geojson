@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Kumpul Evakuasi Banjir Kidul",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Lapangan Rw 05", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 432056.952695668092929, 9227515.365979190915823, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Masjid Al-Iman", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431878.573323449410964, 9227487.88137630559504, 0.0 ] } }
+]
+}

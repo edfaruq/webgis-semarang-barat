@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "TITIK SHELTER LONGSOR_KALIBANTENG KULON",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "Name": "TANAH KOSONG", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": null, "extrude": null, "visibility": null, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431370.234867181628942, 9226913.845638900995255, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "SDN Kalibanteng Kulon 01", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431507.712889749440365, 9227706.974691824987531, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "SD Negeri Kalibanteng Kulon 02", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431407.829662891686894, 9227099.088947160169482, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Masjid Jami Al Hikmah", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": null, "extrude": null, "visibility": null, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431156.032892031478696, 9228029.589158929884434, 0.0 ] } }
+]
+}

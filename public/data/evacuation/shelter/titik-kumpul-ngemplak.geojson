@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "Shelter Evakuasi Ngemplak Simongan",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "Nama": "Balai RW" }, "geometry": { "type": "Point", "coordinates": [ 433145.013718861853704, 9226386.599047716706991 ] } },
+{ "type": "Feature", "properties": { "id": 2, "Nama": "Masjid Jami' AL Hikmah" }, "geometry": { "type": "Point", "coordinates": [ 432991.008461910358164, 9226098.488231217488647 ] } },
+{ "type": "Feature", "properties": { "id": 3, "Nama": "Masjid Baitul A'la" }, "geometry": { "type": "Point", "coordinates": [ 433192.398797316884156, 9225995.871806690469384 ] } },
+{ "type": "Feature", "properties": { "id": 4, "Nama": "Masjid Al-Amin" }, "geometry": { "type": "Point", "coordinates": [ 433146.179784607258625, 9226448.845353847369552 ] } }
+]
+}

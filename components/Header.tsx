@@ -65,7 +65,7 @@ export default function Header({
           className="flex items-center gap-2 lg:gap-3 cursor-pointer"
           onClick={() => onKelurahanChange(null)}
         >
-          <div className="relative w-12 h-12 md:w-16 md:h-16 drop-shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+          <div className="relative w-8 h-8 md:w-10 md:h-10 drop-shadow-[0_0_20px_rgba(0,0,0,0.2)]">
             <Image
               src="/images/katana-logo.png"
               alt="KATANA Logo"

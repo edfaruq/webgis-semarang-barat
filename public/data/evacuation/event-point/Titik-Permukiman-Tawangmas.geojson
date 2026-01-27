@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Permukiman",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 2, "x": 432550.25225492078, "y": 9229100.1866357233 }, "geometry": { "type": "Point", "coordinates": [ 432550.252254920778796, 9229100.186635723337531 ] } },
+{ "type": "Feature", "properties": { "id": 3, "x": 432840.08215055277, "y": 9229066.5393092893 }, "geometry": { "type": "Point", "coordinates": [ 432840.082150552771054, 9229066.539309289306402 ] } },
+{ "type": "Feature", "properties": { "id": 4, "x": 432817.9285534356, "y": 9229221.7888905406 }, "geometry": { "type": "Point", "coordinates": [ 432817.928553435602225, 9229221.788890540599823 ] } },
+{ "type": "Feature", "properties": { "id": 1, "x": 432830.9590635887, "y": 9229331.7219356485 }, "geometry": { "type": "Point", "coordinates": [ 432830.959063588699792, 9229331.721935648471117 ] } },
+{ "type": "Feature", "properties": { "id": 5, "x": 433060.1023107947, "y": 9229244.1977259964 }, "geometry": { "type": "Point", "coordinates": [ 433060.102310794696677, 9229244.197725996375084 ] } },
+{ "type": "Feature", "properties": { "id": 6, "x": 432997.95766288362, "y": 9229444.9423570856 }, "geometry": { "type": "Point", "coordinates": [ 432997.957662883563899, 9229444.942357085645199 ] } },
+{ "type": "Feature", "properties": { "id": 8, "x": 433134.6376956263, "y": 9229693.5709995665 }, "geometry": { "type": "Point", "coordinates": [ 433134.637695626239292, 9229693.570999566465616 ] } },
+{ "type": "Feature", "properties": { "id": 9, "x": 433619.63216732041, "y": 9229618.4841244537 }, "geometry": { "type": "Point", "coordinates": [ 433619.632167320407461, 9229618.484124453738332 ] } },
+{ "type": "Feature", "properties": { "id": 10, "x": 433509.91305401467, "y": 9229917.5561894663 }, "geometry": { "type": "Point", "coordinates": [ 433509.913054014672525, 9229917.556189466267824 ] } },
+{ "type": "Feature", "properties": { "id": 7, "x": 433184.8127848694, "y": 9230079.538168801 }, "geometry": { "type": "Point", "coordinates": [ 433184.812784869340248, 9230079.538168800994754 ] } }
+]
+}

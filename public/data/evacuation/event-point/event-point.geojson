@@ -1,0 +1,4169 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-1-1",
+        "nama": "Lapangan Rw 05",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Name": "Lapangan Rw 05",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38488520000004,
+          -6.988162399999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-1-2",
+        "nama": "Masjid Al-Iman",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Titik kejadian banjir di Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Name": "Masjid Al-Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38327000000004,
+          -6.988408900000007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-1-3",
+        "nama": "Banjir Rw 05",
+        "label": "Titik Banjir 3",
+        "deskripsi": "Titik kejadian banjir di Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Name": "Banjir Rw 05",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38390750000005,
+          -6.986860600000007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-2-1",
+        "nama": "Banjir Rw 03",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Kalibanteng Kulon",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Name": "Banjir Rw 03",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38085990000005,
+          -6.981788500000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-2-2",
+        "nama": "Columbia Asia Hospital - Semarang",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Titik kejadian banjir di Kalibanteng Kulon",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Name": "Columbia Asia Hospital - Semarang",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38292750000002,
+          -6.984199599999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-3-1",
+        "nama": "Longsor Rw 03",
+        "label": "Titik Longsor 1",
+        "deskripsi": "Titik kejadian longsor di Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "Longsor Rw 03",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38196940000005,
+          -6.993232699999992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-3-2",
+        "nama": "Longsor Rw 04",
+        "label": "Titik Longsor 2",
+        "deskripsi": "Titik kejadian longsor di Kalibanteng Kidul",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "Longsor Rw 04",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38119170000004,
+          -6.995242000000006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-1",
+        "nama": "longsor dikit",
+        "label": "Titik Longsor 1",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "longsor dikit",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:11:53.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39051130400009,
+          -6.99118363499997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-2",
+        "nama": "RT 1 RW 4",
+        "label": "Titik Longsor 2",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 1 RW 4",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 02:54:32.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39454362400005,
+          -6.991691439999954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-3",
+        "nama": "RT 3 RW 5",
+        "label": "Titik Longsor 3",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 3 RW 5",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:02:51.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39184657900006,
+          -6.991661558999965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-4",
+        "nama": "RT 3 RW 5, yang longsorin RT 5 RW 7",
+        "label": "Titik Longsor 4",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 3 RW 5, yang longsorin RT 5 RW 7",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:04:57.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39140361300008,
+          -6.991494431999968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-5",
+        "nama": "RT 3 RW 6",
+        "label": "Titik Longsor 5",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 3 RW 6",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:09:24.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39024334400006,
+          -6.991545518999942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-6",
+        "nama": "RT 3 RW 7",
+        "label": "Titik Longsor 6",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 3 RW 7",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 03:36:58.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39096463700008,
+          -6.989741866999964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-7",
+        "nama": "RT 4 RW 5",
+        "label": "Titik Longsor 7",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 4 RW 5",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 03:35:05.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39057613400007,
+          -6.989957265999976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-8",
+        "nama": "RT 5 RW 7",
+        "label": "Titik Longsor 8",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 5 RW 7",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 03:43:05.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39120620100005,
+          -6.990772112999935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-9",
+        "nama": "RT 8 RW 2",
+        "label": "Titik Longsor 9",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 8 RW 2",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 02:39:09.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39753018300007,
+          -6.996774731999949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-10",
+        "nama": "RT 8 RW 2",
+        "label": "Titik Longsor 10",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RT 8 RW 2",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 02:41:59.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39710180500003,
+          -6.99643580299994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-11",
+        "nama": "Rumah (2)",
+        "label": "Titik Longsor 11",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "Rumah (2)",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:14:58.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39140707000007,
+          -6.991825241999948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-12",
+        "nama": "Rumah RT 1 RW 2",
+        "label": "Titik Longsor 12",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "Rumah RT 1 RW 2",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 02:30:23.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39782270700005,
+          -6.993257722999942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-13",
+        "nama": "rumah RT 2 RW 8",
+        "label": "Titik Longsor 13",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "rumah RT 2 RW 8",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:29:48.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39673549700007,
+          -6.993796957999962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-14",
+        "nama": "RW 5 RT 2",
+        "label": "Titik Longsor 14",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "RW 5 RT 2",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:14:25.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39148161200006,
+          -6.991868604999979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-4-15",
+        "nama": "Tempat pembakaran mayit RT 2 RW 8",
+        "label": "Titik Longsor 15",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OID_": 0,
+        "Name": "Tempat pembakaran mayit RT 2 RW 8",
+        "FolderPath": "Document/Layer 1",
+        "SymbolID": 0,
+        "AltMode": -1,
+        "Base": 0,
+        "TimeSpan": 0,
+        "TimeStamp": -1,
+        "BeginTime": "2026-01-07 04:24:22.0",
+        "EndTime": null,
+        "Snippet": null,
+        "PopupInfo": null,
+        "HasLabel": -1,
+        "LabelID": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39560906900005,
+          -6.991331714999944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "0D08FD6A103CD62A2123",
+        "nama": "Manyaran 1 Longsor",
+        "label": "Titik Longsor 1",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "Manyaran 1 Longsor",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": null,
+        "19273C367F": null,
+        "08E3AEDF80": null,
+        "1C99E69BFE": 23
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38646460000004,
+          -7.001261299999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "0F6328081A3CD63999CD",
+        "nama": "Manyaran 2 longsor",
+        "label": "Titik Longsor 2",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "Manyaran 2 longsor",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": null,
+        "19273C367F": null,
+        "08E3AEDF80": null,
+        "1C99E69BFE": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38315300000004,
+          -7.004314700000003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "01811A74A73CD642817F",
+        "nama": "manyaran 3 longsor",
+        "label": "Titik Longsor 3",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "manyaran 3 longsor",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": null,
+        "19273C367F": null,
+        "08E3AEDF80": null,
+        "1C99E69BFE": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38280850000004,
+          -7.005569900000009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "08F6A31F823CD6545C54",
+        "nama": "manyaran 4 longsor",
+        "label": "Titik Longsor 4",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "manyaran 4 longsor",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": null,
+        "19273C367F": null,
+        "08E3AEDF80": 35,
+        "1C99E69BFE": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38141300000004,
+          -7.006612699999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "04C63FA96A3CD65AAD7D",
+        "nama": "manyaran 5 longsor",
+        "label": "Titik Longsor 5",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "manyaran 5 longsor",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": null,
+        "19273C367F": 9,
+        "08E3AEDF80": null,
+        "1C99E69BFE": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38119620000005,
+          -6.999697900000002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "07B1924DE63CFAF94AB8",
+        "nama": "Manyaran",
+        "label": "Titik Longsor 6",
+        "deskripsi": "Titik kejadian longsor di Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "Name": "Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "1CDFB25B1C": 22,
+        "19273C367F": null,
+        "08E3AEDF80": null,
+        "1C99E69BFE": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38173230000004,
+          -7.008989399999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 432550.2522549208,
+        "y": 9229100.186635723
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38936964438916,
+          -6.973832784016489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 432840.0821505528,
+        "y": 9229066.53930929
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39199301461899,
+          -6.9741405248514425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 3",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 432817.9285534356,
+        "y": 9229221.78889054
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39179427445006,
+          -6.9727359624731635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 4",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 432830.9590635887,
+        "y": 9229331.721935648
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3919135185514,
+          -6.9717417191430275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 5",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 433060.1023107947,
+        "y": 9229244.197725996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39398687349855,
+          -6.972536082032596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 6",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 432997.9576628836,
+        "y": 9229444.942357086
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39342662896136,
+          -6.970719531372149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 7",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 433134.6376956263,
+        "y": 9229693.570999566
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39466683972074,
+          -6.96847215588018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 8",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 433619.6321673204,
+        "y": 9229618.484124454
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39905647212255,
+          -6.969156955394146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 9",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 433509.9130540147,
+        "y": 9229917.556189466
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39806666950348,
+          -6.966450442609589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "nama": "Titik Permukiman",
+        "label": "Titik Banjir 10",
+        "deskripsi": "Titik kejadian banjir di Tawangmas",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "x": 433184.8127848694,
+        "y": 9230079.538168801
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39512553260518,
+          -6.964981483071502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-7-1",
+        "nama": "Graphic Pick 1",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "ObjectID": 1,
+        "Name": "Graphic Pick 1",
+        "TargetFaci": 0,
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.75161340534,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433063.3893999998,
+        "y": 9229090.0199
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39401483844598,
+          -6.973930730403666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-7-2",
+        "nama": "Graphic Pick 3",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Titik kejadian banjir di Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "ObjectID": 3,
+        "Name": "Graphic Pick 3",
+        "TargetFaci": 0,
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.93571606514,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433607.9216,
+        "y": 9228601.784
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39893873654869,
+          -6.978353354577908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-7-3",
+        "nama": "Graphic Pick 4",
+        "label": "Titik Banjir 3",
+        "deskripsi": "Titik kejadian banjir di Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "ObjectID": 4,
+        "Name": "Graphic Pick 4",
+        "TargetFaci": 0,
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.95773865135,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433674.2998000002,
+        "y": 9229315.9763
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3995478783535,
+          -6.971893911639977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-7-4",
+        "nama": "Graphic Pick 7",
+        "label": "Titik Banjir 4",
+        "deskripsi": "Titik kejadian banjir di Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "ObjectID": 5,
+        "Name": "Graphic Pick 7",
+        "TargetFaci": 0,
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.80704380275,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433243.0028999998,
+        "y": 9228616.1612
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39563534342781,
+          -6.978219087315708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-8-1",
+        "nama": "RW 4",
+        "label": "Titik Longsor 1",
+        "deskripsi": "Lokasi: RW 4 | Dampak: Merusak tanggul jalan | Penyebab: Hujan Deras | Tanggal: 25 Desember 2025",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "KET": "Kejadian Bencana",
+        "JB": "Longsor",
+        "ALMT": "RW 4",
+        "TGL_KEJ": "25 Desember 2025",
+        "DAMPAK": "Merusak tanggul jalan",
+        "PENYEBAB": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38762747200012,
+          -6.990027391999939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-8-2",
+        "nama": "RW 5",
+        "label": "Titik Longsor 2",
+        "deskripsi": "Lokasi: RW 5 | Dampak: Merusak sebagian rumah warga | Penyebab: Hujan Deras | Tanggal: 2025",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "KET": "Kejadian Bencana",
+        "JB": "Longsor",
+        "ALMT": "RW 5",
+        "TGL_KEJ": "2025",
+        "DAMPAK": "Merusak sebagian rumah warga",
+        "PENYEBAB": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38974135300008,
+          -6.993357546999951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-8-3",
+        "nama": "RW 6",
+        "label": "Titik Longsor 3",
+        "deskripsi": "Lokasi: RW 6 | Dampak: Merusak sebagian rumah warga | Penyebab: Hujan Deras | Tanggal: 16 Desember 2025",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "KET": "Kejadian Bencana",
+        "JB": "Longsor",
+        "ALMT": "RW 6",
+        "TGL_KEJ": "16 Desember 2025",
+        "DAMPAK": "Merusak sebagian rumah warga",
+        "PENYEBAB": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38494890200012,
+          -6.9949640349999465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-8-4",
+        "nama": "RW 6",
+        "label": "Titik Longsor 4",
+        "deskripsi": "Lokasi: RW 6 | Dampak: Merusak sebagian rumah warga | Penyebab: Hujan Deras | Tanggal: Maret 2025",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "KET": "Kejadian Bencana",
+        "JB": "Longsor",
+        "ALMT": "RW 6",
+        "TGL_KEJ": "Maret 2025",
+        "DAMPAK": "Merusak sebagian rumah warga",
+        "PENYEBAB": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38495571400009,
+          -6.995058533999956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-1",
+        "nama": "RW 03",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Lokasi: RW 03 | Penyebab: Hujan Deras, Peninggian Jalan, dan Belum Ada Pompa",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 03",
+        "Penyebab": "Hujan Deras, Peninggian Jalan, dan Belum Ada Pompa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38987398100005,
+          -6.978936194999968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-2",
+        "nama": "RW 03",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Lokasi: RW 03 | Penyebab: Hujan Deras, Peninggian Jalan, dan Belum Ada Pompa",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 03",
+        "Penyebab": "Hujan Deras, Peninggian Jalan, dan Belum Ada Pompa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39022941908055,
+          -6.9794391528722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-3",
+        "nama": "RW 01",
+        "label": "Titik Banjir 3",
+        "deskripsi": "Lokasi: RW 01 | Penyebab: Hujan Deras dan Pompa Air Tidak Berfungsi",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 01",
+        "Penyebab": "Hujan Deras dan Pompa Air Tidak Berfungsi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39355519013631,
+          -6.978533989502095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-4",
+        "nama": "RW 02",
+        "label": "Titik Banjir 4",
+        "deskripsi": "Lokasi: RW 02 | Penyebab: Hujan Deras dan Resapan Air Kurang Maksimal",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 02",
+        "Penyebab": "Hujan Deras dan Resapan Air Kurang Maksimal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39183013765559,
+          -6.980123263011922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-5",
+        "nama": "RW 02",
+        "label": "Titik Banjir 5",
+        "deskripsi": "Lokasi: RW 02 | Penyebab: Hujan Deras dan Resapan Air Kurang Maksimal",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 02",
+        "Penyebab": "Hujan Deras dan Resapan Air Kurang Maksimal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39192634218851,
+          -6.980560604002443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-6",
+        "nama": "RW 01",
+        "label": "Titik Banjir 6",
+        "deskripsi": "Lokasi: RW 01 | Penyebab: Hujan Deras",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 01",
+        "Penyebab": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39388656602496,
+          -6.980491876585207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-7",
+        "nama": "RW 01",
+        "label": "Titik Banjir 7",
+        "deskripsi": "Lokasi: RW 01 | Penyebab: Hujan Deras",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 01",
+        "Penyebab": "Hujan Deras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39379000652134,
+          -6.980856657056017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-8",
+        "nama": "RW 01",
+        "label": "Titik Banjir 8",
+        "deskripsi": "Lokasi: RW 01 | Penyebab: Hujan Deras dan Pompa Air Tidak Berfungsi",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 01",
+        "Penyebab": "Hujan Deras dan Pompa Air Tidak Berfungsi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39367810000005,
+          -6.978981699999956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-9",
+        "nama": "RW 01",
+        "label": "Titik Banjir 9",
+        "deskripsi": "Lokasi: RW 01 | Penyebab: Hujan Deras dan Pompa Air Tidak Berfungsi",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 01",
+        "Penyebab": "Hujan Deras dan Pompa Air Tidak Berfungsi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39364787651473,
+          -6.979358949585892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-10",
+        "nama": "RW 05",
+        "label": "Titik Banjir 10",
+        "deskripsi": "Lokasi: RW 05 | Penyebab: Hujan Deras dan Drainase Tidak Lancar",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 05",
+        "Penyebab": "Hujan Deras dan Drainase Tidak Lancar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39222380344354,
+          -6.978247475681887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-11",
+        "nama": "RW 04",
+        "label": "Titik Banjir 11",
+        "deskripsi": "Lokasi: RW 04 | Penyebab: Hujan Deras dan Saluran Tersumbat",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 04",
+        "Penyebab": "Hujan Deras dan Saluran Tersumbat"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39372260062713,
+          -6.978075002904633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-12",
+        "nama": "RW 05",
+        "label": "Titik Banjir 12",
+        "deskripsi": "Lokasi: RW 05 | Penyebab: Hujan Deras dan Drainase Tidak Lancar",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 05",
+        "Penyebab": "Hujan Deras dan Drainase Tidak Lancar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39198753940643,
+          -6.977577051074561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-13",
+        "nama": "RW 05",
+        "label": "Titik Banjir 13",
+        "deskripsi": "Lokasi: RW 05 | Penyebab: Hujan Deras dan Peninggian Jalan",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 05",
+        "Penyebab": "Hujan Deras dan Peninggian Jalan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39179702011145,
+          -6.976724795530448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-14",
+        "nama": "RW 05",
+        "label": "Titik Banjir 14",
+        "deskripsi": "Lokasi: RW 05 | Penyebab: Hujan Deras dan Peninggian Jalan",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 05",
+        "Penyebab": "Hujan Deras dan Peninggian Jalan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.391869877548,
+          -6.975949464441401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-15",
+        "nama": "RW 06",
+        "label": "Titik Banjir 15",
+        "deskripsi": "Lokasi: RW 06 | Penyebab: Hujan Deras dan Pompa Air Tidak Berfungsi",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 06",
+        "Penyebab": "Hujan Deras dan Pompa Air Tidak Berfungsi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3892163196613,
+          -6.975673204393009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-9-16",
+        "nama": "RW 06",
+        "label": "Titik Banjir 16",
+        "deskripsi": "Lokasi: RW 06 | Penyebab: Hujan Deras dan Pompa Air Tidak Berfungsi",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "Id": 0,
+        "Bencana": "Banjir",
+        "Alamat": "RW 06",
+        "Penyebab": "Hujan Deras dan Pompa Air Tidak Berfungsi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39012616852568,
+          -6.976058132303242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-7",
+        "nama": "RW 4",
+        "label": "Titik Longsor 7",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 7,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3956127,
+        "Y": -7.00194359996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39561269967658,
+          -7.001943599959077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-8",
+        "nama": "RW 4",
+        "label": "Titik Longsor 8",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 8,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3961813,
+        "Y": -7.00027039995
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39618130016356,
+          -7.0002703999549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-9",
+        "nama": "RW 4",
+        "label": "Titik Longsor 9",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 9,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3962135,
+        "Y": -7.00003329992
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39621349962175,
+          -7.00003329992262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-10",
+        "nama": "RW 4",
+        "label": "Titik Longsor 10",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 10,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3955687,
+        "Y": -6.99988419981
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3955687001656,
+          -6.999884199811675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-11",
+        "nama": "RW 4",
+        "label": "Titik Longsor 11",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 11,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3962376,
+        "Y": -6.99863620011
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39623759975251,
+          -6.998636200109956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-12",
+        "nama": "RW 4",
+        "label": "Titik Longsor 12",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 12,
+        "ALMT": "RW 4",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.3948253,
+        "Y": -6.99897379979
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3948253004358,
+          -6.99897379979177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-13",
+        "nama": "RW 2",
+        "label": "Titik Longsor 13",
+        "deskripsi": "Titik kejadian longsor di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 13,
+        "ALMT": "RW 2",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Ngemplak Simongan",
+        "X": 110.39516365,
+        "Y": -7.00216871917
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39516365015521,
+          -7.002168719174051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-14",
+        "nama": "RW 4",
+        "label": "Titik Longsor 14",
+        "deskripsi": "Lokasi: RW 4 | Dampak: Mengenai sebagian rumah warga | Penyebab: Hujan deras | Tanggal: Sekitar 2023 - 2024",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 14,
+        "ALMT": "RW 4",
+        "TGL_KEJ": "Sekitar 2023 - 2024",
+        "DAMPAK": "Mengenai sebagian rumah warga",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.378941109,
+        "Y": -6.98828398707
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37894110914186,
+          -6.988283987068826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-15",
+        "nama": "RW 2",
+        "label": "Titik Longsor 15",
+        "deskripsi": "Lokasi: RW 2 | Dampak: Menimpa sebagian jalan | Penyebab: Hujan deras | Tanggal: 8 Maret 2025",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 15,
+        "ALMT": "RW 2",
+        "TGL_KEJ": "8 Maret 2025",
+        "DAMPAK": "Menimpa sebagian jalan",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.378508503,
+        "Y": -6.98837882276
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37850850289203,
+          -6.988378822764957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-16",
+        "nama": "RW 2",
+        "label": "Titik Longsor 16",
+        "deskripsi": "Lokasi: RW 2 | Dampak: Merusak sebagian rumah hingga terjadi kebakaran | Penyebab: Hujan deras | Tanggal: 2025",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 16,
+        "ALMT": "RW 2",
+        "TGL_KEJ": "2025",
+        "DAMPAK": "Merusak sebagian rumah hingga terjadi kebakaran",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.37842007,
+        "Y": -6.98788423229
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37842007039507,
+          -6.987884232288309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-17",
+        "nama": "RW 3",
+        "label": "Titik Longsor 17",
+        "deskripsi": "Lokasi: RW 3 | Dampak: Merusak sebagian rumah warga | Penyebab: Hujan deras | Tanggal: 2023",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 17,
+        "ALMT": "RW 3",
+        "TGL_KEJ": "2023",
+        "DAMPAK": "Merusak sebagian rumah warga",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.378738407,
+        "Y": -6.98763474494
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37873840741918,
+          -6.987634744943534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-18",
+        "nama": "RW 2",
+        "label": "Titik Longsor 18",
+        "deskripsi": "Lokasi: RW 2 | Dampak: Merusak sebagian rumah warga | Penyebab: Hujan deras | Tanggal: Desember 2025",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 19,
+        "ALMT": "RW 2",
+        "TGL_KEJ": "Desember 2025",
+        "DAMPAK": "Merusak sebagian rumah warga",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.377013545,
+        "Y": -6.98919714712
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3770135447495,
+          -6.989197147119398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-19",
+        "nama": "RW 1",
+        "label": "Titik Longsor 19",
+        "deskripsi": "Lokasi: RW 1 | Dampak: Merusak tanggul sungai dan mengenai 2 mobil warga | Penyebab: Tanggul sungai jebol | Tanggal: 22 Mei 2025",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 20,
+        "ALMT": "RW 1",
+        "TGL_KEJ": "22 Mei 2025",
+        "DAMPAK": "Merusak tanggul sungai dan mengenai 2 mobil warga",
+        "PENYEBAB": "Tanggul sungai jebol",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.375825414,
+        "Y": -6.98416660681
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3758254140605,
+          -6.98416660680931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-20",
+        "nama": "RW 3",
+        "label": "Titik Longsor 20",
+        "deskripsi": "Lokasi: RW 3 | Dampak: Mengenai lahan warga | Penyebab: Hujan deras | Tanggal: 2023",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 21,
+        "ALMT": "RW 3",
+        "TGL_KEJ": "2023",
+        "DAMPAK": "Mengenai lahan warga",
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Kalibanteng Kulon",
+        "X": 110.378623493,
+        "Y": -6.98761050182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37862349337695,
+          -6.987610501820029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-21",
+        "nama": "RW 7",
+        "label": "Titik Longsor 21",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 22,
+        "ALMT": "RW 7",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.389984473,
+        "Y": -6.98771405108
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38998447288697,
+          -6.987714051083117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-23",
+        "nama": "RW 6",
+        "label": "Titik Longsor 23",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 24,
+        "ALMT": "RW 6",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.390145471,
+        "Y": -6.98774773443
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39014547107723,
+          -6.987747734428751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-30",
+        "nama": "RW 5",
+        "label": "Titik Longsor 30",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 31,
+        "ALMT": "RW 5",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.390450102,
+        "Y": -6.98975592787
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39045010237732,
+          -6.989755927868828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-31",
+        "nama": "RW 6",
+        "label": "Titik Longsor 31",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 32,
+        "ALMT": "RW 6",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.389065013,
+        "Y": -6.99026617021
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38906501305974,
+          -6.990266170210305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-35",
+        "nama": "RW 2",
+        "label": "Titik Longsor 35",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 36,
+        "ALMT": "RW 2",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.397485206,
+        "Y": -6.99708708907
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39748520644889,
+          -6.997087089068998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-10-40",
+        "nama": "RW 6",
+        "label": "Titik Longsor 40",
+        "deskripsi": "Titik kejadian longsor di Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "jenis_bencana": "longsor",
+        "jenis_titik": "kejadian",
+        "OBJECTID": 41,
+        "ALMT": "RW 6",
+        "TGL_KEJ": null,
+        "DAMPAK": null,
+        "PENYEBAB": "Hujan deras",
+        "JB": "Longsor",
+        "KELURAHAN": "Bongsari",
+        "X": 110.393842606,
+        "Y": -6.9936839506
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39384260631897,
+          -6.993683950600712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-1",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39475066269117,
+          -6.980103568225173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-2",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 2",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39384365852482,
+          -6.980706897824885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-3",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 3",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39352717177643,
+          -6.978497142181028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-4",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 4",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39398231850403,
+          -6.978716247317636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-5",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 5",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39407689262539,
+          -6.979100652533483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-6",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 6",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39407786247543,
+          -6.980249689154229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-7",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 7",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39311346111228,
+          -6.980492606544549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-8",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 8",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39284226795203,
+          -6.978853192332233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-9",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 9",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3928834740832,
+          -6.979260394677633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-10",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 10",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3946286433522,
+          -6.9795592775627835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-11",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 11",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 1,
+        "layer": "Centroid - RW 01",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 01.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3941903225879,
+          -6.979641515893462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-12",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 12",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3918482699363,
+          -6.97896597985995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-13",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 13",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39188514467298,
+          -6.9794110295424625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-14",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 14",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39203981204541,
+          -6.980306655369003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-15",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 15",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39212091361547,
+          -6.980750021234806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-16",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 16",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39224583324746,
+          -6.981184501545053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-17",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 17",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 2,
+        "layer": "Centroid - RW 02",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 02.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39188033980554,
+          -6.979855084770881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-18",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 18",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39037698410267,
+          -6.981696565844816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-19",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 19",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38983478796061,
+          -6.979214327547875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-20",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 20",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3906795614451,
+          -6.981105835894894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-21",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 21",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39056902029516,
+          -6.980617253407058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-22",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 22",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39047569558802,
+          -6.980114742031881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-23",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 23",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39036509387891,
+          -6.979639896897996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-24",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 24",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38967908612854,
+          -6.980296116111244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-25",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 25",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38978872997073,
+          -6.980815524714367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-26",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 26",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38958216163583,
+          -6.979783016473994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-27",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 27",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 3,
+        "layer": "Centroid - RW 03",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 03.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3898373759725,
+          -6.981307287679087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-28",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 28",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39361009991696,
+          -6.974784324893385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-29",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 29",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3930425081095,
+          -6.9749551043143745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-30",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 30",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39400772624062,
+          -6.975213567621948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-31",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 31",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.393247774752,
+          -6.9760173974971815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-32",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 32",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39328313417765,
+          -6.976401759698748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-33",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 33",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39331832897366,
+          -6.976741342303084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-34",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 34",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39421921628151,
+          -6.976495976770959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-35",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 35",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39336690705288,
+          -6.977162070421057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-36",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 36",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39369117510402,
+          -6.977726640665041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-37",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 37",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39469726514034,
+          -6.978047808170626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-38",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 38",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39370879168733,
+          -6.978149327016536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-39",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 39",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 4,
+        "layer": "Centroid - RW 04",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 04.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39342627487652,
+          -6.975358470595147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-40",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 40",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39207552312817,
+          -6.975705480177272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-41",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 41",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39208178855421,
+          -6.976118509881321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-42",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 42",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39221075132022,
+          -6.977291623679892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-43",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 43",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39148724502401,
+          -6.9773780150258755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-44",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 44",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39140043352985,
+          -6.976935978819781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-45",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 45",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39137149977856,
+          -6.976549465036383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-46",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 46",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3913775814141,
+          -6.97617889299455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-47",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 47",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39135079545966,
+          -6.9757508265698425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-48",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 48",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3917890975224,
+          -6.975318577645515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-49",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 49",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39150965874296,
+          -6.975050825866871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-50",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 50",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39220763714168,
+          -6.97685959016607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-51",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 51",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3921226369821,
+          -6.976474589499805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-52",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 52",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 5,
+        "layer": "Centroid - RW 05",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 05.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39205164081318,
+          -6.977881445853248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-53",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 53",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38941516141699,
+          -6.975157545960732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-54",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 54",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3886184585064,
+          -6.975198618417588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-55",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 55",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38903053727367,
+          -6.975916611786517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-56",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 56",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38907034646941,
+          -6.976352602545882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-57",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 57",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38907845411387,
+          -6.976767571857667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-58",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 58",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38919412283421,
+          -6.977173355051953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-59",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 59",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38923360054616,
+          -6.97762589094544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-60",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 60",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39017373567088,
+          -6.975106889950385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-61",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 61",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38997061002198,
+          -6.975853799034378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-62",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 62",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39000250543765,
+          -6.976282619877901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-63",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 63",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39006833586166,
+          -6.97668041842578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-64",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 64",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39010480611421,
+          -6.9770684266644345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-65",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 65",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39009608738361,
+          -6.977527726161008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-66",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 66",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38966906222512,
+          -6.978180467320817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-67",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 67",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38974056418363,
+          -6.9785979345881675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-68",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 68",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38895091937113,
+          -6.9754744586725606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "event-11-69",
+        "nama": "Titik Banjir Karangayu",
+        "label": "Titik Banjir 69",
+        "deskripsi": "Titik kejadian banjir di Karangayu",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian",
+        "GUNALAHAN": "Permukiman",
+        "RW": 6,
+        "layer": "Centroid - RW 06",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Centroid - RW 06.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38998818612987,
+          -6.975420428994557
+        ]
+      }
+    }
+  ]
+}

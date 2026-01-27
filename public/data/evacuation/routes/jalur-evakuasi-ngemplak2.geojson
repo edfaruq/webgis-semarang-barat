@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Jalur Evakuasi 2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "distance": null, "time": null, "mode": null, "traffic": null, "timestamp": null, "type": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 433324.125175653665792, 9226298.684100560843945 ], [ 433337.178734649613034, 9226326.241613999009132 ], [ 433350.59489250741899, 9226355.249522881582379 ], [ 433353.608995541115291, 9226363.272022629156709 ], [ 433296.205063352768775, 9226390.059013541787863 ], [ 433226.064846168854274, 9226420.290693540126085 ], [ 433146.179784608946647, 9226448.845353847369552 ] ] ] } }
+]
+}

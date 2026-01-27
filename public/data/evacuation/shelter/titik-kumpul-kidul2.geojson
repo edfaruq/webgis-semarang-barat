@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Kumpul Evakuasi Kidul",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Masjid Al-Huda", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431930.229258749517612, 9227129.834922380745411, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "GSG Rw 03", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431886.908941462752409, 9227153.701840430498123, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Masjid Al Ikhlas", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431726.012093507975806, 9226616.733976431190968, 0.0 ] } }
+]
+}

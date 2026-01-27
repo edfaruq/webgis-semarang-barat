@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Evakuasi",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "ObjectID": 1, "Name": "Graphic Pick 1", "TargetFaci": 0, "SourceID": 1, "SourceOID": 3, "PosAlong": 0.75161340533999998, "SideOfEdge": 2, "CurbApproa": 0, "Status": 0, "Attr_Lengt": 0.0, "Cutoff_Len": 0.0, "x": 433063.38939999981, "y": 9229090.0198999997 }, "geometry": { "type": "Point", "coordinates": [ 433063.389399999752641, 9229090.019899999722838 ] } },
+{ "type": "Feature", "properties": { "ObjectID": 3, "Name": "Graphic Pick 3", "TargetFaci": 0, "SourceID": 1, "SourceOID": 3, "PosAlong": 0.93571606514000005, "SideOfEdge": 1, "CurbApproa": 0, "Status": 0, "Attr_Lengt": 0.0, "Cutoff_Len": 0.0, "x": 433607.9216, "y": 9228601.784 }, "geometry": { "type": "Point", "coordinates": [ 433607.9216, 9228601.784 ] } },
+{ "type": "Feature", "properties": { "ObjectID": 4, "Name": "Graphic Pick 4", "TargetFaci": 0, "SourceID": 1, "SourceOID": 3, "PosAlong": 0.95773865135000003, "SideOfEdge": 2, "CurbApproa": 0, "Status": 0, "Attr_Lengt": 0.0, "Cutoff_Len": 0.0, "x": 433674.29980000021, "y": 9229315.9762999993 }, "geometry": { "type": "Point", "coordinates": [ 433674.299800000153482, 9229315.976299999281764 ] } },
+{ "type": "Feature", "properties": { "ObjectID": 5, "Name": "Graphic Pick 7", "TargetFaci": 0, "SourceID": 1, "SourceOID": 3, "PosAlong": 0.80704380274999998, "SideOfEdge": 1, "CurbApproa": 0, "Status": 0, "Attr_Lengt": 0.0, "Cutoff_Len": 0.0, "x": 433243.00289999979, "y": 9228616.1612 }, "geometry": { "type": "Point", "coordinates": [ 433243.002899999730289, 9228616.1612 ] } }
+]
+}

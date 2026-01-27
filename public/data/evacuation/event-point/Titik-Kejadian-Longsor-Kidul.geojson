@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Kejadian Longsor Kidul",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Longsor Rw 03", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431735.60917741782032, 9226954.40855866111815, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Longsor Rw 04", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431649.997437047306448, 9226732.161916375160217, 0.0 ] } }
+]
+}

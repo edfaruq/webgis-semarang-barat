@@ -52,12 +52,18 @@ export default function KelurahanPage() {
   const [landslideRiskData, setLandslideRiskData] = useState<GeoJSONCollection | null>(null);
   const [evacuationRouteData, setEvacuationRouteData] = useState<GeoJSONCollection | null>(null);
   const [lahanKritisData, setLahanKritisData] = useState<GeoJSONCollection | null>(null);
+  const [shelterData, setShelterData] = useState<GeoJSONCollection | null>(null);
+  const [eventPointData, setEventPointData] = useState<GeoJSONCollection | null>(null);
   const [showBoundary, setShowBoundary] = useState(true);
-  const [showFacilities, setShowFacilities] = useState(true);
+  const [showFacilities, setShowFacilities] = useState(false);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
   const [showLandslideRisk, setShowLandslideRisk] = useState(false);
-  const [showEvacuationRoute, setShowEvacuationRoute] = useState(true);
+  const [showEvacuationRoute, setShowEvacuationRoute] = useState(false);
+  const [showEvacuationRouteBanjir, setShowEvacuationRouteBanjir] = useState(false);
+  const [showEvacuationRouteLongsor, setShowEvacuationRouteLongsor] = useState(false);
+  const [showShelter, setShowShelter] = useState(false);
+  const [showEventPoint, setShowEventPoint] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedKelurahan, setSelectedKelurahan] = useState<string | null>(slug || null);
   const [basemap, setBasemap] = useState<BasemapType>("osm");
@@ -73,13 +79,15 @@ export default function KelurahanPage() {
       try {
         setLoading(true);
         // Load general data, can be filtered by kelurahan later
-        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis] = await Promise.all([
+        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, shelter, eventPoint] = await Promise.all([
           loadGeoJSON("/data/infrastructure/boundary.geojson"),
           loadGeoJSON("/data/infrastructure/facilities.geojson"),
           loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/longsor/landslide-risk.geojson").catch(() => null),
-          loadGeoJSON("/data/routes/evacuation-route.geojson").catch(() => null),
+          loadGeoJSON("/data/evacuation/routes/evacuation-route.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/lahan-kritis/LahanKritis.geojson").catch(() => null),
+          loadGeoJSON("/data/evacuation/shelter/titik-kumpul.geojson").catch(() => null),
+          loadGeoJSON("/data/evacuation/event-point/event-point.geojson").catch(() => null),
         ]);
         
         // Filter by kelurahan if needed (when data is available)
@@ -90,6 +98,8 @@ export default function KelurahanPage() {
         setLandslideRiskData(landslideRisk);
         setEvacuationRouteData(evacuationRoute);
         setLahanKritisData(lahanKritis);
+        setShelterData(shelter);
+        setEventPointData(eventPoint);
         setError(null);
       } catch (err) {
         console.error("Error loading data:", err);
@@ -151,6 +161,14 @@ export default function KelurahanPage() {
           onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
           onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
           onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
+          showEvacuationRouteBanjir={showEvacuationRouteBanjir}
+          showEvacuationRouteLongsor={showEvacuationRouteLongsor}
+          onToggleEvacuationRouteBanjir={() => setShowEvacuationRouteBanjir(!showEvacuationRouteBanjir)}
+          onToggleEvacuationRouteLongsor={() => setShowEvacuationRouteLongsor(!showEvacuationRouteLongsor)}
+          showShelter={showShelter}
+          showEventPoint={showEventPoint}
+          onToggleShelter={() => setShowShelter(!showShelter)}
+          onToggleEventPoint={() => setShowEventPoint(!showEventPoint)}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           selectedKelurahan={selectedKelurahan}
@@ -170,12 +188,18 @@ export default function KelurahanPage() {
             landslideRiskData={landslideRiskData}
             evacuationRouteData={evacuationRouteData}
             LahanKritisData={lahanKritisData}
+            shelterData={shelterData}
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
             showLahanKritis={showLahanKritis}
             showLandslideRisk={showLandslideRisk}
             showEvacuationRoute={showEvacuationRoute}
+            showEvacuationRouteBanjir={showEvacuationRouteBanjir}
+            showEvacuationRouteLongsor={showEvacuationRouteLongsor}
+            showShelter={showShelter}
+            eventPointData={eventPointData}
+            showEventPoint={showEventPoint}
             selectedCategory={selectedCategory}
             selectedKelurahan={selectedKelurahan}
             basemap={basemap}

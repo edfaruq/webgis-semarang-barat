@@ -1,0 +1,3521 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-1-1",
+        "nama": "Lapangan Rw 05",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "Name": "Lapangan Rw 05",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38488520000004,
+          -6.988162399999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-1-2",
+        "nama": "Masjid Al-Iman",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "Name": "Masjid Al-Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38327000000004,
+          -6.988408900000007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-2-1",
+        "nama": "Masjid Al-Huda",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "Name": "Masjid Al-Huda",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38373340000004,
+          -6.991648200000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-2-2",
+        "nama": "GSG Rw 03",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "Name": "GSG Rw 03",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38334150000004,
+          -6.991431799999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-2-3",
+        "nama": "Masjid Al Ikhlas",
+        "kelurahan": "kalibanteng-kidul",
+        "slug_kelurahan": "kalibanteng-kidul",
+        "nama_kelurahan": "Kalibanteng Kidul",
+        "Name": "Masjid Al Ikhlas",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38187850000004,
+          -6.996286999999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-3-1",
+        "nama": "Columbia Asia Hospital - Semarang",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "Name": "Columbia Asia Hospital - Semarang",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38292750000002,
+          -6.984199599999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "nama": "Balai RW",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "Nama": "Balai RW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39472231782283,
+          -6.9983853677550565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "nama": "Masjid Jami' AL Hikmah",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "Nama": "Masjid Jami' AL Hikmah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39332470461427,
+          -7.000989665747129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "nama": "Masjid Baitul A'la",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "Nama": "Masjid Baitul A'la"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39514675544646,
+          -7.001920225740615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "nama": "Masjid Al-Amin",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "Nama": "Masjid Al-Amin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39473359983388,
+          -6.997822335039474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-1",
+        "nama": "Masjid Al-Jihad",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 1,
+        "Name": "Masjid Al-Jihad",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.94883586438,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433634.717,
+        "y": 9229138.5236
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39918750032184,
+          -6.973498599862396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-2",
+        "nama": "GPPS Efrata Semarang",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 3,
+        "Name": "GPPS Efrata Semarang",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.86350954992,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433379.004,
+        "y": 9228992.5886
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39687089978125,
+          -6.974815699923797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-3",
+        "nama": "Gereja Kristen Jawa Tengah Utara Semarang III",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 4,
+        "Name": "Gereja Kristen Jawa Tengah Utara Semarang III",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.89901663553,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433552.8543999996,
+        "y": 9228833.8581
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39844290008746,
+          -6.976253499827236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-4",
+        "nama": "Gereja Katolik Santo Martinus Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 5,
+        "Name": "Gereja Katolik Santo Martinus Krobokan",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.8559489938,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433322.2435999997,
+        "y": 9228728.5164
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3963540003398,
+          -6.977203700031837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-5",
+        "nama": "Masjid At-Ta'lim",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 7,
+        "Name": "Masjid At-Ta'lim",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.97041149608,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433794.2337999996,
+        "y": 9228419.6155
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.40062330029872,
+          -6.980003300063527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-6",
+        "nama": "Masjid Al-Ma'dan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 8,
+        "Name": "Masjid Al-Ma'dan",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.89933850803,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433447.0966999997,
+        "y": 9228782.5262
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39748490042042,
+          -6.976716600074272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-7",
+        "nama": "Masjid Al-Kautsar",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 9,
+        "Name": "Masjid Al-Kautsar",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.81660306628,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433266.3676000005,
+        "y": 9228472.9467
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39584519966905,
+          -6.979514800059363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-8",
+        "nama": "Masjid Syahidin",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 10,
+        "Name": "Masjid Syahidin",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.923634726,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433548.2303,
+        "y": 9228501.3985
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39839719966528,
+          -6.97926070016689
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-9",
+        "nama": "Mushola Al-Hikmah",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 12,
+        "Name": "Mushola Al-Hikmah",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.9291062771,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433575.7720999997,
+        "y": 9229278.5186
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39865550023234,
+          -6.972231599685241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-10",
+        "nama": "Balai Kelurahan Krobokan",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 14,
+        "Name": "Balai Kelurahan Krobokan",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.88440791811,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433392.7032000004,
+        "y": 9229164.0731
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39699689971299,
+          -6.973264700392758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-11",
+        "nama": "Masjid Ar-Riddo",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 15,
+        "Name": "Masjid Ar-Riddo",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.98535254688,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433794.9901000001,
+        "y": 9228949.6305
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.40063624476197,
+          -6.9752090714279795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-12",
+        "nama": "Indra Buana Mas",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 16,
+        "Name": "Indra Buana Mas",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.97869084195,
+        "SideOfEdge": 2,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433767.308,
+        "y": 9229073.8803
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.40038707340842,
+          -6.974084854726735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-5-13",
+        "nama": "Masjid Nurul Fattah",
+        "kelurahan": "krobokan",
+        "slug_kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan",
+        "ObjectID": 18,
+        "Name": "Masjid Nurul Fattah",
+        "SourceID": 1,
+        "SourceOID": 3,
+        "PosAlong": 0.87438463641,
+        "SideOfEdge": 1,
+        "CurbApproa": 0,
+        "Status": 0,
+        "Attr_Lengt": 0,
+        "Cutoff_Len": 0,
+        "x": 433449.9572000001,
+        "y": 9229430.9336
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39751829056127,
+          -6.9708514827431936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-6-1",
+        "nama": "Titik Kumpul 6-1",
+        "kelurahan": "tawangmas",
+        "slug_kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "Name": null,
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": "relativeToGround",
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "x": 433170.9174986122,
+        "y": 9229463.486335602
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39499260000004,
+          -6.970553800000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-1",
+        "nama": "Balai RW 06 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 06 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38518510000004,
+          -7.00861319999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-2",
+        "nama": "Balai RW 01 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 01 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39051910000005,
+          -7.001992000000008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-3",
+        "nama": "Balai RW 09 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 09 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38299140000002,
+          -7.006772600000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-4",
+        "nama": "Balai RW 07 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 07 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38547820000004,
+          -7.0114505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-5",
+        "nama": "Balai RW 10 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 10 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37997260000004,
+          -7.0057832999999965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-6",
+        "nama": "Balai RW 03 Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Balai RW 03 Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38194560000004,
+          -6.998991499999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-7",
+        "nama": "Kantor Kelurahan Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Kantor Kelurahan Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39147741606948,
+          -7.004263404735815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-8",
+        "nama": "Taman Borobudur",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Taman Borobudur",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37898290000003,
+          -6.998268500000003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-9",
+        "nama": "Taman Abdulrahman Saleh",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Taman Abdulrahman Saleh",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37944620000005,
+          -6.998127400000006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-10",
+        "nama": "Alun-Alun Panjangan",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Alun-Alun Panjangan",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38742280000004,
+          -7.008814199999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-11",
+        "nama": "Taman Pintar Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Taman Pintar Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39023270000004,
+          -7.001026800000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-12",
+        "nama": "Musholla Al-Iman",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Musholla Al-Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39038560000003,
+          -7.0014562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-13",
+        "nama": "Mushola Miftachul Iman",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Miftachul Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38193120000004,
+          -6.999258699999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-14",
+        "nama": "Mushola Al-Huda",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al-Huda",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38314650000004,
+          -7.007019599999993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-15",
+        "nama": "Mushola Al-Aqsha",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al-Aqsha",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38494460000004,
+          -6.998757400000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-16",
+        "nama": "Mushola Al-Fajri",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al-Fajri",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38341870000004,
+          -7.006290599999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-17",
+        "nama": "Mushola Jami' Istiqomah Manyaran",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Jami' Istiqomah Manyaran",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38033900000005,
+          -7.001898699999998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-18",
+        "nama": "Musholla Baitur Rahim",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Musholla Baitur Rahim",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38407890000003,
+          -7.008993499999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-19",
+        "nama": "Musholla Ar-Rohman",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Musholla Ar-Rohman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38247850000005,
+          -7.004842300000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-20",
+        "nama": "Mushola at taqwa",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola at taqwa",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38274800000005,
+          -7.000763699999991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-21",
+        "nama": "Masjid AL IMAN",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid AL IMAN",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38080590000004,
+          -7.006029099999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-22",
+        "nama": "Masjid Baitul Iman",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Baitul Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38720660000004,
+          -7.0088775999999955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-23",
+        "nama": "Masjid Daarul Wahid",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Daarul Wahid",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38590910000005,
+          -7.0034893000000045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-24",
+        "nama": "Masjid Al Barokah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Al Barokah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38120900000004,
+          -7.0004273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-25",
+        "nama": "MASJID AL IKHLAS",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "MASJID AL IKHLAS",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38259580000005,
+          -7.010231400000002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-26",
+        "nama": "Masjid \"Asy-Syifa\"",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid \"Asy-Syifa\"",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39173860000002,
+          -7.003677799999991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-27",
+        "nama": "Masjid Al Hidayah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Al Hidayah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38898320000004,
+          -7.001195600000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-28",
+        "nama": "Masjid Shirothol Mustaqim (LDII)",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Shirothol Mustaqim (LDII)",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38740110000005,
+          -6.9999411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-29",
+        "nama": "Gereja St. Agustinus Panjangan",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Gereja St. Agustinus Panjangan",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38551360000004,
+          -7.009429699999992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-30",
+        "nama": "Gereja Isa Almasih",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Gereja Isa Almasih",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38201590000004,
+          -7.009482099999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-31",
+        "nama": "GPdI Rehobot",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "GPdI Rehobot",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38938270000004,
+          -7.003123499999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-32",
+        "nama": "Kebun Jeruk Temple - Low Lie Bio",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Kebun Jeruk Temple - Low Lie Bio",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38379580000004,
+          -7.006792200000007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-33",
+        "nama": "Vihara Arga Avalo Kitesvara",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Vihara Arga Avalo Kitesvara",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38468630000004,
+          -7.006769199999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-34",
+        "nama": "TITD Low Lie Bio Klenteng Kebon Jeru",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "TITD Low Lie Bio Klenteng Kebon Jeru",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38378880000005,
+          -7.007022799999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-35",
+        "nama": "Masjid Al Muttaqin",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Al Muttaqin",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3821515947013,
+          -6.998310794008781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-36",
+        "nama": "Musholla",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Musholla",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38373226929711,
+          -6.999928573642056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-37",
+        "nama": "Masjid Al Ikhlas",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Al Ikhlas",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38622758306622,
+          -7.000295913512915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-38",
+        "nama": "Gereja Isa Al Masih jemaat WR Supratman",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Gereja Isa Al Masih jemaat WR Supratman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3899974548722,
+          -6.999828390040915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-39",
+        "nama": "Gereja Baptis Indonesia",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Gereja Baptis Indonesia",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39127757866459,
+          -7.004559282317128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-40",
+        "nama": "Musala Al Qodari",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Musala Al Qodari",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38835741221644,
+          -7.003104764848679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-41",
+        "nama": "Masjid Al Mubarok",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Masjid Al Mubarok",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3855392846214,
+          -7.007553658840196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-42",
+        "nama": "Mushola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38481944689467,
+          -7.007950682741029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-43",
+        "nama": "Mushola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38510515568309,
+          -7.011431135254812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-44",
+        "nama": "Mushola Nurul Hikmah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Nurul Hikmah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38084549738265,
+          -7.009011886812391
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-45",
+        "nama": "Mushola An Nur",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola An Nur",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38221467326494,
+          -7.007535106321475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-46",
+        "nama": "Mushola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38227404132489,
+          -7.006028641800562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-47",
+        "nama": "Mushola Al Ihsan",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al Ihsan",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38103102256996,
+          -7.004088048341392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-48",
+        "nama": "Mushola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3822183837687,
+          -7.003902523154081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-49",
+        "nama": "Mushola Daarul Falah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Daarul Falah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38379349260882,
+          -7.004726254985715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-50",
+        "nama": "Mushola Al Hikmah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al Hikmah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38375082181582,
+          -7.003550025298201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-51",
+        "nama": "Mushola Al Hidayah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola Al Hidayah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38318682524641,
+          -7.003572288320676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-52",
+        "nama": "Muhsola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Muhsola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38353746785035,
+          -7.001112224337048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-53",
+        "nama": "Mushola",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38050413103802,
+          -7.001809799041313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-7-54",
+        "nama": "Mushola At Taubah",
+        "kelurahan": "manyaran",
+        "slug_kelurahan": "manyaran",
+        "nama_kelurahan": "Manyaran",
+        "Name": "Mushola At Taubah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38620717529568,
+          -7.013078598918059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-1",
+        "nama": "Balai Rt Songo",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 8,
+        "Name": "Balai Rt Songo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.392689,
+          -6.989277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-2",
+        "nama": "Balai RW 4 Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 9,
+        "Name": "Balai RW 4 Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3932653,
+          -6.9936908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-3",
+        "nama": "Kantor Kelurahan Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 10,
+        "Name": "Kantor Kelurahan Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3985672,
+          -6.9924407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-4",
+        "nama": "Dinas Kepemudaan dan Olahraga Kota Semarang",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 11,
+        "Name": "Dinas Kepemudaan dan Olahraga Kota Semarang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3965424,
+          -6.9908499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-5",
+        "nama": "Dinas Pemberdayaan Perempuan Perlindungan Anak Pengendalian Penduduk Dan Keluarga Berencana (DP3AKB)",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 12,
+        "Name": "Dinas Pemberdayaan Perempuan Perlindungan Anak Pengendalian Penduduk Dan Keluarga Berencana (DP3AKB)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3959951,
+          -6.9903723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-6",
+        "nama": "Unit Pelayanan Perhubungan Wilayah Semarang Dinas Perhubungan",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 13,
+        "Name": "Unit Pelayanan Perhubungan Wilayah Semarang Dinas Perhubungan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.393587,
+          -6.9890756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-7",
+        "nama": "Balai RW 3 Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 14,
+        "Name": "Balai RW 3 Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3951204,
+          -6.9941803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-8",
+        "nama": "Balai RT 08 (RW 3)",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 15,
+        "Name": "Balai RT 08 (RW 3)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3951864,
+          -6.9940023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-9",
+        "nama": "Balai RT 1 (RW 1)",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 17,
+        "Name": "Balai RT 1 (RW 1)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3968245,
+          -6.9925128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-10",
+        "nama": "Balai RT 6 (RW 2)",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 18,
+        "Name": "Balai RT 6 (RW 2)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3974156,
+          -6.9949691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-11",
+        "nama": "SAM POO KONG",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 19,
+        "Name": "SAM POO KONG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3984926,
+          -6.9959335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-12",
+        "nama": "Badminton Sport Centre Phapros",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 20,
+        "Name": "Badminton Sport Centre Phapros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3951948,
+          -6.9967521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-13",
+        "nama": "Masjid AT TAQWA",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 22,
+        "Name": "Masjid AT TAQWA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3902005,
+          -6.9897852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-14",
+        "nama": "Masjid Al Huda",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 23,
+        "Name": "Masjid Al Huda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3906122,
+          -6.9898829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-15",
+        "nama": "Masjid Darrusalam Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 24,
+        "Name": "Masjid Darrusalam Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3932204,
+          -6.9904618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-16",
+        "nama": "Masjid Nurul Hikmah Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 25,
+        "Name": "Masjid Nurul Hikmah Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3951972,
+          -6.9905154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-17",
+        "nama": "Masjid Al Barokah",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 26,
+        "Name": "Masjid Al Barokah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.393958,
+          -6.9929427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-18",
+        "nama": "Masjid LDII \"Baiturrosyidin\" Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 27,
+        "Name": "Masjid LDII \"Baiturrosyidin\" Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3974378,
+          -6.992079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-19",
+        "nama": "Masjid An-Nandhofah Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 28,
+        "Name": "Masjid An-Nandhofah Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3955498,
+          -6.9922746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-20",
+        "nama": "Masjid AL-IMAN Bongsari",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 29,
+        "Name": "Masjid AL-IMAN Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3959336,
+          -6.9940033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-21",
+        "nama": "Masjid Nurul Huda",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 30,
+        "Name": "Masjid Nurul Huda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3967013,
+          -6.9956219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-22",
+        "nama": "Masjid Al - Ikhlas Phapros",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 31,
+        "Name": "Masjid Al - Ikhlas Phapros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3970335,
+          -6.9980359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-23",
+        "nama": "Mushola As-Sajdah",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 32,
+        "Name": "Mushola As-Sajdah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3955505,
+          -6.9957481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-24",
+        "nama": "Mushola Al-Mabrur H. Santoso Sampokong",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 33,
+        "Name": "Mushola Al-Mabrur H. Santoso Sampokong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3975722,
+          -6.9947241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-25",
+        "nama": "Mushola Al Huda",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 34,
+        "Name": "Mushola Al Huda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3979323,
+          -6.9938369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-26",
+        "nama": "Mushola alhidayah",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 35,
+        "Name": "Mushola alhidayah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3920224,
+          -6.9921214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-27",
+        "nama": "Mushola Nurul Huda",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 36,
+        "Name": "Mushola Nurul Huda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3925867,
+          -6.9892046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-8-28",
+        "nama": "Gereja Isa Almasih",
+        "kelurahan": "bongsari",
+        "slug_kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari",
+        "fid": 37,
+        "Name": "Gereja Isa Almasih"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3965586,
+          -6.9964626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "nama": "Titik Kumpul 9-1",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3893163269918,
+          -6.9815496250535505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "nama": "TANAH KOSONG",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "Name": "TANAH KOSONG",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37866113657284,
+          -6.993595256912639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "nama": "SDN Kalibanteng Kulon 01",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "Name": "SDN Kalibanteng Kulon 01",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37991520000004,
+          -6.9864227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "nama": "SD Negeri Kalibanteng Kulon 02",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "Name": "SD Negeri Kalibanteng Kulon 02",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37900370000004,
+          -6.9919200999999935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "nama": "Masjid Jami Al Hikmah",
+        "kelurahan": "kalibanteng-kulon",
+        "slug_kelurahan": "kalibanteng-kulon",
+        "nama_kelurahan": "Kalibanteng Kulon",
+        "Name": "Masjid Jami Al Hikmah",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": null,
+        "extrude": null,
+        "visibility": null,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.37673530878855,
+          -6.983500314467673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-1",
+        "nama": "Masjid At-Tawab",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 1,
+        "Name": "Masjid At-Tawab",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (5) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (5).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38978480000003,
+          -6.995959000000008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-2",
+        "nama": "Masjid Jami' Al-Iman",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 3,
+        "Name": "Masjid Jami' Al-Iman",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (5) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (5).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38581030000005,
+          -6.997353699999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-3",
+        "nama": "Gereja Baptis Indonesia Jatisari",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 4,
+        "Name": "Gereja Baptis Indonesia Jatisari",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (6) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (6).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38680590000004,
+          -6.996519200000009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-4",
+        "nama": "La mardian",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 8,
+        "Name": "La mardian",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38618900000003,
+          -6.993457899999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-5",
+        "nama": "Apotek Klinieken",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 10,
+        "Name": "Apotek Klinieken",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38968180000005,
+          -6.998513500000007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-6",
+        "nama": "Hidroterapi - Akupunktur - Fisioterapi - Swimmcource ( Lotus Health, Beauty, and Care )",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 17,
+        "Name": "Hidroterapi - Akupunktur - Fisioterapi - Swimmcource ( Lotus Health, Beauty, and Care )",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38944640000004,
+          -6.987814900000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-7",
+        "nama": "SD Gisikdrono 03",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 19,
+        "Name": "SD Gisikdrono 03",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (4) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (4).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38428460000003,
+          -6.996621600000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-8",
+        "nama": "UPTD Laboratorium Kesehatan Kota Semarang",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 22,
+        "Name": "UPTD Laboratorium Kesehatan Kota Semarang",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38525820000004,
+          -6.991935100000008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-9",
+        "nama": "SD Negeri Gisikdrono 02",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 24,
+        "Name": "SD Negeri Gisikdrono 02",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (4) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (4).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38844160000004,
+          -6.992441000000003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-10",
+        "nama": "Masjid Nurul Islam",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 26,
+        "Name": "Masjid Nurul Islam",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (5) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (5).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39114600000005,
+          -6.993321099999997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-11",
+        "nama": "RS Mata JEC Candi @ Semarang",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 35,
+        "Name": "RS Mata JEC Candi @ Semarang",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38661140000004,
+          -6.987486300000003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-12",
+        "nama": "BKK Kelas I Semarang",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 36,
+        "Name": "BKK Kelas I Semarang",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38547100000004,
+          -6.9883820000000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-13",
+        "nama": "TK Al - Azhar 22",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 43,
+        "Name": "TK Al - Azhar 22",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38484080000003,
+          -6.9855948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-14",
+        "nama": "Klinik Pratama Harapan Prima",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 45,
+        "Name": "Klinik Pratama Harapan Prima",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38815030000005,
+          -6.984680700000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-11-15",
+        "nama": "Klinik Bayu Griya Medika",
+        "kelurahan": "gisikdrono",
+        "slug_kelurahan": "gisikdrono",
+        "nama_kelurahan": "Gisikdrono",
+        "fid": 48,
+        "Name": "Klinik Bayu Griya Medika",
+        "descriptio": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMo": null,
+        "tessellate": -1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "layer": "Lapisan tanpa judul (7) — Lapisan tanpa judul",
+        "path": "C:/Users/AsusROG/Downloads/Lapisan tanpa judul (7).kmz|layername=Lapisan tanpa judul|geometrytype=Point25D|uniqueGeometryType=yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38984680000004,
+          -6.983899300000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-1",
+        "nama": "Rumah Warga RW 01",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Rumah Warga RW 01",
+        "RW": 1,
+        "layer": "Titik Evakuasi - RW 1",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 1.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39405405908045,
+          -6.979020851922608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-2",
+        "nama": "Rumah Warga RW 02",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Rumah Warga RW 02",
+        "RW": 2,
+        "layer": "Titik Evakuasi - RW 2",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 2.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39189334086474,
+          -6.979129548589419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-3",
+        "nama": "Halaman Rumah Warga RW 02",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Halaman Rumah Warga RW 02",
+        "RW": 2,
+        "layer": "Titik Evakuasi - RW 2",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 2.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39190919195214,
+          -6.981391576527964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-4",
+        "nama": "Masjid Nurul Huda",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Masjid Nurul Huda",
+        "RW": 2,
+        "layer": "Titik Evakuasi - RW 2",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 2.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39231958518222,
+          -6.979878734604056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-5",
+        "nama": "Joglo RW 03",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Joglo RW 03",
+        "RW": 3,
+        "layer": "Titik Evakuasi - RW 3",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 3.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38998590126714,
+          -6.979556933047904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-6",
+        "nama": "Joglo RW 03",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Joglo RW 03",
+        "RW": 3,
+        "layer": "Titik Evakuasi - RW 3",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 3.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39012571297285,
+          -6.980302041119919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-7",
+        "nama": "Kos di RW 04",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Kos di RW 04",
+        "RW": 4,
+        "layer": "Titik Evakuasi - RW 4",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 4.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39334914363744,
+          -6.976961401513874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-8",
+        "nama": "Balai Warga RW 05",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Balai Warga RW 05",
+        "RW": 5,
+        "layer": "Titik Evakuasi - RW 5",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 5.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39159306838374,
+          -6.975466010867917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-9",
+        "nama": "Balai Warga RW 05",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Balai Warga RW 05",
+        "RW": 5,
+        "layer": "Titik Evakuasi - RW 5",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 5.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39165644572034,
+          -6.976427170666551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-10",
+        "nama": "Balai Warga RW 06",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Balai Warga RW 06",
+        "RW": 6,
+        "layer": "Titik Evakuasi - RW 6",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 6.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.38955754041143,
+          -6.975525671288204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shelter-12-11",
+        "nama": "Kos di RW 06",
+        "kelurahan": "karangayu",
+        "slug_kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu",
+        "Name": "Kos di RW 06",
+        "RW": 6,
+        "layer": "Titik Evakuasi - RW 6",
+        "path": "C:/Users/ASUS/Downloads/Rute Evakuasi Banjir Kelurahan Karangayu/Rute Evakuasi Banjir Kelurahan Karangayu/Titik Evakuasi - RW 6.shp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.39025564421524,
+          -6.97721143899562
+        ]
+      }
+    }
+  ]
+}

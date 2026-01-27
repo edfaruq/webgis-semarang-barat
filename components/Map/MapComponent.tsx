@@ -8,7 +8,6 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { GeoJSONCollection, BoundaryProperties, FacilityProperties, RiskProperties, BasemapType } from "@/types/geojson";
 import { getBoundsFromGeoJSON, getCenterFromBounds, SEMARANG_BARAT_CENTER, SEMARANG_BARAT_ZOOM } from "@/lib/map-utils";
-import { getRouteWithWaypoints } from "@/lib/routing";
 import { LocateMeControl, BasemapSwitcherControl } from "./MapControls";
 import UserLocationMarker from "./UserLocationMarker";
 // Import layer components (setiap anggota tim punya file sendiri)
@@ -18,6 +17,8 @@ import LahanKritisLayer from "./layers/LahanKritisLayer";
 import BoundaryLayer from "./layers/BoundaryLayer";
 import FacilitiesLayer from "./layers/FacilitiesLayer";
 import PumpLayer from "./layers/PumpLayer";
+import ShelterLayer from "./layers/ShelterLayer";
+import EventPointLayer from "./layers/EventPointLayer";
 
 // Fix for default marker icons
 if (typeof window !== "undefined") {
@@ -37,6 +38,8 @@ interface MapComponentProps {
   evacuationRouteData?: GeoJSONCollection | null;
   LahanKritisData?: GeoJSONCollection | null;
   pumpData?: GeoJSONCollection | null;
+  shelterData?: GeoJSONCollection | null;
+  eventPointData?: GeoJSONCollection | null;
   showBoundary?: boolean;
   showFacilities?: boolean;
   showFloodRisk?: boolean;
@@ -49,7 +52,11 @@ interface MapComponentProps {
   showRisikoLongsor?: boolean;
   showLahanKritis?: boolean;
   showEvacuationRoute?: boolean;
+  showEvacuationRouteBanjir?: boolean;
+  showEvacuationRouteLongsor?: boolean;
   showPump?: boolean;
+  showShelter?: boolean;
+  showEventPoint?: boolean;
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
   basemap?: BasemapType;
@@ -144,6 +151,8 @@ export default function MapComponent({
   landslideRiskData,
   evacuationRouteData,
   pumpData,
+  shelterData,
+  eventPointData,
   showBoundary = true,
   showFacilities = true,
   showFloodRisk = false,
@@ -155,8 +164,12 @@ export default function MapComponent({
   showLandslideCapacity = false,
   showKerentananLongsor = false,
   showRisikoLongsor = false,
-  showEvacuationRoute = true,
+  showEvacuationRoute = false,
+  showEvacuationRouteBanjir = false,
+  showEvacuationRouteLongsor = false,
   showPump = false,
+  showShelter = false,
+  showEventPoint = false,
   selectedCategory,
   selectedKelurahan,
   basemap = "osm",
@@ -168,8 +181,6 @@ export default function MapComponent({
 }: MapComponentProps) {
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [userAccuracy, setUserAccuracy] = useState<number | undefined>(undefined);
-  const [routedEvacuationData, setRoutedEvacuationData] = useState<GeoJSONCollection | null>(null);
-  const routeCacheRef = useRef<Map<string, number[][]>>(new Map()); // Cache for routed coordinates
 
   // Get basemap URL
   const getBasemapUrl = (type: BasemapType): string => {
@@ -188,7 +199,7 @@ export default function MapComponent({
   const evacuationRouteStyle = (feature: any) => {
     return {
       color: "#22c55e", // Green color
-      weight: 6,
+      weight: 4,
       opacity: 0.9,
       lineCap: "round" as const,
       lineJoin: "round" as const,
@@ -230,256 +241,76 @@ export default function MapComponent({
 
   // Boundary dan Facilities logic sudah dipindah ke layer components terpisah
 
-  // Filter evacuation routes by kelurahan - strict matching only
-  const filteredEvacuationRoute = useMemo(() => {
-    if (!evacuationRouteData) return null;
-    
-    // If no kelurahan selected, return all routes
-    if (!selectedKelurahan) {
-      return evacuationRouteData;
+  // Filter evacuation routes by kelurahan dan jenis bencana
+  const filteredEvacuationRouteBanjir = useMemo(() => {
+    if (!evacuationRouteData || !showEvacuationRouteBanjir) {
+      return null;
     }
     
-    const selectedKel = selectedKelurahan.toLowerCase().trim();
-    
-    const filtered = evacuationRouteData.features.filter((f) => {
+    let filtered = evacuationRouteData.features.filter((f) => {
       const props = f.properties as any;
-      const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
-      
-      // Only match by exact slug - no fallback matching
-      const matches = kelurahanSlug === selectedKel;
-      
-      // Debug individual route matching
-      if (process.env.NODE_ENV === 'development' && !matches) {
-        console.log('Route filtered out:', props.nama, 'Expected:', selectedKel, 'Got:', kelurahanSlug);
-      }
-      
-      return matches;
+      const jenisBencana = (props.jenis_bencana || "").toLowerCase().trim();
+      return jenisBencana === 'banjir';
     });
     
-    // Debug: log filtered results
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Filter evacuation route kelurahan:', selectedKel, 'Total routes:', evacuationRouteData.features.length, 'Filtered:', filtered.length);
-      if (filtered.length > 0) {
-        console.log('Matched routes:', filtered.map(f => {
-          const props = f.properties as any;
-          return `${props.nama || props.id} (${props.slug_kelurahan || props.kelurahan})`;
-        }));
-      } else {
-        console.warn('No routes found for kelurahan:', selectedKel);
-        console.log('Available kelurahan in routes:', evacuationRouteData.features.map(f => {
-          const props = f.properties as any;
-          return props.slug_kelurahan || props.kelurahan || 'unknown';
-        }));
-      }
-    }
-    
-    return {
-      ...evacuationRouteData,
-      features: filtered,
-    };
-  }, [evacuationRouteData, selectedKelurahan]);
-
-  // Fetch routes from OSRM to follow roads
-  useEffect(() => {
-    // Reset routed data immediately when filter changes
-    setRoutedEvacuationData(null);
-    
-    if (!filteredEvacuationRoute || filteredEvacuationRoute.features.length === 0) {
-      return;
-    }
-
-    // Create a unique key for this filtered data to prevent stale updates
-    const filterKey = selectedKelurahan || 'all';
-    const selectedKel = selectedKelurahan ? selectedKelurahan.toLowerCase().trim() : null;
-    
-    // Use filteredEvacuationRoute directly - it's already filtered correctly
-    // No need to filter again here as it's already done in filteredEvacuationRoute useMemo
-    const validatedData = filteredEvacuationRoute;
-    const validatedFeatures = filteredEvacuationRoute.features;
-    
-    if (validatedFeatures.length === 0) {
-      setRoutedEvacuationData(null);
-      return;
-    }
-    
-    // Show validated routes immediately (no loading delay) - instant display
-    setRoutedEvacuationData(validatedData);
-    
-    // Debug: log what routes are being processed
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Routing evacuation routes for kelurahan:', filterKey, 'Routes:', validatedFeatures.length);
-      validatedFeatures.forEach((f: any) => {
+    // Filter by kelurahan jika dipilih
+    if (selectedKelurahan) {
+      const selectedKel = selectedKelurahan.toLowerCase().trim();
+      // Normalize slug by removing hyphens for comparison
+      const selectedKelNormalized = selectedKel.replace(/-/g, "");
+      
+      filtered = filtered.filter((f) => {
         const props = f.properties as any;
-        console.log('  - Route:', props.nama, 'Kelurahan:', props.slug_kelurahan || props.kelurahan);
+        const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
+        const kelurahanSlugNormalized = kelurahanSlug.replace(/-/g, "");
+        const namaKelurahan = (props.nama_kelurahan || "").toLowerCase().trim();
+        
+        // Match by normalized slug or by nama_kelurahan
+        return kelurahanSlugNormalized === selectedKelNormalized || 
+               namaKelurahan === selectedKel.replace(/-/g, " ");
       });
     }
+    
+    return filtered.length > 0 ? {
+      ...evacuationRouteData,
+      features: filtered,
+    } : null;
+  }, [evacuationRouteData, selectedKelurahan, showEvacuationRouteBanjir]);
 
-    const fetchRoutes = async () => {
-      // Process routes in parallel batches for faster loading
-      const routedFeatures: any[] = [];
-      const batchSize = 5; // Process 5 routes in parallel (increased for speed)
-      
-      const totalFeatures = validatedFeatures.length;
-      
-      for (let i = 0; i < totalFeatures; i += batchSize) {
-        // Check if filter has changed
-        const currentFilterCheck = selectedKelurahan || 'all';
-        if (filterKey !== currentFilterCheck) {
-          // Filter changed, abort
-          if (process.env.NODE_ENV === 'development') {
-            console.log('Routing aborted - filter changed from', filterKey, 'to', currentFilterCheck);
-          }
-          return;
-        }
-        
-        const batch = validatedFeatures.slice(i, i + batchSize);
-        
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`Processing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(totalFeatures/batchSize)}: ${batch.length} routes (${i+1}-${Math.min(i+batchSize, totalFeatures)} of ${totalFeatures})`);
-        }
-        
-        const batchResults = await Promise.all(
-          batch.map(async (feature) => {
-            if (feature.geometry.type !== "LineString") {
-              return feature;
-            }
-            
-            const coords = feature.geometry.coordinates;
-            if (!Array.isArray(coords) || coords.length < 2) {
-              return feature;
-            }
-            
-            const coordinates = coords as number[][];
-            const startCoord = coordinates[0];
-            const endCoord = coordinates[coordinates.length - 1];
-            
-            if (!Array.isArray(startCoord) || !Array.isArray(endCoord) || startCoord.length < 2 || endCoord.length < 2) {
-              return feature;
-            }
-            
-            // Use all waypoints from original data for more accurate routing
-            // Convert all coordinates to waypoints [lng, lat]
-            const waypoints: [number, number][] = coordinates.map((coord: number[]) => [coord[0], coord[1]]);
-            
-            // Create cache key from all waypoints
-            const cacheKey = waypoints.map(wp => `${wp[0]},${wp[1]}`).join(';');
-            
-            // Check cache first
-            let routedCoords: number[][] | undefined = routeCacheRef.current.get(cacheKey);
-            
-            if (!routedCoords) {
-              // Get route from OSRM using all waypoints for accurate road following
-              const fetchedCoords = await getRouteWithWaypoints(waypoints);
-              
-              // Cache the result if valid
-              if (fetchedCoords && fetchedCoords.length > 0) {
-                routedCoords = fetchedCoords;
-                routeCacheRef.current.set(cacheKey, routedCoords);
-              }
-            }
-            
-            if (routedCoords && routedCoords.length >= 2) {
-              // Return feature with routed coordinates, preserving all properties
-              return {
-                ...feature,
-                properties: {
-                  ...feature.properties,
-                },
-                geometry: {
-                  ...feature.geometry,
-                  coordinates: routedCoords,
-                },
-              };
-            }
-            
-            // If routing fails or returns invalid data, use original coordinates
-            // This ensures we always have a valid route to display
-            return feature;
-          })
-        );
-        
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`Batch ${Math.floor(i/batchSize) + 1} completed: ${batchResults.length} routes processed`);
-        }
-        
-        routedFeatures.push(...batchResults);
-        
-        // Update UI incrementally as batches complete (for better UX)
-        const currentFilterCheck2 = selectedKelurahan || 'all';
-        if (filterKey === currentFilterCheck2) {
-          // Merge completed routes with remaining original routes
-          const remainingFeatures = validatedFeatures.slice(i + batchSize);
-          setRoutedEvacuationData({
-            ...validatedData,
-            features: [...routedFeatures, ...remainingFeatures],
-          });
-        }
-      }
-      
-      // Final update with all routed features - ensure all are included
-      const finalFilterCheck = selectedKelurahan || 'all';
-      if (filterKey === finalFilterCheck && routedFeatures.length > 0) {
-        // Ensure we have all features (should match validatedFeatures length)
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Routed evacuation data - Total processed:', routedFeatures.length, 'Expected:', validatedFeatures.length);
-          if (routedFeatures.length !== validatedFeatures.length) {
-            console.warn('Mismatch! Processed', routedFeatures.length, 'but expected', validatedFeatures.length);
-            console.log('Processed routes:', routedFeatures.map((f: any) => f.properties?.nama || f.properties?.id));
-            console.log('Expected routes:', validatedFeatures.map((f: any) => f.properties?.nama || f.properties?.id));
-          }
-        }
-        
-        // Use all routed features - no need to filter again as filteredEvacuationRoute is already correct
-        setRoutedEvacuationData({
-          ...validatedData,
-          features: routedFeatures,
-        });
-        
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Routed evacuation data updated for kelurahan:', filterKey, 'Final features:', routedFeatures.length);
-        }
-      } else if (filterKey === finalFilterCheck && routedFeatures.length === 0 && validatedFeatures.length > 0) {
-        // If no routes were routed but we have original features, use original
-        if (process.env.NODE_ENV === 'development') {
-          console.warn('No routes were routed, using original features');
-        }
-        setRoutedEvacuationData(validatedData);
-      }
-    };
-
-    // Start routing in background (non-blocking)
-    fetchRoutes();
-  }, [filteredEvacuationRoute, selectedKelurahan]);
-
-  // Final filtered evacuation data for rendering (double-check filter)
-  const finalRoutedEvacuationData = useMemo(() => {
-    if (!routedEvacuationData || routedEvacuationData.features.length === 0) {
+  const filteredEvacuationRouteLongsor = useMemo(() => {
+    if (!evacuationRouteData || !showEvacuationRouteLongsor) {
       return null;
     }
     
-    const selectedKel = selectedKelurahan ? selectedKelurahan.toLowerCase().trim() : null;
-    
-    if (!selectedKel) {
-      // No filter, return all
-      return routedEvacuationData;
-    }
-    
-    // Filter again to ensure only matching kelurahan routes are shown
-    const finalFilteredFeatures = routedEvacuationData.features.filter((f: any) => {
+    let filtered = evacuationRouteData.features.filter((f) => {
       const props = f.properties as any;
-      const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
-      return kelurahanSlug === selectedKel;
+      const jenisBencana = (props.jenis_bencana || "").toLowerCase().trim();
+      return jenisBencana === 'longsor';
     });
     
-    if (finalFilteredFeatures.length === 0) {
-      return null;
+    // Filter by kelurahan jika dipilih
+    if (selectedKelurahan) {
+      const selectedKel = selectedKelurahan.toLowerCase().trim();
+      // Normalize slug by removing hyphens for comparison
+      const selectedKelNormalized = selectedKel.replace(/-/g, "");
+      
+      filtered = filtered.filter((f) => {
+        const props = f.properties as any;
+        const kelurahanSlug = (props.slug_kelurahan || props.kelurahan || "").toLowerCase().trim();
+        const kelurahanSlugNormalized = kelurahanSlug.replace(/-/g, "");
+        const namaKelurahan = (props.nama_kelurahan || "").toLowerCase().trim();
+        
+        // Match by normalized slug or by nama_kelurahan
+        return kelurahanSlugNormalized === selectedKelNormalized || 
+               namaKelurahan === selectedKel.replace(/-/g, " ");
+      });
     }
     
-    return {
-      ...routedEvacuationData,
-      features: finalFilteredFeatures,
-    };
-  }, [routedEvacuationData, selectedKelurahan]);
+    return filtered.length > 0 ? {
+      ...evacuationRouteData,
+      features: filtered,
+    } : null;
+  }, [evacuationRouteData, selectedKelurahan, showEvacuationRouteLongsor]);
 
   // Calculate bounds for fit bounds (only when no kelurahan is selected)
   const allBounds = useRef<L.LatLngBounds | null>(null);
@@ -570,78 +401,87 @@ export default function MapComponent({
 
       {/* 👤 Shaqi - Lahan Kritis Layer */}
       <LahanKritisLayer data={LahanKritisData} show={showLahanKritis} />
-      {/* Evacuation Route Layer - Green style with shadow and markers */}
-      {showEvacuationRoute && finalRoutedEvacuationData && finalRoutedEvacuationData.features.length > 0 && (
+      {/* Evacuation Route Layer - Banjir (Green main, Blue outline) */}
+      {filteredEvacuationRouteBanjir && filteredEvacuationRouteBanjir.features.length > 0 && (
         <>
-          {/* Shadow layer for depth effect */}
+          {/* Blue outline layer */}
           <GeoJSON
-            key={`evac-shadow-${selectedKelurahan || 'all'}`}
-            data={finalRoutedEvacuationData as any}
+            key={`evac-banjir-outline-${selectedKelurahan || 'all'}`}
+            data={filteredEvacuationRouteBanjir as any}
             style={(feature: any) => ({
-              color: "#1a1a1a",
+              color: "#3b82f6", // Blue color for outline
               weight: 8,
-              opacity: 0.3,
+              opacity: 1.0,
               lineCap: "round",
               lineJoin: "round",
             })}
           />
-          {/* Main route layer */}
+          {/* Main route layer - Green for banjir */}
           <GeoJSON
-            key={`evac-route-${selectedKelurahan || 'all'}`}
-            data={finalRoutedEvacuationData as any}
-            style={evacuationRouteStyle}
+            key={`evac-banjir-route-${selectedKelurahan || 'all'}`}
+            data={filteredEvacuationRouteBanjir as any}
+            style={(feature: any) => ({
+              color: "#22c55e", // Green color for banjir
+              weight: 4,
+              opacity: 1.0,
+              lineCap: "round" as const,
+              lineJoin: "round" as const,
+            })}
             onEachFeature={(feature, layer) => {
               const props = feature.properties as any;
               const popupContent = `
                 <div style="padding: 8px;">
-                  <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #22c55e;">🛣️ ${props.nama || "Jalur Evakuasi"}</h3>
+                  <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #22c55e;">🌊 ${props.nama || "Jalur Evakuasi Banjir"}</h3>
                   ${props.deskripsi ? `<p style="margin: 4px 0;">${props.deskripsi}</p>` : ""}
                   ${props.prioritas ? `<p style="margin: 4px 0;"><strong>Prioritas:</strong> <span style="text-transform: uppercase;">${props.prioritas}</span></p>` : ""}
+                  <p style="margin: 4px 0;"><strong>Jenis:</strong> Banjir</p>
                 </div>
               `;
               layer.bindPopup(popupContent);
             }}
           />
-          {/* Markers for start and end points of each route */}
-          {finalRoutedEvacuationData.features.map((feature: any, idx: number) => {
-            if (feature.geometry.type !== "LineString") return null;
-            const coordinates = feature.geometry.coordinates;
-            if (coordinates.length < 2) return null;
-            
-            const startPoint = coordinates[0];
-            const endPoint = coordinates[coordinates.length - 1];
-            const props = feature.properties as any;
-            
-            return (
-              <Fragment key={`evac-markers-${idx}`}>
-                {/* Start point marker */}
-                <Marker
-                  position={[startPoint[1], startPoint[0]]}
-                  icon={createEvacuationIcon}
-                >
-                  <Popup>
-                    <div>
-                      <h3>📍 Titik Awal</h3>
-                      <p><strong>Jalur:</strong> {props.nama || "Jalur Evakuasi"}</p>
-                    </div>
-                  </Popup>
-                </Marker>
-                {/* End point marker */}
-                <Marker
-                  position={[endPoint[1], endPoint[0]]}
-                  icon={createEvacuationIcon}
-                >
-                  <Popup>
-                    <div>
-                      <h3>📍 Titik Kumpul</h3>
-                      <p><strong>Jalur:</strong> {props.nama || "Jalur Evakuasi"}</p>
-                      <p>✓ Tujuan Evakuasi</p>
-                    </div>
-                  </Popup>
-                </Marker>
-              </Fragment>
-            );
-          })}
+        </>
+      )}
+
+      {/* Evacuation Route Layer - Longsor (Green main, Orange outline) */}
+      {filteredEvacuationRouteLongsor && filteredEvacuationRouteLongsor.features.length > 0 && (
+        <>
+          {/* Orange outline layer */}
+          <GeoJSON
+            key={`evac-longsor-outline-${selectedKelurahan || 'all'}`}
+            data={filteredEvacuationRouteLongsor as any}
+            style={(feature: any) => ({
+              color: "#f97316", // Orange color for outline
+              weight: 8,
+              opacity: 1.0,
+              lineCap: "round",
+              lineJoin: "round",
+            })}
+          />
+          {/* Main route layer - Green for longsor */}
+          <GeoJSON
+            key={`evac-longsor-route-${selectedKelurahan || 'all'}`}
+            data={filteredEvacuationRouteLongsor as any}
+            style={(feature: any) => ({
+              color: "#22c55e", // Green color for longsor
+              weight: 4,
+              opacity: 1.0,
+              lineCap: "round" as const,
+              lineJoin: "round" as const,
+            })}
+            onEachFeature={(feature, layer) => {
+              const props = feature.properties as any;
+              const popupContent = `
+                <div style="padding: 8px;">
+                  <h3 style="margin: 0 0 8px 0; font-weight: bold; color: #22c55e;">⛰️ ${props.nama || "Jalur Evakuasi Longsor"}</h3>
+                  ${props.deskripsi ? `<p style="margin: 4px 0;">${props.deskripsi}</p>` : ""}
+                  ${props.prioritas ? `<p style="margin: 4px 0;"><strong>Prioritas:</strong> <span style="text-transform: uppercase;">${props.prioritas}</span></p>` : ""}
+                  <p style="margin: 4px 0;"><strong>Jenis:</strong> Longsor</p>
+                </div>
+              `;
+              layer.bindPopup(popupContent);
+            }}
+          />
         </>
       )}
 
@@ -667,6 +507,19 @@ export default function MapComponent({
         show={showPump}
         selectedKelurahan={selectedKelurahan}
         onPumpClick={onPumpClick}
+      />
+
+      <ShelterLayer 
+        data={shelterData} 
+        show={showShelter}
+        selectedKelurahan={selectedKelurahan}
+      />
+
+      {/* Event Point Layer */}
+      <EventPointLayer 
+        data={eventPointData} 
+        show={showEventPoint}
+        selectedKelurahan={selectedKelurahan}
       />
 
       {searchResult && (
