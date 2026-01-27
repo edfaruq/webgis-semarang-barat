@@ -13,11 +13,11 @@
         "alamat": "Pompa Air perumahan Anjasmoro Blok B-C Jl. Anjasmoro Raya RW.02",
         "kelurahan": "tawangmas",
         "nama_kelurahan": "Tawangmas",
-        "foto": "/data/utilities/pompa-air/images/pompa-1.jpg"
+        "foto": "/data/utilities/pompa-air/images/anjasmoro-blokbc.jpeg"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [110.388252, -6.974097 ]
+        "coordinates": [110.388252, -6.974097]
       }
     },
     {
@@ -32,7 +32,7 @@
         "alamat": "Pompa Air perumahan Anjasmoro Blok A Jl. Anjasmoro Raya RW.03",
         "kelurahan": "tawangmas",
         "nama_kelurahan": "Tawangmas",
-        "foto": "/data/utilities/pompa-air/images/pompa-1.jpg"
+        "foto": "/data/utilities/pompa-air/images/anjasmoro-bloka.jpeg"
       },
       "geometry": {
         "type": "Point",
@@ -40,55 +40,56 @@
       }
     },
     {
-    "type": "Feature",
-    "properties": {
-      "nama": "Pompa Air Tawangmas",
-      "kapasitas": "1500 L/detik",
-      "kondisi": "Baik/Operasional",
-      "pengelola": "DPU Kota Semarang",
-      "operator": "Yosi",
-      "no_telp": "081246477115",
-      "alamat": "Rumah Pompa Jl. Madukoro",
-      "kelurahan": "tawangmas",
-      "nama_kelurahan": "Tawangmas",
-      "foto": "/data/utilities/pompa-air/images/pompa-3.jpg"
+      "type": "Feature",
+      "properties": {
+        "nama": "Pompa Air Tawangmas",
+        "kapasitas": "1500 L/detik",
+        "kondisi": "Baik/Operasional",
+        "pengelola": "DPU Kota Semarang",
+        "operator": "Yosi",
+        "no_telp": "081246477115",
+        "alamat": "Pompa Jl. Madukoro Ujung",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "foto": "/data/utilities/pompa-air/images/rumah-pompa-madukoro.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.399277, -6.961318]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [110.399277, -6.961318]
-    } },
-    {
-    "type": "Feature",
-    "properties": {
-      "nama": "Pompa Air Tawangmas",
-      "kapasitas": "1 unit 4.000 L/detik & 2 unit 3.000 L/detik",
-      "kondisi": "Baik/Operasional",
-      "pengelola": "DPU Kota Semarang",
-      "operator": "Yusuf",
-      "no_telp": "082322772791", 
-      "alamat": "Rumah Pompa JL. Madukoro, Samping mal The Park",
-      "kelurahan": "tawangmas",
-      "nama_kelurahan": "Tawangmas",
-      "foto": "/data/utilities/pompa-air/images/pompa-4.jpg"
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [110.398870, -6.964936]
-    }
-    },    
     {
       "type": "Feature",
-    "properties": {
-      "nama": "Pompa Air Tawangmas",
-      "kapasitas": "100 L/detik",
-      "kondisi": "Baik/Operasional",
-      "pengelola": "Swadaya",
-      "operator": "Pardi",
-      "no_telp": "08585843729",
-      "alamat": "Pompa Air Perumahan Semarang Indah Blok D RW.09",
-      "kelurahan": "tawangmas",
-      "nama_kelurahan": "Tawangmas",
-      "foto": "/data/utilities/pompa-air/images/pompa-3.jpg"
+      "properties": {
+        "nama": "Pompa Air Tawangmas",
+        "kapasitas": "1 unit 4.000 L/detik & 2 unit 3.000 L/detik",
+        "kondisi": "Baik/Operasional",
+        "pengelola": "DPU Kota Semarang",
+        "operator": "Yusuf",
+        "no_telp": "082322772791",
+        "alamat": "Rumah Pompa JL. Madukoro, Samping mal The Park",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "foto": "/data/utilities/pompa-air/images/rumah-pompa-madukoro-ujung.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.39887, -6.964936]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pompa Air Tawangmas",
+        "kapasitas": "100 L/detik",
+        "kondisi": "Baik/Operasional",
+        "pengelola": "Swadaya",
+        "operator": "Pardi",
+        "no_telp": "08585843729",
+        "alamat": "Pompa Air Perumahan Semarang Indah Blok D RW.09",
+        "kelurahan": "tawangmas",
+        "nama_kelurahan": "Tawangmas",
+        "foto": "/data/utilities/pompa-air/images/semarang-indah-blokd.jpeg"
       },
       "geometry": {
         "type": "Point",
@@ -107,13 +108,13 @@
         "alamat": "Pompa Air Perumahan Semarang Indah Blok B RW.07, Jl. Semarang Indah",
         "kelurahan": "tawangmas",
         "nama_kelurahan": "Tawangmas",
-        "foto": "/data/utilities/pompa-air/images/pompa-3.jpg"
+        "foto": "/data/utilities/pompa-air/images/semarang-indah-blokb.jpeg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [110.39596, -6.965884]
       }
-    }, 
+    },
     {
       "type": "Feature",
       "properties": {
@@ -133,6 +134,5 @@
         "coordinates": [110.393599, -6.974069]
       }
     }
-    
   ]
 }
