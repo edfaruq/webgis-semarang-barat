@@ -18,6 +18,7 @@ interface FacilitiesLayerProps {
   show: boolean;
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
+  onMarkerClick?: (feature: any) => void;
 }
 
 export default function FacilitiesLayer({
@@ -25,6 +26,7 @@ export default function FacilitiesLayer({
   show,
   selectedCategory,
   selectedKelurahan,
+  onMarkerClick,
 }: FacilitiesLayerProps) {
   if (!show || !data) return null;
 
@@ -175,7 +177,19 @@ export default function FacilitiesLayer({
         const icon = getFacilityIcon(category);
 
         return (
-          <Marker key={`facility-${idx}`} position={[lat, lng]} icon={icon}>
+          <Marker 
+            key={`facility-${idx}`} 
+            position={[lat, lng]} 
+            icon={icon}
+            eventHandlers={{
+              click: (e) => {
+                e.originalEvent.stopPropagation();
+                if (onMarkerClick) {
+                  onMarkerClick(feature);
+                }
+              }
+            }}
+          >
             <Popup>
               <div style={{ padding: "8px" }}>
                 <h3 style={{ margin: "0 0 8px 0", fontWeight: "bold" }}>

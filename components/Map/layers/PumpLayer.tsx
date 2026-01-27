@@ -91,7 +91,8 @@ export default function PumpLayer({
             position={[lat, lng]} 
             icon={pumpIcon}
             eventHandlers={{
-              click: () => {
+              click: (e) => {
+                e.originalEvent.stopPropagation();
                 if (onPumpClick) {
                   onPumpClick(feature);
                 }

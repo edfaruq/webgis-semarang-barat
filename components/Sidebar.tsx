@@ -27,6 +27,7 @@ import {
   Map,
   FileText,
 } from "lucide-react";
+import SearchDataModal from "./SearchDataModal";
 
 interface SidebarProps {
   boundaryData?: GeoJSONCollection | null;
@@ -169,6 +170,7 @@ export default function Sidebar({
 }: SidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const [isSearchDataModalOpen, setIsSearchDataModalOpen] = useState(false);
 
   // State untuk sub-kategori fasilitas yang aktif
   const [activeFacilitySubcategory, setActiveFacilitySubcategory] = useState<
@@ -795,11 +797,7 @@ export default function Sidebar({
         <div className="px-6 pb-6 mt-auto">
           <div className="mt-24 pt-12 pb-4">
             <button
-              onClick={() => {
-                // Handler untuk tombol cari data
-                console.log("Cari Data clicked");
-                // Bisa ditambahkan fungsi untuk membuka modal atau navigasi ke halaman pencarian
-              }}
+              onClick={() => setIsSearchDataModalOpen(true)}
               className="w-full flex items-center justify-between p-3 rounded-xl border border-purple-200 transition-colors shadow-sm"
               style={{
                 backgroundColor: '#D7D7FF',
@@ -829,6 +827,12 @@ export default function Sidebar({
           </div>
         </div>
       </aside>
+
+      {/* Modal Cari Data */}
+      <SearchDataModal
+        isOpen={isSearchDataModalOpen}
+        onClose={() => setIsSearchDataModalOpen(false)}
+      />
     </>
   );
 }

@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo, Fragment } from "react";
-import { MapContainer, TileLayer, GeoJSON, useMap, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, useMap, Marker, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 import { GeoJSONCollection, BoundaryProperties, FacilityProperties, RiskProperties, BasemapType } from "@/types/geojson";
 import { getBoundsFromGeoJSON, getCenterFromBounds, SEMARANG_BARAT_CENTER, SEMARANG_BARAT_ZOOM } from "@/lib/map-utils";
-import { LocateMeControl, BasemapSwitcherControl } from "./MapControls";
+import { LocateMeControl, BasemapSwitcherControl, ClearRouteControl, ShowRouteControl } from "./MapControls";
 import UserLocationMarker from "./UserLocationMarker";
 // Import layer components (setiap anggota tim punya file sendiri)
 import FloodLayer from "./layers/FloodLayer";
@@ -19,6 +19,7 @@ import FacilitiesLayer from "./layers/FacilitiesLayer";
 import PumpLayer from "./layers/PumpLayer";
 import ShelterLayer from "./layers/ShelterLayer";
 import EventPointLayer from "./layers/EventPointLayer";
+import RouteLayer from "./layers/RouteLayer";
 
 // Fix for default marker icons
 if (typeof window !== "undefined") {
@@ -89,6 +90,38 @@ function FitBounds({ bounds, enabled = true }: { bounds: L.LatLngBounds | null; 
       map.fitBounds(bounds, { padding: [50, 50] });
     }
   }, [bounds, enabled, map]);
+
+  return null;
+}
+
+// Component to handle map clicks (to clear selected destination)
+function MapClickHandler({ 
+  onMapClick, 
+  markerClickRef 
+}: { 
+  onMapClick: () => void;
+  markerClickRef: React.MutableRefObject<boolean>;
+}) {
+  useMapEvents({
+    click: (e) => {
+      // Check if click target is a marker or popup
+      const target = e.originalEvent.target as HTMLElement;
+      const isMarker = target.closest('.leaflet-marker-icon') || 
+                      target.closest('.leaflet-marker-pane') ||
+                      target.closest('.leaflet-popup') ||
+                      target.closest('.leaflet-popup-content') ||
+                      target.closest('.leaflet-popup-pane') ||
+                      markerClickRef.current;
+      
+      // Reset flag
+      markerClickRef.current = false;
+      
+      // Only clear if clicking on map background, not on markers or popups
+      if (!isMarker) {
+        onMapClick();
+      }
+    },
+  });
 
   return null;
 }
@@ -181,6 +214,10 @@ export default function MapComponent({
 }: MapComponentProps) {
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [userAccuracy, setUserAccuracy] = useState<number | undefined>(undefined);
+  const [selectedDestination, setSelectedDestination] = useState<[number, number] | null>(null); // Destination yang dipilih dari marker
+  const [routeDestination, setRouteDestination] = useState<[number, number] | null>(null); // Destination untuk route yang aktif
+  const [routeError, setRouteError] = useState<string | null>(null);
+  const markerClickRef = useRef<boolean>(false); // Flag to track if marker was clicked
 
   // Get basemap URL
   const getBasemapUrl = (type: BasemapType): string => {
@@ -386,6 +423,17 @@ export default function MapComponent({
         url={getBasemapUrl(basemap)}
       />
 
+      {/* Map click handler to clear selected destination */}
+      <MapClickHandler 
+        markerClickRef={markerClickRef}
+        onMapClick={() => {
+          // Only clear if there's no active route
+          if (!routeDestination) {
+            setSelectedDestination(null);
+          }
+        }} 
+      />
+
       {/* Disaster Layers - Setiap layer punya file sendiri untuk menghindari konflik */}
       {/* 👤 Farhan - Flood Layer */}
       <FloodLayer data={floodRiskData} show={showFloodRisk} showKerentananBanjir={showKerentananBanjir} showCapacity={showFloodCapacity} showRisikoBanjir={showRisikoBanjir} />
@@ -491,7 +539,15 @@ export default function MapComponent({
         show={showBoundary}
         selectedKelurahan={selectedKelurahan}
         basemap={basemap}
-        onFeatureClick={onFeatureClick}
+        onFeatureClick={(feature) => {
+          // Clear selected destination when clicking on boundary/kelurahan
+          if (!routeDestination) {
+            setSelectedDestination(null);
+          }
+          if (onFeatureClick) {
+            onFeatureClick(feature);
+          }
+        }}
         onKelurahanChange={onKelurahanChange}
       />
       
@@ -500,19 +556,45 @@ export default function MapComponent({
         show={showFacilities}
         selectedCategory={selectedCategory}
         selectedKelurahan={selectedKelurahan}
+        onMarkerClick={(feature) => {
+          markerClickRef.current = true;
+          if (feature.geometry.type === "Point") {
+            const [lng, lat] = feature.geometry.coordinates as number[];
+            setSelectedDestination([lat, lng]);
+            setRouteError(null);
+          }
+        }}
       />
 
       <PumpLayer 
         data={pumpData} 
         show={showPump}
         selectedKelurahan={selectedKelurahan}
-        onPumpClick={onPumpClick}
+        onPumpClick={(feature) => {
+          markerClickRef.current = true;
+          if (onPumpClick) {
+            onPumpClick(feature);
+          }
+          if (feature.geometry.type === "Point") {
+            const [lng, lat] = feature.geometry.coordinates as number[];
+            setSelectedDestination([lat, lng]);
+            setRouteError(null);
+          }
+        }}
       />
 
       <ShelterLayer 
         data={shelterData} 
         show={showShelter}
         selectedKelurahan={selectedKelurahan}
+        onMarkerClick={(feature) => {
+          markerClickRef.current = true;
+          if (feature.geometry.type === "Point") {
+            const [lng, lat] = feature.geometry.coordinates as number[];
+            setSelectedDestination([lat, lng]);
+            setRouteError(null);
+          }
+        }}
       />
 
       {/* Event Point Layer */}
@@ -520,6 +602,14 @@ export default function MapComponent({
         data={eventPointData} 
         show={showEventPoint}
         selectedKelurahan={selectedKelurahan}
+        onMarkerClick={(feature) => {
+          markerClickRef.current = true;
+          if (feature.geometry.type === "Point") {
+            const [lng, lat] = feature.geometry.coordinates as number[];
+            setSelectedDestination([lat, lng]);
+            setRouteError(null);
+          }
+        }}
       />
 
       {searchResult && (
@@ -537,6 +627,29 @@ export default function MapComponent({
       {/* User Location Marker */}
       <UserLocationMarker position={userLocation} accuracy={userAccuracy} />
       
+      {/* Route Layer - Shows route from user location to clicked marker */}
+      {/* Always render RouteLayer when userLocation exists to ensure proper cleanup */}
+      {userLocation && (
+        <RouteLayer
+          start={userLocation}
+          end={routeDestination}
+          onRouteError={(error) => {
+            setRouteError(error);
+            // Show error message to user
+            setTimeout(() => {
+              alert(error);
+            }, 100);
+          }}
+        />
+      )}
+      
+      {/* Route Error Display */}
+      {routeError && (
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] bg-red-500 text-white px-4 py-2 rounded shadow-lg">
+          {routeError}
+        </div>
+      )}
+      
       {/* Map Controls */}
       <div className="absolute bottom-4 right-4 z-[1000] flex flex-col gap-2">
         {onBasemapChange && (
@@ -549,6 +662,30 @@ export default function MapComponent({
           onLocationFound={(position, accuracy) => {
             setUserLocation(position);
             setUserAccuracy(accuracy);
+          }}
+        />
+        <ShowRouteControl
+          hasDestination={!!selectedDestination}
+          hasRoute={!!routeDestination}
+          onShowRoute={() => {
+            if (!userLocation) {
+              alert("Silakan aktifkan lokasi Anda terlebih dahulu dengan menekan tombol 'Lokasi Saya'");
+              return;
+            }
+            if (selectedDestination) {
+              setRouteDestination(selectedDestination);
+              setRouteError(null);
+            }
+          }}
+        />
+        <ClearRouteControl
+          hasRoute={!!routeDestination}
+          onClearRoute={() => {
+            console.log("ClearRouteControl clicked, clearing route...");
+            setRouteDestination(null);
+            setSelectedDestination(null);
+            setRouteError(null);
+            console.log("Route destination cleared");
           }}
         />
       </div>

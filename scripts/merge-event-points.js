@@ -143,7 +143,8 @@ function mergeEventPoints() {
     'TITIK-BENCANA-GISIKDRONO.geojson',
     'Titik-Kejadian-Banjir-Karangayu.geojson',
     'Titik-Longsor-SemarangBarat.geojson',
-    'Titik-Banjir-Karangayu2.geojson'
+    'Titik-Banjir-Karangayu2.geojson',
+    'Titik-Kejadian-Banjir-Ngemplak.geojson'
   ];
 
   const allFeatures = [];

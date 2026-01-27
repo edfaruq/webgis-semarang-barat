@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Kejadian Banjir Ngemplak Simongan",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "Point", "coordinates": [ 433765.254797362431418, 9226536.334226852282882 ] } }
+]
+}

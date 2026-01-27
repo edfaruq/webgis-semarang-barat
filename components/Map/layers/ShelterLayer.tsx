@@ -25,12 +25,14 @@ interface ShelterLayerProps {
   data: GeoJSONCollection | null | undefined;
   show: boolean;
   selectedKelurahan?: string | null;
+  onMarkerClick?: (feature: any) => void;
 }
 
 export default function ShelterLayer({ 
   data, 
   show,
-  selectedKelurahan 
+  selectedKelurahan,
+  onMarkerClick
 }: ShelterLayerProps) {
   // Filter shelter points by kelurahan if selected
   const shelterPoints = useMemo(() => {
@@ -149,7 +151,19 @@ export default function ShelterLayer({
         const [lng, lat] = feature.geometry.coordinates as number[];
 
         return (
-          <Marker key={`shelter-${selectedKelurahan || 'all'}-${props.id || idx}`} position={[lat, lng]} icon={shelterIcon}>
+          <Marker 
+            key={`shelter-${selectedKelurahan || 'all'}-${props.id || idx}`} 
+            position={[lat, lng]} 
+            icon={shelterIcon}
+            eventHandlers={{
+              click: (e) => {
+                e.originalEvent.stopPropagation();
+                if (onMarkerClick) {
+                  onMarkerClick(feature);
+                }
+              }
+            }}
+          >
             <Popup>
               <div style={{ padding: "8px", minWidth: "200px" }}>
                 <h3 style={{ margin: "0 0 8px 0", fontWeight: "bold", color: "#22c55e" }}>
