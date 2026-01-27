@@ -1,10 +1,10 @@
 /**
  * FacilitiesLayer Component
- * 
+ *
  * Layer untuk menampilkan fasilitas
  * 👤 Owner: Shared (Infrastructure)
  * 📁 Data: public/data/infrastructure/facilities.geojson
- * 
+ *
  * Edit file ini untuk mengubah styling, popup, atau behavior layer facilities
  */
 
@@ -20,25 +20,25 @@ interface FacilitiesLayerProps {
   selectedKelurahan?: string | null;
 }
 
-export default function FacilitiesLayer({ 
-  data, 
-  show, 
+export default function FacilitiesLayer({
+  data,
+  show,
   selectedCategory,
-  selectedKelurahan 
+  selectedKelurahan,
 }: FacilitiesLayerProps) {
   if (!show || !data) return null;
 
   // Filter facilities by category and kelurahan
   const filteredFacilities = data.features.filter((f) => {
     if (f.geometry.type !== "Point") return false;
-    
+
     const props = f.properties as FacilityProperties;
-    
+
     // Filter by category
     if (selectedCategory) {
       // Special handling for 'umum' category (masjid & gereja)
-      if (selectedCategory === 'umum') {
-        if (props.kategori !== 'masjid' && props.kategori !== 'gereja') {
+      if (selectedCategory === "umum") {
+        if (props.kategori !== "Masjid" && props.kategori !== "Gereja") {
           return false;
         }
       } else {
@@ -48,31 +48,32 @@ export default function FacilitiesLayer({
         }
       }
     }
-    
+
     // Filter by kelurahan
     if (selectedKelurahan) {
       const kelurahanSlug = props.kelurahan?.toLowerCase().trim() || "";
       const kelurahanName = props.nama_kelurahan?.toLowerCase().trim() || "";
       const selectedKel = selectedKelurahan.toLowerCase().trim();
       const selectedKelName = selectedKel.replace(/-/g, " ");
-      
+
       const matchesSlug = kelurahanSlug === selectedKel;
-      const matchesName = kelurahanName === selectedKelName || kelurahanName === selectedKel;
-      
+      const matchesName =
+        kelurahanName === selectedKelName || kelurahanName === selectedKel;
+
       if (!matchesSlug && !matchesName) {
         return false;
       }
     }
-    
+
     return true;
   });
 
   const getFacilityIcon = (category: string): L.DivIcon => {
     // Icon khusus untuk kesehatan (puskesmas) - mirip pompa air dengan tanda +
-    if (category === "puskesmas" || category === "kesehatan") {
+    if (category === "Fasilitas Kesehatan") {
       const iconSize: [number, number] = [30, 30];
       const iconAnchor: [number, number] = [15, 15];
-      
+
       return L.divIcon({
         className: "custom-health-marker",
         html: `<div style="
@@ -106,12 +107,12 @@ export default function FacilitiesLayer({
         iconAnchor,
       });
     }
-    
+
     // Icon khusus untuk sekolah - mirip pompa air dengan icon toga/gedung
-    if (category === "sekolah" || category === "pendidikan") {
+    if (category === "Fasilitas Pendidikan" || category === "pendidikan") {
       const iconSize: [number, number] = [30, 30];
       const iconAnchor: [number, number] = [15, 15];
-      
+
       return L.divIcon({
         className: "custom-school-marker",
         html: `<div style="
@@ -130,18 +131,18 @@ export default function FacilitiesLayer({
         iconAnchor,
       });
     }
-    
+
     // Icon untuk kategori lainnya (tetap menggunakan circle)
     const iconSize: [number, number] = [25, 25];
     const iconAnchor: [number, number] = [12, 12];
-    
+
     const colors: Record<string, string> = {
-      sekolah: "#3498db",
-      puskesmas: "#e74c3c",
+      "Fasilitas Pendidikan": "#3498db",
+      "Fasilitas Kesehatan": "#e74c3c",
       posko: "#f39c12",
       pasar: "#9b59b6",
-      masjid: "#16a085",
-      gereja: "#2980b9",
+      Masjid: "#16a085",
+      Gereja: "#2980b9",
       vihara: "#f39c12",
       pura: "#e67e22",
       lainnya: "#95a5a6",

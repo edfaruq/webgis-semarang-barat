@@ -89,8 +89,18 @@ const KELURAHAN_LIST = [
 
 // All possible categories (for reference)
 const ALL_FACILITY_CATEGORIES = [
-  { value: "sekolah", label: "Sekolah", color: "#3498db", icon: "🏫" },
-  { value: "puskesmas", label: "Puskesmas", color: "#e74c3c", icon: "🏥" },
+  {
+    value: "Fasilitas Pendidikan",
+    label: "Fasilitas Pendidikan",
+    color: "#3498db",
+    icon: "🏫",
+  },
+  {
+    value: "Fasilitas Kesehatan",
+    label: "Fasilitas Kesehatan",
+    color: "#e74c3c",
+    icon: "🏥",
+  },
   { value: "posko", label: "Posko", color: "#f39c12", icon: "🆘" },
   { value: "pasar", label: "Pasar", color: "#9b59b6", icon: "🏪" },
   { value: "masjid", label: "Masjid", color: "#16a085", icon: "🕌" },
@@ -142,15 +152,17 @@ export default function Sidebar({
 }: SidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
-  
+
   // State untuk sub-kategori fasilitas yang aktif
-  const [activeFacilitySubcategory, setActiveFacilitySubcategory] = useState<'all' | 'pendidikan' | 'kesehatan' | 'umum'>('all');
+  const [activeFacilitySubcategory, setActiveFacilitySubcategory] = useState<
+    "all" | "pendidikan" | "kesehatan" | "umum"
+  >("all");
 
   const toggleCategory = (category: string) => {
-    setExpandedCategories(prev =>
+    setExpandedCategories((prev) =>
       prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
+        ? prev.filter((c) => c !== category)
+        : [...prev, category],
     );
   };
 
@@ -201,25 +213,27 @@ export default function Sidebar({
 
   // Filter kategori berdasarkan sub-kategori fasilitas yang aktif
   const filteredCategoriesBySubcategory = useMemo(() => {
-    if (activeFacilitySubcategory === 'all') {
+    if (activeFacilitySubcategory === "all") {
       return availableCategories;
     }
-    
-    if (activeFacilitySubcategory === 'pendidikan') {
+
+    if (activeFacilitySubcategory === "pendidikan") {
       // Hanya sekolah
-      return availableCategories.filter(cat => cat.value === 'sekolah');
+      return availableCategories.filter((cat) => cat.value === "sekolah");
     }
-    
-    if (activeFacilitySubcategory === 'kesehatan') {
+
+    if (activeFacilitySubcategory === "kesehatan") {
       // Hanya puskesmas
-      return availableCategories.filter(cat => cat.value === 'puskesmas');
+      return availableCategories.filter((cat) => cat.value === "puskesmas");
     }
-    
-    if (activeFacilitySubcategory === 'umum') {
+
+    if (activeFacilitySubcategory === "umum") {
       // Masjid dan gereja
-      return availableCategories.filter(cat => cat.value === 'masjid' || cat.value === 'gereja');
+      return availableCategories.filter(
+        (cat) => cat.value === "masjid" || cat.value === "gereja",
+      );
     }
-    
+
     return availableCategories;
   }, [availableCategories, activeFacilitySubcategory]);
 
@@ -347,12 +361,13 @@ export default function Sidebar({
               Layer Peta
             </h3>
             <div className="space-y-2">
-              
               {/* Batas Wilayah - di paling atas */}
               <label className="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-white cursor-pointer transition-all hover:border-slate-300 shadow-sm">
                 <div className="flex items-center gap-3">
                   <Map size={16} className="text-slate-500" />
-                  <span className="text-sm font-semibold text-slate-700">BATAS WILAYAH</span>
+                  <span className="text-sm font-semibold text-slate-700">
+                    BATAS WILAYAH
+                  </span>
                 </div>
                 <input
                   type="checkbox"
@@ -361,23 +376,25 @@ export default function Sidebar({
                   className="w-4 h-4 text-slate-600 rounded"
                 />
               </label>
-              
+
               {/* ANALISIS BANJIR */}
               <div className="rounded-xl border border-blue-200 bg-blue-50/30 overflow-hidden">
                 <button
-                  onClick={() => toggleCategory('flood')}
+                  onClick={() => toggleCategory("flood")}
                   className="w-full flex items-center justify-between p-3 hover:bg-blue-50 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Droplets size={18} className="text-blue-600" />
-                    <span className="text-sm font-bold text-blue-900">ANALISIS BANJIR</span>
+                    <span className="text-sm font-bold text-blue-900">
+                      ANALISIS BANJIR
+                    </span>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`text-blue-600 transition-transform ${expandedCategories.includes('flood') ? 'rotate-180' : ''}`}
+                    className={`text-blue-600 transition-transform ${expandedCategories.includes("flood") ? "rotate-180" : ""}`}
                   />
                 </button>
-                {expandedCategories.includes('flood') && (
+                {expandedCategories.includes("flood") && (
                   <div className="px-3 pb-3 space-y-1.5">
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
                       <input
@@ -386,7 +403,9 @@ export default function Sidebar({
                         onChange={onToggleFloodRisk}
                         className="w-3.5 h-3.5 text-blue-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-blue-800">Kerawanan Banjir</span>
+                      <span className="text-xs font-semibold text-blue-800">
+                        Kerawanan Banjir
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
                       <input
@@ -395,7 +414,9 @@ export default function Sidebar({
                         onChange={onToggleKerentananBanjir}
                         className="w-3.5 h-3.5 text-blue-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-blue-800">Kerentanan Banjir</span>
+                      <span className="text-xs font-semibold text-blue-800">
+                        Kerentanan Banjir
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
                       <input
@@ -404,7 +425,9 @@ export default function Sidebar({
                         onChange={onToggleFloodCapacity}
                         className="w-3.5 h-3.5 text-blue-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-blue-800">Kapasitas Banjir</span>
+                      <span className="text-xs font-semibold text-blue-800">
+                        Kapasitas Banjir
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors">
                       <input
@@ -413,7 +436,9 @@ export default function Sidebar({
                         onChange={onToggleRisikoBanjir}
                         className="w-3.5 h-3.5 text-blue-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-blue-800">Risiko Banjir</span>
+                      <span className="text-xs font-semibold text-blue-800">
+                        Risiko Banjir
+                      </span>
                     </label>
                   </div>
                 )}
@@ -422,19 +447,21 @@ export default function Sidebar({
               {/* ANALISIS LONGSOR */}
               <div className="rounded-xl border border-orange-200 bg-orange-50/30 overflow-hidden">
                 <button
-                  onClick={() => toggleCategory('landslide')}
+                  onClick={() => toggleCategory("landslide")}
                   className="w-full flex items-center justify-between p-3 hover:bg-orange-50 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Mountain size={18} className="text-orange-600" />
-                    <span className="text-sm font-bold text-orange-900">ANALISIS LONGSOR</span>
+                    <span className="text-sm font-bold text-orange-900">
+                      ANALISIS LONGSOR
+                    </span>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`text-orange-600 transition-transform ${expandedCategories.includes('landslide') ? 'rotate-180' : ''}`}
+                    className={`text-orange-600 transition-transform ${expandedCategories.includes("landslide") ? "rotate-180" : ""}`}
                   />
                 </button>
-                {expandedCategories.includes('landslide') && (
+                {expandedCategories.includes("landslide") && (
                   <div className="px-3 pb-3 space-y-1.5">
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
                       <input
@@ -443,7 +470,9 @@ export default function Sidebar({
                         onChange={onToggleLandslideHazard}
                         className="w-3.5 h-3.5 text-orange-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-orange-800">Kerawanan Longsor</span>
+                      <span className="text-xs font-semibold text-orange-800">
+                        Kerawanan Longsor
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
                       <input
@@ -452,7 +481,9 @@ export default function Sidebar({
                         onChange={onToggleKerentananLongsor}
                         className="w-3.5 h-3.5 text-orange-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-orange-800">Kerentanan Longsor</span>
+                      <span className="text-xs font-semibold text-orange-800">
+                        Kerentanan Longsor
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
                       <input
@@ -461,7 +492,9 @@ export default function Sidebar({
                         onChange={onToggleLandslideCapacity}
                         className="w-3.5 h-3.5 text-orange-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-orange-800">Kapasitas Longsor</span>
+                      <span className="text-xs font-semibold text-orange-800">
+                        Kapasitas Longsor
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors">
                       <input
@@ -470,7 +503,9 @@ export default function Sidebar({
                         onChange={onToggleRisikoLongsor}
                         className="w-3.5 h-3.5 text-orange-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-orange-800">Risiko Longsor</span>
+                      <span className="text-xs font-semibold text-orange-800">
+                        Risiko Longsor
+                      </span>
                     </label>
                   </div>
                 )}
@@ -479,19 +514,21 @@ export default function Sidebar({
               {/* INFRASTRUKTUR */}
               <div className="rounded-xl border border-slate-300 bg-slate-50/30 overflow-hidden">
                 <button
-                  onClick={() => toggleCategory('infrastructure')}
+                  onClick={() => toggleCategory("infrastructure")}
                   className="w-full flex items-center justify-between p-3 hover:bg-slate-100 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Gauge size={18} className="text-slate-600" />
-                    <span className="text-sm font-bold text-slate-900">INFRASTRUKTUR</span>
+                    <span className="text-sm font-bold text-slate-900">
+                      INFRASTRUKTUR
+                    </span>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`text-slate-600 transition-transform ${expandedCategories.includes('infrastructure') ? 'rotate-180' : ''}`}
+                    className={`text-slate-600 transition-transform ${expandedCategories.includes("infrastructure") ? "rotate-180" : ""}`}
                   />
                 </button>
-                {expandedCategories.includes('infrastructure') && (
+                {expandedCategories.includes("infrastructure") && (
                   <div className="px-3 pb-3 space-y-1.5">
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
                       <input
@@ -500,11 +537,19 @@ export default function Sidebar({
                         onChange={onTogglePump}
                         className="w-3.5 h-3.5 text-blue-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-slate-800">Titik Pompa</span>
+                      <span className="text-xs font-semibold text-slate-800">
+                        Titik Pompa
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-slate-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Jaringan Drainase</span>
+                      <input
+                        type="checkbox"
+                        className="w-3.5 h-3.5 text-slate-600 rounded"
+                        disabled
+                      />
+                      <span className="text-xs text-slate-600">
+                        Jaringan Drainase
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
                       <input
@@ -513,7 +558,9 @@ export default function Sidebar({
                         onChange={onToggleLahanKritis}
                         className="w-3.5 h-3.5 text-slate-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-slate-800">Ketersediaan Pengembangan Lahan</span>
+                      <span className="text-xs font-semibold text-slate-800">
+                        Ketersediaan Pengembangan Lahan
+                      </span>
                     </label>
                   </div>
                 )}
@@ -522,19 +569,21 @@ export default function Sidebar({
               {/* EVAKUASI & MITIGASI */}
               <div className="rounded-xl border border-emerald-200 bg-emerald-50/30 overflow-hidden">
                 <button
-                  onClick={() => toggleCategory('evacuation')}
+                  onClick={() => toggleCategory("evacuation")}
                   className="w-full flex items-center justify-between p-3 hover:bg-emerald-50 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <AlertTriangle size={18} className="text-emerald-600" />
-                    <span className="text-sm font-bold text-emerald-900">EVAKUASI & MITIGASI</span>
+                    <span className="text-sm font-bold text-emerald-900">
+                      EVAKUASI & MITIGASI
+                    </span>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`text-emerald-600 transition-transform ${expandedCategories.includes('evacuation') ? 'rotate-180' : ''}`}
+                    className={`text-emerald-600 transition-transform ${expandedCategories.includes("evacuation") ? "rotate-180" : ""}`}
                   />
                 </button>
-                {expandedCategories.includes('evacuation') && (
+                {expandedCategories.includes("evacuation") && (
                   <div className="px-3 pb-3 space-y-1.5">
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
                       <input
@@ -543,15 +592,29 @@ export default function Sidebar({
                         onChange={onToggleEvacuationRoute}
                         className="w-3.5 h-3.5 text-emerald-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-emerald-800">Jalur Evakuasi</span>
+                      <span className="text-xs font-semibold text-emerald-800">
+                        Jalur Evakuasi
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-emerald-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Titik Shelter</span>
+                      <input
+                        type="checkbox"
+                        className="w-3.5 h-3.5 text-emerald-600 rounded"
+                        disabled
+                      />
+                      <span className="text-xs text-slate-600">
+                        Titik Shelter
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
-                      <input type="checkbox" className="w-3.5 h-3.5 text-emerald-600 rounded" disabled />
-                      <span className="text-xs text-slate-600">Zona Prioritas</span>
+                      <input
+                        type="checkbox"
+                        className="w-3.5 h-3.5 text-emerald-600 rounded"
+                        disabled
+                      />
+                      <span className="text-xs text-slate-600">
+                        Zona Prioritas
+                      </span>
                     </label>
                   </div>
                 )}
@@ -560,115 +623,149 @@ export default function Sidebar({
               {/* FASILITAS */}
               <div className="rounded-xl border border-indigo-200 bg-indigo-50/30 overflow-hidden">
                 <button
-                  onClick={() => toggleCategory('facilities')}
+                  onClick={() => toggleCategory("facilities")}
                   className="w-full flex items-center justify-between p-3 hover:bg-indigo-50 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Building2 size={18} className="text-indigo-600" />
-                    <span className="text-sm font-bold text-indigo-900">FASILITAS</span>
+                    <span className="text-sm font-bold text-indigo-900">
+                      FASILITAS
+                    </span>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`text-indigo-600 transition-transform ${expandedCategories.includes('facilities') ? 'rotate-180' : ''}`}
+                    className={`text-indigo-600 transition-transform ${expandedCategories.includes("facilities") ? "rotate-180" : ""}`}
                   />
                 </button>
-                {expandedCategories.includes('facilities') && (
+                {expandedCategories.includes("facilities") && (
                   <div className="px-3 pb-3 space-y-1.5">
                     {/* Semua Fasilitas */}
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
                       <input
                         type="checkbox"
-                        checked={showFacilities && activeFacilitySubcategory === 'all'}
+                        checked={
+                          showFacilities && activeFacilitySubcategory === "all"
+                        }
                         onChange={() => {
-                          if (activeFacilitySubcategory === 'all' && showFacilities) {
+                          if (
+                            activeFacilitySubcategory === "all" &&
+                            showFacilities
+                          ) {
                             // Uncheck Semua Fasilitas
                             onToggleFacilities();
                           } else {
                             // Check Semua Fasilitas
-                            setActiveFacilitySubcategory('all');
+                            setActiveFacilitySubcategory("all");
                             if (!showFacilities) onToggleFacilities();
                             onCategoryChange(null); // Tampilkan semua kategori
                           }
                         }}
                         className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-indigo-800">Semua Fasilitas</span>
+                      <span className="text-xs font-semibold text-indigo-800">
+                        Semua Fasilitas
+                      </span>
                     </label>
 
                     {/* Fasilitas Pendidikan (Sekolah) */}
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
-                      <input 
-                        type="checkbox" 
-                        checked={showFacilities && activeFacilitySubcategory === 'pendidikan'}
+                      <input
+                        type="checkbox"
+                        checked={
+                          showFacilities &&
+                          activeFacilitySubcategory === "pendidikan"
+                        }
                         onChange={() => {
-                          if (activeFacilitySubcategory === 'pendidikan' && showFacilities) {
+                          if (
+                            activeFacilitySubcategory === "pendidikan" &&
+                            showFacilities
+                          ) {
                             // Uncheck Pendidikan
-                            setActiveFacilitySubcategory('all');
+                            setActiveFacilitySubcategory("all");
                             onToggleFacilities();
                           } else {
                             // Check Pendidikan
-                            setActiveFacilitySubcategory('pendidikan');
+                            setActiveFacilitySubcategory("pendidikan");
                             if (!showFacilities) onToggleFacilities();
-                            onCategoryChange('sekolah'); // Filter sekolah
+                            onCategoryChange("Fasilitas Pendidikan"); // Filter sekolah
                           }
                         }}
-                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                        className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Pendidikan</span>
+                      <span className="text-xs text-indigo-800 font-medium">
+                        Fasilitas Pendidikan
+                      </span>
                     </label>
 
                     {/* Fasilitas Kesehatan (Puskesmas) */}
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
-                      <input 
-                        type="checkbox" 
-                        checked={showFacilities && activeFacilitySubcategory === 'kesehatan'}
+                      <input
+                        type="checkbox"
+                        checked={
+                          showFacilities &&
+                          activeFacilitySubcategory === "kesehatan"
+                        }
                         onChange={() => {
-                          if (activeFacilitySubcategory === 'kesehatan' && showFacilities) {
+                          if (
+                            activeFacilitySubcategory === "kesehatan" &&
+                            showFacilities
+                          ) {
                             // Uncheck Kesehatan
-                            setActiveFacilitySubcategory('all');
+                            setActiveFacilitySubcategory("all");
                             onToggleFacilities();
                           } else {
                             // Check Kesehatan
-                            setActiveFacilitySubcategory('kesehatan');
+                            setActiveFacilitySubcategory("kesehatan");
                             if (!showFacilities) onToggleFacilities();
-                            onCategoryChange('puskesmas'); // Filter puskesmas
+                            onCategoryChange("Fasilitas Kesehatan"); // Filter puskesmas
                           }
                         }}
-                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                        className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Kesehatan</span>
+                      <span className="text-xs text-indigo-800 font-medium">
+                        Fasilitas Kesehatan
+                      </span>
                     </label>
 
                     {/* Fasilitas Umum (Masjid & Gereja) */}
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
-                      <input 
-                        type="checkbox" 
-                        checked={showFacilities && activeFacilitySubcategory === 'umum'}
+                      <input
+                        type="checkbox"
+                        checked={
+                          showFacilities && activeFacilitySubcategory === "umum"
+                        }
                         onChange={() => {
-                          if (activeFacilitySubcategory === 'umum' && showFacilities) {
+                          if (
+                            activeFacilitySubcategory === "umum" &&
+                            showFacilities
+                          ) {
                             // Uncheck Umum
-                            setActiveFacilitySubcategory('all');
+                            setActiveFacilitySubcategory("all");
                             onToggleFacilities();
                           } else {
                             // Check Umum
-                            setActiveFacilitySubcategory('umum');
+                            setActiveFacilitySubcategory("umum");
                             if (!showFacilities) onToggleFacilities();
-                            onCategoryChange('umum'); // Filter masjid & gereja
+                            onCategoryChange("umum"); // Filter masjid & gereja
                           }
                         }}
-                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                        className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs text-indigo-800 font-medium">Fasilitas Umum</span>
+                      <span className="text-xs text-indigo-800 font-medium">
+                        Fasilitas Umum
+                      </span>
                     </label>
 
                     {/* Fasilitas Kritis (Placeholder - disabled) */}
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg cursor-not-allowed opacity-50 transition-colors">
-                      <input 
-                        type="checkbox" 
+                      <input
+                        type="checkbox"
                         disabled
-                        className="w-3.5 h-3.5 text-indigo-600 rounded" 
+                        className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs text-slate-600">Fasilitas Kritis</span>
+                      <span className="text-xs text-slate-600">
+                        Fasilitas Kritis
+                      </span>
                     </label>
                   </div>
                 )}
@@ -706,7 +803,6 @@ export default function Sidebar({
               </div>
             </div>
           </section>
-
 
           {/* Search */}
           <section>
