@@ -111,6 +111,12 @@ const ALL_FACILITY_CATEGORIES = [
     color: "#e74c3c",
     icon: "🏥",
   },
+  {
+    value: "Fasilitas Kritis",
+    label: "Fasilitas Kritis",
+    color: "#c0392b",
+    icon: "🚨",
+  },
   { value: "posko", label: "Posko", color: "#f39c12", icon: "🆘" },
   { value: "pasar", label: "Pasar", color: "#9b59b6", icon: "🏪" },
   { value: "masjid", label: "Masjid", color: "#16a085", icon: "🕌" },
@@ -557,7 +563,9 @@ export default function Sidebar({
                         onChange={onToggleShelter}
                         className="w-3.5 h-3.5 text-emerald-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-emerald-800">Titik Kumpul</span>
+                      <span className="text-xs font-semibold text-emerald-800">
+                        Titik Kumpul
+                      </span>
                     </label>
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
                       <input
@@ -588,7 +596,9 @@ export default function Sidebar({
                         onChange={onToggleEventPoint}
                         className="w-3.5 h-3.5 text-red-600 rounded"
                       />
-                      <span className="text-xs font-semibold text-red-800">Titik Kejadian Bencana</span>
+                      <span className="text-xs font-semibold text-red-800">
+                        Titik Kejadian Bencana
+                      </span>
                     </label>
                   </div>
                 )}
@@ -775,14 +785,32 @@ export default function Sidebar({
                       </span>
                     </label>
 
-                    {/* Fasilitas Kritis (Placeholder - disabled) */}
-                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg cursor-not-allowed opacity-50 transition-colors">
+                    {/* Fasilitas Kritis */}
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-indigo-100 cursor-pointer transition-colors">
                       <input
                         type="checkbox"
-                        disabled
+                        checked={
+                          showFacilities &&
+                          activeFacilitySubcategory === "kritis"
+                        }
+                        onChange={() => {
+                          if (
+                            activeFacilitySubcategory === "kritis" &&
+                            showFacilities
+                          ) {
+                            // Uncheck Kritis
+                            setActiveFacilitySubcategory("all");
+                            onToggleFacilities();
+                          } else {
+                            // Check Kritis
+                            setActiveFacilitySubcategory("kritis");
+                            if (!showFacilities) onToggleFacilities();
+                            onCategoryChange("Fasilitas Kritis"); // Filter fasilitas kritis
+                          }
+                        }}
                         className="w-3.5 h-3.5 text-indigo-600 rounded"
                       />
-                      <span className="text-xs text-slate-600">
+                      <span className="text-xs text-indigo-800 font-medium">
                         Fasilitas Kritis
                       </span>
                     </label>
@@ -800,18 +828,21 @@ export default function Sidebar({
               onClick={() => setIsSearchDataModalOpen(true)}
               className="w-full flex items-center justify-between p-3 rounded-xl border border-purple-200 transition-colors shadow-sm"
               style={{
-                backgroundColor: '#D7D7FF',
+                backgroundColor: "#D7D7FF",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#C7C7FF';
+                e.currentTarget.style.backgroundColor = "#C7C7FF";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#D7D7FF';
+                e.currentTarget.style.backgroundColor = "#D7D7FF";
               }}
             >
               <div className="flex items-center gap-2">
-                <FileText size={18} style={{ color: '#6868E9' }} />
-                <span className="text-sm font-bold" style={{ color: '#6868E9' }}>
+                <FileText size={18} style={{ color: "#6868E9" }} />
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: "#6868E9" }}
+                >
                   CARI DATA
                 </span>
               </div>

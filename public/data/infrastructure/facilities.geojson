@@ -1784,6 +1784,62 @@
         "type": "Point",
         "coordinates": [110.3925, -7.0035]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pemadam Kebakaran Semarang Barat",
+        "kategori": "Fasilitas Kritis",
+        "alamat": "Jalan Karangayu No. 45",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3985, -6.9795]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Kantor Polisi Subsektor Semarang Barat",
+        "kategori": "Fasilitas Kritis",
+        "alamat": "Jalan Karangayu No. 100",
+        "kelurahan": "karangayu",
+        "nama_kelurahan": "Karangayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.4025, -6.981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Pemadam Kebakaran Kelurahan Krobokan",
+        "kategori": "Fasilitas Kritis",
+        "alamat": "Jalan Ariloka Raya No. 200",
+        "kelurahan": "krobokan",
+        "nama_kelurahan": "Krobokan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3945, -6.975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Kantor Polisi Kelurahan Bongsari",
+        "kategori": "Fasilitas Kritis",
+        "alamat": "Jalan Pamularsih No. 150",
+        "kelurahan": "bongsari",
+        "nama_kelurahan": "Bongsari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.392, -6.99]
+      }
     }
   ]
 }

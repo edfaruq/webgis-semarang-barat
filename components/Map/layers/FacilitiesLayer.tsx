@@ -141,6 +141,7 @@ export default function FacilitiesLayer({
     const colors: Record<string, string> = {
       "Fasilitas Pendidikan": "#3498db",
       "Fasilitas Kesehatan": "#e74c3c",
+      "Fasilitas Kritis": "#c0392b",
       posko: "#f39c12",
       pasar: "#9b59b6",
       Masjid: "#16a085",
@@ -177,9 +178,9 @@ export default function FacilitiesLayer({
         const icon = getFacilityIcon(category);
 
         return (
-          <Marker 
-            key={`facility-${idx}`} 
-            position={[lat, lng]} 
+          <Marker
+            key={`facility-${idx}`}
+            position={[lat, lng]}
             icon={icon}
             eventHandlers={{
               click: (e) => {
@@ -187,7 +188,7 @@ export default function FacilitiesLayer({
                 if (onMarkerClick) {
                   onMarkerClick(feature);
                 }
-              }
+              },
             }}
           >
             <Popup>
