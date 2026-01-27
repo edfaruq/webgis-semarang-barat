@@ -15,6 +15,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Placeholder styling untuk input dan select */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8; /* slate-400 */
+}
+
+select option:disabled {
+  color: #94a3b8; /* slate-400 */
+}
+
 /* Glass panel effect */
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
@@ -75,4 +85,52 @@ body {
 
 .animate-shake {
   animation: shake 0.5s ease-in-out infinite;
+}
+
+/* Fade in up animation for alerts */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Slide from right animation for alerts */
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-from-right {
+  animation: slideFromRight 0.4s ease-out;
+}
+
+/* Slide to right animation for alerts (exit) */
+@keyframes slideToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-to-right {
+  animation: slideToRight 0.4s ease-in;
 }
