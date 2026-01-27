@@ -9,9 +9,10 @@ interface EventPointLayerProps {
   data?: GeoJSONCollection | null;
   show?: boolean;
   selectedKelurahan?: string | null;
+  onMarkerClick?: (feature: any) => void;
 }
 
-export default function EventPointLayer({ data, show = false, selectedKelurahan }: EventPointLayerProps) {
+export default function EventPointLayer({ data, show = false, selectedKelurahan, onMarkerClick }: EventPointLayerProps) {
   // Get colors based on jenis titik and jenis bencana
   const getEventPointColors = (jenisBencana: string, jenisTitik: string) => {
     // Special colors for specific jenis titik
@@ -152,6 +153,16 @@ export default function EventPointLayer({ data, show = false, selectedKelurahan 
           </div>
         `;
         layer.bindPopup(popupContent);
+        
+        // Add click handler for routing
+        layer.on('click', (e) => {
+          if (e.originalEvent) {
+            e.originalEvent.stopPropagation();
+          }
+          if (onMarkerClick) {
+            onMarkerClick(feature);
+          }
+        });
       }}
     />
   );

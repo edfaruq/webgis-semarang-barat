@@ -4164,6 +4164,27 @@
           -6.975420428994557
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "nama": "Titik Kejadian Banjir Ngemplak Simongan",
+        "label": "Titik Banjir 1",
+        "deskripsi": "Titik kejadian banjir di Ngemplak Simongan",
+        "kelurahan": "ngemplak-simongan",
+        "slug_kelurahan": "ngemplak-simongan",
+        "nama_kelurahan": "Ngemplak Simongan",
+        "jenis_bencana": "banjir",
+        "jenis_titik": "kejadian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.40033924483046,
+          -6.9970381313119905
+        ]
+      }
     }
   ]
 }

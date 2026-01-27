@@ -83,7 +83,10 @@ export default function BoundaryLayer({
           boundaryLayerRef.current.resetStyle(layer);
         }
       },
-      click: () => {
+      click: (e) => {
+        if (e.originalEvent) {
+          e.originalEvent.stopPropagation();
+        }
         if (onFeatureClick) {
           onFeatureClick(feature);
         }

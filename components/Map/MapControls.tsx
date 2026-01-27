@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useMap } from "react-leaflet";
-import { LocateFixed, Map, Satellite } from "lucide-react";
+import { LocateFixed, Map, Satellite, X, Navigation } from "lucide-react";
 import { BasemapType } from "@/types/geojson";
 
 interface LocateMeControlProps {
@@ -141,6 +141,48 @@ export function LocateMeControl({ onLocationFound }: LocateMeControlProps) {
     >
       <LocateFixed size={18} className={isLocating ? "animate-pulse" : ""} />
       <span className="text-sm font-semibold whitespace-nowrap">Lokasi Saya</span>
+    </button>
+  );
+}
+
+interface ShowRouteControlProps {
+  onShowRoute: () => void;
+  hasDestination: boolean;
+  hasRoute: boolean;
+}
+
+export function ShowRouteControl({ onShowRoute, hasDestination, hasRoute }: ShowRouteControlProps) {
+  // Hanya tampilkan jika ada destination yang dipilih tapi belum ada rute yang ditampilkan
+  if (!hasDestination || hasRoute) return null;
+
+  return (
+    <button
+      onClick={onShowRoute}
+      className="px-4 py-3 rounded-xl shadow-lg text-green-600 hover:scale-105 transition active:scale-95 bg-white hover:bg-gray-50 border border-gray-200 flex items-center gap-2"
+      title="Tampilkan Rute"
+    >
+      <Navigation size={18} />
+      <span className="text-sm font-semibold whitespace-nowrap">Tampilkan Rute</span>
+    </button>
+  );
+}
+
+interface ClearRouteControlProps {
+  onClearRoute: () => void;
+  hasRoute: boolean;
+}
+
+export function ClearRouteControl({ onClearRoute, hasRoute }: ClearRouteControlProps) {
+  if (!hasRoute) return null;
+
+  return (
+    <button
+      onClick={onClearRoute}
+      className="px-4 py-3 rounded-xl shadow-lg text-red-600 hover:scale-105 transition active:scale-95 bg-white hover:bg-gray-50 border border-gray-200 flex items-center gap-2"
+      title="Hapus Rute"
+    >
+      <X size={18} />
+      <span className="text-sm font-semibold whitespace-nowrap">Hapus Rute</span>
     </button>
   );
 }
