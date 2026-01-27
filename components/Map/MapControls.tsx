@@ -137,10 +137,10 @@ export function LocateMeControl({ onLocationFound }: LocateMeControlProps) {
       className={`px-4 py-3 rounded-xl shadow-lg text-indigo-600 hover:scale-105 transition active:scale-95 bg-white hover:bg-gray-50 border border-gray-200 flex items-center gap-2 ${
         isLocating ? "opacity-50 cursor-not-allowed" : ""
       }`}
-      title={isLocating ? "Mencari lokasi..." : "Locate Me"}
+      title={isLocating ? "Mencari lokasi..." : "Lokasi Saya"}
     >
       <LocateFixed size={18} className={isLocating ? "animate-pulse" : ""} />
-      <span className="text-sm font-semibold whitespace-nowrap">Locate Me</span>
+      <span className="text-sm font-semibold whitespace-nowrap">Lokasi Saya</span>
     </button>
   );
 }

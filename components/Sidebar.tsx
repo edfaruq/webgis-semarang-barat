@@ -25,6 +25,7 @@ import {
   AlertTriangle,
   Home,
   Map,
+  FileText,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -42,7 +43,13 @@ interface SidebarProps {
   showRisikoLongsor: boolean;
   showLahanKritis: boolean;
   showEvacuationRoute: boolean;
+  showEvacuationRouteBanjir: boolean;
+  showEvacuationRouteLongsor: boolean;
   showPump: boolean;
+  showShelter: boolean;
+  showEventPoint: boolean;
+  onToggleShelter: () => void;
+  onToggleEventPoint: () => void;
   onToggleBoundary: () => void;
   onToggleFacilities: () => void;
   onToggleFloodRisk: () => void;
@@ -55,6 +62,8 @@ interface SidebarProps {
   onToggleRisikoLongsor: () => void;
   onToggleLahanKritis: () => void;
   onToggleEvacuationRoute: () => void;
+  onToggleEvacuationRouteBanjir: () => void;
+  onToggleEvacuationRouteLongsor: () => void;
   onTogglePump: () => void;
   selectedCategory: string | null;
   onCategoryChange: (category: string | null) => void;
@@ -125,7 +134,13 @@ export default function Sidebar({
   showKerentananLongsor,
   showRisikoLongsor,
   showEvacuationRoute,
+  showEvacuationRouteBanjir,
+  showEvacuationRouteLongsor,
   showPump,
+  showShelter,
+  showEventPoint,
+  onToggleShelter,
+  onToggleEventPoint,
   onToggleBoundary,
   onToggleFacilities,
   onToggleFloodRisk,
@@ -138,6 +153,8 @@ export default function Sidebar({
   onToggleRisikoLongsor,
   onToggleLahanKritis,
   onToggleEvacuationRoute,
+  onToggleEvacuationRouteBanjir,
+  onToggleEvacuationRouteLongsor,
   onTogglePump,
   selectedCategory,
   onCategoryChange,
@@ -326,6 +343,7 @@ export default function Sidebar({
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0
+          flex flex-col
         `}
       >
         {/* Close button untuk mobile */}
@@ -340,7 +358,7 @@ export default function Sidebar({
           </button>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-8 flex-1">
           {/* Breadcrumbs & Title */}
           <div>
             <div className="flex items-center gap-1 text-[10px] text-slate-400 uppercase font-bold mb-2">
@@ -511,6 +529,69 @@ export default function Sidebar({
                 )}
               </div>
 
+              {/* EVAKUASI & MITIGASI */}
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50/30 overflow-hidden">
+                <button
+                  onClick={() => toggleCategory("evacuation")}
+                  className="w-full flex items-center justify-between p-3 hover:bg-emerald-50 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <AlertTriangle size={18} className="text-emerald-600" />
+                    <span className="text-sm font-bold text-emerald-900">
+                      EVAKUASI & MITIGASI
+                    </span>
+                  </div>
+                  <ChevronDown
+                    size={16}
+                    className={`text-emerald-600 transition-transform ${expandedCategories.includes("evacuation") ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {expandedCategories.includes("evacuation") && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showShelter}
+                        onChange={onToggleShelter}
+                        className="w-3.5 h-3.5 text-emerald-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-emerald-800">Titik Kumpul</span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showEvacuationRouteBanjir}
+                        onChange={onToggleEvacuationRouteBanjir}
+                        className="w-3.5 h-3.5 text-blue-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-blue-800">
+                        Jalur Evakuasi Banjir
+                      </span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showEvacuationRouteLongsor}
+                        onChange={onToggleEvacuationRouteLongsor}
+                        className="w-3.5 h-3.5 text-orange-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-orange-800">
+                        Jalur Evakuasi Longsor
+                      </span>
+                    </label>
+                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={showEventPoint}
+                        onChange={onToggleEventPoint}
+                        className="w-3.5 h-3.5 text-red-600 rounded"
+                      />
+                      <span className="text-xs font-semibold text-red-800">Titik Kejadian Bencana</span>
+                    </label>
+                  </div>
+                )}
+              </div>
+
               {/* INFRASTRUKTUR */}
               <div className="rounded-xl border border-slate-300 bg-slate-50/30 overflow-hidden">
                 <button
@@ -544,76 +625,12 @@ export default function Sidebar({
                     <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
                       <input
                         type="checkbox"
-                        className="w-3.5 h-3.5 text-slate-600 rounded"
-                        disabled
-                      />
-                      <span className="text-xs text-slate-600">
-                        Jaringan Drainase
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-slate-100 cursor-pointer transition-colors">
-                      <input
-                        type="checkbox"
                         checked={showLahanKritis}
                         onChange={onToggleLahanKritis}
                         className="w-3.5 h-3.5 text-slate-600 rounded"
                       />
                       <span className="text-xs font-semibold text-slate-800">
                         Ketersediaan Pengembangan Lahan
-                      </span>
-                    </label>
-                  </div>
-                )}
-              </div>
-
-              {/* EVAKUASI & MITIGASI */}
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50/30 overflow-hidden">
-                <button
-                  onClick={() => toggleCategory("evacuation")}
-                  className="w-full flex items-center justify-between p-3 hover:bg-emerald-50 transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <AlertTriangle size={18} className="text-emerald-600" />
-                    <span className="text-sm font-bold text-emerald-900">
-                      EVAKUASI & MITIGASI
-                    </span>
-                  </div>
-                  <ChevronDown
-                    size={16}
-                    className={`text-emerald-600 transition-transform ${expandedCategories.includes("evacuation") ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {expandedCategories.includes("evacuation") && (
-                  <div className="px-3 pb-3 space-y-1.5">
-                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={showEvacuationRoute}
-                        onChange={onToggleEvacuationRoute}
-                        className="w-3.5 h-3.5 text-emerald-600 rounded"
-                      />
-                      <span className="text-xs font-semibold text-emerald-800">
-                        Jalur Evakuasi
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
-                      <input
-                        type="checkbox"
-                        className="w-3.5 h-3.5 text-emerald-600 rounded"
-                        disabled
-                      />
-                      <span className="text-xs text-slate-600">
-                        Titik Shelter
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2 p-2 pl-8 rounded-lg hover:bg-emerald-100 cursor-pointer transition-colors">
-                      <input
-                        type="checkbox"
-                        className="w-3.5 h-3.5 text-emerald-600 rounded"
-                        disabled
-                      />
-                      <span className="text-xs text-slate-600">
-                        Zona Prioritas
                       </span>
                     </label>
                   </div>
@@ -772,51 +789,36 @@ export default function Sidebar({
               </div>
             </div>
           </section>
+        </div>
 
-          {/* Info Card Wilayah */}
-          <section className="bg-indigo-900 rounded-2xl p-5 text-white shadow-xl">
-            <div className="flex items-center gap-2 mb-4 text-indigo-300 uppercase font-bold text-[10px]">
-              <Activity size={14} />
-              Profil Risiko
-            </div>
-            <div className="space-y-4">
-              <div className="bg-white/10 p-3 rounded-xl border border-white/5">
-                <p className="text-[9px] text-indigo-200 mb-1 uppercase font-bold">
-                  Status Kerawanan
-                </p>
-                <p className="text-lg font-bold text-orange-400 font-mono">
-                  SEDANG - TINGGI
-                </p>
+        {/* Tombol Cari Data - Dipisahkan dengan space yang cukup, di paling bawah */}
+        <div className="px-6 pb-6 mt-auto">
+          <div className="mt-24 pt-12 pb-4">
+            <button
+              onClick={() => {
+                // Handler untuk tombol cari data
+                console.log("Cari Data clicked");
+                // Bisa ditambahkan fungsi untuk membuka modal atau navigasi ke halaman pencarian
+              }}
+              className="w-full flex items-center justify-between p-3 rounded-xl border border-purple-200 transition-colors shadow-sm"
+              style={{
+                backgroundColor: '#D7D7FF',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#C7C7FF';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#D7D7FF';
+              }}
+            >
+              <div className="flex items-center gap-2">
+                <FileText size={18} style={{ color: '#6868E9' }} />
+                <span className="text-sm font-bold" style={{ color: '#6868E9' }}>
+                  CARI DATA
+                </span>
               </div>
-              <div className="bg-emerald-500/20 p-3 rounded-xl border border-emerald-500/30 flex items-center gap-3">
-                <div className="bg-emerald-500 p-2 rounded-lg shadow-lg shadow-emerald-500/20">
-                  <ShieldCheck size={16} />
-                </div>
-                <div>
-                  <p className="text-[9px] text-emerald-200 font-bold uppercase tracking-tight">
-                    Titik Kumpul Utama
-                  </p>
-                  <p className="text-xs font-bold leading-none">
-                    Lapangan Manyaran & PRPP
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Search */}
-          <section>
-            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-              Pencarian
-            </h3>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => handleSearch(e.target.value)}
-              placeholder="Cari fasilitas atau wilayah..."
-              className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </section>
+            </button>
+          </div>
 
           <div className="pt-4 border-t border-slate-100 italic">
             <p className="text-[10px] text-slate-400 leading-relaxed">

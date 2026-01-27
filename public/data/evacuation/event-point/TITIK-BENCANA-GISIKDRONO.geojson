@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "TITIK BENCANA_GISIKDRONO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "KET": "Kejadian Bencana", "JB": "Longsor", "ALMT": "RW 4", "TGL_KEJ": "25 Desember 2025", "DAMPAK": "Merusak tanggul jalan", "PENYEBAB": "Hujan Deras" }, "geometry": { "type": "Point", "coordinates": [ 432360.132208666240331, 9227309.58095583319664, 0.0 ] } },
+{ "type": "Feature", "properties": { "KET": "Kejadian Bencana", "JB": "Longsor", "ALMT": "RW 5", "TGL_KEJ": "2025", "DAMPAK": "Merusak sebagian rumah warga", "PENYEBAB": "Hujan Deras" }, "geometry": { "type": "Point", "coordinates": [ 432594.107808121130802, 9226941.726792113855481, 0.0 ] } },
+{ "type": "Feature", "properties": { "KET": "Kejadian Bencana", "JB": "Longsor", "ALMT": "RW 6", "TGL_KEJ": "16 Desember 2025", "DAMPAK": "Merusak sebagian rumah warga", "PENYEBAB": "Hujan Deras" }, "geometry": { "type": "Point", "coordinates": [ 432064.971786073234398, 9226763.435951055958867, 0.0 ] } },
+{ "type": "Feature", "properties": { "KET": "Kejadian Bencana", "JB": "Longsor", "ALMT": "RW 6", "TGL_KEJ": "Maret 2025", "DAMPAK": "Merusak sebagian rumah warga", "PENYEBAB": "Hujan Deras" }, "geometry": { "type": "Point", "coordinates": [ 432065.737886778719258, 9226752.989812195301056, 0.0 ] } }
+]
+}

@@ -116,7 +116,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition disabled:opacity-50"
                 >
                   <Crosshair size={14} />
-                  {isLoadingLocation ? "Mencari..." : "Use Your Location"}
+                  {isLoadingLocation ? "Mencari..." : "Lokasi Saya"}
                 </button>
               </div>
               <div className="relative rounded-xl overflow-hidden border-2 border-slate-300 shadow-sm" style={{ height: "300px" }}>
@@ -136,7 +136,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                 </span>
               </div>
               <p className="mt-2 text-xs text-slate-500 italic text-center">
-                💡 Klik pada peta untuk menandai lokasi kejadian, atau gunakan tombol "Use Your Location"
+                💡 Klik pada peta untuk menandai lokasi kejadian, atau gunakan tombol "Lokasi Saya"
               </p>
             </div>
             

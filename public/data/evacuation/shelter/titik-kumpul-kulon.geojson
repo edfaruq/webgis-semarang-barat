@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Titik Kumpul Evakuasi Banjir Kulon",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Columbia Asia Hospital - Semarang", "description": null, "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 431840.13115300773643, 9227953.181428963318467, 0.0 ] } }
+]
+}

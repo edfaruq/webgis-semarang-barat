@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Jalur Evakuasi 5",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32749" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 433046.873021531151608, 9226284.361445533111691 ], [ 433038.034674293419812, 9226204.000472955405712 ], [ 433010.114561994152609, 9226109.407495100051165 ] ] ] } }
+]
+}

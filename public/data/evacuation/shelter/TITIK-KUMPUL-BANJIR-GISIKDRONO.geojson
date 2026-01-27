@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "TITIK SHELTER BANJIR_GISIKDRONO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32748" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Point", "coordinates": [ 1096138.291138543281704, 9224875.29391616769135 ] } }
+]
+}
