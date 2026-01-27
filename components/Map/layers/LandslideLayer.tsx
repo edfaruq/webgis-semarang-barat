@@ -254,6 +254,15 @@ export default function LandslideLayer({ data, showHazard, showCapacity, showKer
     return colors[dn] || "#d4a574";
   };
 
+  const getRisikoLevelText = (dn: number): string => {
+    const levels: Record<number, string> = {
+      1: "Tinggi",
+      2: "Sedang",
+      3: "Rendah",
+    };
+    return levels[dn] || "Tidak Diketahui";
+  };
+
   return (
     <>
       {/* Layer Kerawanan Longsor (Area Rawan) */}
@@ -383,7 +392,7 @@ export default function LandslideLayer({ data, showHazard, showCapacity, showKer
           style={risikoStyle}
           onEachFeature={(feature, layer) => {
             const props = feature.properties as LandslideProperties;
-            const level = getLevelText(props.DN);
+            const level = getRisikoLevelText(props.DN);
             const color = getRisikoColor(props.DN);
             
             layer.bindPopup(`
