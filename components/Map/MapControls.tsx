@@ -7,6 +7,7 @@ import { BasemapType } from "@/types/geojson";
 
 interface LocateMeControlProps {
   onLocationFound?: (position: [number, number], accuracy: number) => void;
+  onError?: (message: string, type?: 'error' | 'warning' | 'info') => void;
 }
 
 interface BasemapSwitcherControlProps {
@@ -46,13 +47,17 @@ export function BasemapSwitcherControl({ currentBasemap, onBasemapChange }: Base
   );
 }
 
-export function LocateMeControl({ onLocationFound }: LocateMeControlProps) {
+export function LocateMeControl({ onLocationFound, onError }: LocateMeControlProps) {
   const map = useMap();
   const [isLocating, setIsLocating] = useState(false);
 
   const handleLocate = () => {
     if (!navigator.geolocation) {
-      alert("Geolocation tidak didukung oleh browser Anda");
+      if (onError) {
+        onError("Geolocation tidak didukung oleh browser Anda", 'error');
+      } else {
+        alert("Geolocation tidak didukung oleh browser Anda");
+      }
       return;
     }
 
@@ -78,7 +83,11 @@ export function LocateMeControl({ onLocationFound }: LocateMeControlProps) {
         // Pastikan map sudah ready
         if (!map) {
           console.error("❌ Map not ready");
-          alert("Peta belum siap. Silakan coba lagi.");
+          if (onError) {
+            onError("Peta belum siap. Silakan coba lagi.", 'warning');
+          } else {
+            alert("Peta belum siap. Silakan coba lagi.");
+          }
           return;
         }
         
@@ -123,7 +132,11 @@ export function LocateMeControl({ onLocationFound }: LocateMeControlProps) {
             break;
         }
         
-        alert(errorMessage);
+        if (onError) {
+          onError(errorMessage, 'error');
+        } else {
+          alert(errorMessage);
+        }
         console.error("Geolocation error:", err);
       },
       options

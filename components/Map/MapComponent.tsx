@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useMemo, Fragment } from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap, Marker, Popup, useMapEvents } from "react-leaflet";
+import { X } from "lucide-react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
@@ -217,6 +218,8 @@ export default function MapComponent({
   const [selectedDestination, setSelectedDestination] = useState<[number, number] | null>(null); // Destination yang dipilih dari marker
   const [routeDestination, setRouteDestination] = useState<[number, number] | null>(null); // Destination untuk route yang aktif
   const [routeError, setRouteError] = useState<string | null>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'error' | 'warning' | 'info' } | null>(null);
+  const [isNotificationExiting, setIsNotificationExiting] = useState(false);
   const markerClickRef = useRef<boolean>(false); // Flag to track if marker was clicked
 
   // Get basemap URL
@@ -560,8 +563,13 @@ export default function MapComponent({
           markerClickRef.current = true;
           if (feature.geometry.type === "Point") {
             const [lng, lat] = feature.geometry.coordinates as number[];
-            setSelectedDestination([lat, lng]);
+            const newDestination: [number, number] = [lat, lng];
+            setSelectedDestination(newDestination);
             setRouteError(null);
+            // Jika sudah ada rute aktif, langsung update rute ke marker baru
+            if (routeDestination && userLocation) {
+              setRouteDestination(newDestination);
+            }
           }
         }}
       />
@@ -577,8 +585,13 @@ export default function MapComponent({
           }
           if (feature.geometry.type === "Point") {
             const [lng, lat] = feature.geometry.coordinates as number[];
-            setSelectedDestination([lat, lng]);
+            const newDestination: [number, number] = [lat, lng];
+            setSelectedDestination(newDestination);
             setRouteError(null);
+            // Jika sudah ada rute aktif, langsung update rute ke marker baru
+            if (routeDestination && userLocation) {
+              setRouteDestination(newDestination);
+            }
           }
         }}
       />
@@ -591,8 +604,13 @@ export default function MapComponent({
           markerClickRef.current = true;
           if (feature.geometry.type === "Point") {
             const [lng, lat] = feature.geometry.coordinates as number[];
-            setSelectedDestination([lat, lng]);
+            const newDestination: [number, number] = [lat, lng];
+            setSelectedDestination(newDestination);
             setRouteError(null);
+            // Jika sudah ada rute aktif, langsung update rute ke marker baru
+            if (routeDestination && userLocation) {
+              setRouteDestination(newDestination);
+            }
           }
         }}
       />
@@ -606,8 +624,13 @@ export default function MapComponent({
           markerClickRef.current = true;
           if (feature.geometry.type === "Point") {
             const [lng, lat] = feature.geometry.coordinates as number[];
-            setSelectedDestination([lat, lng]);
+            const newDestination: [number, number] = [lat, lng];
+            setSelectedDestination(newDestination);
             setRouteError(null);
+            // Jika sudah ada rute aktif, langsung update rute ke marker baru
+            if (routeDestination && userLocation) {
+              setRouteDestination(newDestination);
+            }
           }
         }}
       />
@@ -635,16 +658,33 @@ export default function MapComponent({
           end={routeDestination}
           onRouteError={(error) => {
             setRouteError(error);
-            // Show error message to user
+            setIsNotificationExiting(false);
+            setNotification({ message: error, type: 'error' });
+            // Auto hide notification after 5 seconds
             setTimeout(() => {
-              alert(error);
-            }, 100);
+              setIsNotificationExiting(true);
+              setTimeout(() => {
+                setNotification(null);
+                setIsNotificationExiting(false);
+              }, 400);
+            }, 5000);
           }}
         />
       )}
       
-      {/* Route Error Display */}
-      {routeError && (
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`absolute top-4 right-4 z-[1000] ${isNotificationExiting ? 'animate-slide-to-right' : 'animate-slide-from-right'}`}>
+          <div className="rounded-xl px-6 py-4 shadow-lg border-2 flex items-center gap-3 min-w-[300px] max-w-[500px] bg-red-600 border-red-700 text-white">
+            <div className="flex-1">
+              <p className="text-sm font-semibold">{notification.message}</p>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Route Error Display (legacy, will be replaced by notification) */}
+      {routeError && !notification && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] bg-red-500 text-white px-4 py-2 rounded shadow-lg">
           {routeError}
         </div>
@@ -663,18 +703,43 @@ export default function MapComponent({
             setUserLocation(position);
             setUserAccuracy(accuracy);
           }}
+          onError={(message, type = 'error') => {
+            setIsNotificationExiting(false);
+            setNotification({ message, type });
+            // Auto hide notification after 5 seconds
+            setTimeout(() => {
+              setIsNotificationExiting(true);
+              setTimeout(() => {
+                setNotification(null);
+                setIsNotificationExiting(false);
+              }, 400);
+            }, 5000);
+          }}
         />
         <ShowRouteControl
           hasDestination={!!selectedDestination}
           hasRoute={!!routeDestination}
           onShowRoute={() => {
             if (!userLocation) {
-              alert("Silakan aktifkan lokasi Anda terlebih dahulu dengan menekan tombol 'Lokasi Saya'");
+              setIsNotificationExiting(false);
+              setNotification({ 
+                message: "Silakan aktifkan lokasi Anda terlebih dahulu dengan menekan tombol 'Lokasi Saya'", 
+                type: 'warning' 
+              });
+              // Auto hide notification after 5 seconds
+              setTimeout(() => {
+                setIsNotificationExiting(true);
+                setTimeout(() => {
+                  setNotification(null);
+                  setIsNotificationExiting(false);
+                }, 400);
+              }, 5000);
               return;
             }
             if (selectedDestination) {
               setRouteDestination(selectedDestination);
               setRouteError(null);
+              setNotification(null);
             }
           }}
         />

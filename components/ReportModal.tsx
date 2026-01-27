@@ -1,13 +1,19 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { X, MapPin, Crosshair, Shield } from "lucide-react";
+import { X, MapPin, Crosshair, Shield, AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
 import dynamic from "next/dynamic";
 import type { Map as LeafletMap } from "leaflet";
 
 interface ReportModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+interface AlertState {
+  type: 'success' | 'error' | 'warning' | 'info';
+  message: string;
+  show: boolean;
 }
 
 // Dynamic import untuk map component
@@ -22,6 +28,13 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [shouldZoomToGPS, setShouldZoomToGPS] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [disasterCategory, setDisasterCategory] = useState<string>("");
+  const [alert, setAlert] = useState<AlertState>({
+    type: 'info',
+    message: '',
+    show: false,
+  });
+  const [isAlertExiting, setIsAlertExiting] = useState(false);
 
   // Default center (Semarang Barat)
   const defaultCenter: [number, number] = [-6.9932, 110.4036];
@@ -35,6 +48,19 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
     }
   };
 
+  const showAlert = (type: AlertState['type'], message: string) => {
+    setIsAlertExiting(false);
+    setAlert({ type, message, show: true });
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      setIsAlertExiting(true);
+      setTimeout(() => {
+        setAlert(prev => ({ ...prev, show: false }));
+        setIsAlertExiting(false);
+      }, 400);
+    }, 5000);
+  };
+
   const handleUseMyLocation = () => {
     if (navigator.geolocation) {
       setIsLoadingLocation(true);
@@ -44,16 +70,17 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
           setMarkerPosition(newPos);
           setShouldZoomToGPS(true);
           setIsLoadingLocation(false);
+          showAlert('success', 'Lokasi GPS berhasil ditemukan!');
           // Reset zoom trigger after a delay
           setTimeout(() => setShouldZoomToGPS(false), 2000);
         },
         (error) => {
-          alert("Tidak dapat mengakses lokasi GPS. Mohon izinkan akses lokasi atau tandai manual di peta.");
+          showAlert('error', 'Tidak dapat mengakses lokasi GPS. Mohon izinkan akses lokasi atau tandai manual di peta.');
           setIsLoadingLocation(false);
         }
       );
     } else {
-      alert("GPS tidak tersedia di perangkat ini.");
+      showAlert('error', 'GPS tidak tersedia di perangkat ini.');
     }
   };
 
@@ -89,17 +116,32 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
             onSubmit={(e) => {
               e.preventDefault();
               if (!markerPosition) {
-                alert("Mohon tandai lokasi kejadian di peta terlebih dahulu!");
+                showAlert('warning', 'Mohon tandai lokasi kejadian di peta terlebih dahulu!');
                 return;
               }
               if (!isVerified) {
-                alert("Mohon verifikasi bahwa Anda bukan robot!");
+                showAlert('warning', 'Mohon verifikasi bahwa Anda bukan robot!');
                 return;
               }
-              alert(
-                "Laporan berhasil dikirim! Tim BPBD akan segera menindaklanjuti.",
-              );
-              onClose();
+              if (!disasterCategory) {
+                showAlert('warning', 'Mohon pilih kategori bencana!');
+                return;
+              }
+              showAlert('success', 'Laporan berhasil dikirim! Tim BPBD akan segera menindaklanjuti.');
+              // Close modal after 2 seconds
+              setTimeout(() => {
+                setIsAlertExiting(true);
+                setTimeout(() => {
+                  onClose();
+                  // Reset form
+                  setMarkerPosition(null);
+                  setIsVerified(false);
+                  setDisasterCategory("");
+                  setFileName('');
+                  setAlert({ type: 'info', message: '', show: false });
+                  setIsAlertExiting(false);
+                }, 400);
+              }, 2000);
             }}
           >
             {/* Peta Interaktif */}
@@ -189,6 +231,28 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   placeholder="Masukkan Instansi Anda"
                 />
               </div>
+            </div>
+
+            {/* Kategori Bencana */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Kategori Bencana
+              </label>
+              <select
+                value={disasterCategory}
+                onChange={(e) => setDisasterCategory(e.target.value)}
+                className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 bg-white ${
+                  !disasterCategory ? 'text-slate-400' : 'text-slate-700'
+                }`}
+                style={{
+                  color: !disasterCategory ? '#94a3b8' : '#334155'
+                }}
+                required
+              >
+                <option value="" style={{ color: '#94a3b8' }}>Pilih Kategori Bencana</option>
+                <option value="banjir" style={{ color: '#334155' }}>Banjir</option>
+                <option value="longsor" style={{ color: '#334155' }}>Longsor</option>
+              </select>
             </div>
 
             <div>
@@ -281,6 +345,31 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               KIRIM LAPORAN DARURAT
             </button>
           </form>
+
+          {/* Custom Alert Component */}
+          {alert.show && (
+            <div className="px-8 pb-6">
+              <div className={`rounded-xl p-4 shadow-lg border-2 flex items-start gap-3 ${isAlertExiting ? 'animate-slide-to-right' : 'animate-slide-from-right'} ${
+                alert.type === 'success'
+                  ? 'bg-green-600 border-green-700 text-white'
+                  : alert.type === 'error'
+                  ? 'bg-red-600 border-red-700 text-white'
+                  : alert.type === 'warning'
+                  ? 'bg-yellow-600 border-yellow-700 text-white'
+                  : 'bg-blue-600 border-blue-700 text-white'
+              }`}>
+                <div className="flex-shrink-0 mt-0.5">
+                  {alert.type === 'success' && <CheckCircle size={20} className="text-white" />}
+                  {alert.type === 'error' && <AlertCircle size={20} className="text-white" />}
+                  {alert.type === 'warning' && <AlertTriangle size={20} className="text-white" />}
+                  {alert.type === 'info' && <Info size={20} className="text-white" />}
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold leading-relaxed">{alert.message}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
