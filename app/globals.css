@@ -134,3 +134,29 @@ select option:disabled {
 .animate-slide-to-right {
   animation: slideToRight 0.4s ease-in;
 }
+
+/* Seamless scrollbar styling */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.seamless-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.seamless-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.seamless-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3); /* slate-400 with opacity */
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.seamless-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5); /* slate-400 with more opacity on hover */
+}
+
+/* For Firefox */
+.seamless-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}

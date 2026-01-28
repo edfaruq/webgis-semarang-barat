@@ -352,6 +352,7 @@ export default function Sidebar({
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0
           flex flex-col
+          seamless-scrollbar
         `}
       >
         {/* Close button untuk mobile */}
