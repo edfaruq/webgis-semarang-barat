@@ -96,7 +96,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
         onClick={onClose}
       ></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl p-4 max-h-[95vh] overflow-y-auto">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl p-4 max-h-[95vh] overflow-y-auto seamless-scrollbar">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="bg-red-600 p-6 text-white text-center relative">
             <button

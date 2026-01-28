@@ -69,6 +69,38 @@ interface MapComponentProps {
   searchResult?: { lat: number; lng: number; zoom?: number } | null;
 }
 
+// Global flag to prevent multiple map initializations (works with React Strict Mode)
+let mapInitialized = false;
+
+// Wrapper component to prevent re-initialization in Next.js 16
+function MapWrapper({ children }: { children: React.ReactNode }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (!mapInitialized) {
+      setIsMounted(true);
+      mapInitialized = true;
+    }
+    
+    return () => {
+      // Don't reset on unmount in Strict Mode
+    };
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Memuat peta...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
+}
+
 // Component to handle map updates
 function MapUpdater({ center, zoom }: { center: [number, number]; zoom?: number }) {
   const map = useMap();
@@ -411,12 +443,14 @@ export default function MapComponent({
   }, [selectedKelurahan, boundaryData]);
 
   return (
-    <MapContainer
-      center={SEMARANG_BARAT_CENTER}
-      zoom={SEMARANG_BARAT_ZOOM}
-      style={{ height: "100%", width: "100%", zIndex: 0 }}
-      scrollWheelZoom={true}
-    >
+    <MapWrapper>
+      <MapContainer
+        key="main-map-container"
+        center={SEMARANG_BARAT_CENTER}
+        zoom={SEMARANG_BARAT_ZOOM}
+        style={{ height: "100%", width: "100%", zIndex: 0 }}
+        scrollWheelZoom={true}
+      >
       <TileLayer
         attribution={
           basemap === "osm"
@@ -755,5 +789,6 @@ export default function MapComponent({
         />
       </div>
     </MapContainer>
+    </MapWrapper>
   );
 }

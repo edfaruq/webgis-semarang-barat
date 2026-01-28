@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, FileText, Map } from "lucide-react";
+import { X, FileText, Map, Scale, TrendingUp } from "lucide-react";
 
 interface SearchDataModalProps {
   isOpen: boolean;
@@ -21,6 +21,7 @@ interface DokumenItem {
   title: string;
   subtitle: string;
   type: "dokumen";
+  category: "hukum" | "ekonomi";
 }
 
 const PETA_DATA: PetaItem[] = [
@@ -34,20 +35,31 @@ const PETA_DATA: PetaItem[] = [
   { id: "8", title: "Peta Risiko Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/risiko-longsor.png" },
 ];
 
-const DOKUMEN_DATA: DokumenItem[] = [
-  { id: "d1", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
-  { id: "d2", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
-  { id: "d3", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
-  { id: "d4", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
-  { id: "d5", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
-  { id: "d6", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen" },
+const DOKUMEN_HUKUM: DokumenItem[] = [
+  { id: "dh1", title: "Peraturan Daerah tentang Penanggulangan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
+  { id: "dh2", title: "Peraturan Kepala Daerah tentang Evakuasi", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
+  { id: "dh3", title: "SK Penetapan Zona Rawan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
+  { id: "dh4", title: "Peraturan tentang Standar Operasional Prosedur", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
+  { id: "dh5", title: "Peraturan tentang Koordinasi Penanggulangan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
 ];
+
+const DOKUMEN_EKONOMI: DokumenItem[] = [
+  { id: "de1", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { id: "de2", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { id: "de3", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { id: "de4", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { id: "de5", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { id: "de6", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+];
+
+const DOKUMEN_DATA: DokumenItem[] = [...DOKUMEN_HUKUM, ...DOKUMEN_EKONOMI];
 
 export default function SearchDataModal({
   isOpen,
   onClose,
 }: SearchDataModalProps) {
   const [activeTab, setActiveTab] = useState<"peta" | "dokumen">("peta");
+  const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "all">("all");
 
   if (!isOpen) return null;
 
@@ -76,26 +88,34 @@ export default function SearchDataModal({
 
           {/* Header with Tabs */}
           <div className="p-6 pb-4 flex-shrink-0">
-            <div className="flex items-center gap-2">
+            <div className="inline-flex items-center bg-[#F0F0FC] p-1.5 rounded-full">
               <button
-                onClick={() => setActiveTab("peta")}
-                className={`px-8 py-2.5 rounded-full font-semibold text-sm transition-all ${
+                onClick={() => {
+                  setActiveTab("peta");
+                  setSelectedDocCategory("all");
+                }}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
                   activeTab === "peta"
-                    ? "bg-[#6868E9] text-white"
-                    : "bg-transparent text-[#6868E9]"
+                    ? "bg-[#6868E9] text-white shadow-md"
+                    : "bg-transparent text-[#6868E9] hover:bg-white/50"
                 }`}
               >
+                <Map className="w-4 h-4" />
                 PETA
               </button>
 
               <button
-                onClick={() => setActiveTab("dokumen")}
-                className={`px-8 py-2.5 rounded-full font-semibold text-sm transition-all ${
+                onClick={() => {
+                  setActiveTab("dokumen");
+                  setSelectedDocCategory("all");
+                }}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
                   activeTab === "dokumen"
-                    ? "bg-[#6868E9] text-white"
-                    : "bg-transparent text-[#6868E9]"
+                    ? "bg-[#6868E9] text-white shadow-md"
+                    : "bg-transparent text-[#6868E9] hover:bg-white/50"
                 }`}
               >
+                <FileText className="w-4 h-4" />
                 DOKUMEN
               </button>
             </div>
@@ -103,6 +123,70 @@ export default function SearchDataModal({
 
           {/* Content - Scrollable */}
           <div className="px-6 pb-6 overflow-y-auto flex-1">
+            {/* Segmentasi untuk Dokumen */}
+            {activeTab === "dokumen" && (
+              <div className="mb-6">
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setSelectedDocCategory("all")}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                      selectedDocCategory === "all"
+                        ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
+                    }`}
+                  >
+                    <FileText className="w-4 h-4" />
+                    Semua
+                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                      selectedDocCategory === "all"
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-100 text-slate-500"
+                    }`}>
+                      {DOKUMEN_DATA.length}
+                    </span>
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedDocCategory("hukum")}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                      selectedDocCategory === "hukum"
+                        ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
+                    }`}
+                  >
+                    <Scale className="w-4 h-4" />
+                    Dokumen Hukum
+                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                      selectedDocCategory === "hukum"
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-100 text-slate-500"
+                    }`}>
+                      {DOKUMEN_HUKUM.length}
+                    </span>
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedDocCategory("ekonomi")}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                      selectedDocCategory === "ekonomi"
+                        ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
+                    }`}
+                  >
+                    <TrendingUp className="w-4 h-4" />
+                    Dokumen Ekonomi
+                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                      selectedDocCategory === "ekonomi"
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-100 text-slate-500"
+                    }`}>
+                      {DOKUMEN_EKONOMI.length}
+                    </span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="grid grid-cols-3 gap-5">
               {activeTab === "peta"
                 ? PETA_DATA.map((item) => (
@@ -137,7 +221,9 @@ export default function SearchDataModal({
                       </button>
                     </div>
                   ))
-                : DOKUMEN_DATA.map((item) => (
+                : DOKUMEN_DATA.filter((item) => 
+                    selectedDocCategory === "all" || item.category === selectedDocCategory
+                  ).map((item) => (
                     <div
                       key={item.id}
                       className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow"

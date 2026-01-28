@@ -99,7 +99,7 @@ export default function Header({
             <ChevronDown size={12} />
           </button>
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-slate-100 z-[100] p-2 grid grid-cols-1 gap-1 max-h-[60vh] overflow-y-auto">
+            <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-slate-100 z-[100] p-2 grid grid-cols-1 gap-1 max-h-[60vh] overflow-y-auto seamless-scrollbar">
               <button
                 onClick={() => {
                   onKelurahanChange(null);
