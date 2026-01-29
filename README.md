@@ -56,6 +56,8 @@ Sistem Informasi Geografis (WebGIS) interaktif untuk Kecamatan Semarang Barat me
    # atau
    yarn install
    ```
+   
+   > **Catatan**: Setelah `npm install`, script akan otomatis menjalankan kompresi gambar peta untuk membuat thumbnail (50KB). Proses ini membutuhkan library `sharp` yang sudah termasuk dalam `devDependencies`. Jika terjadi error, pastikan `sharp` terinstall dengan benar.
 
 3. **Jalankan development server**:
    ```bash
@@ -205,6 +207,26 @@ Contoh:
 - **Legenda**: Menampilkan simbol layer yang aktif
 - **Statistik**: Total fasilitas per kategori dan luas wilayah
 
+## Scripts Tambahan
+
+### Kompresi Gambar Peta
+
+Script untuk membuat thumbnail gambar peta (50KB) dari gambar asli:
+
+```bash
+npm run compress-images
+```
+
+Script ini akan:
+- Membaca semua gambar dari `public/images/peta/`
+- Membuat thumbnail terkompresi (50KB) di `public/images/peta/thumbnails/`
+- Otomatis dijalankan setelah `npm install` (via `postinstall` hook)
+
+**Catatan**: Script ini membutuhkan library `sharp`. Jika belum terinstall, install dengan:
+```bash
+npm install sharp --save-dev
+```
+
 ## Troubleshooting
 
 ### Error: "Failed to load GeoJSON"
@@ -223,6 +245,13 @@ Contoh:
 
 - Pastikan Leaflet default icon ter-load
 - Cek path icon di `MapComponent.tsx`
+
+### Error saat kompresi gambar (postinstall)
+
+Jika terjadi error saat `npm install` terkait kompresi gambar:
+- Pastikan `sharp` terinstall: `npm install sharp --save-dev`
+- Jika masih error, jalankan manual: `npm run compress-images`
+- Thumbnail akan otomatis dibuat saat pertama kali menjalankan script
 
 ## Pengembangan
 

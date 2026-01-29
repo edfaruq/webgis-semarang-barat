@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { X, FileText, Map, Scale, TrendingUp } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { X, FileText, Map, Scale, TrendingUp, Loader2, BarChart3 } from "lucide-react";
 
 interface SearchDataModalProps {
   isOpen: boolean;
@@ -13,7 +13,8 @@ interface PetaItem {
   title: string;
   subtitle: string;
   type: "peta";
-  image: string;
+  image: string; // Thumbnail untuk preview (50KB compressed)
+  originalImage: string; // File asli untuk download (ukuran penuh)
 }
 
 interface DokumenItem {
@@ -21,50 +22,234 @@ interface DokumenItem {
   title: string;
   subtitle: string;
   type: "dokumen";
-  category: "hukum" | "ekonomi";
+  category: "hukum" | "ekonomi" | "infografis";
+  fileUrl?: string; // Path relatif dari public folder, contoh: "/documents/hukum/perda.pdf"
+}
+
+// Helper function untuk generate thumbnail (50KB) dan original path
+function getPetaPaths(filename: string) {
+  const basePath = "/images/peta";
+  // Convert PNG/JPEG to JPG for thumbnails (smaller file size)
+  const thumbnailFilename = filename.replace(/\.png$/i, '.jpg').replace(/\.jpeg$/i, '.jpg');
+  const thumbnailPath = `${basePath}/thumbnails/${thumbnailFilename}`;
+  const originalPath = `${basePath}/${filename}`;
+  return { image: thumbnailPath, originalImage: originalPath };
 }
 
 const PETA_DATA: PetaItem[] = [
-  { id: "1", title: "Peta Kerawanan Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kerawanan-banjir.png" },
-  { id: "2", title: "Peta Kerawanan Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kerawanan-longsor.png" },
-  { id: "3", title: "Peta Kerentanan Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kerentanan-banjir.png" },
-  { id: "4", title: "Peta Kerentanan Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kerentanan-longsor.png" },
-  { id: "5", title: "Peta Kapasitas Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kapasitas-banjir.png" },
-  { id: "6", title: "Peta Kapasitas Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/kapasitas-longsor.png" },
-  { id: "7", title: "Peta Risiko Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/risiko-banjir.png" },
-  { id: "8", title: "Peta Risiko Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", image: "/images/peta/risiko-longsor.png" },
+  // Peta Analisis Banjir
+  { id: "1", title: "Peta Kerawanan Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Kerawanan Banjir Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "2", title: "Peta Kerentanan Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Kerentanan Banjir Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.jpeg") },
+  { id: "3", title: "Peta Risiko Banjir", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Risiko Banjir Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  
+  // Peta Analisis Longsor
+  { id: "4", title: "Peta Kerawanan Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Kerawanan Longsor Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "5", title: "Peta Kapasitas Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Kapasitas Longsor Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "6", title: "Peta Risiko Longsor", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Risiko Longsor Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  
+  // Peta Faktor Lingkungan
+  { id: "7", title: "Peta Curah Hujan", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Curah Hujan Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "8", title: "Peta Jarak Sungai", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Jarak Sungai Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "9", title: "Peta Jenis Tanah", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Jenis Tanah Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "10", title: "Peta Kemiringan Lereng", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Kemiringan Lereng Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "11", title: "Peta Tutupan Lahan", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Tutupan Lahan Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  
+  // Peta Lahan Kritis
+  { id: "12", title: "Peta Lahan Kritis", subtitle: "Kecamatan Semarang Barat", type: "peta", ...getPetaPaths("Peta Lahan Kritis Kec. Semarang Barat KKN-T TIM 35 Universitas Diponegoro.png") },
+  
+  // Peta Rute Evakuasi Banjir
+  { id: "13", title: "Peta Rute Evakuasi dan Shelter Banjir", subtitle: "Kelurahan Kalibanteng Kidul", type: "peta", ...getPetaPaths("Peta Rute Evakuasi dan Shelter Banjir Kelurahan Kalibanteng Kidul KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "14", title: "Peta Rute Evakuasi dan Shelter Banjir", subtitle: "Kelurahan Kalibanteng Kulon", type: "peta", ...getPetaPaths("Peta Rute Evakuasi dan Shelter Banjir Kelurahan Kalibanteng Kulon KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "15", title: "Peta Rute Evakuasi dan Shelter Banjir", subtitle: "Kelurahan Krobokan", type: "peta", ...getPetaPaths("Peta Rute Evakuasi dan Shelter Banjir Kelurahan Krobokan KKN-T TIM 35 Universitas Diponegoro.png") },
+  { id: "16", title: "Peta Rute Evakuasi dan Shelter Banjir", subtitle: "Kelurahan Tawangmas", type: "peta", ...getPetaPaths("Peta Rute Evakuasi dan Shelter Banjir Kelurahan Tawangmas KKN-T TIM 35 Universitas Diponegoro.png") },
+  
+  // Peta Rute Evakuasi Longsor
+  { id: "17", title: "Peta Rute Evakuasi dan Shelter Longsor", subtitle: "Kelurahan Kalibanteng Kidul", type: "peta", ...getPetaPaths("Peta Rute Evakuasi dan Shelter Longsor Kelurahan Kalibanteng Kidul KKN-T TIM 35 Universitas Diponegoro.png") },
 ];
 
 const DOKUMEN_HUKUM: DokumenItem[] = [
-  { id: "dh1", title: "Peraturan Daerah tentang Penanggulangan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
-  { id: "dh2", title: "Peraturan Kepala Daerah tentang Evakuasi", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
-  { id: "dh3", title: "SK Penetapan Zona Rawan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
-  { id: "dh4", title: "Peraturan tentang Standar Operasional Prosedur", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
-  { id: "dh5", title: "Peraturan tentang Koordinasi Penanggulangan Bencana", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "hukum" },
+  { 
+    id: "dh1", 
+    title: "Kajian Akademik Kencana", 
+    subtitle: "Kecamatan Semarang Barat", 
+    type: "dokumen", 
+    category: "hukum",
+    fileUrl: "/documents/hukum/KAJIAN AKADEMIK KENCANA.pdf"
+  },
 ];
 
 const DOKUMEN_EKONOMI: DokumenItem[] = [
-  { id: "de1", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
-  { id: "de2", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
-  { id: "de3", title: "Dokumen Rencana Banjir", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
-  { id: "de4", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
-  { id: "de5", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
-  { id: "de6", title: "Dokumen Rencana Longsor", subtitle: "Kecamatan Semarang Barat", type: "dokumen", category: "ekonomi" },
+  { 
+    id: "de1", 
+    title: "Contoh Proposal CSR", 
+    subtitle: "Kecamatan Semarang Barat", 
+    type: "dokumen", 
+    category: "ekonomi",
+    fileUrl: "/documents/ekonomi/Contoh Proposal CSR.docx"
+  },
+  { 
+    id: "de2", 
+    title: "Template Proposal CSR", 
+    subtitle: "Kecamatan Semarang Barat", 
+    type: "dokumen", 
+    category: "ekonomi",
+    fileUrl: "/documents/ekonomi/Template Proposal CSR.docx"
+  },
+  { 
+    id: "de3", 
+    title: "Template Pencatatan Dana Bantuan untuk Kelurahan", 
+    subtitle: "Kecamatan Semarang Barat", 
+    type: "dokumen", 
+    category: "ekonomi",
+    fileUrl: "/documents/ekonomi/Template Pencatatan Dana Bantuan untuk Kelurahan.xlsx"
+  },
 ];
 
-const DOKUMEN_DATA: DokumenItem[] = [...DOKUMEN_HUKUM, ...DOKUMEN_EKONOMI];
+const DOKUMEN_INFOGRAFIS: DokumenItem[] = [
+  // Data infografis akan ditambahkan di sini
+];
+
+const DOKUMEN_DATA: DokumenItem[] = [...DOKUMEN_HUKUM, ...DOKUMEN_EKONOMI, ...DOKUMEN_INFOGRAFIS];
+
+// Cache untuk menyimpan gambar yang sudah dimuat (persist across modal opens)
+const loadedImagesCache = new Set<string>();
+
+// Component untuk image dengan lazy loading dan cache yang lebih efisien
+function ImageCard({ 
+  imageSrc, 
+  imageAlt, 
+  itemId,
+  originalImageSrc,
+  loadingImages,
+  setLoadingImages 
+}: { 
+  imageSrc: string; 
+  imageAlt: string;
+  itemId: string;
+  originalImageSrc?: string; // Fallback ke original jika thumbnail tidak ada
+  loadingImages: Set<string>;
+  setLoadingImages: React.Dispatch<React.SetStateAction<Set<string>>>;
+}) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState(imageSrc);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const isCached = loadedImagesCache.has(itemId);
+
+  useEffect(() => {
+    // Langsung load semua gambar tanpa menunggu intersection observer
+    // Karena user ingin preview langsung muncul
+    setShouldLoad(true);
+    
+    // Jika sudah cached, langsung set tidak loading
+    if (isCached) {
+      setIsLoading(false);
+    }
+  }, [isCached]);
+
+  const handleLoad = () => {
+    loadedImagesCache.add(itemId);
+    setIsLoading(false);
+    setLoadingImages((prev) => {
+      const next = new Set(prev);
+      next.delete(itemId);
+      return next;
+    });
+  };
+
+  const handleError = (e: any) => {
+    // Jika thumbnail error dan ada original image, coba load original
+    if (originalImageSrc && currentSrc === imageSrc) {
+      console.log(`Thumbnail failed (${imageSrc}), loading original for ${itemId}`);
+      setCurrentSrc(originalImageSrc);
+      setIsLoading(true);
+      setImageError(false);
+      // Retry dengan original image
+      setTimeout(() => {
+        if (imgRef.current) {
+          imgRef.current.src = originalImageSrc;
+        }
+      }, 100);
+      return;
+    }
+    
+    console.error(`Failed to load image for ${itemId}:`, currentSrc);
+    setIsLoading(false);
+    setImageError(true);
+    setLoadingImages((prev) => {
+      const next = new Set(prev);
+      next.delete(itemId);
+      return next;
+    });
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="bg-[#E8E8FC] rounded-2xl overflow-hidden mb-4 flex-1 min-h-[200px] relative"
+    >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#E8E8FC] z-10">
+          <Loader2 className="w-8 h-8 text-[#6868E9] animate-spin" />
+        </div>
+      )}
+      {imageError ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#E8E8FC]">
+          <Map className="w-12 h-12 text-[#6868E9] opacity-50" />
+        </div>
+      ) : shouldLoad ? (
+        <img
+          ref={imgRef}
+          src={currentSrc}
+          alt={imageAlt}
+          className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          onLoad={handleLoad}
+          onError={(e) => handleError(e)}
+          crossOrigin="anonymous"
+        />
+      ) : null}
+    </div>
+  );
+}
 
 export default function SearchDataModal({
   isOpen,
   onClose,
 }: SearchDataModalProps) {
   const [activeTab, setActiveTab] = useState<"peta" | "dokumen">("peta");
-  const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "all">("all");
+  const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "infografis" | "all">("all");
+  const [loadingImages, setLoadingImages] = useState<Set<string>>(new Set());
 
   if (!isOpen) return null;
 
   const handleDownload = (item: PetaItem | DokumenItem) => {
-    console.log("Download:", item);
+    if (item.type === "dokumen" && item.fileUrl) {
+      // Download dokumen: buat link dengan atribut download agar langsung unduh
+      const filename = item.fileUrl.split("/").pop() || "dokumen";
+      const a = document.createElement("a");
+      a.href = item.fileUrl;
+      a.download = decodeURIComponent(filename);
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else if (item.type === "peta") {
+      // Unduh peta langsung (ukuran penuh), tidak dibuka di tab baru
+      const filename = item.originalImage.split("/").pop() || "peta";
+      const a = document.createElement("a");
+      a.href = item.originalImage;
+      a.download = decodeURIComponent(filename);
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      console.log("Download:", item);
+    }
   };
 
   return (
@@ -183,6 +368,25 @@ export default function SearchDataModal({
                       {DOKUMEN_EKONOMI.length}
                     </span>
                   </button>
+
+                  <button
+                    onClick={() => setSelectedDocCategory("infografis")}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                      selectedDocCategory === "infografis"
+                        ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
+                    }`}
+                  >
+                    <BarChart3 className="w-4 h-4" />
+                    Infografis
+                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                      selectedDocCategory === "infografis"
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-100 text-slate-500"
+                    }`}>
+                      {DOKUMEN_INFOGRAFIS.length}
+                    </span>
+                  </button>
                 </div>
               </div>
             )}
@@ -192,10 +396,10 @@ export default function SearchDataModal({
                 ? PETA_DATA.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
                     >
                       {/* Title */}
-                      <div className="text-center mb-3">
+                      <div className="text-center mb-3 flex-shrink-0">
                         <h3 className="text-[#6868E9] font-semibold text-sm">
                           {item.title}
                         </h3>
@@ -204,18 +408,20 @@ export default function SearchDataModal({
                         </p>
                       </div>
 
-                      {/* Icon Container */}
-                      <div className="bg-[#E8E8FC] rounded-2xl p-8 flex items-center justify-center mb-4 aspect-[3/4]">
-                        <Map
-                          className="w-20 h-20 text-[#6868E9]"
-                          strokeWidth={1}
-                        />
-                      </div>
+                      {/* Image Preview Container - flex-1 untuk mengambil sisa ruang */}
+                      <ImageCard 
+                        imageSrc={item.image}
+                        imageAlt={item.title}
+                        itemId={item.id}
+                        originalImageSrc={item.originalImage}
+                        loadingImages={loadingImages}
+                        setLoadingImages={setLoadingImages}
+                      />
 
-                      {/* Download Button */}
+                      {/* Download Button - flex-shrink-0 untuk tetap di bawah */}
                       <button
                         onClick={() => handleDownload(item)}
-                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm"
+                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm flex-shrink-0"
                       >
                         UNDUH DATA
                       </button>
@@ -226,10 +432,10 @@ export default function SearchDataModal({
                   ).map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
                     >
                       {/* Title */}
-                      <div className="text-center mb-3">
+                      <div className="text-center mb-3 flex-shrink-0">
                         <h3 className="text-[#6868E9] font-semibold text-sm">
                           {item.title}
                         </h3>
@@ -238,18 +444,18 @@ export default function SearchDataModal({
                         </p>
                       </div>
 
-                      {/* Icon Container */}
-                      <div className="bg-[#E8E8FC] rounded-2xl p-8 flex items-center justify-center mb-4 aspect-[3/4]">
+                      {/* Icon Container - flex-1 untuk mengambil sisa ruang */}
+                      <div className="bg-[#E8E8FC] rounded-2xl p-8 flex items-center justify-center mb-4 flex-1 min-h-[200px]">
                         <FileText
                           className="w-20 h-20 text-[#6868E9]"
                           strokeWidth={1}
                         />
                       </div>
 
-                      {/* Download Button */}
+                      {/* Download Button - flex-shrink-0 untuk tetap di bawah */}
                       <button
                         onClick={() => handleDownload(item)}
-                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm"
+                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm flex-shrink-0"
                       >
                         UNDUH DATA
                       </button>
