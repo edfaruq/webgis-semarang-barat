@@ -1,0 +1,34 @@
+// Prisma schema for WebGIS Semarang Barat - Admin & Reports
+// Database: MySQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      String   // 'admin' | 'user'
+  createdAt DateTime @default(now())
+}
+
+model Report {
+  id           Int      @id @default(autoincrement())
+  name         String   // Nama pelapor
+  phone        String
+  email        String
+  institution  String
+  disasterType String   // kategori bencana: flood, earthquake, fire, landslide
+  chronology   String
+  photoUrl     String?  // optional bukti foto
+  status       String   @default("pending") // pending, approved, rejected
+  createdAt    DateTime @default(now())
+  lat          Float    // koordinat latitude lokasi kejadian
+  lng          Float    // koordinat longitude lokasi kejadian
+}

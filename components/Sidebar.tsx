@@ -180,7 +180,7 @@ export default function Sidebar({
 
   // State untuk sub-kategori fasilitas yang aktif
   const [activeFacilitySubcategory, setActiveFacilitySubcategory] = useState<
-    "all" | "pendidikan" | "kesehatan" | "umum"
+    "all" | "pendidikan" | "kesehatan" | "umum" | "kritis"
   >("all");
 
   const toggleCategory = (category: string) => {

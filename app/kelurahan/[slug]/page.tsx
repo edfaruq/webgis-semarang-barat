@@ -52,16 +52,24 @@ export default function KelurahanPage() {
   const [landslideRiskData, setLandslideRiskData] = useState<GeoJSONCollection | null>(null);
   const [evacuationRouteData, setEvacuationRouteData] = useState<GeoJSONCollection | null>(null);
   const [lahanKritisData, setLahanKritisData] = useState<GeoJSONCollection | null>(null);
+  const [pumpData, setPumpData] = useState<GeoJSONCollection | null>(null);
   const [shelterData, setShelterData] = useState<GeoJSONCollection | null>(null);
   const [eventPointData, setEventPointData] = useState<GeoJSONCollection | null>(null);
   const [showBoundary, setShowBoundary] = useState(true);
   const [showFacilities, setShowFacilities] = useState(false);
   const [showFloodRisk, setShowFloodRisk] = useState(false);
+  const [showFloodCapacity, setShowFloodCapacity] = useState(false);
+  const [showKerentananBanjir, setShowKerentananBanjir] = useState(false);
+  const [showRisikoBanjir, setShowRisikoBanjir] = useState(false);
   const [showLahanKritis, setShowLahanKritis] = useState(false);
-  const [showLandslideRisk, setShowLandslideRisk] = useState(false);
+  const [showLandslideHazard, setShowLandslideHazard] = useState(false);
+  const [showLandslideCapacity, setShowLandslideCapacity] = useState(false);
+  const [showKerentananLongsor, setShowKerentananLongsor] = useState(false);
+  const [showRisikoLongsor, setShowRisikoLongsor] = useState(false);
   const [showEvacuationRoute, setShowEvacuationRoute] = useState(false);
   const [showEvacuationRouteBanjir, setShowEvacuationRouteBanjir] = useState(false);
   const [showEvacuationRouteLongsor, setShowEvacuationRouteLongsor] = useState(false);
+  const [showPump, setShowPump] = useState(false);
   const [showShelter, setShowShelter] = useState(false);
   const [showEventPoint, setShowEventPoint] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -79,25 +87,25 @@ export default function KelurahanPage() {
       try {
         setLoading(true);
         // Load general data, can be filtered by kelurahan later
-        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, shelter, eventPoint] = await Promise.all([
+        const [boundary, facilities, floodRisk, landslideRisk, evacuationRoute, lahanKritis, pump, shelter, eventPoint] = await Promise.all([
           loadGeoJSON("/data/infrastructure/boundary.geojson"),
           loadGeoJSON("/data/infrastructure/facilities.geojson"),
           loadGeoJSON("/data/disasters/banjir/Bahaya-Banjir-KKNT.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/longsor/landslide-risk.geojson").catch(() => null),
           loadGeoJSON("/data/evacuation/routes/evacuation-route.geojson").catch(() => null),
           loadGeoJSON("/data/disasters/lahan-kritis/LahanKritis.geojson").catch(() => null),
+          loadGeoJSON("/data/utilities/pompa-air/pompa-air.geojson").catch(() => null),
           loadGeoJSON("/data/evacuation/shelter/titik-kumpul.geojson").catch(() => null),
           loadGeoJSON("/data/evacuation/event-point/event-point.geojson").catch(() => null),
         ]);
         
-        // Filter by kelurahan if needed (when data is available)
-        // For now, just load all data
         setBoundaryData(boundary);
         setFacilitiesData(facilities);
         setFloodRiskData(floodRisk);
         setLandslideRiskData(landslideRisk);
         setEvacuationRouteData(evacuationRoute);
         setLahanKritisData(lahanKritis);
+        setPumpData(pump);
         setShelterData(shelter);
         setEventPointData(eventPoint);
         setError(null);
@@ -152,19 +160,33 @@ export default function KelurahanPage() {
           showBoundary={showBoundary}
           showFacilities={showFacilities}
           showFloodRisk={showFloodRisk}
+          showFloodCapacity={showFloodCapacity}
+          showKerentananBanjir={showKerentananBanjir}
+          showRisikoBanjir={showRisikoBanjir}
           showLahanKritis={showLahanKritis}
-          showLandslideRisk={showLandslideRisk}
+          showLandslideHazard={showLandslideHazard}
+          showLandslideCapacity={showLandslideCapacity}
+          showKerentananLongsor={showKerentananLongsor}
+          showRisikoLongsor={showRisikoLongsor}
           showEvacuationRoute={showEvacuationRoute}
+          showEvacuationRouteBanjir={showEvacuationRouteBanjir}
+          showEvacuationRouteLongsor={showEvacuationRouteLongsor}
+          showPump={showPump}
           onToggleBoundary={() => setShowBoundary(!showBoundary)}
           onToggleFacilities={() => setShowFacilities(!showFacilities)}
           onToggleFloodRisk={() => setShowFloodRisk(!showFloodRisk)}
+          onToggleFloodCapacity={() => setShowFloodCapacity(!showFloodCapacity)}
+          onToggleKerentananBanjir={() => setShowKerentananBanjir(!showKerentananBanjir)}
+          onToggleRisikoBanjir={() => setShowRisikoBanjir(!showRisikoBanjir)}
           onToggleLahanKritis={() => setShowLahanKritis(!showLahanKritis)}
-          onToggleLandslideRisk={() => setShowLandslideRisk(!showLandslideRisk)}
+          onToggleLandslideHazard={() => setShowLandslideHazard(!showLandslideHazard)}
+          onToggleLandslideCapacity={() => setShowLandslideCapacity(!showLandslideCapacity)}
+          onToggleKerentananLongsor={() => setShowKerentananLongsor(!showKerentananLongsor)}
+          onToggleRisikoLongsor={() => setShowRisikoLongsor(!showRisikoLongsor)}
           onToggleEvacuationRoute={() => setShowEvacuationRoute(!showEvacuationRoute)}
-          showEvacuationRouteBanjir={showEvacuationRouteBanjir}
-          showEvacuationRouteLongsor={showEvacuationRouteLongsor}
           onToggleEvacuationRouteBanjir={() => setShowEvacuationRouteBanjir(!showEvacuationRouteBanjir)}
           onToggleEvacuationRouteLongsor={() => setShowEvacuationRouteLongsor(!showEvacuationRouteLongsor)}
+          onTogglePump={() => setShowPump(!showPump)}
           showShelter={showShelter}
           showEventPoint={showEventPoint}
           onToggleShelter={() => setShowShelter(!showShelter)}
@@ -188,15 +210,23 @@ export default function KelurahanPage() {
             landslideRiskData={landslideRiskData}
             evacuationRouteData={evacuationRouteData}
             LahanKritisData={lahanKritisData}
+            pumpData={pumpData}
             shelterData={shelterData}
             showBoundary={showBoundary}
             showFacilities={showFacilities}
             showFloodRisk={showFloodRisk}
+            showFloodCapacity={showFloodCapacity}
+            showKerentananBanjir={showKerentananBanjir}
+            showRisikoBanjir={showRisikoBanjir}
             showLahanKritis={showLahanKritis}
-            showLandslideRisk={showLandslideRisk}
+            showLandslideHazard={showLandslideHazard}
+            showLandslideCapacity={showLandslideCapacity}
+            showKerentananLongsor={showKerentananLongsor}
+            showRisikoLongsor={showRisikoLongsor}
             showEvacuationRoute={showEvacuationRoute}
             showEvacuationRouteBanjir={showEvacuationRouteBanjir}
             showEvacuationRouteLongsor={showEvacuationRouteLongsor}
+            showPump={showPump}
             showShelter={showShelter}
             eventPointData={eventPointData}
             showEventPoint={showEventPoint}
