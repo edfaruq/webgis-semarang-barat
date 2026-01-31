@@ -21,6 +21,8 @@ import PumpLayer from "./layers/PumpLayer";
 import ShelterLayer from "./layers/ShelterLayer";
 import EventPointLayer from "./layers/EventPointLayer";
 import RouteLayer from "./layers/RouteLayer";
+import ApprovedReportsLayer from "./layers/ApprovedReportsLayer";
+import type { ApprovedReport } from "./layers/ApprovedReportsLayer";
 
 // Fix for default marker icons
 if (typeof window !== "undefined") {
@@ -59,6 +61,7 @@ interface MapComponentProps {
   showPump?: boolean;
   showShelter?: boolean;
   showEventPoint?: boolean;
+  approvedReports?: ApprovedReport[];
   selectedCategory?: string | null;
   selectedKelurahan?: string | null;
   basemap?: BasemapType;
@@ -236,6 +239,7 @@ export default function MapComponent({
   showPump = false,
   showShelter = false,
   showEventPoint = false,
+  approvedReports = [],
   selectedCategory,
   selectedKelurahan,
   basemap = "osm",
@@ -600,10 +604,7 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            // Jika sudah ada rute aktif, langsung update rute ke marker baru
-            if (routeDestination && userLocation) {
-              setRouteDestination(newDestination);
-            }
+            setRouteDestination(newDestination);
           }
         }}
       />
@@ -622,10 +623,7 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            // Jika sudah ada rute aktif, langsung update rute ke marker baru
-            if (routeDestination && userLocation) {
-              setRouteDestination(newDestination);
-            }
+            setRouteDestination(newDestination);
           }
         }}
       />
@@ -641,10 +639,7 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            // Jika sudah ada rute aktif, langsung update rute ke marker baru
-            if (routeDestination && userLocation) {
-              setRouteDestination(newDestination);
-            }
+            setRouteDestination(newDestination);
           }
         }}
       />
@@ -661,11 +656,21 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            // Jika sudah ada rute aktif, langsung update rute ke marker baru
-            if (routeDestination && userLocation) {
-              setRouteDestination(newDestination);
-            }
+            setRouteDestination(newDestination);
           }
+        }}
+      />
+
+      {/* Laporan disetujui digabung dengan Titik Kejadian Bencana (satu toggle) — bisa tampilkan rute */}
+      <ApprovedReportsLayer
+        reports={approvedReports}
+        show={showEventPoint}
+        onMarkerClick={(report) => {
+          markerClickRef.current = true;
+          const newDestination: [number, number] = [report.lat, report.lng];
+          setSelectedDestination(newDestination);
+          setRouteError(null);
+          setRouteDestination(newDestination);
         }}
       />
 

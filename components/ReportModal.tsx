@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useActionState } from "react";
 import { X, MapPin, Crosshair, Shield, AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
 import dynamic from "next/dynamic";
-import type { Map as LeafletMap } from "leaflet";
+import { submitReportAction } from "@/app/actions/report";
 
 interface ReportModalProps {
   isOpen: boolean;
@@ -30,11 +31,43 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
   const [isVerified, setIsVerified] = useState(false);
   const [disasterCategory, setDisasterCategory] = useState<string>("");
   const [alert, setAlert] = useState<AlertState>({
-    type: 'info',
-    message: '',
+    type: "info",
+    message: "",
     show: false,
   });
   const [isAlertExiting, setIsAlertExiting] = useState(false);
+  const [state, formAction] = useActionState(submitReportAction, null);
+  const prevStateRef = useRef<{ success?: boolean; error?: string } | null>(null);
+  const alertRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!state || state === prevStateRef.current) return;
+    prevStateRef.current = state;
+    if (state.success) {
+      showAlert("success", "Laporan berhasil dikirim! Tim BPBD akan segera menindaklanjuti.");
+      setTimeout(() => {
+        setIsAlertExiting(true);
+        setTimeout(() => {
+          onClose();
+          setMarkerPosition(null);
+          setIsVerified(false);
+          setDisasterCategory("");
+          setFileName("");
+          setAlert({ type: "info", message: "", show: false });
+          setIsAlertExiting(false);
+        }, 400);
+      }, 2000);
+    } else if (state.error) {
+      showAlert("error", state.error);
+    }
+  }, [state, onClose]);
+
+  // Auto scroll ke alert ketika alert muncul
+  useEffect(() => {
+    if (alert.show && alertRef.current) {
+      alertRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [alert.show]);
 
   // Default center (Semarang Barat)
   const defaultCenter: [number, number] = [-6.9932, 110.4036];
@@ -113,37 +146,31 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
           <form
             id="emergencyForm"
             className="p-8 space-y-5"
+            action={formAction}
             onSubmit={(e) => {
-              e.preventDefault();
               if (!markerPosition) {
-                showAlert('warning', 'Mohon tandai lokasi kejadian di peta terlebih dahulu!');
+                e.preventDefault();
+                showAlert("warning", "Mohon tandai lokasi kejadian di peta terlebih dahulu!");
                 return;
               }
               if (!isVerified) {
-                showAlert('warning', 'Mohon verifikasi bahwa Anda bukan robot!');
+                e.preventDefault();
+                showAlert("warning", "Mohon verifikasi bahwa Anda bukan robot!");
                 return;
               }
               if (!disasterCategory) {
-                showAlert('warning', 'Mohon pilih kategori bencana!');
+                e.preventDefault();
+                showAlert("warning", "Mohon pilih kategori bencana!");
                 return;
               }
-              showAlert('success', 'Laporan berhasil dikirim! Tim BPBD akan segera menindaklanjuti.');
-              // Close modal after 2 seconds
-              setTimeout(() => {
-                setIsAlertExiting(true);
-                setTimeout(() => {
-                  onClose();
-                  // Reset form
-                  setMarkerPosition(null);
-                  setIsVerified(false);
-                  setDisasterCategory("");
-                  setFileName('');
-                  setAlert({ type: 'info', message: '', show: false });
-                  setIsAlertExiting(false);
-                }, 400);
-              }, 2000);
             }}
           >
+            {markerPosition && (
+              <>
+                <input type="hidden" name="lat" value={markerPosition[0]} />
+                <input type="hidden" name="lng" value={markerPosition[1]} />
+              </>
+            )}
             {/* Peta Interaktif */}
             <div>
               <div className="flex items-center justify-between mb-2">
@@ -189,6 +216,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   Nama Anda
                 </label>
                 <input
+                  name="name"
                   type="text"
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Masukkan Nama Anda"
@@ -201,6 +229,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   Nomor Telepon
                 </label>
                 <input
+                  name="phone"
                   type="tel"
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="08xxxxxxxxxx"
@@ -214,6 +243,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   Email
                 </label>
                 <input
+                  name="email"
                   type="email"
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Masukkan Email Anda"
@@ -226,6 +256,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   Instansi
                 </label>
                 <input
+                  name="institution"
                   type="text"
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Masukkan Instansi Anda"
@@ -239,19 +270,20 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                 Kategori Bencana
               </label>
               <select
+                name="disasterType"
                 value={disasterCategory}
                 onChange={(e) => setDisasterCategory(e.target.value)}
                 className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 bg-white ${
-                  !disasterCategory ? 'text-slate-400' : 'text-slate-700'
+                  !disasterCategory ? "text-slate-400" : "text-slate-700"
                 }`}
                 style={{
-                  color: !disasterCategory ? '#94a3b8' : '#334155'
+                  color: !disasterCategory ? "#94a3b8" : "#334155",
                 }}
                 required
               >
-                <option value="" style={{ color: '#94a3b8' }}>Pilih Kategori Bencana</option>
-                <option value="banjir" style={{ color: '#334155' }}>Banjir</option>
-                <option value="longsor" style={{ color: '#334155' }}>Longsor</option>
+                <option value="" style={{ color: "#94a3b8" }}>Pilih Kategori Bencana</option>
+                <option value="banjir" style={{ color: "#334155" }}>Banjir</option>
+                <option value="longsor" style={{ color: "#334155" }}>Longsor</option>
               </select>
             </div>
 
@@ -260,11 +292,12 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                 Kronologi
               </label>
               <textarea
+                name="chronology"
                 className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
                 rows={4}
                 placeholder="Tuliskan Kronologi Yang Akan Anda Sampaikan"
                 required
-              ></textarea>
+              />
             </div>
 
             <div>
@@ -273,6 +306,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               </label>
               <div className="relative">
                 <input
+                  name="photo"
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
@@ -348,7 +382,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
 
           {/* Custom Alert Component */}
           {alert.show && (
-            <div className="px-8 pb-6">
+            <div ref={alertRef} className="px-8 pb-6">
               <div className={`rounded-xl p-4 shadow-lg border-2 flex items-start gap-3 ${isAlertExiting ? 'animate-slide-to-right' : 'animate-slide-from-right'} ${
                 alert.type === 'success'
                   ? 'bg-green-600 border-green-700 text-white'

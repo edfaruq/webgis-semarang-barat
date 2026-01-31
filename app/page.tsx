@@ -50,6 +50,7 @@ export default function HomePage() {
   const [showPump, setShowPump] = useState(false);
   const [showShelter, setShowShelter] = useState(false);
   const [showEventPoint, setShowEventPoint] = useState(false);
+  const [approvedReports, setApprovedReports] = useState<{ id: number; name: string; disasterType: string; chronology: string; createdAt: string; lat: number; lng: number; photoUrl: string | null }[]>([]);
   const [selectedPump, setSelectedPump] = useState<any | null>(null);
   const [isPumpModalOpen, setIsPumpModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -115,6 +116,14 @@ export default function HomePage() {
     };
 
     loadData();
+  }, []);
+
+  // Load laporan yang disetujui (untuk layer peta publik)
+  useEffect(() => {
+    fetch("/api/reports/approved")
+      .then((res) => (res.ok ? res.json() : []))
+      .then(setApprovedReports)
+      .catch(() => setApprovedReports([]));
   }, []);
 
   const handleSearch = (query: string) => {
@@ -217,6 +226,7 @@ export default function HomePage() {
             showShelter={showShelter}
             eventPointData={eventPointData}
             showEventPoint={showEventPoint}
+            approvedReports={approvedReports}
             selectedCategory={selectedCategory}
             selectedKelurahan={selectedKelurahan}
             basemap={basemap}

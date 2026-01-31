@@ -40,7 +40,8 @@ export default function FacilitiesLayer({
     if (selectedCategory) {
       // Special handling for 'umum' category (masjid & gereja)
       if (selectedCategory === "umum") {
-        if (props.kategori !== "Masjid" && props.kategori !== "Gereja") {
+        const k = props.kategori?.toLowerCase();
+        if (k !== "masjid" && k !== "gereja") {
           return false;
         }
       } else {

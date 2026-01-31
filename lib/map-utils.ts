@@ -21,7 +21,7 @@ export function getBoundsFromGeoJSON(geojson: GeoJSONFeature[]): L.LatLngBounds 
       }
     } else if (feature.geometry.type === "MultiPolygon") {
       // MultiPolygon: array of polygons, each polygon has array of rings
-      const multiPolygon = feature.geometry.coordinates as number[][][][];
+      const multiPolygon = feature.geometry.coordinates as unknown as number[][][][];
       multiPolygon.forEach((polygon) => {
         if (polygon && polygon.length > 0 && polygon[0]) {
           polygon[0].forEach((coord) => {
