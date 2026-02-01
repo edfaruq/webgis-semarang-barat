@@ -83,7 +83,7 @@ export default function SignInPage() {
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-start justify-center pt-6 sm:pt-10 pb-6 px-6 sm:px-8 bg-white relative overflow-hidden overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex items-start justify-center pt-8 sm:pt-12 pb-8 px-6 sm:px-8 bg-white relative overflow-hidden overflow-y-auto">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#0ea5e9]/5 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#1e3a5f]/5 to-transparent rounded-full blur-3xl" />
@@ -91,7 +91,7 @@ export default function SignInPage() {
         <div className="w-full max-w-md relative z-10">
 
           {/* Logo Banner Section */}
-          <div className="flex justify-center mt-[-50px] mb-[-50px]">
+          <div className="flex justify-center mb-20">
             <div className="relative w-full max-w-[220px] sm:max-w-[260px]">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/10 via-transparent to-[#0ea5e9]/10 rounded-lg blur-md" />
               <Image
@@ -106,7 +106,7 @@ export default function SignInPage() {
           </div>
 
           {/* Welcome Text */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-8">
             <p className="text-[#0ea5e9] text-base sm:text-lg font-semibold mb-1.5 tracking-wide">
               Selamat Datang di Admin Panel
             </p>
@@ -117,7 +117,7 @@ export default function SignInPage() {
           </div>
 
           {/* Login Form */}
-          <form action={handleSubmit} className="space-y-6">
+          <form action={handleSubmit} className="space-y-6 mt-2">
             {/* Alert jika email/password salah */}
             {error && (
               <div className="rounded-xl border-2 border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 flex items-start gap-3">
@@ -272,7 +272,7 @@ export default function SignInPage() {
           </form>
 
           {/* Home Button */}
-          <div className="mt-5">
+          <div className="mt-8">
             <Link
               href="/"
               className="inline-flex items-center gap-2 bg-white border-2 border-slate-200 hover:border-[#f97316] text-slate-700 hover:text-[#f97316] text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-200 group shadow-sm hover:shadow-md"
