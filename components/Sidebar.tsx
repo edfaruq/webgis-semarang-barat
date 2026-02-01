@@ -826,7 +826,10 @@ export default function Sidebar({
         <div className="px-6 pb-6 mt-auto">
           <div className="mt-24 pt-12 pb-4">
             <button
-              onClick={() => setIsSearchDataModalOpen(true)}
+              onClick={() => {
+                setIsSearchDataModalOpen(true);
+                onClose?.();
+              }}
               className="w-full flex items-center justify-between p-3 rounded-xl border border-purple-200 transition-colors shadow-sm"
               style={{
                 backgroundColor: "#D7D7FF",
@@ -850,11 +853,28 @@ export default function Sidebar({
             </button>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 italic">
-            <p className="text-[10px] text-slate-400 leading-relaxed">
-              Peta menampilkan simulasi jalur evakuasi mengikuti jaringan jalan
-              utama. Garis hijau tebal menunjukkan prioritas akses bagi
-              kendaraan darurat dan warga.
+          {/* Garis pemisah */}
+          <div className="mt-6 border-t border-slate-200" />
+
+          {/* Logo di atas footer, di bawah garis */}
+          <div className="flex justify-center pt-4 pb-3 min-h-[40px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-footer-sidebar.png"
+              alt="Universitas Diponegoro - KATANA"
+              width={150}
+              height={40}
+              className="object-contain w-full max-w-[150px] h-auto block"
+            />
+          </div>
+
+          {/* Footer teks */}
+          <div className="text-center space-y-1 pb-2">
+            <p className="text-slate-400 text-xs">
+              ©2026 - KKN-T TIM 35 WebGIS Developer
+            </p>
+            <p className="text-slate-300 text-[11px]">
+              Universitas Diponegoro
             </p>
           </div>
         </div>
