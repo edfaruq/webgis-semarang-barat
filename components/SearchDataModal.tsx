@@ -260,9 +260,9 @@ export default function SearchDataModal({
         onClick={onClose}
       />
 
-      {/* Modal - Ukuran Statis */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="bg-white rounded-3xl w-[900px] h-[600px] shadow-xl relative flex flex-col">
+      {/* Modal - Responsive */}
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+        <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full sm:w-[900px] h-[90vh] sm:h-[600px] shadow-xl relative flex flex-col">
           {/* Close Button */}
           <button
             onClick={onClose}
@@ -271,58 +271,66 @@ export default function SearchDataModal({
             <X className="w-5 h-5 text-slate-500" />
           </button>
 
-          {/* Header with Tabs */}
-          <div className="p-6 pb-4 flex-shrink-0">
-            <div className="inline-flex items-center bg-[#F0F0FC] p-1.5 rounded-full">
-              <button
-                onClick={() => {
-                  setActiveTab("peta");
-                  setSelectedDocCategory("all");
-                }}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
-                  activeTab === "peta"
-                    ? "bg-[#6868E9] text-white shadow-md"
-                    : "bg-transparent text-[#6868E9] hover:bg-white/50"
-                }`}
-              >
-                <Map className="w-4 h-4" />
-                PETA
-              </button>
+          {/* Mobile Drag Handle */}
+          <div className="flex justify-center pt-3 pb-1 sm:hidden flex-shrink-0">
+            <div className="w-10 h-1 bg-slate-300 rounded-full" />
+          </div>
 
-              <button
-                onClick={() => {
-                  setActiveTab("dokumen");
-                  setSelectedDocCategory("all");
-                }}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
-                  activeTab === "dokumen"
-                    ? "bg-[#6868E9] text-white shadow-md"
-                    : "bg-transparent text-[#6868E9] hover:bg-white/50"
-                }`}
-              >
-                <FileText className="w-4 h-4" />
-                DOKUMEN
-              </button>
+          {/* Header with Tabs */}
+          <div className="p-4 sm:p-6 pb-3 sm:pb-4 flex-shrink-0">
+            <div className="flex justify-center">
+              <div className="inline-flex items-center bg-[#F0F0FC] p-1.5 rounded-full">
+                <button
+                  onClick={() => {
+                    setActiveTab("peta");
+                    setSelectedDocCategory("all");
+                  }}
+                  className={`flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all ${
+                    activeTab === "peta"
+                      ? "bg-[#6868E9] text-white shadow-md"
+                      : "bg-transparent text-[#6868E9] hover:bg-white/50"
+                  }`}
+                >
+                  <Map className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  PETA
+                </button>
+
+                <button
+                  onClick={() => {
+                    setActiveTab("dokumen");
+                    setSelectedDocCategory("all");
+                  }}
+                  className={`flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all ${
+                    activeTab === "dokumen"
+                      ? "bg-[#6868E9] text-white shadow-md"
+                      : "bg-transparent text-[#6868E9] hover:bg-white/50"
+                  }`}
+                >
+                  <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  DOKUMEN
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Content - Scrollable */}
-          <div className="px-6 pb-6 overflow-y-auto flex-1">
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6 overflow-y-auto flex-1">
             {/* Segmentasi untuk Dokumen */}
             {activeTab === "dokumen" && (
-              <div className="mb-6">
-                <div className="flex items-center gap-3">
+              <div className="mb-4 sm:mb-6">
+                {/* Mobile: horizontal scroll | Desktop: flex wrap */}
+                <div className="flex gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide">
                   <button
                     onClick={() => setSelectedDocCategory("all")}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border-2 whitespace-nowrap flex-shrink-0 ${
                       selectedDocCategory === "all"
                         ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
                         : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
                     }`}
                   >
-                    <FileText className="w-4 h-4" />
+                    <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     Semua
-                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                    <span className={`ml-0.5 sm:ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-xs ${
                       selectedDocCategory === "all"
                         ? "bg-white/20 text-white"
                         : "bg-slate-100 text-slate-500"
@@ -333,15 +341,15 @@ export default function SearchDataModal({
 
                   <button
                     onClick={() => setSelectedDocCategory("hukum")}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border-2 whitespace-nowrap flex-shrink-0 ${
                       selectedDocCategory === "hukum"
                         ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
                         : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
                     }`}
                   >
-                    <Scale className="w-4 h-4" />
+                    <Scale className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     Dokumen Hukum
-                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                    <span className={`ml-0.5 sm:ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-xs ${
                       selectedDocCategory === "hukum"
                         ? "bg-white/20 text-white"
                         : "bg-slate-100 text-slate-500"
@@ -352,15 +360,15 @@ export default function SearchDataModal({
 
                   <button
                     onClick={() => setSelectedDocCategory("ekonomi")}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border-2 whitespace-nowrap flex-shrink-0 ${
                       selectedDocCategory === "ekonomi"
                         ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
                         : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
                     }`}
                   >
-                    <TrendingUp className="w-4 h-4" />
+                    <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     Dokumen Ekonomi
-                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                    <span className={`ml-0.5 sm:ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-xs ${
                       selectedDocCategory === "ekonomi"
                         ? "bg-white/20 text-white"
                         : "bg-slate-100 text-slate-500"
@@ -371,15 +379,15 @@ export default function SearchDataModal({
 
                   <button
                     onClick={() => setSelectedDocCategory("infografis")}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border-2 whitespace-nowrap flex-shrink-0 ${
                       selectedDocCategory === "infografis"
                         ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
                         : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
                     }`}
                   >
-                    <BarChart3 className="w-4 h-4" />
+                    <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     Infografis
-                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                    <span className={`ml-0.5 sm:ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-xs ${
                       selectedDocCategory === "infografis"
                         ? "bg-white/20 text-white"
                         : "bg-slate-100 text-slate-500"
@@ -391,25 +399,26 @@ export default function SearchDataModal({
               </div>
             )}
 
-            <div className="grid grid-cols-3 gap-5">
+            {/* Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
               {activeTab === "peta"
                 ? PETA_DATA.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+                      className="bg-white rounded-2xl p-3 sm:p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
                     >
                       {/* Title */}
-                      <div className="text-center mb-3 flex-shrink-0">
-                        <h3 className="text-[#6868E9] font-semibold text-sm">
+                      <div className="text-center mb-2 sm:mb-3 flex-shrink-0">
+                        <h3 className="text-[#6868E9] font-semibold text-xs sm:text-sm">
                           {item.title}
                         </h3>
-                        <p className="text-[#6868E9] font-semibold text-sm">
+                        <p className="text-[#6868E9] font-semibold text-xs sm:text-sm">
                           {item.subtitle}
                         </p>
                       </div>
 
-                      {/* Image Preview Container - flex-1 untuk mengambil sisa ruang */}
-                      <ImageCard 
+                      {/* Image Preview Container */}
+                      <ImageCard
                         imageSrc={item.image}
                         imageAlt={item.title}
                         itemId={item.id}
@@ -418,44 +427,44 @@ export default function SearchDataModal({
                         setLoadingImages={setLoadingImages}
                       />
 
-                      {/* Download Button - flex-shrink-0 untuk tetap di bawah */}
+                      {/* Download Button */}
                       <button
                         onClick={() => handleDownload(item)}
-                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm flex-shrink-0"
+                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2 sm:py-2.5 px-4 rounded-full transition-colors text-xs sm:text-sm flex-shrink-0"
                       >
                         UNDUH DATA
                       </button>
                     </div>
                   ))
-                : DOKUMEN_DATA.filter((item) => 
+                : DOKUMEN_DATA.filter((item) =>
                     selectedDocCategory === "all" || item.category === selectedDocCategory
                   ).map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+                      className="bg-white rounded-2xl p-3 sm:p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
                     >
                       {/* Title */}
-                      <div className="text-center mb-3 flex-shrink-0">
-                        <h3 className="text-[#6868E9] font-semibold text-sm">
+                      <div className="text-center mb-2 sm:mb-3 flex-shrink-0">
+                        <h3 className="text-[#6868E9] font-semibold text-xs sm:text-sm">
                           {item.title}
                         </h3>
-                        <p className="text-[#6868E9] font-semibold text-sm">
+                        <p className="text-[#6868E9] font-semibold text-xs sm:text-sm">
                           {item.subtitle}
                         </p>
                       </div>
 
-                      {/* Icon Container - flex-1 untuk mengambil sisa ruang */}
-                      <div className="bg-[#E8E8FC] rounded-2xl p-8 flex items-center justify-center mb-4 flex-1 min-h-[200px]">
+                      {/* Icon Container */}
+                      <div className="bg-[#E8E8FC] rounded-2xl p-6 sm:p-8 flex items-center justify-center mb-3 sm:mb-4 flex-1 min-h-[140px] sm:min-h-[200px]">
                         <FileText
-                          className="w-20 h-20 text-[#6868E9]"
+                          className="w-14 h-14 sm:w-20 sm:h-20 text-[#6868E9]"
                           strokeWidth={1}
                         />
                       </div>
 
-                      {/* Download Button - flex-shrink-0 untuk tetap di bawah */}
+                      {/* Download Button */}
                       <button
                         onClick={() => handleDownload(item)}
-                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2.5 px-4 rounded-full transition-colors text-sm flex-shrink-0"
+                        className="w-full bg-[#6868E9] hover:bg-[#5a5ad9] text-white font-semibold py-2 sm:py-2.5 px-4 rounded-full transition-colors text-xs sm:text-sm flex-shrink-0"
                       >
                         UNDUH DATA
                       </button>

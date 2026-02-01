@@ -38,7 +38,10 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
   const [photoZoom, setPhotoZoom] = useState(1);
   const [photoDrag, setPhotoDrag] = useState({ x: 0, y: 0 });
   const [isPhotoDragging, setIsPhotoDragging] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState<string>("all");
   const dragStartRef = useRef<{ clientX: number; clientY: number; dragX: number; dragY: number } | null>(null);
+
+  const filteredReports = selectedStatus === "all" ? reports : reports.filter(r => r.status === selectedStatus);
 
   const openPhotoModal = (url: string) => {
     setPhotoModalUrl(url);
@@ -116,6 +119,33 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
     );
   }
 
+  if (filteredReports.length === 0) {
+    return (
+      <div className="space-y-4">
+        {/* Filter */}
+        <div className="flex items-center gap-4">
+          <label htmlFor="status-filter" className="text-sm font-medium text-slate-700">
+            Filter Status:
+          </label>
+          <select
+            id="status-filter"
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+            className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="all">Semua</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Disetujui</option>
+            <option value="rejected">Ditolak</option>
+          </select>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 py-12 text-center text-slate-500 text-sm">
+          Tidak ada laporan dengan status ini
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {message && (
@@ -127,6 +157,23 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
           {message.text}
         </div>
       )}
+      {/* Filter */}
+      <div className="flex items-center gap-4">
+        <label htmlFor="status-filter" className="text-sm font-medium text-slate-700">
+          Filter Status:
+        </label>
+        <select
+          id="status-filter"
+          value={selectedStatus}
+          onChange={(e) => setSelectedStatus(e.target.value)}
+          className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+          <option value="all">Semua</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Disetujui</option>
+          <option value="rejected">Ditolak</option>
+        </select>
+      </div>
       <div className="overflow-x-auto rounded-xl border border-slate-200">
         <table className="min-w-full divide-y divide-slate-200">
           <thead className="bg-slate-50">
@@ -139,7 +186,7 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200 bg-white">
-            {reports.map((r) => (
+            {filteredReports.map((r) => (
               <tr key={r.id} className="hover:bg-slate-50">
                 <td className="px-4 py-3">
                   <span className="font-medium text-slate-900">{r.name}</span>
@@ -161,7 +208,7 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
                     )}
                     <button
                       type="button"
-                      disabled={r.status !== "pending" || loadingId === r.id}
+                      disabled={loadingId === r.id}
                       onClick={() => handleApprove(r.id)}
                       className="px-3 py-1.5 rounded-lg bg-green-100 text-green-800 text-sm font-medium hover:bg-green-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -169,7 +216,7 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
                     </button>
                     <button
                       type="button"
-                      disabled={r.status !== "pending" || loadingId === r.id}
+                      disabled={loadingId === r.id}
                       onClick={() => handleReject(r.id)}
                       className="px-3 py-1.5 rounded-lg bg-red-100 text-red-800 text-sm font-medium hover:bg-red-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >

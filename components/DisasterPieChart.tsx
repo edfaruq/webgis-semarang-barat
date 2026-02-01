@@ -6,8 +6,6 @@ export type DisasterCount = { name: string; value: number; fill: string };
 
 const DISASTER_COLORS: Record<string, string> = {
   flood: "#3b82f6",
-  earthquake: "#f59e0b",
-  fire: "#ef4444",
   landslide: "#22c55e",
 };
 

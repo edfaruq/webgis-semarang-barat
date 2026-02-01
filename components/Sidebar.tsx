@@ -357,7 +357,7 @@ export default function Sidebar({
       >
         {/* Close button untuk mobile */}
         <div className="lg:hidden sticky top-0 bg-white border-b border-slate-200 p-4 flex items-center justify-between z-10">
-          <h2 className="text-lg font-bold text-slate-800">Menu</h2>
+          <h2 className="text-lg font-bold text-slate-800">Katana Semarang Barat</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"

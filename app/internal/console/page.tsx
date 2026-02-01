@@ -22,6 +22,9 @@ export default async function ConsolePage() {
     prisma.report.groupBy({
       by: ["disasterType"],
       _count: true,
+      where: {
+        status: "approved",
+      },
     }),
     prisma.report.count({ where: { status: "pending" } }),
     prisma.report.count(),
@@ -37,7 +40,7 @@ export default async function ConsolePage() {
           </div>
           <div className="flex items-center gap-4">
             <Link
-              href="/reports"
+              href="/internal/reports"
               className="text-sm text-slate-600 hover:text-slate-900 flex items-center gap-1"
             >
               <FileText size={16} />
