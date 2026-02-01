@@ -1,11 +1,10 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
 import { createSession, setSessionCookie } from "@/lib/auth";
 
-export type SignInState = { error?: string };
+export type SignInState = { error?: string; success?: boolean };
 
 export async function signInAction(
   _prevState: SignInState | null,
@@ -38,5 +37,5 @@ export async function signInAction(
     role: user.role,
   });
   await setSessionCookie(token);
-  redirect("/internal/console");
+  return { success: true };
 }

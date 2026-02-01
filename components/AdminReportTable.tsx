@@ -106,7 +106,7 @@ export default function AdminReportTable({ reports }: { reports: ReportRow[] }) 
     const result = await rejectReport(id);
     setLoadingId(null);
     if (result.success) {
-      showToast("success", "Laporan ditolak.");
+      showToast("error", "Laporan ditolak.");
       router.refresh();
     } else showToast("error", result.error ?? "Gagal menolak.");
   };

@@ -5,13 +5,7 @@ import { prisma } from "@/lib/prisma";
 import DisasterPieChart from "@/components/DisasterPieChart";
 import AdminReportTable from "@/components/AdminReportTable";
 import { LogOut, LayoutDashboard, FileText } from "lucide-react";
-import { clearSessionCookie } from "@/lib/auth";
-
-async function logoutAction() {
-  "use server";
-  await clearSessionCookie();
-  redirect("/internal/auth/sign-in");
-}
+import { logoutAction } from "../actions";
 
 export default async function ConsolePage() {
   const session = await requireAdmin();
@@ -85,6 +79,28 @@ export default async function ConsolePage() {
           <h2 className="text-lg font-semibold text-slate-800 mb-4">Daftar Laporan</h2>
           <AdminReportTable reports={reports} />
         </section>
+
+        {/* Footer (sama seperti sidebar web publik) */}
+        <div className="mt-16 pt-10 border-t border-slate-200">
+          <div className="flex justify-center pt-6 pb-4 min-h-[56px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-footer-sidebar.png"
+              alt="Universitas Diponegoro - KATANA"
+              width={240}
+              height={64}
+              className="object-contain w-full max-w-[240px] h-auto block"
+            />
+          </div>
+          <div className="text-center space-y-2 pb-4">
+            <p className="text-slate-400 text-sm">
+              ©2026 - KKN-T TIM 35 WebGIS Developer
+            </p>
+            <p className="text-slate-300 text-xs">
+              Universitas Diponegoro
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   );

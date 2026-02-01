@@ -399,8 +399,8 @@ export default function SearchDataModal({
               </div>
             )}
 
-            {/* Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+            {/* Grid: 2 col mobile, 2 col tablet, 3 col desktop */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
               {activeTab === "peta"
                 ? PETA_DATA.map((item) => (
                     <div
