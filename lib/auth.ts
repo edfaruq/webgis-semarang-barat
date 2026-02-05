@@ -39,16 +39,28 @@ export async function getSession(): Promise<SessionPayload | null> {
 }
 
 export async function setSessionCookie(token: string): Promise<void> {
-  const cookieStore = await cookies();
-  // Railway menggunakan HTTPS, jadi selalu set secure: true di production
-  const isProduction = process.env.NODE_ENV === "production" || process.env.RAILWAY_ENVIRONMENT === "production";
-  cookieStore.set(SESSION_COOKIE_NAME, token, {
-    httpOnly: true,
-    secure: isProduction, // Railway selalu HTTPS
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
-    path: "/",
-  });
+  try {
+    const cookieStore = await cookies();
+    // Railway menggunakan HTTPS, jadi selalu set secure: true di production
+    const isProduction = process.env.NODE_ENV === "production" || process.env.RAILWAY_ENVIRONMENT === "production";
+    cookieStore.set(SESSION_COOKIE_NAME, token, {
+      httpOnly: true,
+      secure: isProduction, // Railway selalu HTTPS
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: "/",
+    });
+  } catch (error: any) {
+    console.error("Error setting session cookie:", error);
+    console.error("Cookie error details:", {
+      message: error.message,
+      stack: error.stack,
+      NODE_ENV: process.env.NODE_ENV,
+      RAILWAY_ENVIRONMENT: process.env.RAILWAY_ENVIRONMENT,
+    });
+    // Re-throw to be caught by caller
+    throw error;
+  }
 }
 
 export async function clearSessionCookie(): Promise<void> {
