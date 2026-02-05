@@ -44,33 +44,64 @@ export async function submitReportAction(
 
   const disasterType = DISASTER_MAP[rawDisaster] ?? rawDisaster;
 
-  let photoUrl: string | null = null;
-  if (photo && photo.size > 0) {
-    const bytes = await photo.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const ext = path.extname(photo.name) || ".jpg";
-    const baseDir = path.join(process.cwd(), "public", "uploads", "reports");
-    await mkdir(baseDir, { recursive: true });
-    const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}${ext}`;
-    const filePath = path.join(baseDir, filename);
-    await writeFile(filePath, buffer);
-    photoUrl = `/uploads/reports/${filename}`;
+  try {
+    let photoUrl: string | null = null;
+    if (photo && photo.size > 0) {
+      try {
+        const bytes = await photo.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+        const ext = path.extname(photo.name) || ".jpg";
+        const baseDir = path.join(process.cwd(), "public", "uploads", "reports");
+        await mkdir(baseDir, { recursive: true });
+        const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}${ext}`;
+        const filePath = path.join(baseDir, filename);
+        await writeFile(filePath, buffer);
+        photoUrl = `/uploads/reports/${filename}`;
+      } catch (fileError) {
+        console.error("Error saving photo:", fileError);
+        // Continue without photo if file save fails
+      }
+    }
+
+    try {
+      await prisma.report.create({
+        data: {
+          name,
+          phone,
+          email,
+          institution,
+          disasterType,
+          chronology,
+          photoUrl,
+          status: "pending",
+          lat,
+          lng,
+        },
+      });
+    } catch (dbError: any) {
+      console.error("Database error:", dbError);
+      // Check if it's a connection error
+      if (dbError.code === "P1001" || dbError.message?.includes("connect")) {
+        return { 
+          error: "Tidak dapat terhubung ke database. Pastikan DATABASE_URL sudah dikonfigurasi dengan benar di file .env" 
+        };
+      }
+      // Check if it's a schema/table error
+      if (dbError.code === "P2001" || dbError.message?.includes("does not exist")) {
+        return { 
+          error: "Tabel database belum dibuat. Jalankan: npx prisma migrate dev atau npx prisma db push" 
+        };
+      }
+      return { 
+        error: `Terjadi kesalahan saat menyimpan laporan: ${dbError.message || "Unknown error"}` 
+      };
+    }
+
+    return { success: true };
+  } catch (error: any) {
+    console.error("Unexpected error in submitReportAction:", error);
+    return { 
+      error: `Terjadi kesalahan tidak terduga: ${error.message || "Unknown error"}` 
+    };
   }
-
-  await prisma.report.create({
-    data: {
-      name,
-      phone,
-      email,
-      institution,
-      disasterType,
-      chronology,
-      photoUrl,
-      status: "pending",
-      lat,
-      lng,
-    },
-  });
-
-  return { success: true };
 }
