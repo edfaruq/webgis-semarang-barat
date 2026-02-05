@@ -40,9 +40,11 @@ export async function getSession(): Promise<SessionPayload | null> {
 
 export async function setSessionCookie(token: string): Promise<void> {
   const cookieStore = await cookies();
+  // Railway menggunakan HTTPS, jadi selalu set secure: true di production
+  const isProduction = process.env.NODE_ENV === "production" || process.env.RAILWAY_ENVIRONMENT === "production";
   cookieStore.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: isProduction, // Railway selalu HTTPS
     sameSite: "lax",
     maxAge: 60 * 60 * 24 * 7, // 7 days
     path: "/",

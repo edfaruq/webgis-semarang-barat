@@ -104,6 +104,18 @@ npm run build
 npm start
 ```
 
+## Deployment ke Railway
+
+Lihat panduan lengkap di [DEPLOYMENT.md](./DEPLOYMENT.md) untuk instruksi detail deployment ke Railway.
+
+**Quick Start:**
+1. Push code ke GitHub
+2. Connect repository ke Railway
+3. Setup MySQL database di Railway
+4. Set environment variables (`DATABASE_URL`, `SESSION_SECRET`)
+5. Push database schema: `railway run npx prisma db push`
+6. Deploy selesai! 🚀
+
 ## Struktur Project
 
 ```
