@@ -75,7 +75,14 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setFileName(file.name);
+      const maxSize = 5 * 1024 * 1024; // 5 MB in bytes
+      if (file.size > maxSize) {
+        showAlert('error', 'Ukuran file melebihi batas maksimal 5 MB. Mohon pilih file yang lebih kecil.');
+        e.target.value = ''; // Clear the input
+        setFileName("");
+      } else {
+        setFileName(file.name);
+      }
     } else {
       setFileName("");
     }
@@ -317,6 +324,9 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                     File terpilih: {fileName}
                   </p>
                 )}
+                <p className="mt-1 text-xs text-slate-500">
+                  Ukuran file maksimal: 5 MB
+                </p>
               </div>
             </div>
 
