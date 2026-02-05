@@ -22,7 +22,7 @@ interface DokumenItem {
   title: string;
   subtitle: string;
   type: "dokumen";
-  category: "hukum" | "ekonomi" | "infografis";
+  category: "hukum" | "ekonomi";
   fileUrl?: string; // Path relatif dari public folder, contoh: "/documents/hukum/perda.pdf"
 }
 
@@ -105,11 +105,8 @@ const DOKUMEN_EKONOMI: DokumenItem[] = [
   },
 ];
 
-const DOKUMEN_INFOGRAFIS: DokumenItem[] = [
-  // Data infografis akan ditambahkan di sini
-];
 
-const DOKUMEN_DATA: DokumenItem[] = [...DOKUMEN_HUKUM, ...DOKUMEN_EKONOMI, ...DOKUMEN_INFOGRAFIS];
+const DOKUMEN_DATA: DokumenItem[] = [...DOKUMEN_HUKUM, ...DOKUMEN_EKONOMI];
 
 // Cache untuk menyimpan gambar yang sudah dimuat (persist across modal opens)
 const loadedImagesCache = new Set<string>();
@@ -221,7 +218,7 @@ export default function SearchDataModal({
   onClose,
 }: SearchDataModalProps) {
   const [activeTab, setActiveTab] = useState<"peta" | "dokumen">("peta");
-  const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "infografis" | "all">("all");
+  const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "all">("all");
   const [loadingImages, setLoadingImages] = useState<Set<string>>(new Set());
 
   if (!isOpen) return null;
@@ -377,24 +374,6 @@ export default function SearchDataModal({
                     </span>
                   </button>
 
-                  <button
-                    onClick={() => setSelectedDocCategory("infografis")}
-                    className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border-2 whitespace-nowrap flex-shrink-0 ${
-                      selectedDocCategory === "infografis"
-                        ? "bg-[#6868E9] text-white border-[#6868E9] shadow-md"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#6868E9] hover:text-[#6868E9]"
-                    }`}
-                  >
-                    <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    Infografis
-                    <span className={`ml-0.5 sm:ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-xs ${
-                      selectedDocCategory === "infografis"
-                        ? "bg-white/20 text-white"
-                        : "bg-slate-100 text-slate-500"
-                    }`}>
-                      {DOKUMEN_INFOGRAFIS.length}
-                    </span>
-                  </button>
                 </div>
               </div>
             )}
