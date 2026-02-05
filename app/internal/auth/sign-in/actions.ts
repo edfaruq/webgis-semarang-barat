@@ -28,14 +28,21 @@ export async function signInAction(
 
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) {
+    console.error("Login failed: Invalid password for", email);
     return { error: "Email atau password salah." };
   }
 
-  const token = await createSession({
-    userId: user.id,
-    email: user.email,
-    role: user.role,
-  });
-  await setSessionCookie(token);
-  return { success: true };
+  try {
+    const token = await createSession({
+      userId: user.id,
+      email: user.email,
+      role: user.role,
+    });
+    await setSessionCookie(token);
+    console.log("Login successful for", email);
+    return { success: true };
+  } catch (error: any) {
+    console.error("Login error:", error);
+    return { error: "Terjadi kesalahan saat login. Silakan coba lagi." };
+  }
 }

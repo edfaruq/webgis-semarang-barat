@@ -7,9 +7,10 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate && node scripts/compress-peta-images.mjs",
+    "postinstall": "prisma generate && (node scripts/compress-peta-images.mjs || true)",
     "compress-images": "node scripts/compress-peta-images.mjs",
     "db:push": "prisma db push",
+    "db:migrate": "prisma migrate deploy",
     "db:seed": "node scripts/seed-admin.mjs"
   },
   "dependencies": {

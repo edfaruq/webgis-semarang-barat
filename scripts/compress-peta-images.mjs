@@ -142,11 +142,23 @@ async function compressImage(inputPath, outputPath, maxSizeBytes) {
 }
 
 async function processAllImages() {
+  // Check if source directory exists
+  if (!fs.existsSync(sourceDir)) {
+    console.log(`Source directory not found: ${sourceDir}`);
+    console.log('Skipping image compression (images may already be compressed or directory not available)');
+    return;
+  }
+
   const files = fs.readdirSync(sourceDir);
   const imageFiles = files.filter(file => 
     /\.(png|jpg|jpeg)$/i.test(file) && 
     !file.includes('thumbnail')
   );
+  
+  if (imageFiles.length === 0) {
+    console.log('No images found to compress. Skipping...');
+    return;
+  }
   
   console.log(`Found ${imageFiles.length} images to process`);
   console.log(`Target size: ${(MAX_SIZE_BYTES / 1024).toFixed(0)}KB per thumbnail\n`);
@@ -167,4 +179,9 @@ async function processAllImages() {
   console.log(`2. Original images are used for download`);
 }
 
-processAllImages().catch(console.error);
+processAllImages().catch((error) => {
+  console.error('Error during image compression:', error.message);
+  console.log('Continuing build process...');
+  // Don't exit with error code to allow build to continue
+  process.exit(0);
+});
