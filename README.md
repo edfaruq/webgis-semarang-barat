@@ -50,16 +50,42 @@ Sistem Informasi Geografis (WebGIS) interaktif untuk Kecamatan Semarang Barat me
 
 1. **Clone atau download project ini**
 
-2. **Install dependencies**:
+2. **Setup Environment Variables**:
+   ```bash
+   # Copy file .env.example ke .env
+   cp .env.example .env
+   ```
+   
+   Edit file `.env` dan isi dengan konfigurasi database MySQL Anda:
+   ```env
+   DATABASE_URL="mysql://USER:PASSWORD@HOST:3306/DATABASE"
+   SESSION_SECRET="your-session-secret-change-in-production"
+   ```
+
+3. **Install dependencies**:
    ```bash
    npm install
    # atau
    yarn install
    ```
    
-   > **Catatan**: Setelah `npm install`, script akan otomatis menjalankan kompresi gambar peta untuk membuat thumbnail (50KB). Proses ini membutuhkan library `sharp` yang sudah termasuk dalam `devDependencies`. Jika terjadi error, pastikan `sharp` terinstall dengan benar.
+   > **Catatan**: Setelah `npm install`, script akan otomatis menjalankan:
+   > - `prisma generate` untuk generate Prisma client
+   > - Kompresi gambar peta untuk membuat thumbnail (50KB)
+   > 
+   > Jika terjadi error, pastikan `sharp` terinstall dengan benar.
 
-3. **Jalankan development server**:
+4. **Setup Database**:
+   ```bash
+   # Push schema Prisma ke database
+   npm run db:push
+   # atau
+   npx prisma db push
+   ```
+   
+   > **Penting**: Pastikan database MySQL sudah dibuat dan `DATABASE_URL` di `.env` sudah benar sebelum menjalankan command ini.
+
+5. **Jalankan development server**:
    ```bash
    npm run dev
    # atau
@@ -252,6 +278,50 @@ Jika terjadi error saat `npm install` terkait kompresi gambar:
 - Pastikan `sharp` terinstall: `npm install sharp --save-dev`
 - Jika masih error, jalankan manual: `npm run compress-images`
 - Thumbnail akan otomatis dibuat saat pertama kali menjalankan script
+
+### Error "An unexpected response was received from the server" saat Submit Lapor Bencana
+
+Jika teman Anda mengalami error ini saat submit lapor bencana, kemungkinan penyebabnya:
+
+1. **Database tidak terhubung**:
+   - Pastikan file `.env` sudah dibuat dan `DATABASE_URL` sudah dikonfigurasi dengan benar
+   - Format: `DATABASE_URL="mysql://USER:PASSWORD@HOST:3306/DATABASE"`
+   - Pastikan database MySQL sudah dibuat dan bisa diakses
+
+2. **Prisma Client belum di-generate**:
+   ```bash
+   npx prisma generate
+   ```
+
+3. **Schema database belum di-push**:
+   ```bash
+   npm run db:push
+   # atau
+   npx prisma db push
+   ```
+
+4. **Restart development server** setelah setup database:
+   ```bash
+   # Stop server (Ctrl+C), lalu jalankan lagi
+   npm run dev
+   ```
+
+**Langkah troubleshooting lengkap:**
+```bash
+# 1. Pastikan .env sudah ada dan benar
+cat .env
+
+# 2. Generate Prisma client
+npx prisma generate
+
+# 3. Push schema ke database
+npm run db:push
+
+# 4. Restart dev server
+npm run dev
+```
+
+Setelah langkah-langkah di atas, coba submit lapor bencana lagi. Error message yang lebih jelas akan muncul jika masih ada masalah.
 
 ## Pengembangan
 
