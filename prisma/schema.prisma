@@ -1,12 +1,12 @@
 // Prisma schema for WebGIS Semarang Barat - Admin & Reports
-// Database: MySQL
+// Database: PostgreSQL
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
