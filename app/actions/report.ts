@@ -48,18 +48,47 @@ export async function submitReportAction(
     let photoUrl: string | null = null;
     if (photo && photo.size > 0) {
       try {
+        // Check file size (max 5MB)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (photo.size > maxSize) {
+          console.error("Photo too large:", photo.size, "bytes");
+          return { error: "Ukuran foto terlalu besar. Maksimal 5 MB." };
+        }
+
         const bytes = await photo.arrayBuffer();
         const buffer = Buffer.from(bytes);
         const ext = path.extname(photo.name) || ".jpg";
-        const baseDir = path.join(process.cwd(), "public", "uploads", "reports");
+        
+        // Use Railway Volume if available, otherwise use public/uploads
+        // Railway Volume is mounted at /data if configured
+        const volumePath = process.env.RAILWAY_VOLUME_MOUNT_PATH || "/data";
+        const useVolume = process.env.RAILWAY_ENVIRONMENT === "production" && process.env.RAILWAY_VOLUME_MOUNT_PATH;
+        
+        const baseDir = useVolume 
+          ? path.join(volumePath, "uploads", "reports")
+          : path.join(process.cwd(), "public", "uploads", "reports");
+        
         await mkdir(baseDir, { recursive: true });
         const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}${ext}`;
         const filePath = path.join(baseDir, filename);
         await writeFile(filePath, buffer);
-        photoUrl = `/uploads/reports/${filename}`;
-      } catch (fileError) {
+        
+        // If using volume, serve via API route, otherwise use public path
+        photoUrl = useVolume 
+          ? `/api/uploads/reports/${filename}`
+          : `/uploads/reports/${filename}`;
+        
+        console.log("Photo saved successfully:", photoUrl, "Size:", photo.size, "bytes");
+      } catch (fileError: any) {
         console.error("Error saving photo:", fileError);
+        console.error("Error details:", {
+          message: fileError.message,
+          code: fileError.code,
+          path: fileError.path,
+          stack: fileError.stack,
+        });
         // Continue without photo if file save fails
+        return { error: `Gagal menyimpan foto: ${fileError.message || "Unknown error"}` };
       }
     }
 
