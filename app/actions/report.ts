@@ -62,11 +62,14 @@ export async function submitReportAction(
         // Use Railway Volume if available, otherwise use public/uploads
         // Railway Volume is mounted at /data if configured
         const volumePath = process.env.RAILWAY_VOLUME_MOUNT_PATH || "/data";
-        const useVolume = process.env.RAILWAY_ENVIRONMENT === "production" && process.env.RAILWAY_VOLUME_MOUNT_PATH;
+        // Check if volume is available (Railway automatically sets RAILWAY_VOLUME_MOUNT_PATH when volume is attached)
+        const useVolume = !!process.env.RAILWAY_VOLUME_MOUNT_PATH;
         
         const baseDir = useVolume 
           ? path.join(volumePath, "uploads", "reports")
           : path.join(process.cwd(), "public", "uploads", "reports");
+        
+        console.log("Saving photo to:", baseDir, "useVolume:", useVolume);
         
         await mkdir(baseDir, { recursive: true });
         const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}${ext}`;
