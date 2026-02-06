@@ -213,15 +213,27 @@ function ImageCard({
   );
 }
 
+const MODAL_CLOSE_DURATION_MS = 250;
+
 export default function SearchDataModal({
   isOpen,
   onClose,
 }: SearchDataModalProps) {
+  const [isClosing, setIsClosing] = useState(false);
   const [activeTab, setActiveTab] = useState<"peta" | "dokumen">("peta");
   const [selectedDocCategory, setSelectedDocCategory] = useState<"hukum" | "ekonomi" | "all">("all");
   const [loadingImages, setLoadingImages] = useState<Set<string>>(new Set());
 
-  if (!isOpen) return null;
+  const handleClose = () => {
+    if (isClosing) return;
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, MODAL_CLOSE_DURATION_MS);
+  };
+
+  if (!isOpen && !isClosing) return null;
 
   const handleDownload = (item: PetaItem | DokumenItem) => {
     if (item.type === "dokumen" && item.fileUrl) {
@@ -253,16 +265,16 @@ export default function SearchDataModal({
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={onClose}
+        className={`fixed inset-0 bg-black/50 z-40 modal-backdrop ${isClosing ? "modal-closing" : ""}`}
+        onClick={handleClose}
       />
 
       {/* Modal - Responsive */}
       <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-        <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full sm:w-[900px] h-[90vh] sm:h-[600px] shadow-xl relative flex flex-col">
+        <div className={`bg-white rounded-t-3xl sm:rounded-3xl w-full sm:w-[900px] h-[90vh] sm:h-[600px] shadow-xl relative flex flex-col modal-content-responsive ${isClosing ? "modal-closing" : ""}`}>
           {/* Close Button */}
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full transition-colors z-10"
           >
             <X className="w-5 h-5 text-slate-500" />

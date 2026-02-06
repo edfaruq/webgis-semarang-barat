@@ -50,7 +50,7 @@ export default function Header({
     : "Seluruh Wilayah";
 
   return (
-    <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 h-16 flex items-center px-4 lg:px-6 justify-between relative z-50">
+    <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 min-h-[calc(4rem+env(safe-area-inset-top,0px))] pt-[env(safe-area-inset-top,0px)] flex items-center px-4 lg:px-6 justify-between relative z-50">
       <div className="flex items-center gap-2 lg:gap-3">
         {/* Hamburger menu untuk mobile */}
         <button

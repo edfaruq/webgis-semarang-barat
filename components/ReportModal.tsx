@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useActionState } from "react";
 import { X, MapPin, Crosshair, Shield, AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
 import dynamic from "next/dynamic";
 import { submitReportAction } from "@/app/actions/report";
+
+const MODAL_CLOSE_DURATION_MS = 200;
 
 interface ReportModalProps {
   isOpen: boolean;
@@ -24,6 +26,7 @@ const MapWithLocationPicker = dynamic(
 );
 
 export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
+  const [isClosing, setIsClosing] = useState(false);
   const [markerPosition, setMarkerPosition] = useState<[number, number] | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
@@ -40,6 +43,17 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
   const prevStateRef = useRef<{ success?: boolean; error?: string } | null>(null);
   const alertRef = useRef<HTMLDivElement>(null);
 
+  const handleClose = useCallback(() => {
+    setIsClosing((prev) => {
+      if (prev) return prev;
+      setTimeout(() => {
+        onClose();
+        setIsClosing(false);
+      }, MODAL_CLOSE_DURATION_MS);
+      return true;
+    });
+  }, [onClose]);
+
   useEffect(() => {
     if (!state || state === prevStateRef.current) return;
     prevStateRef.current = state;
@@ -48,7 +62,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
       setTimeout(() => {
         setIsAlertExiting(true);
         setTimeout(() => {
-          onClose();
+          handleClose();
           setMarkerPosition(null);
           setIsVerified(false);
           setDisasterCategory("");
@@ -60,7 +74,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
     } else if (state.error) {
       showAlert("error", state.error);
     }
-  }, [state, onClose]);
+  }, [state, onClose, handleClose]);
 
   // Auto scroll ke alert ketika alert muncul
   useEffect(() => {
@@ -128,19 +142,20 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
     ? `${markerPosition[0].toFixed(6)}, ${markerPosition[1].toFixed(6)}`
     : "Belum ditandai - Klik peta atau gunakan GPS";
 
-  if (!isOpen) return null;
+  if (!isOpen && !isClosing) return null;
 
   return (
     <div className="fixed inset-0 z-[9999]">
       <div
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-        onClick={onClose}
-      ></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl p-4 max-h-[95vh] overflow-y-auto seamless-scrollbar">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          <div className="bg-red-600 p-6 text-white text-center relative">
+        className={`absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-backdrop ${isClosing ? "modal-closing" : ""}`}
+        onClick={handleClose}
+      />
+      <div className={`absolute top-1/2 left-1/2 w-full max-w-4xl p-4 h-[95vh] max-h-[95vh] flex flex-col modal-content-scale ${isClosing ? "modal-closing" : ""}`}>
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col flex-1 min-h-0">
+          {/* Header tetap di atas saat scroll - sama seperti modal Titik Pompa */}
+          <div className="bg-red-600 p-6 text-white text-center relative shrink-0 z-10">
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="absolute top-4 right-4 text-white hover:text-red-200 transition"
             >
               <X size={20} />
@@ -150,6 +165,8 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               Laporan akan diteruskan ke BPBD Kota Semarang.
             </p>
           </div>
+          {/* Hanya area ini yang scroll */}
+          <div className="flex-1 min-h-0 overflow-y-auto seamless-scrollbar">
           <form
             id="emergencyForm"
             className="p-8 space-y-5"
@@ -202,6 +219,13 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                   defaultCenter={defaultCenter}
                   shouldZoomToPosition={shouldZoomToGPS}
                 />
+                {/* Notifikasi GPS berhasil ditemukan — tampil di atas peta */}
+                {alert.show && alert.type === "success" && alert.message === "Lokasi GPS berhasil ditemukan!" && (
+                  <div className={`absolute top-3 left-1/2 -translate-x-1/2 z-10 rounded-xl px-4 py-2.5 shadow-lg border-2 border-green-700 bg-green-600 text-white flex items-center gap-2 ${isAlertExiting ? "animate-slide-to-right" : "animate-slide-from-right"}`}>
+                    <CheckCircle size={20} className="flex-shrink-0 text-white" />
+                    <span className="text-sm font-semibold whitespace-nowrap">{alert.message}</span>
+                  </div>
+                )}
               </div>
               <div className="mt-2 bg-indigo-50 p-3 rounded-xl border border-indigo-100 text-center">
                 <span className="text-[10px] text-indigo-400 font-bold block mb-1 uppercase tracking-wider">
@@ -390,8 +414,8 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
             </button>
           </form>
 
-          {/* Custom Alert Component */}
-          {alert.show && (
+          {/* Custom Alert Component (kecuali notifikasi GPS yang tampil di map) */}
+          {alert.show && !(alert.type === "success" && alert.message === "Lokasi GPS berhasil ditemukan!") && (
             <div ref={alertRef} className="px-8 pb-6">
               <div className={`rounded-xl p-4 shadow-lg border-2 flex items-start gap-3 ${isAlertExiting ? 'animate-slide-to-right' : 'animate-slide-from-right'} ${
                 alert.type === 'success'
@@ -414,6 +438,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               </div>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>

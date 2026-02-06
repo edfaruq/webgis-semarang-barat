@@ -1,7 +1,10 @@
 "use client";
 
+import { useState, useCallback, useRef } from "react";
 import { X } from "lucide-react";
 import { PumpProperties } from "@/types/geojson";
+
+const MODAL_CLOSE_DURATION_MS = 200;
 
 interface PumpDetailModalProps {
   isOpen: boolean;
@@ -14,28 +17,45 @@ export default function PumpDetailModal({
   onClose,
   pumpData,
 }: PumpDetailModalProps) {
-  if (!isOpen || !pumpData) return null;
+  const [isClosing, setIsClosing] = useState(false);
+  const lastPumpDataRef = useRef<typeof pumpData>(null);
 
-  const props = pumpData.properties as PumpProperties;
+  if (pumpData) lastPumpDataRef.current = pumpData;
+
+  const handleClose = useCallback(() => {
+    setIsClosing((prev) => {
+      if (prev) return prev;
+      setTimeout(() => {
+        onClose();
+        setIsClosing(false);
+      }, MODAL_CLOSE_DURATION_MS);
+      return true;
+    });
+  }, [onClose]);
+
+  if ((!isOpen || !pumpData) && !isClosing) return null;
+
+  const dataToShow = pumpData ?? lastPumpDataRef.current;
+  const props = (dataToShow?.properties ?? {}) as PumpProperties;
 
   return (
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/50 z-[10000] transition-opacity"
-        onClick={onClose}
+        className={`fixed inset-0 bg-black/50 z-[10000] modal-backdrop ${isClosing ? "modal-closing" : ""}`}
+        onClick={handleClose}
       />
 
       {/* Modal */}
       <div className="fixed inset-0 z-[10001] flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto seamless-scrollbar">
-          {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-slate-200 p-6 flex items-center justify-between">
+        <div className={`bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto seamless-scrollbar modal-content-scale-only ${isClosing ? "modal-closing" : ""}`}>
+          {/* Header - z-10 agar tidak tertutup konten saat scroll */}
+          <div className="sticky top-0 z-10 bg-white border-b border-slate-200 p-6 flex items-center justify-between shrink-0">
             <h2 className="text-2xl font-bold text-slate-800">
               {props.nama || "Titik Pompa"}
             </h2>
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               aria-label="Tutup"
             >
@@ -159,16 +179,6 @@ export default function PumpDetailModal({
                 )}
               </div>
             </div>
-          </div>
-
-          {/* Footer */}
-          <div className="sticky bottom-0 bg-slate-50 border-t border-slate-200 p-4 flex justify-end">
-            <button
-              onClick={onClose}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Tutup
-            </button>
           </div>
         </div>
       </div>

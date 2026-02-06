@@ -149,7 +149,7 @@ export default function HomePage() {
         onReportClick={() => setIsReportModalOpen(true)}
         onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
       />
-      <div className="flex flex-1 overflow-hidden" style={{ height: "calc(100vh - 64px)" }}>
+      <div className="flex flex-1 overflow-hidden min-h-0">
         <Sidebar
           boundaryData={boundaryData}
           facilitiesData={facilitiesData}

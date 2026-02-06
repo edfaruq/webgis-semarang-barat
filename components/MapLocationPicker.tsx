@@ -15,6 +15,19 @@ if (typeof window !== "undefined") {
   });
 }
 
+// Marker kecil untuk map lokasi (modal Lapor Bencana) — default 25x41 terlalu besar
+const smallMarkerIcon = typeof window !== "undefined"
+  ? new L.Icon({
+      iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+      iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
+      shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+      iconSize: [18, 30],
+      iconAnchor: [9, 30],
+      popupAnchor: [1, -28],
+      shadowSize: [30, 30],
+    })
+  : undefined;
+
 interface MapLocationPickerProps {
   position: [number, number] | null;
   setPosition: (pos: [number, number]) => void;
@@ -58,7 +71,7 @@ function LocationMarker({
     },
   });
 
-  return position === null ? null : <Marker position={position} />;
+  return position === null ? null : <Marker position={position} icon={smallMarkerIcon} />;
 }
 
 export default function MapLocationPicker({
