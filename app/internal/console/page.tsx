@@ -25,8 +25,8 @@ export default async function ConsolePage() {
   ]);
 
   return (
-    <div className="min-h-screen bg-slate-100">
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-[inset_0_1px_0_0_#f1f5f9]">
+    <div className="h-screen min-h-0 bg-slate-100 flex flex-col overflow-y-auto">
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-[inset_0_1px_0_0_#f1f5f9] shrink-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
             <LayoutDashboard className="text-slate-600" size={22} />
@@ -53,7 +53,7 @@ export default async function ConsolePage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           <div className="bg-white rounded-xl border border-slate-200 p-5">
@@ -79,10 +79,12 @@ export default async function ConsolePage() {
           <h2 className="text-lg font-semibold text-slate-800 mb-4">Daftar Laporan</h2>
           <AdminReportTable reports={reports} />
         </section>
+      </main>
 
-        {/* Footer (sama seperti sidebar web publik) */}
-        <div className="mt-16 pt-10 border-t border-slate-200">
-          <div className="flex justify-center pt-6 pb-4 min-h-[56px]">
+      {/* Footer full lebar, seamless di bawah konten saat scroll */}
+      <footer className="w-full bg-white border-t border-slate-200 shrink-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex justify-center pt-2 pb-4 min-h-[56px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/logo-footer-sidebar.png"
@@ -92,7 +94,7 @@ export default async function ConsolePage() {
               className="object-contain w-full max-w-[240px] h-auto block"
             />
           </div>
-          <div className="text-center space-y-2 pb-4">
+          <div className="text-center space-y-2 pb-2">
             <p className="text-slate-400 text-sm">
               ©2026 - KKN-T TIM 35 WebGIS Developer
             </p>
@@ -101,7 +103,7 @@ export default async function ConsolePage() {
             </p>
           </div>
         </div>
-      </main>
+      </footer>
     </div>
   );
 }

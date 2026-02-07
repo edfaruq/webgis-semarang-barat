@@ -345,7 +345,7 @@ export default function Sidebar({
           top-0 left-0
           w-80 max-w-[85vw]
           bg-white border-r border-slate-200
-          h-full min-h-[100dvh] lg:h-[calc(100vh-64px)]
+          h-full min-h-[100dvh] lg:h-full lg:min-h-0
           z-[9999] lg:z-20
           overflow-y-auto
           transform transition-transform duration-300 ease-in-out
