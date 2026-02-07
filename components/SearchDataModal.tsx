@@ -269,9 +269,23 @@ export default function SearchDataModal({
         onClick={handleClose}
       />
 
-      {/* Modal - Responsive */}
-      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-        <div className={`bg-white rounded-t-3xl sm:rounded-3xl w-full sm:w-[900px] h-[90vh] sm:h-[600px] shadow-xl relative flex flex-col modal-content-responsive ${isClosing ? "modal-closing" : ""}`}>
+      {/* Modal - Responsive – safe area agar tidak tertutup iOS Safari nav bar (TOP/BOTTOM) */}
+      <div
+        className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+        style={{
+          paddingTop: "calc(1rem + env(safe-area-inset-top, 0px))",
+          paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))",
+          paddingLeft: "calc(1rem + env(safe-area-inset-left, 0px))",
+          paddingRight: "calc(1rem + env(safe-area-inset-right, 0px))",
+        }}
+      >
+        <div
+          className={`bg-white rounded-t-3xl sm:rounded-3xl w-full sm:w-[900px] sm:h-[600px] shadow-xl relative flex flex-col modal-content-responsive ${isClosing ? "modal-closing" : ""}`}
+          style={{
+            height: "calc(90vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+            maxHeight: "calc(90dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+          }}
+        >
           {/* Close Button */}
           <button
             onClick={handleClose}
@@ -463,6 +477,8 @@ export default function SearchDataModal({
                   ))}
             </div>
           </div>
+          {/* Bottom safe area agar konten tidak tertutup nav bar */}
+          <div style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)", minHeight: "env(safe-area-inset-bottom, 0px)", flexShrink: 0 }} />
         </div>
       </div>
     </>

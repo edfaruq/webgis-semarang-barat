@@ -99,6 +99,29 @@ select option:disabled {
 .leaflet-control-zoom {
   top: calc(64px + var(--sat)) !important;
 }
+
+/* Modal safe area – iOS Safari TOP/BOTTOM nav bar states */
+.modal-wrapper-safe {
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(1rem + env(safe-area-inset-left, 0px));
+  padding-right: calc(1rem + env(safe-area-inset-right, 0px));
+}
+.modal-content-max-height {
+  max-height: calc(90vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  max-height: calc(90dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+}
+.modal-content-max-height-tall {
+  max-height: calc(95vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  max-height: calc(95dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+}
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
 @media (min-width: 768px) {
   .leaflet-control-zoom {
     top: 10px !important;

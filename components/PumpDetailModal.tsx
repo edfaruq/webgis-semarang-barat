@@ -46,9 +46,22 @@ export default function PumpDetailModal({
         onClick={handleClose}
       />
 
-      {/* Modal */}
-      <div className="fixed inset-0 z-[10001] flex items-center justify-center p-4">
-        <div className={`bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto seamless-scrollbar modal-content-scale-only ${isClosing ? "modal-closing" : ""}`}>
+      {/* Modal – safe area padding agar tidak tertutup iOS Safari nav bar (TOP/BOTTOM) */}
+      <div
+        className="fixed inset-0 z-[10001] flex items-center justify-center modal-wrapper-safe"
+        style={{
+          paddingTop: "calc(1rem + env(safe-area-inset-top, 0px))",
+          paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))",
+          paddingLeft: "calc(1rem + env(safe-area-inset-left, 0px))",
+          paddingRight: "calc(1rem + env(safe-area-inset-right, 0px))",
+        }}
+      >
+        <div
+          className={`bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-y-auto seamless-scrollbar modal-content-scale-only ${isClosing ? "modal-closing" : ""}`}
+          style={{
+            maxHeight: "calc(90dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+          }}
+        >
           {/* Header - z-10 agar tidak tertutup konten saat scroll */}
           <div className="sticky top-0 z-10 bg-white border-b border-slate-200 p-6 flex items-center justify-between shrink-0">
             <h2 className="text-2xl font-bold text-slate-800">
@@ -180,6 +193,8 @@ export default function PumpDetailModal({
               </div>
             </div>
           </div>
+          {/* Bottom safe area agar konten tidak tertutup nav bar */}
+          <div style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)", minHeight: "env(safe-area-inset-bottom, 0px)" }} />
         </div>
       </div>
     </>

@@ -150,8 +150,24 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
         className={`absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-backdrop ${isClosing ? "modal-closing" : ""}`}
         onClick={handleClose}
       />
-      <div className={`absolute top-1/2 left-1/2 w-full max-w-4xl p-4 h-[95vh] max-h-[95vh] flex flex-col modal-content-scale ${isClosing ? "modal-closing" : ""}`}>
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col flex-1 min-h-0">
+      {/* Wrapper – safe area padding agar tidak tertutup iOS Safari nav bar (TOP/BOTTOM) */}
+      <div
+        className={`absolute top-1/2 left-1/2 w-full max-w-4xl flex flex-col modal-content-scale ${isClosing ? "modal-closing" : ""}`}
+        style={{
+          paddingTop: "calc(1rem + env(safe-area-inset-top, 0px))",
+          paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))",
+          paddingLeft: "calc(1rem + env(safe-area-inset-left, 0px))",
+          paddingRight: "calc(1rem + env(safe-area-inset-right, 0px))",
+          height: "calc(95vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+          maxHeight: "calc(95dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+        }}
+      >
+        <div
+          className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col flex-1 min-h-0"
+          style={{
+            maxHeight: "calc(95dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+          }}
+        >
           {/* Header tetap di atas saat scroll - sama seperti modal Titik Pompa */}
           <div className="bg-red-600 p-6 text-white text-center relative shrink-0 z-10">
             <button
@@ -440,6 +456,8 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
           )}
           </div>
         </div>
+        {/* Bottom safe area agar konten tidak tertutup nav bar */}
+        <div style={{ minHeight: "env(safe-area-inset-bottom, 0px)", flexShrink: 0 }} />
       </div>
     </div>
   );
