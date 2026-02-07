@@ -2,25 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* iOS Safari safe area – essential for viewport-fit=cover */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
   margin: 0;
   padding: 0;
   background: #f8fafc;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
   color: var(--foreground);
   background: #f8fafc;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* App shell – full viewport height for iOS Safari (TOP/BOTTOM/COMPACT nav states) */
+.ios-safe-area-root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Map container – dynamic viewport height for iOS */
+.map-container-dvh {
+  height: 100%;
+  min-height: 0;
+}
+.map-container-dvh .leaflet-container {
+  height: 100%;
+  min-height: 100%;
 }
 
 /* Placeholder styling untuk input dan select */
@@ -40,12 +75,34 @@ select option:disabled {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Leaflet map container */
+/* Leaflet map container – iOS dynamic viewport */
 .leaflet-container {
   height: 100%;
   width: 100%;
   z-index: 1;
   transition: all 0.5s ease;
+}
+
+/* Bottom-right map controls – safe area so not covered by iOS Safari nav bar */
+.map-controls-bottom-right {
+  right: calc(16px + var(--sar)) !important;
+  bottom: calc(16px + var(--sab)) !important;
+}
+@media (min-width: 768px) {
+  .map-controls-bottom-right {
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* Zoom controls (Leaflet) – safe area top so not under status bar on iOS */
+.leaflet-control-zoom {
+  top: calc(64px + var(--sat)) !important;
+}
+@media (min-width: 768px) {
+  .leaflet-control-zoom {
+    top: 10px !important;
+  }
 }
 
 /* Custom marker styles */

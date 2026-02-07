@@ -142,7 +142,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="bg-slate-50 overflow-hidden text-slate-900 h-screen flex flex-col">
+    <div className="bg-slate-50 overflow-hidden text-slate-900 h-full min-h-[100dvh] flex flex-col">
       <Header
         selectedKelurahan={selectedKelurahan}
         onKelurahanChange={setSelectedKelurahan}

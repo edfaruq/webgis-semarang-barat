@@ -345,7 +345,7 @@ export default function Sidebar({
           top-0 left-0
           w-80 max-w-[85vw]
           bg-white border-r border-slate-200
-          h-full lg:h-[calc(100vh-64px)]
+          h-full min-h-[100dvh] lg:h-[calc(100vh-64px)]
           z-[9999] lg:z-20
           overflow-y-auto
           transform transition-transform duration-300 ease-in-out
@@ -367,7 +367,7 @@ export default function Sidebar({
           </button>
         </div>
 
-        <div className="p-6 space-y-8 flex-1">
+        <div className="p-6 pl-[calc(1.5rem+var(--sal))] lg:pl-6 space-y-8 flex-1 pb-[calc(1.5rem+var(--sab))] lg:pb-6">
           {/* Breadcrumbs & Title */}
           <div>
             <div className="flex items-center gap-1 text-[10px] text-slate-400 uppercase font-bold mb-2">

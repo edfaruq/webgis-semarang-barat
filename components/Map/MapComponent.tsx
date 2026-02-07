@@ -729,8 +729,8 @@ export default function MapComponent({
         </div>
       )}
       
-      {/* Map Controls - jarak bawah besar di mobile agar tidak tertutup bar browser iPhone */}
-      <div className="absolute right-4 z-[1000] flex flex-col gap-2 bottom-[max(5rem,env(safe-area-inset-bottom,0px))] md:bottom-4">
+      {/* Map Controls – safe area agar tidak tertutup iOS Safari nav bar (TOP/BOTTOM/COMPACT) */}
+      <div className="absolute z-[1000] flex flex-col gap-2 map-controls-bottom-right">
         {onBasemapChange && (
           <BasemapSwitcherControl
             currentBasemap={basemap}
