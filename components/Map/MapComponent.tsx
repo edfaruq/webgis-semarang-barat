@@ -604,7 +604,6 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            setRouteDestination(newDestination);
           }
         }}
       />
@@ -623,7 +622,6 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            setRouteDestination(newDestination);
           }
         }}
       />
@@ -639,7 +637,6 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            setRouteDestination(newDestination);
           }
         }}
       />
@@ -656,7 +653,6 @@ export default function MapComponent({
             const newDestination: [number, number] = [lat, lng];
             setSelectedDestination(newDestination);
             setRouteError(null);
-            setRouteDestination(newDestination);
           }
         }}
       />
@@ -670,7 +666,6 @@ export default function MapComponent({
           const newDestination: [number, number] = [report.lat, report.lng];
           setSelectedDestination(newDestination);
           setRouteError(null);
-          setRouteDestination(newDestination);
         }}
       />
 

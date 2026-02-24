@@ -25,6 +25,7 @@ export default function ReportsMap({ reports }: { reports: Report[] }) {
         id: r.id,
         lat: r.lat,
         lng: r.lng,
+        status: r.status,
         disasterType: r.disasterType,
         chronology: r.chronology,
         createdAt: r.createdAt,

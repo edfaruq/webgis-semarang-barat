@@ -18,6 +18,7 @@ type Point = {
   id: number;
   lat: number;
   lng: number;
+  status: string;
   disasterType: string;
   chronology: string;
   createdAt: Date;
@@ -56,25 +57,41 @@ export default function ReportsMapLeaflet({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MapFitBounds points={points} />
-      {points.map((p) => (
-        <Marker key={p.id} position={[p.lat, p.lng]}>
-          <Popup>
-            <div className="min-w-[200px]">
-              <p className="font-semibold text-slate-800 capitalize">{p.disasterType}</p>
-              <p className="text-xs text-slate-500 mt-1">
-                {new Date(p.createdAt).toLocaleDateString("id-ID", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </p>
-              <p className="text-sm text-slate-600 mt-2 line-clamp-3">{p.chronology}</p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      {points.map((p) => {
+        const statusLabel =
+          p.status === "approved" ? "Disetujui" : p.status === "pending" ? "Pending" : "Ditolak";
+        const statusClasses =
+          p.status === "approved"
+            ? "bg-green-100 text-green-800"
+            : p.status === "pending"
+            ? "bg-amber-100 text-amber-800"
+            : "bg-red-100 text-red-800";
+
+        return (
+          <Marker key={p.id} position={[p.lat, p.lng]}>
+            <Popup>
+              <div className="min-w-[220px] space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="font-semibold text-slate-800 capitalize">{p.disasterType}</p>
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide ${statusClasses}`}>
+                    {statusLabel}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500">
+                  {new Date(p.createdAt).toLocaleDateString("id-ID", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
+                <p className="text-sm text-slate-600 mt-1 line-clamp-4">{p.chronology}</p>
+              </div>
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 }

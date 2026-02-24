@@ -5,7 +5,6 @@ export const dynamic = "force-dynamic";
 
 export default async function ReportsPage() {
   const reports = await prisma.report.findMany({
-    where: { status: "approved" },
     orderBy: { createdAt: "desc" },
   });
 
